@@ -808,7 +808,7 @@ Rearranging and solving for <span class="math inline">\(\boldsymbol{x}_{n+1}\)</
 <li>Using similar logic from part (b), write a second order differential equation for the position of the second mass
 <span class="math display">\[ m x_2&#39;&#39; = \underline{\hspace{2in}} \]</span></li>
 <li>We now have a system of two second order differential equations. We can convert this to four first order differential equations by introducing two new variables: <span class="math inline">\(x_3 = x_1&#39;\)</span> and <span class="math inline">\(x_4 = x_2&#39;\)</span>. Write the full system of first order differential equations.</li>
-<li>Use your vector-based <code>euler()</code> function to numerically solve the system of equations in several different physical scenarios. There are four variables so you will need to think carefully about which plots are the most explanatory. Also, if may be easiest to take <span class="math inline">\(k_1 = 1\)</span> and then take <span class="math inline">\(k_2\)</span> as the stiffness of spring 2 relative to spring 1 (e.g. if <span class="math inline">\(k_2 = 1\)</span> then the springs are the same stiffness, if <span class="math inline">\(k_2 = 0.5\)</span> then spring 2 is half as still, etc).</li>
+<li>Use your vector-based <code>euler()</code> function to numerically solve the system of equations in several different physical scenarios. There are four variables so you will need to think carefully about which plots are the most explanatory. Also, if may be easiest to take <span class="math inline">\(k_1 = 1\)</span> and then take <span class="math inline">\(k_2\)</span> as the stiffness of spring 2 relative to spring 1 (e.g. if <span class="math inline">\(k_2 = 1\)</span> then the springs are the same stiffness, if <span class="math inline">\(k_2 = 0.5\)</span> then spring 2 is half as stiff, etc).</li>
 </ol>
 </div>
 <hr />
@@ -988,7 +988,7 @@ Note: Indexing by <span class="math inline">\(1/2\)</span> in a computer is nons
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-453" class="exercise"><strong>Exercise 5.26  </strong></span>The goal in building the midpoint method was to hopefully capture some of the upcoming curvature in the solution before we overshot it. Consider the differential equation <span class="math inline">\(x&#39; = -0.25x + \sin(t)\)</span> with initial condition <span class="math inline">\(x(0) = 1\)</span> on the domain <span class="math inline">\(t \in [0,4]\)</span>. First get a numerical solution with Euler’s method using <span class="math inline">\(\Delta t = 0.1\)</span>. Then get a numerical solution with the midpoint method using the same value for <span class="math inline">\(\Delta t\)</span>. Plot the two solutions on top of each other along with the exact solution
+<p><span id="exr:unnamed-chunk-453" class="exercise"><strong>Exercise 5.26  </strong></span>The goal in building the midpoint method was to hopefully capture some of the upcoming curvature in the solution before we overshot it. Consider the differential equation <span class="math inline">\(x&#39; = -\frac{1}{3}x + \sin(t)\)</span> with initial condition <span class="math inline">\(x(0) = 1\)</span> on the domain <span class="math inline">\(t \in [0,4]\)</span>. First get a numerical solution with Euler’s method using <span class="math inline">\(\Delta t = 0.1\)</span>. Then get a numerical solution with the midpoint method using the same value for <span class="math inline">\(\Delta t\)</span>. Plot the two solutions on top of each other along with the exact solution
 <span class="math display">\[ x(t) = \frac{1}{10} \left( 19e^{-t/3} + 3\sin(t) - 9\cos(t)  \right). \]</span>
 What do you observe? What do you observe if you make <span class="math inline">\(\Delta t\)</span> a bit larger (like 0.2 or 0.3)? What do you observe if you make <span class="math inline">\(\Delta t\)</span> very very small (like 0.001 or 0.0001)?</p>
 There are several key takeaways from this problem. Discuss.
@@ -1166,7 +1166,7 @@ Then calculate <span class="math inline">\(m_{n+1}\)</span> using this new slope
 <li>Draw a picture showing where this slope was calculated.</li>
 <li>Modify the code from above to include this fourth slope.<br />
 </li>
-<li>Experiment with several ideas about how to best combine the four slopes: <span class="math inline">\(m_n, \, m_{n+1/2}, \, m_{n+1/2}^*,\)</span> and <span class="math inline">\(m_{n+1}\)</span>.
+<li>Experiment with several ideas about how to best combine the four slopes: <span class="math inline">\(m_n\)</span>, <span class="math inline">\(m_{n+1/2}\)</span>, <span class="math inline">\(m_{n+1/2}^*\)</span>, and <span class="math inline">\(m_{n+1}\)</span>.
 <ul>
 <li>Should we just take an average of the four slopes?</li>
 <li>Should we give one or more of the slopes preferential treatment and do some sort of weighted average?</li>
@@ -1660,7 +1660,7 @@ method iteration to solve that equation – at each time step. More simply, we c
 <div class="exercise">
 <p><span id="exr:unnamed-chunk-487" class="exercise"><strong>Exercise 5.52  (Newton’s Law of Cooling)  </strong></span>From Calculus you may recall Newton’s Law of Cooling:
 <span class="math display">\[ \frac{dT}{dt} = -k(T - T_{ambient}) \]</span>
-where <span class="math inline">\(T\)</span> is the temperature of some object (like a cup of coffee), <span class="math inline">\(T_{ambient}\)</span> is the temperature of the ambient environment, and <span class="math inline">\(k\)</span> is the proportionality constant the governs the rate of cooling. This is a classic differential equation with a well known solution.<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> In the present situation we don’t want the analytic solution, but instead we will work with a numerical solution since we are thinking ahead to where the differential equation may be very hard to solve in future problems. We also don’t want to just look at the data and guess an algebraic form for the function that best fits the data. That would be a trap! (why?) Instead, we rely on our knowledge of the physics of the situation to give us the differential equation.</p>
+where <span class="math inline">\(T\)</span> is the temperature of some object (like a cup of coffee), <span class="math inline">\(T_{ambient}\)</span> is the temperature of the ambient environment, and <span class="math inline">\(k\)</span> is the proportionality constant the governs the rate of cooling. This is a classic differential equation with a well known solution.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> In the present situation we don’t want the analytic solution, but instead we will work with a numerical solution since we are thinking ahead to where the differential equation may be very hard to solve in future problems. We also don’t want to just look at the data and guess an algebraic form for the function that best fits the data. That would be a trap! (why?) Instead, we rely on our knowledge of the physics of the situation to give us the differential equation.</p>
 <p>The following data table gives the temperature (degrees <span class="math inline">\(F\)</span>) at several times while a cup of tea cools on a table <span class="citation">[<a href="#ref-tea" role="doc-biblioref">7</a>]</span>. The ambient temperature of the room is <span class="math inline">\(65^\circ F\)</span>.</p>
 <table>
 <thead>
@@ -2087,17 +2087,9 @@ that you’re looking for <em>indifference</em> at <span class="math inline">\(t
 to find an approximation for <span class="math inline">\(\gamma\)</span>. Assume throughout this
 problem that <span class="math inline">\(\alpha=0.2\)</span>, <span class="math inline">\(\beta=0.8\)</span>, <span class="math inline">\(x(0)=2\)</span>, and <span class="math inline">\(y(0)=0\)</span>.
 Write a description for how your code works in your homework
-document and also submit your file (along with any support files)
-demonstrating how it works.<br />
+document.<br />
 Hint: One way to do this problem is very similar to a bisection
-method for root finding.</p>
-<ul>
-<li><p>Shoot two solutions with two different parameters.</p></li>
-<li><p>Compare their results at the desired time against the result of
-shooting with the average value of the parameter.</p></li>
-<li><p>Use the logic of the bisection method to make a new estimate of
-the parameter.</p></li>
-</ul></li>
+method for root finding.</p></li>
 </ol>
 </div>
 <hr />
@@ -2280,7 +2272,7 @@ Take the time to read Appendix <a href="ch-writing.html#ch:writing">B</a> before
 </li>
 <li><span class="math inline">\(E=\)</span> proportion of the population which is Extinct.</li>
 </ul>
-<p>In the Methods section of the paper (in the paragraph that begins with “<em>In particular, …</em>” the authors propose initial conditions and values for all of the parameters in the model. Using these values create a numerical solution to the system of differential equations and verify that the basic reproduction number for the model is <span class="math inline">\(R_0 = 2.38\)</span> as the authors say. In the subsequent paragraphs the authors propose ways to modify the parameters to account for social distancing, stay at home orders, and other such measures. Reproduce the authors’ results from these paragraphs and fully explain all of your work. Provide sufficient plots to show the dynamics of the situation.</p>
+<p>In the Methods section of the paper (in the paragraph that begins with “<em>In particular, …</em>”) the authors propose initial conditions and values for all of the parameters in the model. Using these values create a numerical solution to the system of differential equations and verify that the basic reproduction number for the model is <span class="math inline">\(R_0 = 2.38\)</span> as the authors say. In the subsequent paragraphs the authors propose ways to modify the parameters to account for social distancing, stay at home orders, and other such measures. Reproduce the authors’ results from these paragraphs and fully explain all of your work. Provide sufficient plots to show the dynamics of the situation.</p>
 </div>
 <div id="pain-management" class="section level3" number="5.10.2">
 <h3><span class="header-section-number">5.10.2</span> Pain Management</h3>
@@ -2330,7 +2322,7 @@ first week out of surgery and how the drug concentrations evolve over
 this time.</p>
 <p>Other questions:</p>
 <ul>
-<li><p>What does this medication schedule do the patient’s pain level?</p></li>
+<li><p>What does this medication schedule do to the patient’s pain level?</p></li>
 <li><p>What happens to the patient’s pain level if he/she forgets the
 non-opioid drug?</p></li>
 <li><p>What happens to the patient’s pain level if he/she has a bad
@@ -2376,7 +2368,7 @@ the differential equations describing its acceleration are very simple:
 where <span class="math inline">\(v_x\)</span> and <span class="math inline">\(v_z\)</span> are the velocities in the <span class="math inline">\(x\)</span> and <span class="math inline">\(z\)</span> directions
 respectively and <span class="math inline">\(g\)</span> is the acceleration due to gravity (<span class="math inline">\(g = 9.8\)</span>
 m/s<span class="math inline">\(^2\)</span>). We can use these equations to <em>easily</em> show that the resulting
-trajectory is parabolic. Once we know this we can easily<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> calculate
+trajectory is parabolic. Once we know this we can easily<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> calculate
 the initial speed <span class="math inline">\(v_0\)</span> and angle <span class="math inline">\(\theta_0\)</span> above the horizontal
 necessary for the shell to reach the target. We will undoubtedly find
 that the maximum range will always result from an angle of
@@ -2468,12 +2460,12 @@ start the field manual.</p>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="12">
-<li id="fn12"><p>If you don’t know the solution to Newton’s Law of Cooling then take a moment and do the separation of variables to solve for <span class="math inline">\(T(t)\)</span>.<a href="ch-odes.html#fnref12" class="footnote-back">↩︎</a></p></li>
-<li id="fn13"><p>I’m showing you the algebra here, but it really isn’t necessary to
+<ol start="11">
+<li id="fn11"><p>If you don’t know the solution to Newton’s Law of Cooling then take a moment and do the separation of variables to solve for <span class="math inline">\(T(t)\)</span>.<a href="ch-odes.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>I’m showing you the algebra here, but it really isn’t necessary to
 show this level of routine algebra in your papers. Only show the
 algebra and other calculations that are necessary for the reader to
-understand the work that you’re doing.<a href="ch-odes.html#fnref13" class="footnote-back">↩︎</a></p></li>
+understand the work that you’re doing.<a href="ch-odes.html#fnref12" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

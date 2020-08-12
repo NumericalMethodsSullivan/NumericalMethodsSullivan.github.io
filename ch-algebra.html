@@ -1052,18 +1052,13 @@ in the previous step with <span class="math inline">\(x_{n+1}\)</span> and <span
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-104" class="exercise"><strong>Exercise 2.38  </strong></span>Create a new Python function called and write comments giving pseudo-code for
-Newton’s method. This version of Newton’s method will accept the
-function and the first derivative so you don’t need to set aside any
-code for calculating the derivative.
+<span id="exr:unnamed-chunk-104" class="exercise"><strong>Exercise 2.38  </strong></span>Create a new Python function called <code>newton()</code> and write comments giving pseudo-code for Newton’s method. our function needs to accept a Python function for <span class="math inline">\(f(x)\)</span>, a Python function for <span class="math inline">\(f&#39;(x)\)</span>, an initial guess,
+and an optional error tolerance. You don’t need to set aside any code for calculating the derivative.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-105" class="exercise"><strong>Exercise 2.39  </strong></span>Write a Python function for Newton’s method. Your function needs to accept a Python function for <span class="math inline">\(f(x)\)</span>, a Python function for <span class="math inline">\(f&#39;(x)\)</span>, an initial guess,
-and an optional error tolerance. The only output should be the solution
-to the equation that you are solving. Write a test script to verify that
-your Newton’s method code indeed works.
+<span id="exr:unnamed-chunk-105" class="exercise"><strong>Exercise 2.39  </strong></span>Using your pseudocode from the previous problem, write the full <code>newton()</code> function. The only output should be the solution to the equation that you are solving. Write a test script to verify that your Newton’s method code indeed works.
 </div>
 <hr />
 </div>
@@ -1616,11 +1611,11 @@ you can come up with the prettiest basin of attraction picture.</p></li>
 <h3><span class="header-section-number">2.7.2</span> Artillery</h3>
 <p>An artillery officer wishes to fire his cannon on an enemy brigade. He wants to know the angle to aim the cannon in order to strike the target. If we have control over the initial velocity of the cannon ball, <span class="math inline">\(v_0\)</span>, and the angle of the cannon above horizontal, <span class="math inline">\(\theta\)</span>, then the initial vertical component of the velocity of the ball is <span class="math inline">\(v_y(0) = v_0 \sin(\theta)\)</span> and the initial horizontal component of the velocity of the ball is <span class="math inline">\(v_x(0) = v_0 \cos(\theta)\)</span>. In this problem we will assume the following:</p>
 <ul>
-<li>We will neglect air resistance<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> so for all time differential equations <span class="math inline">\(v_y&#39;(t) = -g\)</span> and <span class="math inline">\(v_x&#39;(t) = 0\)</span> must both hold.</li>
+<li>We will neglect air resistance<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> so for all time differential equations <span class="math inline">\(v_y&#39;(t) = -g\)</span> and <span class="math inline">\(v_x&#39;(t) = 0\)</span> must both hold.</li>
 <li>We will assume that the position of the cannon is the origin of a coordinate system so <span class="math inline">\(s_x(0) = 0\)</span> and <span class="math inline">\(s_y(0) = 0\)</span>.</li>
 <li>We will assume that the target is at position <span class="math inline">\((x_*,y_*)\)</span> which you can measure accurately relative to the cannon’s position. The landscape is relatively flat but <span class="math inline">\(y_*\)</span> could be a bit higher or a bit lower than the cannon’s position.</li>
 </ul>
-<p>Use the given information to write a nonlinear equation<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> that relates <span class="math inline">\(x_*\)</span>, <span class="math inline">\(y_*\)</span>, <span class="math inline">\(v_0\)</span>, <span class="math inline">\(g\)</span>, and <span class="math inline">\(\theta\)</span>. We know that <span class="math inline">\(g = 9.8m/s^2\)</span> is constant and we will assume that the initial velocity can be adjusted between <span class="math inline">\(v_0 = 100m/s\)</span> and <span class="math inline">\(v_0 = 150m/s\)</span> in increments of <span class="math inline">\(10m/s\)</span>. If we then are given a fixed value of <span class="math inline">\(x_*\)</span> and <span class="math inline">\(y_*\)</span> the only variable left to find in your equation is <span class="math inline">\(\theta\)</span>. A numerical root-finding technique can then be applied to your equation to approximate the angle. Create several look up tables for the artillery officer so they can be given <span class="math inline">\(v_0\)</span>, <span class="math inline">\(x_*\)</span>, and <span class="math inline">\(y_*\)</span> and then use your tables to look up the angle at which to set the cannon. Be sure to indicate when a target is out of range.</p>
+<p>Use the given information to write a nonlinear equation<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> that relates <span class="math inline">\(x_*\)</span>, <span class="math inline">\(y_*\)</span>, <span class="math inline">\(v_0\)</span>, <span class="math inline">\(g\)</span>, and <span class="math inline">\(\theta\)</span>. We know that <span class="math inline">\(g = 9.8m/s^2\)</span> is constant and we will assume that the initial velocity can be adjusted between <span class="math inline">\(v_0 = 100m/s\)</span> and <span class="math inline">\(v_0 = 150m/s\)</span> in increments of <span class="math inline">\(10m/s\)</span>. If we then are given a fixed value of <span class="math inline">\(x_*\)</span> and <span class="math inline">\(y_*\)</span> the only variable left to find in your equation is <span class="math inline">\(\theta\)</span>. A numerical root-finding technique can then be applied to your equation to approximate the angle. Create several look up tables for the artillery officer so they can be given <span class="math inline">\(v_0\)</span>, <span class="math inline">\(x_*\)</span>, and <span class="math inline">\(y_*\)</span> and then use your tables to look up the angle at which to set the cannon. Be sure to indicate when a target is out of range.</p>
 <p>Write a brief technical report detailing your methods. Support your work with appropriate mathematics and plots. Include your tables at the end of your report.</p>
 
 </div>
@@ -1634,9 +1629,9 @@ you can come up with the prettiest basin of attraction picture.</p></li>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="4">
-<li id="fn4"><p>Strictly speaking, neglecting air resistance is a poor assumption since a cannon ball moves fast enough that friction with the air plays a non-negligible role. However, the assumption of no air resistance greatly simplifies the math and makes this version of the problem more tractable. The second version of the artillery problem in Chapter <a href="ch-odes.html#ch:odes">5</a> will look at the effects of air resistance on the cannon ball.<a href="ch-algebra.html#fnref4" class="footnote-back">↩︎</a></p></li>
-<li id="fn5"><p>Hint: Symbolically work out the amount of time that it takes until the vertical position of the cannon ball reaches <span class="math inline">\(y_*\)</span>. Then substitute that time into the horizontal position, and set the horizontal position equation to <span class="math inline">\(x_*\)</span>.<a href="ch-algebra.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<ol start="3">
+<li id="fn3"><p>Strictly speaking, neglecting air resistance is a poor assumption since a cannon ball moves fast enough that friction with the air plays a non-negligible role. However, the assumption of no air resistance greatly simplifies the math and makes this version of the problem more tractable. The second version of the artillery problem in Chapter <a href="ch-odes.html#ch:odes">5</a> will look at the effects of air resistance on the cannon ball.<a href="ch-algebra.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Hint: Symbolically work out the amount of time that it takes until the vertical position of the cannon ball reaches <span class="math inline">\(y_*\)</span>. Then substitute that time into the horizontal position, and set the horizontal position equation to <span class="math inline">\(x_*\)</span>.<a href="ch-algebra.html#fnref4" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

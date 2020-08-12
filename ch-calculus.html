@@ -636,7 +636,7 @@ The error that you make by dropping the remainder is proportional to the power o
 if and only if there is a positive constant <span class="math inline">\(M\)</span> such that
 <span class="math display">\[ |Error| \le M \cdot h.\]</span>
 This is equivalent to saying that a differentiation method is “first order”. In other words, if the error in a numerical differentiation scheme is proportional to the length of the subinterval in the partition of the interval (see Figure <a href="ch-calculus.html#fig:differentiation-partition">3.1</a>) then we call that scheme “first order” and say that the error is <span class="math inline">\(\mathcal{O}(h)\)</span>.</p>
-More generally, we say that the error in a differentiation scheme is <span class="math inline">\(\mathcal{O}(h^k)\)</span> (read: “big O of <span class="math inline">\(h^k\)</span>”) if an only if there is a positive constant <span class="math inline">\(M\)</span> such that
+More generally, we say that the error in a differentiation scheme is <span class="math inline">\(\mathcal{O}(h^k)\)</span> (read: “big O of <span class="math inline">\(h^k\)</span>”) if and only if there is a positive constant <span class="math inline">\(M\)</span> such that
 <span class="math display">\[ |Error| \leq M \cdot h^k. \]</span>
 This is equivalent to saying that a differentiation scheme is “<span class="math inline">\(k^{th}\)</span> order”. This means that the error in using the scheme is proportional to <span class="math inline">\(h^k\)</span>.
 </div>
@@ -1162,8 +1162,7 @@ to need them for future computations.
 
 <div class="exercise">
 <p><span id="exr:unnamed-chunk-166" class="exercise"><strong>Exercise 3.26  </strong></span>The goal of
-this problem is to use the Taylor series for <span class="math inline">\(f(x+h)\)</span> and <span class="math inline">\(f(x-h)\)</span> to
-arrive at an approximation of the .</p>
+this problem is to use the Taylor series for <span class="math inline">\(f(x+h)\)</span> and <span class="math inline">\(f(x-h)\)</span> to arrive at an approximation scheme for the second derivative <span class="math inline">\(f&#39;&#39;(x)\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Add the Taylor series for <span class="math inline">\(f(x+h)\)</span> and <span class="math inline">\(f(x-h)\)</span> and combine all like
 terms. You should notice that several terms cancel.
@@ -2659,14 +2658,7 @@ provide sufficient mathematical evidence of your error estimate.</li>
 <div class="exercise">
 <span id="exr:unnamed-chunk-267" class="exercise"><strong>Exercise 3.103  </strong></span>Consider the integrals
 <span class="math display">\[\int_{-2}^2 e^{-x^2/2} dx \quad \text{and} \quad \int_0^1 \cos(x^2) dx.\]</span>
-Neither of these integrals have closed-form solutions so a numerical
-method is necessary. Create a loglog plot that shows the errors for the
-integrals with different values of <span class="math inline">\(h\)</span> (log of <span class="math inline">\(h\)</span> on the <span class="math inline">\(x\)</span>-axis and
-log of the absolute error on the <span class="math inline">\(y\)</span>-axis). Write a complete
-interpretation of the loglog plot. To get the <em>exact</em> answer for these
-plots use the =0 MATLAB command. Python’s <code>scipy.integrate.quad</code>
-command. (What we’re really doing here is comparing our algorithms to ’s
-built in algorithm).
+Neither of these integrals have closed-form solutions so a numerical method is necessary. Create a loglog plot that shows the errors for the integrals with different values of <span class="math inline">\(h\)</span> (log of <span class="math inline">\(h\)</span> on the <span class="math inline">\(x\)</span>-axis and log of the absolute error on the <span class="math inline">\(y\)</span>-axis). Write a complete interpretation of the loglog plot. To get the <em>exact</em> answer for these plots use Python’s <code>scipy.integrate.quad</code> command. (What we’re really doing here is comparing our algorithms to ’s built in algorithm).
 </div>
 <hr />
 

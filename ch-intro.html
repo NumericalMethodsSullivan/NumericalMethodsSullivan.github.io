@@ -505,7 +505,7 @@ allowable digits are 0 and 1 (just like in base-10 the allowable digits
 were 0 through 9). In binary (base-2), the number “<span class="math inline">\(101,101\)</span>” can be
 interpreted as
 <span class="math display">\[101,101_2 = 1 \times 2^5 + 0 \times 2^4 + 1 \times 2^3 + 1 \times 2^2 + 0 \times 2^1 + 1
-\times 2^0\]</span> (where the subscript “2” indicates the based to the
+\times 2^0\]</span> (where the subscript “2” indicates the base to the
 reader). If we put this back into base 10, so that we can read it more
 comfortably, we get <span class="math display">\[101,101_2 = 32 + 0 + 8 + 4 + 0 + 1 = 45_{10}.\]</span>
 The reader should take note that the commas in the numbers are only to
@@ -999,9 +999,9 @@ Don’t let the notation scare you. In a Taylor Series you are just saying: <em>
 Write the first several terms of the Taylor Series for <span class="math inline">\(f(x) = \sin(x)\)</span> centered at <span class="math inline">\(x_0 = \frac{\pi}{2}\)</span>. Then write Python code to build the plot below showing successive approximations for <span class="math inline">\(f(x) = \sin(x)\)</span> centered at <span class="math inline">\(\pi/2\)</span>.
 </div>
 <div class="figure" style="text-align: center"><span id="fig:taylor-sine-pi2"></span>
-<img src="images/Ch01Sec04_Taylor_Sine_pi2.png" alt="Taylor Series approximations of $f(x) = sin(x)$." width="75%" />
+<img src="images/Ch01Sec04_Taylor_Sine_pi2.png" alt="Taylor Series approximations of the sine function." width="75%" />
 <p class="caption">
-Figure 1.2: Taylor Series approximations of <span class="math inline">\(f(x) = sin(x)\)</span>.
+Figure 1.2: Taylor Series approximations of the sine function.
 </p>
 </div>
 <hr />
@@ -1041,10 +1041,10 @@ Figure 1.3: Several Taylor Series approximations of the function <span class="ma
 <hr />
 <p>In the previous example we saw that we cannot always get approximations from Taylor Series that are good everywhere. For every Taylor Series there is a <strong>domain of convergence</strong> where the Taylor Series actually makes sense and gives good approximations. While it is beyond the scope of this section to give all of the details for finding the domain of convergence for a Taylor Series, a good heuristic is to observe that a Taylor Series will only give reasonable approximations of a function from the center of the series to the nearest asymptote. The domain of convergence is typically symmetric about the center as well. For example:</p>
 <ul>
-<li>If we were to build a Taylor Series approximation for the function <span class="math inline">\(f(x) = \ln(x)\)</span> centered at the point <span class="math inline">\(x_0 = 1\)</span> then the radius of convergence should be <span class="math inline">\(x \in (0,2)\)</span> since there is a vertical asymptote for the natural logarithm function at <span class="math inline">\(x=0\)</span>.</li>
-<li>If we were to build a Taylor Series approximation for the function <span class="math inline">\(f(x) = \frac{5}{2x-3}\)</span> centered at the point <span class="math inline">\(x_0 = 4\)</span> then the radius of convergence should be <span class="math inline">\(x \in (1.5, 6.5)\)</span> since there is a vertical asymptote at <span class="math inline">\(x=1.5\)</span> and the distance from <span class="math inline">\(x_0 = 4\)</span> to <span class="math inline">\(x=1.5\)</span> is 2.5 units.<br />
+<li>If we were to build a Taylor Series approximation for the function <span class="math inline">\(f(x) = \ln(x)\)</span> centered at the point <span class="math inline">\(x_0 = 1\)</span> then the domain of convergence should be <span class="math inline">\(x \in (0,2)\)</span> since there is a vertical asymptote for the natural logarithm function at <span class="math inline">\(x=0\)</span>.</li>
+<li>If we were to build a Taylor Series approximation for the function <span class="math inline">\(f(x) = \frac{5}{2x-3}\)</span> centered at the point <span class="math inline">\(x_0 = 4\)</span> then the domain of convergence should be <span class="math inline">\(x \in (1.5, 6.5)\)</span> since there is a vertical asymptote at <span class="math inline">\(x=1.5\)</span> and the distance from <span class="math inline">\(x_0 = 4\)</span> to <span class="math inline">\(x=1.5\)</span> is 2.5 units.<br />
 </li>
-<li>If we were to build a Taylor Series approximation for the function <span class="math inline">\(f(x) = \frac{1}{1+x^2}\)</span> centered at the point <span class="math inline">\(x_0 = 0\)</span> then the radius of convergence should be <span class="math inline">\(x \in (-1,1)\)</span>. This may seem quite odd (and perhaps quite surprising!) but let’s think about where the nearest asymptote might be. To find the asymptote we need to solve <span class="math inline">\(1+x^2 = 0\)</span> but this gives us the values <span class="math inline">\(x = \pm i\)</span>. In the complex plane, the numbers <span class="math inline">\(i\)</span> and <span class="math inline">\(-i\)</span> are 1 unit away from <span class="math inline">\(x_0 = 0\)</span>, so the “asymptote” isn’t visible in a real-valued plot but it is still only one unit away. Hence the domain of convergence is <span class="math inline">\(x \in (-1,1)\)</span>. You should pause now and build some plots to show yourself that this indeed appears to be true.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></li>
+<li>If we were to build a Taylor Series approximation for the function <span class="math inline">\(f(x) = \frac{1}{1+x^2}\)</span> centered at the point <span class="math inline">\(x_0 = 0\)</span> then the domain of convergence should be <span class="math inline">\(x \in (-1,1)\)</span>. This may seem quite odd (and perhaps quite surprising!) but let’s think about where the nearest asymptote might be. To find the asymptote we need to solve <span class="math inline">\(1+x^2 = 0\)</span> but this gives us the values <span class="math inline">\(x = \pm i\)</span>. In the complex plane, the numbers <span class="math inline">\(i\)</span> and <span class="math inline">\(-i\)</span> are 1 unit away from <span class="math inline">\(x_0 = 0\)</span>, so the “asymptote” isn’t visible in a real-valued plot but it is still only one unit away. Hence the domain of convergence is <span class="math inline">\(x \in (-1,1)\)</span>. You should pause now and build some plots to show yourself that this indeed appears to be true.</li>
 </ul>
 <p>A Taylor Series will give good approximations to the function within the domain of convergence, but will give garbage outside of it. For more details about the domain of convergence of a Taylor Series you can refer to the <a href="https://activecalculus.org/single/sec-8-5-taylor.html">Taylor Series section of the online Active Calculus Textbook</a> <span class="citation">[<a href="#ref-active-calculus" role="doc-biblioref">2</a>]</span>.</p>
 </div>
@@ -1177,7 +1177,7 @@ meaning that we expect the error to be proportional to <span class="math inline"
 <li>A cubic approximation of <span class="math inline">\(\sin(x)\)</span> near <span class="math inline">\(x_0 = 0\)</span> is <span class="math inline">\(\sin(x) = ?? - ?? + \mathcal{O}(??)\)</span>.
 <ol style="list-style-type: lower-roman">
 <li>Fill in the question marks in the cubic approximation formula.</li>
-<li>Use the linear approximation formula to approximate <span class="math inline">\(\sin(0.2)\)</span>.</li>
+<li>Use the cubic approximation formula to approximate <span class="math inline">\(\sin(0.2)\)</span>.</li>
 <li>What is the approximation error for your approximation?</li>
 </ol></li>
 <li>What is the next approximation formula for <span class="math inline">\(\sin(x)\)</span> near <span class="math inline">\(x_0 = 0\)</span>? Use it to approximate <span class="math inline">\(\sin(0.2)\)</span>, and give the expected approximation error.</li>
@@ -1525,7 +1525,7 @@ the irrational number <span class="math inline">\(\pi\)</span>.</p>
 </ol></li>
 <li><p>Recall from Calculus that
 <span class="math display">\[ \int \frac{1}{1+x^2} dx = \arctan(x). \]</span>
-Hence, if we integrate each term of the Taylor Series that results from part (b) we should have a Taylor Series for <span class="math inline">\(\arctan(x)\)</span>.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p></li>
+Hence, if we integrate each term of the Taylor Series that results from part (b) we should have a Taylor Series for <span class="math inline">\(\arctan(x)\)</span>.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p></li>
 <li><p>Now recall the following from Calculus:</p></li>
 </ol>
 <ul>
@@ -1574,7 +1574,7 @@ In these equations, <span class="math inline">\(m\)</span> is the mass of the ob
 <li>What do we recover if we consider an object with zero velocity?</li>
 <li>Why might it be completely reasonable to only use the quadratic approximation
 <span class="math display">\[ E_{rel} = mc^2 + \frac{1}{2} mv^2 \]</span>
-for the relativistic energy equation?<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></li>
+for the relativistic energy equation?<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></li>
 <li>(some physics knowledge required) What do you notice about the second term in the Taylor Series approximation of the relativistic energy function?</li>
 <li>Show all of the work to derive the Taylor Series centered at <span class="math inline">\(v = 0\)</span> given above.</li>
 </ol>
@@ -1599,9 +1599,8 @@ for the relativistic energy equation?<a href="#fn3" class="footnote-ref" id="fnr
 <div class="footnotes">
 <hr />
 <ol start="1">
-<li id="fn1"><p>The cover photo of the book shows the first several terms of the Taylor Series for this function. The convergence in the interval <span class="math inline">\(x \in (-1,1)\)</span> is pretty clear from the picture.<a href="ch-intro.html#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>There are many reasons why integrating an infinite series term by term should give you a moment of pause. For the sake of this problem we are doing this operation a little blindly, but in reality we should have verified that the infinite series actually converges uniformly. <a href="ch-intro.html#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>This is something that people in physics and engineering do all the time – there is some complicated nonlinear relationship that they wish to use, but the first few terms of the Taylor Series captures almost all of the behavior since the higher-order terms are very very small.<a href="ch-intro.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>There are many reasons why integrating an infinite series term by term should give you a moment of pause. For the sake of this problem we are doing this operation a little blindly, but in reality we should have verified that the infinite series actually converges uniformly. <a href="ch-intro.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>This is something that people in physics and engineering do all the time – there is some complicated nonlinear relationship that they wish to use, but the first few terms of the Taylor Series captures almost all of the behavior since the higher-order terms are very very small.<a href="ch-intro.html#fnref2" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
