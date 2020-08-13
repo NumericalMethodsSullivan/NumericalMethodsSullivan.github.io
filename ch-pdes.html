@@ -1589,14 +1589,14 @@ Notice that there are really only four unknowns since the boundary conditions di
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-615" class="exercise"><strong>Exercise 6.67  </strong></span>Solve the 1D Laplace equation with Dirichlet boundary conditions is rather uninteresting since the answer will alway be a linear function connecting the two boundary conditions. Prove this.
+<p><span id="exr:unnamed-chunk-615" class="exercise"><strong>Exercise 6.67  </strong></span>Solve the 1D Laplace equation with Dirichlet boundary conditions is rather uninteresting since the answer will alway be a linear function connecting the two boundary conditions. Prove this.</p>
 </div>
 <hr />
 <p>The Poisson equation, <span class="math inline">\(u_{xx} = f(x)\)</span>, is more interesting than the Laplace equation in 1D. The function <span class="math inline">\(f(x)\)</span> is called a forcing function. You can think of it this way: if <span class="math inline">\(u\)</span> is the amount of force on a linear bridge, then <span class="math inline">\(f\)</span> might be a function that gives the distribution of the forces on the bridge due to the cars sitting on the bridge. In terms of heat we can think of this as an external source of heat energy warming up the one-dimensional rod somewhere in the middle (like a flame being held to one place on the rod).</p>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-616" class="exercise"><strong>Exercise 6.68  </strong></span>How would we analytically solve the Poisson equation <span class="math inline">\(u_{xx} = f(x)\)</span> in one spatial dimension? As a sample problem consider <span class="math inline">\(x\in [0,1]\)</span>, the forcing function <span class="math inline">\(f(x) = 5\sin(2 \pi x)\)</span> and boundary conditions <span class="math inline">\(u(0) = 2\)</span> and <span class="math inline">\(u(1) = 0.5\)</span>. Of course you need to check your answer by taking two derivatives and making sure that the second derivative exactly matches <span class="math inline">\(f(x)\)</span>. Also be sure that your solution matches the boundary conditions exactly.
+<p><span id="exr:unnamed-chunk-616" class="exercise"><strong>Exercise 6.68  </strong></span>How would we analytically solve the Poisson equation <span class="math inline">\(u_{xx} = f(x)\)</span> in one spatial dimension? As a sample problem consider <span class="math inline">\(x\in [0,1]\)</span>, the forcing function <span class="math inline">\(f(x) = 5\sin(2 \pi x)\)</span> and boundary conditions <span class="math inline">\(u(0) = 2\)</span> and <span class="math inline">\(u(1) = 0.5\)</span>. Of course you need to check your answer by taking two derivatives and making sure that the second derivative exactly matches <span class="math inline">\(f(x)\)</span>. Also be sure that your solution matches the boundary conditions exactly.</p>
 </div>
 <hr />
 
@@ -1642,7 +1642,7 @@ There are 5 equations this time.</p>
 
 <div class="exercise">
 <p><span id="exr:unnamed-chunk-619" class="exercise"><strong>Exercise 6.71  </strong></span>We conclude this section by increasing from one dimension to two. Solve the Poisson equation <span class="math inline">\(u_{xx} + u_{yy} = f(x,y)\)</span> on the domain <span class="math inline">\((x,y) \in (0,1)\times (0,1)\)</span> with homogenous Dirichlet boundary conditions and focing function <span class="math inline">\(f(x,y) = 20\text{exp}\left( -\frac{(x-0.5)^2 + (y-0.5)^2}{0.05} \right)\)</span> numerically. Start with a <span class="math inline">\(6 \times 6\)</span> grid of points and explicitly write down all of the equations. There should only be 16 total equations since in a <span class="math inline">\(6 \times 6\)</span> grid there are 20 points on the boundary and 16 points in the interior of the domain. Then generalize your code to solve the Poisson equation with a much smaller value of <span class="math inline">\(\Delta x = \Delta y\)</span>.</p>
-Hint: You will want to number the nodes in your 2D domain and then carefully construct the coefficient matrix based on your numbering scheme. You should observe a nice pattern in your coefficient matrix that will allow you to more easily generalize your code.
+<p>Hint: You will want to number the nodes in your 2D domain and then carefully construct the coefficient matrix based on your numbering scheme. You should observe a nice pattern in your coefficient matrix that will allow you to more easily generalize your code.</p>
 </div>
 <hr />
 </div>
@@ -1652,51 +1652,51 @@ Hint: You will want to number the nodes in your 2D domain and then carefully con
 <h3><span class="header-section-number">6.8.1</span> Algorithm Summaries</h3>
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-620" class="exercise"><strong>Exercise 6.72  </strong></span>Explain in clear language what it means to check an analytic solution to
-a differential equation.
+<p><span id="exr:unnamed-chunk-620" class="exercise"><strong>Exercise 6.72  </strong></span>Explain in clear language what it means to check an analytic solution to
+a differential equation.</p>
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-621" class="exercise"><strong>Exercise 6.73  </strong></span>Explain in clear language what Dirichlet boundary conditions are.
+<p><span id="exr:unnamed-chunk-621" class="exercise"><strong>Exercise 6.73  </strong></span>Explain in clear language what Dirichlet boundary conditions are.</p>
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-622" class="exercise"><strong>Exercise 6.74  </strong></span>Explain in clear language what Neumann boundary conditions are.
+<p><span id="exr:unnamed-chunk-622" class="exercise"><strong>Exercise 6.74  </strong></span>Explain in clear language what Neumann boundary conditions are.</p>
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-623" class="exercise"><strong>Exercise 6.75  </strong></span>Show the full mathematical details for building a first-order in time
+<p><span id="exr:unnamed-chunk-623" class="exercise"><strong>Exercise 6.75  </strong></span>Show the full mathematical details for building a first-order in time
 and second-order in space approximation method for the one-dimensional
-heat equation. Explain what the order of the error means in this context
+heat equation. Explain what the order of the error means in this context</p>
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-624" class="exercise"><strong>Exercise 6.76  </strong></span>Show the full mathematical details for building a second-order in time
+<p><span id="exr:unnamed-chunk-624" class="exercise"><strong>Exercise 6.76  </strong></span>Show the full mathematical details for building a second-order in time
 and second-order in space approximation method for the one-dimensional
-wave equation. Explain what the order of the error means in this context
+wave equation. Explain what the order of the error means in this context</p>
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-625" class="exercise"><strong>Exercise 6.77  </strong></span>Show the full mathematical details for building a first-order in time
+<p><span id="exr:unnamed-chunk-625" class="exercise"><strong>Exercise 6.77  </strong></span>Show the full mathematical details for building a first-order in time
 and second-order in space approximation method for the two-dimensional
-heat equation. Explain what the order of the error means in this context
+heat equation. Explain what the order of the error means in this context</p>
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-626" class="exercise"><strong>Exercise 6.78  </strong></span>Show the full mathematical details for building a second-order in time
+<p><span id="exr:unnamed-chunk-626" class="exercise"><strong>Exercise 6.78  </strong></span>Show the full mathematical details for building a second-order in time
 and second-order in space approximation method for the two-dimensional
-wave equation. Explain what the order of the error means in this context
+wave equation. Explain what the order of the error means in this context</p>
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-627" class="exercise"><strong>Exercise 6.79  </strong></span>Explain in clear language what it means for a finite difference method to be stable vs unstable.
+<p><span id="exr:unnamed-chunk-627" class="exercise"><strong>Exercise 6.79  </strong></span>Explain in clear language what it means for a finite difference method to be stable vs unstable.</p>
 </div>
 <hr />
 
