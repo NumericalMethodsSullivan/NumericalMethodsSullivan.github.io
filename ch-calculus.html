@@ -590,12 +590,14 @@ our first approximation for the first derivative is naturally
     \label{eqn:derivative_first_approx}\end{aligned}\]</span>
 In this approximation of the derivative we have simply removed the
 limit and instead approximated the derivative as the slope. It should be
-clear that this approximation is only good if <span class="math inline">\(h\)</span> is <em>small</em>.</p>
-<p>While
-this is the simplest and most obvious approximation for the first
-derivative there is a much more elegant technique, using Taylor series,
-for arriving at this approximation. Furthermore, the Taylor series
-technique suggests an infinite family of other techniques.</p>
+clear that this approximation is only good if <span class="math inline">\(h\)</span> is <em>small</em>. In Figure <a href="ch-calculus.html#fig:forward-difference">3.2</a> we see a graphical depiction of what we’re doing to approximate the derivative. The slope of the tangent line (<span class="math inline">\(\Delta y / \Delta x\)</span>) is what we’re after, and a way to approximate it is to calculate the slope of the secant line formed by looking <span class="math inline">\(h\)</span> units forward from the point <span class="math inline">\(x\)</span>.</p>
+<div class="figure" style="text-align: center"><span id="fig:forward-difference"></span>
+<img src="images/Ch03_ForwardDifferenceDiagram.png" alt="The forward difference differentiation scheme for the first derivative." width="75%" />
+<p class="caption">
+Figure 3.2: The forward difference differentiation scheme for the first derivative.
+</p>
+</div>
+<p>While this is the simplest and most obvious approximation for the first derivative there is a much more elegant technique, using Taylor series, for arriving at this approximation. Furthermore, the Taylor series technique suggests an infinite family of other techniques.</p>
 <hr />
 
 <div class="exercise">
@@ -978,6 +980,7 @@ marks and blanks below once you have finished simplifying.
 <span class="math display">\[f&#39;(x) = \frac{??? - ???}{2h} + \underline{\hspace{3in}}.\]</span></p></li>
 <li><p>Use your result from part (d) to verify that
 <span class="math display">\[f&#39;(x) = \underline{\hspace{2in}} + \mathcal{O}(h^2).\]</span></p></li>
+<li><p>Draw a picture similar to Figure <a href="ch-calculus.html#fig:forward-difference">3.2</a> showing what this scheme is doing graphically.</p></li>
 </ol>
 </div>
 <hr />
@@ -1127,7 +1130,7 @@ order numerical approximation to the first derivative on the interval. You shoul
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-165" class="exercise"><strong>Exercise 3.25  </strong></span>The plot shown in Figure <a href="ch-calculus.html#fig:first-deriv-comparison">3.2</a> shows the maximum absolute error between the exact first derivative of a function <span class="math inline">\(f(x)\)</span> and a numerical first derivative approximation scheme. At this point we know two schemes:
+<p><span id="exr:unnamed-chunk-165" class="exercise"><strong>Exercise 3.25  </strong></span>The plot shown in Figure <a href="ch-calculus.html#fig:first-deriv-comparison">3.3</a> shows the maximum absolute error between the exact first derivative of a function <span class="math inline">\(f(x)\)</span> and a numerical first derivative approximation scheme. At this point we know two schemes:
 <span class="math display">\[ f&#39;(x) = \frac{f(x+h) - f(x)}{h} + \mathcal{O}(h) \]</span>
 and
 <span class="math display">\[ f&#39;(x) = \frac{f(x+h) - f(x-h)}{2h} + \mathcal{O}(h^2). \]</span></p>
@@ -1139,7 +1142,7 @@ and
 <div class="figure" style="text-align: center"><span id="fig:first-deriv-comparison"></span>
 <img src="images/Ch03_FirstDerivCompare.png" alt="Maximum absolute error between the first derivative and two different approximations of the first derivative." width="75%" />
 <p class="caption">
-Figure 3.2: Maximum absolute error between the first derivative and two different approximations of the first derivative.
+Figure 3.3: Maximum absolute error between the first derivative and two different approximations of the first derivative.
 </p>
 </div>
 <hr />
@@ -1298,7 +1301,7 @@ percent error is less than (but close to) 1%?</p></li>
 
 <div class="exercise">
 <p><span id="exr:unnamed-chunk-171" class="exercise"><strong>Exercise 3.31  </strong></span>Consider the shaded area of the region under the function plotted in
-Figure <a href="ch-calculus.html#fig:integration-ex1">3.3</a> between <span class="math inline">\(x=0\)</span> and <span class="math inline">\(x=2\)</span>.</p>
+Figure <a href="ch-calculus.html#fig:integration-ex1">3.4</a> between <span class="math inline">\(x=0\)</span> and <span class="math inline">\(x=2\)</span>.</p>
 <ol style="list-style-type: decimal">
 <li><p>What rectangle with area 6 gives an upper bound for the area under
 the curve? Can you give a better upper bound?</p></li>
@@ -1311,7 +1314,7 @@ an estimate for the amount of error that you’re making.</p></li>
 <div class="figure" style="text-align: center"><span id="fig:integration-ex1"></span>
 <img src="images/Ch03_InitialIntegral.png" alt="A sample integration" width="45%" />
 <p class="caption">
-Figure 3.3: A sample integration
+Figure 3.4: A sample integration
 </p>
 </div>
 <hr />
@@ -1331,11 +1334,11 @@ likely familiar with this approximation of the integral from Calculus.
 The value of <span class="math inline">\(x_j\)</span> can be chosen anywhere within the sub interval and
 three common choices are to use the left endpoint, the midpoint, and the
 right endpoint.</p>
-<p>We see a depiction of this in Figure <a href="ch-calculus.html#fig:integral-with-rectangles">3.4</a>.</p>
+<p>We see a depiction of this in Figure <a href="ch-calculus.html#fig:integral-with-rectangles">3.5</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:integral-with-rectangles"></span>
 <img src="images/Ch03_ThreeRiemannSums.png" alt="Right-aligned Riemann sums, midpoint-aligned Riemann sums, and left-aligned Riemann sums" width="80%" />
 <p class="caption">
-Figure 3.4: Right-aligned Riemann sums, midpoint-aligned Riemann sums, and left-aligned Riemann sums
+Figure 3.5: Right-aligned Riemann sums, midpoint-aligned Riemann sums, and left-aligned Riemann sums
 </p>
 </div>
 <p>Clearly, the more rectangles we choose the closer the sum of the areas
@@ -1480,7 +1483,7 @@ calculating the value of a definite integral: The Trapezoidal Rule and
 Simpson’s Rule. There are many others, but in practice these two are
 relatively easy to implement and have reasonably good error
 approximations. To motivate the idea of the Trapezoid rule consider
-Figure <a href="ch-calculus.html#fig:trap-motivation">3.5</a>. It is plain to see that trapezoids
+Figure <a href="ch-calculus.html#fig:trap-motivation">3.6</a>. It is plain to see that trapezoids
 will make better approximations than rectangles at least in this
 particular case. Another way to think about using trapezoids, however,
 is to see the top side of the trapezoid as a secant line connecting two
@@ -1492,7 +1495,7 @@ definite integrals via trapezoids.</p>
 <div class="figure" style="text-align: center"><span id="fig:trap-motivation"></span>
 <img src="images/Ch03_Trapezoidal1.png" alt="Motivation for using trapezoids to approximate a definite integral." width="90%" />
 <p class="caption">
-Figure 3.5: Motivation for using trapezoids to approximate a definite integral.
+Figure 3.6: Motivation for using trapezoids to approximate a definite integral.
 </p>
 </div>
 <hr />
@@ -1501,15 +1504,15 @@ Figure 3.5: Motivation for using trapezoids to approximate a definite integral.
 <p><span id="exr:unnamed-chunk-178" class="exercise"><strong>Exercise 3.37  </strong></span>Consider a single trapezoid approximating the area under a curve. From
 geometry we recall that the area of a trapezoid is
 <span class="math display">\[A = \frac{1}{2}\left( b_1 + b_2 \right) h\]</span> where <span class="math inline">\(b_1, b_2\)</span> and <span class="math inline">\(h\)</span>
-are marked in Figure <a href="ch-calculus.html#fig:trapezoidal-2">3.6</a>. The function shown in the picture is
+are marked in Figure <a href="ch-calculus.html#fig:trapezoidal-2">3.7</a>. The function shown in the picture is
 <span class="math inline">\(f(x) = \frac{1}{5} x^2 (5-x)\)</span>. Find the area of the shaded region as an
 approximation to <span class="math display">\[\int_1^4 \left( \frac{1}{5} x^2 (5-x) \right) dx.\]</span></p>
-Now use the same idea with <span class="math inline">\(h = \Delta x = 1\)</span> from Figure <a href="ch-calculus.html#fig:trap-motivation">3.5</a> to approximate the area under the function <span class="math inline">\(f(x) = \frac{1}{5}x^2(5-x)\)</span> between <span class="math inline">\(x=1\)</span> and <span class="math inline">\(x=4\)</span> using three trapezoids.
+Now use the same idea with <span class="math inline">\(h = \Delta x = 1\)</span> from Figure <a href="ch-calculus.html#fig:trap-motivation">3.6</a> to approximate the area under the function <span class="math inline">\(f(x) = \frac{1}{5}x^2(5-x)\)</span> between <span class="math inline">\(x=1\)</span> and <span class="math inline">\(x=4\)</span> using three trapezoids.
 </div>
 <div class="figure" style="text-align: center"><span id="fig:trapezoidal-2"></span>
 <img src="images/Ch03_Trapezoidal2.png" alt="A single trapezoid to approximate area under a curve." width="40%" />
 <p class="caption">
-Figure 3.6: A single trapezoid to approximate area under a curve.
+Figure 3.7: A single trapezoid to approximate area under a curve.
 </p>
 </div>
 <hr />
@@ -1776,7 +1779,7 @@ Calculus step in hopes to avoid the messy algebra and differentiation.</p>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:cardboard-problem" class="exercise"><strong>Exercise 3.48  </strong></span>A piece of cardboard measuring 20cm by 20cm is to be cut so that it can be folded into a box without a lid (see Figure <a href="ch-calculus.html#fig:cardboard">3.7</a>). We want to find the size of the cut, <span class="math inline">\(x\)</span>, that maximizes the volume of the box.</p>
+<p><span id="exr:cardboard-problem" class="exercise"><strong>Exercise 3.48  </strong></span>A piece of cardboard measuring 20cm by 20cm is to be cut so that it can be folded into a box without a lid (see Figure <a href="ch-calculus.html#fig:cardboard">3.8</a>). We want to find the size of the cut, <span class="math inline">\(x\)</span>, that maximizes the volume of the box.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Write a function for the volume of the box resulting from a cut of
 size <span class="math inline">\(x\)</span>. What is the domain of your function?</p></li>
@@ -1795,7 +1798,7 @@ maximum.</p></li>
 <div class="figure" style="text-align: center"><span id="fig:cardboard"></span>
 <img src="images/Ch03_CardboardBox.png" alt="Folds to make a cardboard box" width="40%" />
 <p class="caption">
-Figure 3.7: Folds to make a cardboard box
+Figure 3.8: Folds to make a cardboard box
 </p>
 </div>
 <hr />
@@ -1950,11 +1953,11 @@ problem is no longer really a desirable way to go. Use an appropriate
 numerical technique to solve this problem.
 </div>
 <hr />
-<p>Numerical optimization is often seen as quite challenging since the algorithms that we have introduced here could all get “stuck” at local extrema. To illustrate this see the function shown in Figure <a href="ch-calculus.html#fig:num-opt-challenging">3.8</a>. How will derivative free optimization methods have trouble finding the red point starting at the black point with this function? How will gradient descent/ascent methods have trouble? Why?</p>
+<p>Numerical optimization is often seen as quite challenging since the algorithms that we have introduced here could all get “stuck” at local extrema. To illustrate this see the function shown in Figure <a href="ch-calculus.html#fig:num-opt-challenging">3.9</a>. How will derivative free optimization methods have trouble finding the red point starting at the black point with this function? How will gradient descent/ascent methods have trouble? Why?</p>
 <div class="figure" style="text-align: center"><span id="fig:num-opt-challenging"></span>
 <img src="images/Ch03_HardOptimization.png" alt="A challenging numerical optimization problem. If we start at the black point then how will any of our algorithms find the local minimum at the red point?" width="50%" />
 <p class="caption">
-Figure 3.8: A challenging numerical optimization problem. If we start at the black point then how will any of our algorithms find the local minimum at the red point?
+Figure 3.9: A challenging numerical optimization problem. If we start at the black point then how will any of our algorithms find the local minimum at the red point?
 </p>
 </div>
 <hr />
@@ -2185,7 +2188,7 @@ this important?
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-225"></span>
 <img src="images/Ch03_ScipyDerivatives.png" alt="Derivatives with scipy" width="75%" />
 <p class="caption">
-Figure 3.9: Derivatives with scipy
+Figure 3.10: Derivatives with scipy
 </p>
 </div>
 <hr />
@@ -2327,10 +2330,10 @@ chosen values of <span class="math inline">\(a\)</span>, <span class="math inlin
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-239"></span>
 <img src="images/Ch03_DataMatch.png" alt="Initial attempt at matching data with a quadratic." width="75%" />
 <p class="caption">
-Figure 3.10: Initial attempt at matching data with a quadratic.
+Figure 3.11: Initial attempt at matching data with a quadratic.
 </p>
 </div>
-<p>As an alternative to loading the data manually we could download the data from the book’s github page. All datasets in the text can be loaded in thsi way. We will be using the <code>pandas</code> library (a Python data science library) to load the <code>.csv</code> files.</p>
+<p>As an alternative to loading the data manually we could download the data from the book’s github page. All datasets in the text can be loaded in this way. We will be using the <code>pandas</code> library (a Python data science library) to load the <code>.csv</code> files.</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="ch-calculus.html#cb48-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb48-2"><a href="ch-calculus.html#cb48-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb48-3"><a href="ch-calculus.html#cb48-3"></a>data <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_82.csv&#39;</span>) )</span>
@@ -2450,7 +2453,7 @@ of the square errors.</p></li>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-247"></span>
 <img src="images/Ch03_BestQuadratic.png" alt="Best fit quadratic function." width="75%" />
 <p class="caption">
-Figure 3.11: Best fit quadratic function.
+Figure 3.12: Best fit quadratic function.
 </p>
 </div>
 <hr />
@@ -2896,8 +2899,8 @@ based on the numerical method that you used in part (2).</p>
 <h3><span class="header-section-number">3.8.4</span> Edge Detection in Images</h3>
 <p>Edge detection is the process of finding the boundaries or edges of objects in an image. There are many approaches to performing edge detection, but one method that is quite robust is to use the gradient vector in the following way:</p>
 <ul>
-<li>First convert the image to grayscale.</li>
-<li>Then think of the grayscale image as a plot of a multivariable function <span class="math inline">\(G(x,y)\)</span> where the ordered pair <span class="math inline">\((x,y)\)</span> is the pixel location and the output <span class="math inline">\(G(x,y)\)</span> is the value of the grayscale at that point.</li>
+<li>First convert the image to gray scale.</li>
+<li>Then think of the gray scale image as a plot of a multivariable function <span class="math inline">\(G(x,y)\)</span> where the ordered pair <span class="math inline">\((x,y)\)</span> is the pixel location and the output <span class="math inline">\(G(x,y)\)</span> is the value of the gray scale at that point.</li>
 <li>At each pixel calculate the gradient of the function <span class="math inline">\(G(x,y)\)</span> numerically.</li>
 <li>If the magnitude of the gradient is larger than some threshold then the function <span class="math inline">\(G(x,y)\)</span> is steep at that location and it is possible that there is an edge (a transition from one part of the image to a different part) at that point. Hence, if <span class="math inline">\(\|\nabla G(x,y)\| &gt; \delta\)</span> for some threshold <span class="math inline">\(\delta\)</span> then we can mark the point <span class="math inline">\((x,y)\)</span> as an edge point.</li>
 </ul>
@@ -2913,7 +2916,7 @@ In an image we can take <span class="math inline">\(h=1\)</span> (why?), and sin
 Of course you would need to determine the coefficients in this approximation scheme.<br />
 Another idea could use a centered difference scheme that uses pixels that are immediate neighbors AND pixels that are two units away
 <span class="math display">\[ f&#39;(x) \approx \frac{??? f(x-2) + ??? f(x-1) + ??? f(x+1) + ??? f(x+2)}{???}. \]</span><br />
-In any case, you will need to use Taylor Series to derive coefficients in the formulas for the derivatives as well as the order of the error. There are many ways to approximate the first derivatives so be creative. You are not restricted to using just the first derivative either. There could be some argument for using the second derivatives of the grayscale image function <span class="math inline">\(G(x,y)\)</span> and using some function of the concavity as a means of edge detection. Explore and have fun!</li>
+In any case, you will need to use Taylor Series to derive coefficients in the formulas for the derivatives as well as the order of the error. There are many ways to approximate the first derivatives so be creative. You are not restricted to using just the first derivative either. There could be some argument for using the second derivatives of the gray scale image function <span class="math inline">\(G(x,y)\)</span> and using some function of the concavity as a means of edge detection. Explore and have fun!</li>
 </ol>
 <p>The following code will allow you to read an image into Python as an <code>np.array()</code>.</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb60-1"><a href="ch-calculus.html#cb60-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -2923,17 +2926,17 @@ In any case, you will need to use Taylor Series to derive coefficients in the fo
 <span id="cb60-5"><a href="ch-calculus.html#cb60-5"></a>plt.imshow(I)</span>
 <span id="cb60-6"><a href="ch-calculus.html#cb60-6"></a>plt.axis(<span class="st">&quot;off&quot;</span>)</span>
 <span id="cb60-7"><a href="ch-calculus.html#cb60-7"></a>plt.show()</span></code></pre></div>
-<p>You should notice that the image, <code>I</code>, is a three dimensional array. The three layers are the red, green, and blue channels of the image. To flatten the image to grayscale you can apply the rule
+<p>You should notice that the image, <code>I</code>, is a three dimensional array. The three layers are the red, green, and blue channels of the image. To flatten the image to gray scale you can apply the rule
 <span class="math display">\[ \text{grayscale value} = 0.3 \text{Red} + 0.59 \text{Green} + 0.11 \text{Blue}. \]</span>
 The output should be a 2 dimensional <code>numpy</code> array which you can show with the following Python code.</p>
 <div class="sourceCode" id="cb61"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb61-1"><a href="ch-calculus.html#cb61-1"></a>plt.imshow(G, cmap<span class="op">=</span><span class="st">&#39;gray&#39;</span>) <span class="co"># &quot;cmap&quot; stands for &quot;color map&quot;</span></span>
 <span id="cb61-2"><a href="ch-calculus.html#cb61-2"></a>plt.axis(<span class="st">&quot;off&quot;</span>)</span>
 <span id="cb61-3"><a href="ch-calculus.html#cb61-3"></a>plt.show()</span></code></pre></div>
-<p>Figure <a href="ch-calculus.html#fig:edgedetection">3.12</a> shows the result of different threshold values applied to the simplest numerical gradient computations. The image was taken by the author.</p>
+<p>Figure <a href="ch-calculus.html#fig:edgedetection">3.13</a> shows the result of different threshold values applied to the simplest numerical gradient computations. The image was taken by the author.</p>
 <div class="figure" style="text-align: center"><span id="fig:edgedetection"></span>
 <img src="images/Ch03_EdgeDetection.png" alt="Edge detection using different thresholds for the value of the gradient on the grayscale image" width="95%" />
 <p class="caption">
-Figure 3.12: Edge detection using different thresholds for the value of the gradient on the grayscale image
+Figure 3.13: Edge detection using different thresholds for the value of the gradient on the grayscale image
 </p>
 </div>
 
