@@ -515,7 +515,7 @@ digits and mentally keep track of what we’re reading.</p>
 
 <div class="exercise">
 <p><span id="exr:unnamed-chunk-8" class="exercise"><strong>Exercise 1.6  </strong></span>Express the following binary numbers in base-10.</p>
-<ol style="list-style-type: decimal">
+<ol style="list-style-type: lower-alpha">
 <li><span class="math inline">\(111_2\)</span></li>
 <li><span class="math inline">\(10,101_2\)</span></li>
 <li><span class="math inline">\(1,111,111,111_2\)</span></li>
@@ -625,7 +625,7 @@ base 10. Work with your partners to approximate the base-10 number.
 
 <div class="exercise">
 <p><span id="exr:unnamed-chunk-18" class="exercise"><strong>Exercise 1.14  </strong></span>Convert the base 10 decimal <span class="math inline">\(0.635\)</span> to binary using the following steps.</p>
-<ol style="list-style-type: decimal">
+<ol style="list-style-type: lower-alpha">
 <li>Multiply <span class="math inline">\(0.635\)</span> by 2. The whole number part of the result is the
 first binary digit to the right of the decimal point.</li>
 <li>Take the result of the previous multiplication and ignore the digit
@@ -655,20 +655,17 @@ fully describe what went wrong in the Exercise <a href="ch-intro.html#exr:fail">
 a computer actually store a number. More specifically, since computers
 only have finite memory we would really like to know the full range of
 numbers that are possible to store in a computer. Moreover, since there is finite space in a computer we can only ever store rational numbers (stop and think: why is this). Therefore we need to know what gaps in our number system to expect when using a computer to store and do computations on numbers.</p>
-<p>Let’s start the discussion with a very concrete example.<br />
-Consider the number <span class="math inline">\(x = -129.15625\)</span> (in base 10). As we’ve seen this
-number can be converted into binary. Indeed
-<span class="math display">\[x = -123.15625_{10} = -1111011.00101_2\]</span> (you should check this).</p>
-<ol style="list-style-type: decimal">
-<li><p>If a computer needs to store this number then first they put in the
-binary version of scientific notation. In this case we write
-<span class="math display">\[x = -1. \underline{\hspace{1in}} \times 2^{\underline{\hspace{0.25in}}}\]</span></p></li>
-<li><p>Based on the fact that every binary number, other than 0, can be
-written in this way, what three things do you suppose a computer
-needs to store for any given number?</p></li>
-<li><p>Using your answer to part (b), what would a computer need to store
-for the binary number <span class="math inline">\(x=10001001.1100110011_2\)</span>?</p></li>
+<hr />
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-21" class="exercise"><strong>Exercise 1.17  </strong></span>Let’s start the discussion with a very concrete example. Consider the number <span class="math inline">\(x = -129.15625\)</span> (in base 10). As we’ve seen this number can be converted into binary. Indeed <span class="math display">\[x = -123.15625_{10} = -1111011.00101_2\]</span> (you should check this).</p>
+<ol style="list-style-type: lower-alpha">
+<li>If a computer needs to store this number then first they put in the binary version of scientific notation. In this case we write <span class="math display">\[x = -1. \underline{\hspace{1in}} \times 2^{\underline{\hspace{0.25in}}}\]</span></li>
+<li>Based on the fact that every binary number, other than 0, can be written in this way, what three things do you suppose a computer needs to store for any given number?</li>
+<li>Using your answer to part (b), what would a computer need to store for the binary number <span class="math inline">\(x=10001001.1100110011_2\)</span>?
+</div></li>
 </ol>
+<hr />
 <p>For any base-2 number <span class="math inline">\(x\)</span> we can write
 <span class="math display">\[x = (-1)^{s} \times (1+ m) \times 2^E\]</span> where <span class="math inline">\(s \in \{0,1\}\)</span> is
 called the <em>sign bit</em> and <span class="math inline">\(m\)</span> is a binary number such that <span class="math inline">\(0 \le m &lt; 1\)</span>.</p>
@@ -679,7 +676,7 @@ exponent.</p>
 <hr />
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-21" class="example"><strong>Example 1.3  </strong></span>What are the mantissa, sign bit, and exponent for the numbers <span class="math inline">\(7_{10}\)</span>,
+<p><span id="exm:unnamed-chunk-22" class="example"><strong>Example 1.3  </strong></span>What are the mantissa, sign bit, and exponent for the numbers <span class="math inline">\(7_{10}\)</span>,
 <span class="math inline">\(-7_{10}\)</span>, and <span class="math inline">\((0.1)_{10}\)</span>?<br />
 <strong>Solution:</strong></p>
 <ul>
@@ -707,7 +704,7 @@ double precision standard is what most of our modern computers use.</p>
 <hr />
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-22" class="definition"><strong>Definition 1.1  </strong></span>There are three standard precisions for storing numbers in a computer.</p>
+<p><span id="def:unnamed-chunk-23" class="definition"><strong>Definition 1.1  </strong></span>There are three standard precisions for storing numbers in a computer.</p>
 <ul>
 <li><p>A <strong>single-precision</strong> number consists of 32 bits, with 1 bit for
 the sign, 8 for the exponent, and 23 for the significand.</p></li>
@@ -720,7 +717,7 @@ the sign, 15 for the exponent, and 64 for the significand.</p></li>
 <hr />
 
 <div class="definition">
-<span id="def:unnamed-chunk-23" class="definition"><strong>Definition 1.2  (Machine Precision)  </strong></span>Machine precision is the gap between the number 1 and the next
+<span id="def:unnamed-chunk-24" class="definition"><strong>Definition 1.2  (Machine Precision)  </strong></span>Machine precision is the gap between the number 1 and the next
 larger floating point number. Often it is represented by the symbol
 <span class="math inline">\(\epsilon\)</span>. To clarify, the number 1 can always be stored in a computer
 system exactly and if <span class="math inline">\(\epsilon\)</span> is machine precision for that computer
@@ -735,7 +732,7 @@ This is of the utmost important when you want to check that something is
 <span class="math inline">\(\epsilon\)</span>.</p>
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-24" class="exercise"><strong>Exercise 1.17  </strong></span>To make all of these ideas concrete let’s play with a small computer
+<p><span id="exr:unnamed-chunk-25" class="exercise"><strong>Exercise 1.18  </strong></span>To make all of these ideas concrete let’s play with a small computer
 system where each number is stored in the following format:
 <span class="math display">\[ s \, E \, b_1 \, b_2 \, b_3 \]</span></p>
 <p>The first entry is a bit for the sign (0<span class="math inline">\(=+\)</span> and <span class="math inline">\(1=-\)</span>). The second
@@ -758,18 +755,18 @@ form?<br />
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-25" class="exercise"><strong>Exercise 1.18  </strong></span>What are the largest and smallest numbers that can be stored in single
+<span id="exr:unnamed-chunk-26" class="exercise"><strong>Exercise 1.19  </strong></span>What are the largest and smallest numbers that can be stored in single
 and double precicision?
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-26" class="exercise"><strong>Exercise 1.19  </strong></span>What is machine epsilon for single and and double precision?
+<span id="exr:unnamed-chunk-27" class="exercise"><strong>Exercise 1.20  </strong></span>What is machine epsilon for single and and double precision?
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-27" class="exercise"><strong>Exercise 1.20  </strong></span>Explain the behavior of the sequence from the first problem in these
+<span id="exr:unnamed-chunk-28" class="exercise"><strong>Exercise 1.21  </strong></span>Explain the behavior of the sequence from the first problem in these
 notes using what you know about how computers store numbers in double
 precision.
 <span class="math display">\[x_{n+1} = \left\{ \begin{array}{ll} 2x_n, &amp; x_n \in [0,\frac{1}{2}] \\ 2x_n - 1, &amp; x_n \in
@@ -799,7 +796,7 @@ this class and this book to go into all of those details here. Instead, the bigg
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-28" class="exercise"><strong>Exercise 1.21  </strong></span>In this problem we’re going to make a bit of a wish list for all of the things that a computer will do when approximating a function. We’re going to complete the following sentence:<br />
+<p><span id="exr:unnamed-chunk-29" class="exercise"><strong>Exercise 1.22  </strong></span>In this problem we’re going to make a bit of a wish list for all of the things that a computer will do when approximating a function. We’re going to complete the following sentence:<br />
 <em>If we are going to approximate <span class="math inline">\(f(x)\)</span> near the point <span class="math inline">\(x=x_0\)</span> with a simpler function <span class="math inline">\(g(x)\)</span> then …</em></p>
 <p>(I’ll get us started with the first two things that seems natural to wish for. The rest of the wish list is for you to complete.)</p>
 <ul>
@@ -816,12 +813,12 @@ this class and this book to go into all of those details here. Instead, the bigg
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-29" class="exercise"><strong>Exercise 1.22  </strong></span>Discuss: Could a polynomial function with a high enough degree satify everything in the wish list from the previous problem? Explain your reasoning.
+<span id="exr:unnamed-chunk-30" class="exercise"><strong>Exercise 1.23  </strong></span>Discuss: Could a polynomial function with a high enough degree satify everything in the wish list from the previous problem? Explain your reasoning.
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-30" class="exercise"><strong>Exercise 1.23  </strong></span>Let’s put some parts of the wish list into action.
+<p><span id="exr:unnamed-chunk-31" class="exercise"><strong>Exercise 1.24  </strong></span>Let’s put some parts of the wish list into action.
 If <span class="math inline">\(f(x)\)</span> is a differentiable function at <span class="math inline">\(x=x_0\)</span> and if <span class="math inline">\(g(x) = A + B (x-x_0) + C (x-x_0)^2 + D (x-x_0)^3\)</span> then</p>
 <ol style="list-style-type: lower-alpha">
 <li>What is the value of <span class="math inline">\(A\)</span> such that <span class="math inline">\(f(x_0) = g(x_0)\)</span>? <em>(Hint: substitute <span class="math inline">\(x=x_0\)</span> into the <span class="math inline">\(g(x)\)</span> function)</em></li>
@@ -833,7 +830,7 @@ If <span class="math inline">\(f(x)\)</span> is a differentiable function at <sp
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-31" class="exercise"><strong>Exercise 1.24  </strong></span>Let <span class="math inline">\(f(x) = e^x\)</span>. Put the answers to the previous question into action and build a cubic polynomial that approximates <span class="math inline">\(f(x) = e^x\)</span> near <span class="math inline">\(x_0=0\)</span>.
+<span id="exr:unnamed-chunk-32" class="exercise"><strong>Exercise 1.25  </strong></span>Let <span class="math inline">\(f(x) = e^x\)</span>. Put the answers to the previous question into action and build a cubic polynomial that approximates <span class="math inline">\(f(x) = e^x\)</span> near <span class="math inline">\(x_0=0\)</span>.
 </div>
 <hr />
 <p>In the previous 4 exercises you have built up some basic intuition for what we would want out of a mathematical operation that might build an approximation of a complicated function. What we’ve built is actually a way to get better and better approximations for functions out to pretty much any arbitrary accuracy that we like so long as we are near some anchor point (which we called <span class="math inline">\(x_0\)</span> in the previous exercises).</p>
@@ -841,7 +838,7 @@ If <span class="math inline">\(f(x)\)</span> is a differentiable function at <sp
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-32" class="exercise"><strong>Exercise 1.25  </strong></span>What is Euler’s number <span class="math inline">\(e\)</span>? You likely remember using this number often in Calculus and Differential Equations. Do you know the decimal approximation for this number? Moreover, is there a way that we could approximate something like <span class="math inline">\(\sqrt{e} = e^{0.5}\)</span> or <span class="math inline">\(e^{-1}\)</span> without actually having access to the full decimal expansion?</p>
+<p><span id="exr:unnamed-chunk-33" class="exercise"><strong>Exercise 1.26  </strong></span>What is Euler’s number <span class="math inline">\(e\)</span>? You likely remember using this number often in Calculus and Differential Equations. Do you know the decimal approximation for this number? Moreover, is there a way that we could approximate something like <span class="math inline">\(\sqrt{e} = e^{0.5}\)</span> or <span class="math inline">\(e^{-1}\)</span> without actually having access to the full decimal expansion?</p>
 <p>For all of the questions below let’s work with the function <span class="math inline">\(f(x) = e^x\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>The function <span class="math inline">\(g(x) = 1\)</span> matches <span class="math inline">\(f(x) = e^x\)</span> exactly at the point <span class="math inline">\(x=0\)</span> since <span class="math inline">\(f(0) = e^0 = 1\)</span>. Furthermore if <span class="math inline">\(x\)</span> is very very close to <span class="math inline">\(0\)</span> then the functions <span class="math inline">\(f(x)\)</span> and <span class="math inline">\(g(x)\)</span> are really close to each other. Hence we could say that <span class="math inline">\(g(x) = 1\)</span> is an approximation of the function <span class="math inline">\(f(x) = e^x\)</span> for values of <span class="math inline">\(x\)</span> very very close to <span class="math inline">\(x=0\)</span>. Admittedly, though, it is probably pretty clear that this is a horrible approximation for any <span class="math inline">\(x\)</span> just a little bit away from <span class="math inline">\(x=0\)</span>.</p></li>
@@ -865,7 +862,7 @@ Figure 1.1: The first few Taylor approximations of the exponential function.
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-33" class="exercise"><strong>Exercise 1.26  </strong></span>Let’s extend the idea from the previous problem to much better approximations of the function <span class="math inline">\(f(x) = e^x\)</span>.</p>
+<p><span id="exr:unnamed-chunk-34" class="exercise"><strong>Exercise 1.27  </strong></span>Let’s extend the idea from the previous problem to much better approximations of the function <span class="math inline">\(f(x) = e^x\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Let’s build a function <span class="math inline">\(g(x)\)</span> that matches <span class="math inline">\(f(x)\)</span> exactly at <span class="math inline">\(x=0\)</span>, has exactly the same first derivative as <span class="math inline">\(f(x)\)</span> at <span class="math inline">\(x=0\)</span>, AND has exactly the same second derivative as <span class="math inline">\(f(x)\)</span> at <span class="math inline">\(x=0\)</span>. To do this we’ll use a quadratic function. For a quadratic approximation of a function we just take a slight extension to the point-slope form of a line and use the equation
 <span class="math display">\[ y = f(x_0) + f&#39;(x_0) (x-x_0) + \frac{f&#39;&#39;(x_0)}{2} (x-x_0)^2. \]</span>
@@ -892,7 +889,7 @@ In this case we are using <span class="math inline">\(x_0 = 0\)</span> so the qu
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-34" class="exercise"><strong>Exercise 1.27  </strong></span>We can get a decimal expansion of <span class="math inline">\(e\)</span> pretty easily:
+<p><span id="exr:unnamed-chunk-35" class="exercise"><strong>Exercise 1.28  </strong></span>We can get a decimal expansion of <span class="math inline">\(e\)</span> pretty easily:
 <span class="math display">\[ e \approx 2.718281828459045 \]</span>
 In Python just type <code>np.exp(1)</code> which will just evaluate <span class="math inline">\(f(x) = e^x\)</span> at <span class="math inline">\(x=1\)</span> (and hence giving you a value for <span class="math inline">\(e^1 = e\)</span>). We built our approximations in the previous problems centered at <span class="math inline">\(x=0\)</span>, and <span class="math inline">\(x=1\)</span> is <em>not too terribly</em> far from <span class="math inline">\(x=0\)</span> so perhaps we can get a good approximation with the functions that we’ve already built. Complete the following table to see how we did with our approximations.</p>
 <table>
@@ -940,18 +937,18 @@ In Python just type <code>np.exp(1)</code> which will just evaluate <span class=
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-35" class="exercise"><strong>Exercise 1.28  </strong></span>Use the functions that you’ve built to approximate <span class="math inline">\(\sqrt{e} = e^{0.5}\)</span>. Check the accuracy of your answer using <code>np.exp(0.5)</code> in Python.
+<span id="exr:unnamed-chunk-36" class="exercise"><strong>Exercise 1.29  </strong></span>Use the functions that you’ve built to approximate <span class="math inline">\(\sqrt{e} = e^{0.5}\)</span>. Check the accuracy of your answer using <code>np.exp(0.5)</code> in Python.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-36" class="exercise"><strong>Exercise 1.29  </strong></span>Use the functions that you’ve built to approximate <span class="math inline">\(\frac{1}{e} = e^{-1}\)</span>. Check the accuracy of your answer using <code>np.exp(-1)</code> in Python.
+<span id="exr:unnamed-chunk-37" class="exercise"><strong>Exercise 1.30  </strong></span>Use the functions that you’ve built to approximate <span class="math inline">\(\frac{1}{e} = e^{-1}\)</span>. Check the accuracy of your answer using <code>np.exp(-1)</code> in Python.
 </div>
 <hr />
 <p>What we’ve been exploring so far in this section is the <strong>Taylor Series</strong> of a function.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-37" class="definition"><strong>Definition 1.3  (Taylor Series)  </strong></span>If <span class="math inline">\(f(x)\)</span> is an infinitely differentiable function at the point <span class="math inline">\(x_0\)</span> then
+<span id="def:unnamed-chunk-38" class="definition"><strong>Definition 1.3  (Taylor Series)  </strong></span>If <span class="math inline">\(f(x)\)</span> is an infinitely differentiable function at the point <span class="math inline">\(x_0\)</span> then
 <span class="math display">\[ f(x) = f(x_0) + f&#39;(x_0)(x-x_0) + \frac{f&#39;&#39;(x_0)}{2}(x-x_0)^2 + \cdots \frac{f^{(n)}(x_0)}{n!}(x-x_0)^n + \cdots  \]</span>
 for any reasonably small interval around <span class="math inline">\(x_0\)</span>. The infinite polynomial expansion is called the <strong>Taylor Series</strong> of the function <span class="math inline">\(f(x)\)</span>. Taylor Series are named for the mathematician <a href="https://en.wikipedia.org/wiki/Brook_Taylor">Brook Taylor</a>.
 </div>
@@ -971,30 +968,30 @@ Don’t let the notation scare you. In a Taylor Series you are just saying: <em>
 <hr />
 
 <div class="definition">
-<span id="def:unnamed-chunk-38" class="definition"><strong>Definition 1.4  (Maclaurin Series)  </strong></span>A Taylor Series that is centered at <span class="math inline">\(x_0 = 0\)</span> is called a Maclaurin Series after the mathematician <a href="https://en.wikipedia.org/wiki/Colin_Maclaurin">Colin Maclaurin</a>. This is just a special case of a Taylor Series, so throughout this book we will refer to both Taylor Series and Maclaurin Series simply as Taylor Series.
+<span id="def:unnamed-chunk-39" class="definition"><strong>Definition 1.4  (Maclaurin Series)  </strong></span>A Taylor Series that is centered at <span class="math inline">\(x_0 = 0\)</span> is called a Maclaurin Series after the mathematician <a href="https://en.wikipedia.org/wiki/Colin_Maclaurin">Colin Maclaurin</a>. This is just a special case of a Taylor Series, so throughout this book we will refer to both Taylor Series and Maclaurin Series simply as Taylor Series.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-39" class="exercise"><strong>Exercise 1.30  </strong></span>Verify from your previous work that the Taylor Series centered at <span class="math inline">\(x_0 = 0\)</span> (i.e. the Maclaurin Series) for <span class="math inline">\(f(x) = e^x\)</span> is indeed
+<span id="exr:unnamed-chunk-40" class="exercise"><strong>Exercise 1.31  </strong></span>Verify from your previous work that the Taylor Series centered at <span class="math inline">\(x_0 = 0\)</span> (i.e. the Maclaurin Series) for <span class="math inline">\(f(x) = e^x\)</span> is indeed
 <span class="math display">\[ e^x = 1 + x + \frac{x^2}{2} + \frac{x^3}{3!} + \frac{x^4}{4!} + \frac{x^5}{5!} + \cdots. \]</span>
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-40" class="exercise"><strong>Exercise 1.31  </strong></span>Do all of the calculations to show that the Taylor Series centered at <span class="math inline">\(x_0 = 0\)</span> for the function <span class="math inline">\(f(x) = \sin(x)\)</span> is indeed
+<span id="exr:unnamed-chunk-41" class="exercise"><strong>Exercise 1.32  </strong></span>Do all of the calculations to show that the Taylor Series centered at <span class="math inline">\(x_0 = 0\)</span> for the function <span class="math inline">\(f(x) = \sin(x)\)</span> is indeed
 <span class="math display">\[ \sin(x) = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots \]</span>
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-41" class="exercise"><strong>Exercise 1.32  </strong></span>Do all of the calculations to show that the Taylor Series centered at <span class="math inline">\(x_0 = 0\)</span> for the function <span class="math inline">\(f(x) = \cos(x)\)</span> is indeed
+<span id="exr:unnamed-chunk-42" class="exercise"><strong>Exercise 1.33  </strong></span>Do all of the calculations to show that the Taylor Series centered at <span class="math inline">\(x_0 = 0\)</span> for the function <span class="math inline">\(f(x) = \cos(x)\)</span> is indeed
 <span class="math display">\[ \cos(x) = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots \]</span>
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-42" class="exercise"><strong>Exercise 1.33  </strong></span>Let’s compute a few Taylor Series that are not centered at <span class="math inline">\(x_0 = 0\)</span> (that is, Taylor Series that are not Maclaurin Series). For example, let’s approximate the function <span class="math inline">\(f(x) = \sin(x)\)</span> near <span class="math inline">\(x_0 = \frac{\pi}{2}\)</span>. Near the point <span class="math inline">\(x_0 = \frac{\pi}{2}\)</span>, the Taylor Series approximation will take the form
+<p><span id="exr:unnamed-chunk-43" class="exercise"><strong>Exercise 1.34  </strong></span>Let’s compute a few Taylor Series that are not centered at <span class="math inline">\(x_0 = 0\)</span> (that is, Taylor Series that are not Maclaurin Series). For example, let’s approximate the function <span class="math inline">\(f(x) = \sin(x)\)</span> near <span class="math inline">\(x_0 = \frac{\pi}{2}\)</span>. Near the point <span class="math inline">\(x_0 = \frac{\pi}{2}\)</span>, the Taylor Series approximation will take the form
 <span class="math display">\[ f(x) = f\left( \frac{\pi}{2} \right) + f&#39;\left( \frac{\pi}{2} \right)\left( x - \frac{\pi}{2} \right) + \frac{f&#39;&#39;\left( \frac{\pi}{2} \right)}{2!}\left( x - \frac{\pi}{2} \right)^2 + \frac{f&#39;&#39;&#39;\left( \frac{\pi}{2} \right)}{3!}\left( x - \frac{\pi}{2} \right)^3 + \cdots \]</span></p>
 Write the first several terms of the Taylor Series for <span class="math inline">\(f(x) = \sin(x)\)</span> centered at <span class="math inline">\(x_0 = \frac{\pi}{2}\)</span>. Then write Python code to build the plot below showing successive approximations for <span class="math inline">\(f(x) = \sin(x)\)</span> centered at <span class="math inline">\(\pi/2\)</span>.
 </div>
@@ -1007,7 +1004,7 @@ Figure 1.2: Taylor Series approximations of the sine function.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-43" class="exercise"><strong>Exercise 1.34  </strong></span>Repeat the previous exercise for the functions
+<span id="exr:unnamed-chunk-44" class="exercise"><strong>Exercise 1.35  </strong></span>Repeat the previous exercise for the functions
 <span class="math display">\[\begin{eqnarray}
   f(x) &amp;= \cos(x) \text{ centered at } x_0 = \pi \\
   f(x) &amp;= \ln(x) \text{ centered at } x_0 = 1
@@ -1016,17 +1013,17 @@ Figure 1.2: Taylor Series approximations of the sine function.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-44" class="exercise"><strong>Exercise 1.35  </strong></span>Approximate <span class="math inline">\(\cos(3)\)</span> using a Taylor Series.
+<span id="exr:unnamed-chunk-45" class="exercise"><strong>Exercise 1.36  </strong></span>Approximate <span class="math inline">\(\cos(3)\)</span> using a Taylor Series.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-45" class="exercise"><strong>Exercise 1.36  </strong></span>Approximate <span class="math inline">\(\ln(1.1)\)</span> using a Taylor Series.
+<span id="exr:unnamed-chunk-46" class="exercise"><strong>Exercise 1.37  </strong></span>Approximate <span class="math inline">\(\ln(1.1)\)</span> using a Taylor Series.
 </div>
 <hr />
 
 <div class="example">
-<span id="exm:unnamed-chunk-46" class="example"><strong>Example 1.4  </strong></span>Let’s conclude this brief section by examining an interesting example. Consider the function
+<span id="exm:unnamed-chunk-47" class="example"><strong>Example 1.4  </strong></span>Let’s conclude this brief section by examining an interesting example. Consider the function
 <span class="math display">\[ f(x) = \frac{1}{1-x}. \]</span>
 If we build a Taylor Series centered at <span class="math inline">\(x_0 = 0\)</span> (i.e. the Maclaurin Series) it isn’t too hard to show that we get
 <span class="math display">\[ f(x) = 1 + x + x^2 + x^3 + x^4 + x^5 + \cdots \]</span>
@@ -1096,7 +1093,7 @@ meaning that we expect the error to be proportional to <span class="math inline"
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-47" class="exercise"><strong>Exercise 1.37  </strong></span>Let’s make the previous discussion a bit more concrete. We know the Taylor Series for <span class="math inline">\(f(x) = e^x\)</span> quite well at this point so let’s use it to approximate the value of <span class="math inline">\(f(0.1) = e^{0.1}\)</span> with different order polynomials. Notice that <span class="math inline">\(x=0.1\)</span> is pretty close to the center of the Taylor Series <span class="math inline">\(x_0 = 0\)</span> so this sort of approximation is reasonable.</p>
+<p><span id="exr:unnamed-chunk-48" class="exercise"><strong>Exercise 1.38  </strong></span>Let’s make the previous discussion a bit more concrete. We know the Taylor Series for <span class="math inline">\(f(x) = e^x\)</span> quite well at this point so let’s use it to approximate the value of <span class="math inline">\(f(0.1) = e^{0.1}\)</span> with different order polynomials. Notice that <span class="math inline">\(x=0.1\)</span> is pretty close to the center of the Taylor Series <span class="math inline">\(x_0 = 0\)</span> so this sort of approximation is reasonable.</p>
 <p>Using <code>np.exp(0.1)</code> we have Python’s approximation <span class="math inline">\(e^{0.1} \approx\)</span> <code>np.exp(0.1)</code> <span class="math inline">\(=1.1051709181\)</span>.</p>
 <p>Fill in the blanks in the table.</p>
 <table>
@@ -1159,12 +1156,12 @@ meaning that we expect the error to be proportional to <span class="math inline"
 <hr />
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-48" class="theorem"><strong>Theorem 1.1  </strong></span>The approximation error when using a truncated Taylor Series is roughly proportional to the size of the next term in the Taylor Series.
+<span id="thm:unnamed-chunk-49" class="theorem"><strong>Theorem 1.1  </strong></span>The approximation error when using a truncated Taylor Series is roughly proportional to the size of the next term in the Taylor Series.
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-49" class="exercise"><strong>Exercise 1.38  </strong></span>Next we will examine the approximation error for the sine function near <span class="math inline">\(x_0 = 0\)</span>. We know that the sine function has the Taylor Series centered at <span class="math inline">\(x_0 = 0\)</span> as
+<p><span id="exr:unnamed-chunk-50" class="exercise"><strong>Exercise 1.39  </strong></span>Next we will examine the approximation error for the sine function near <span class="math inline">\(x_0 = 0\)</span>. We know that the sine function has the Taylor Series centered at <span class="math inline">\(x_0 = 0\)</span> as
 <span class="math display">\[ \sin(x) = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots. \]</span></p>
 <ol style="list-style-type: lower-alpha">
 <li>A linear approximation of <span class="math inline">\(\sin(x)\)</span> near <span class="math inline">\(x_0 = 0\)</span> is <span class="math inline">\(\sin(x) = x + \mathcal{O}(x^3)\)</span>.
@@ -1227,7 +1224,7 @@ meaning that we expect the error to be proportional to <span class="math inline"
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-50" class="exercise"><strong>Exercise 1.39  </strong></span>What if we want an approximation of <span class="math inline">\(\ln(1.1)\)</span> and we want that approximation to be within 5 decimal places. The number 1.1 is very close to 1 and we know that <span class="math inline">\(\ln(1) = 0\)</span>. Hence, it seems like a good idea to build a Taylor Series approximation for <span class="math inline">\(\ln(x)\)</span> centered at <span class="math inline">\(x_0 = 1\)</span> to solve this problem.</p>
+<p><span id="exr:unnamed-chunk-51" class="exercise"><strong>Exercise 1.40  </strong></span>What if we want an approximation of <span class="math inline">\(\ln(1.1)\)</span> and we want that approximation to be within 5 decimal places. The number 1.1 is very close to 1 and we know that <span class="math inline">\(\ln(1) = 0\)</span>. Hence, it seems like a good idea to build a Taylor Series approximation for <span class="math inline">\(\ln(x)\)</span> centered at <span class="math inline">\(x_0 = 1\)</span> to solve this problem.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Complete the table of derivatives below to get the Taylor coefficients for the Taylor Series of <span class="math inline">\(\ln(x)\)</span> centered at <span class="math inline">\(x_0 = 1\)</span>.</li>
 </ol>
@@ -1303,7 +1300,7 @@ meaning that we expect the error to be proportional to <span class="math inline"
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-51" class="exercise"><strong>Exercise 1.40  </strong></span>In the previous problem you found an approximation for <span class="math inline">\(\ln(1.1)\)</span> to 5 decimal places. In doing so you had to build a Taylor Series at a well-known point nearby 1.1 and then use our approximation of the error to determine the number of terms to keep in the approximation. In this exercise we want an approximation of <span class="math inline">\(\cos\left( \frac{\pi}{2} + 0.05 \right)\)</span>. To do so you should build a Taylor Series for the cosine function centered at an appropriate point, determine an estimate for the approximation error, and then use that estimate to determine the number of terms to keep in the approximation.
+<span id="exr:unnamed-chunk-52" class="exercise"><strong>Exercise 1.41  </strong></span>In the previous problem you found an approximation for <span class="math inline">\(\ln(1.1)\)</span> to 5 decimal places. In doing so you had to build a Taylor Series at a well-known point nearby 1.1 and then use our approximation of the error to determine the number of terms to keep in the approximation. In this exercise we want an approximation of <span class="math inline">\(\cos\left( \frac{\pi}{2} + 0.05 \right)\)</span>. To do so you should build a Taylor Series for the cosine function centered at an appropriate point, determine an estimate for the approximation error, and then use that estimate to determine the number of terms to keep in the approximation.
 </div>
 <hr />
 </div>
@@ -1316,7 +1313,7 @@ improve your coding skills. If you are stuck on any of the coding then I recomme
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-52" class="exercise"><strong>Exercise 1.41  </strong></span>(This problem is modified from <span class="citation">[<a href="#ref-euler" role="doc-biblioref">3</a>]</span>)<br />
+<span id="exr:unnamed-chunk-53" class="exercise"><strong>Exercise 1.42  </strong></span>(This problem is modified from <span class="citation">[<a href="#ref-euler" role="doc-biblioref">3</a>]</span>)<br />
 If we list all of the numbers below 10 that are multiples of 3 or 5 we
 get 3, 5, 6, and 9. The sum of these multiples is 23. Write code to find
 the sum of all the multiples of 3 or 5 below 1000. Your code needs to
@@ -1325,7 +1322,7 @@ run error free and output only the sum.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-53" class="exercise"><strong>Exercise 1.42  </strong></span>(This problem is modified from <span class="citation">[<a href="#ref-euler" role="doc-biblioref">3</a>]</span>)<br />
+<span id="exr:unnamed-chunk-54" class="exercise"><strong>Exercise 1.43  </strong></span>(This problem is modified from <span class="citation">[<a href="#ref-euler" role="doc-biblioref">3</a>]</span>)<br />
 Each new term in the Fibonacci sequence is generated by adding the
 previous two terms. By starting with 1 and 2, the first 10 terms will
 be: <span class="math display">\[1, 2, 3, 5, 8, 13, 21, 34, 55, 89, \dots\]</span> By considering the
@@ -1336,7 +1333,7 @@ run error free and output only the sum.
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-54" class="exercise"><strong>Exercise 1.43  </strong></span>Write computer code that will draw random numbers from the unit interval
+<p><span id="exr:unnamed-chunk-55" class="exercise"><strong>Exercise 1.44  </strong></span>Write computer code that will draw random numbers from the unit interval
 <span class="math inline">\([0,1]\)</span>, distributed uniformly (using Python’s <code>np.random.rand()</code>), until the sum of the numbers that you
 draw is greater than 1. Keep track of how many numbers you draw. Then
 write a loop that does this process many many times. On average, how
@@ -1356,7 +1353,7 @@ average …and the number that you get should be familiar!</p>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-55" class="exercise"><strong>Exercise 1.44  </strong></span>My favorite prime number is 8675309. Yep. Jenny’s phone number is prime!
+<p><span id="exr:unnamed-chunk-56" class="exercise"><strong>Exercise 1.45  </strong></span>My favorite prime number is 8675309. Yep. Jenny’s phone number is prime!
 Write a script that verifies this fact.</p>
 <dl>
 <dt>Hint:</dt>
@@ -1367,7 +1364,7 @@ Write a script that verifies this fact.</p>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-56" class="exercise"><strong>Exercise 1.45  </strong></span>(This problem is modified from <span class="citation">[<a href="#ref-euler" role="doc-biblioref">3</a>]</span>)<br />
+<p><span id="exr:unnamed-chunk-57" class="exercise"><strong>Exercise 1.46  </strong></span>(This problem is modified from <span class="citation">[<a href="#ref-euler" role="doc-biblioref">3</a>]</span>)<br />
 Write a function called that accepts an integer and returns a binary
 variable:
 * 0 = not prime,
@@ -1382,7 +1379,7 @@ variable:
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-57" class="exercise"><strong>Exercise 1.46  </strong></span>(This problem is modified from <span class="citation">[<a href="#ref-euler" role="doc-biblioref">3</a>]</span>)<br />
+<span id="exr:unnamed-chunk-58" class="exercise"><strong>Exercise 1.47  </strong></span>(This problem is modified from <span class="citation">[<a href="#ref-euler" role="doc-biblioref">3</a>]</span>)<br />
 The sum of the squares of the first ten natural numbers is,
 <span class="math display">\[1^2 + 2^2 + \dots + 10^2 = 385\]</span> The square of the sum of the first
 ten natural numbers is, <span class="math display">\[(1 + 2 + \dots + 10)^2 = 55^2 = 3025\]</span> Hence
@@ -1392,7 +1389,7 @@ numbers and the square of the sum is <span class="math inline">\(3025 - 385 = 26
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-58" class="exercise"><strong>Exercise 1.47  </strong></span>(This problem is modified from <span class="citation">[<a href="#ref-euler" role="doc-biblioref">3</a>]</span>)<br />
+<span id="exr:unnamed-chunk-59" class="exercise"><strong>Exercise 1.48  </strong></span>(This problem is modified from <span class="citation">[<a href="#ref-euler" role="doc-biblioref">3</a>]</span>)<br />
 Write code to find the difference between the sum of the squares of the
 first one hundred natural numbers and the square of the sum. Your code
 needs to run error free and output only the difference.
@@ -1400,7 +1397,7 @@ needs to run error free and output only the difference.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-59" class="exercise"><strong>Exercise 1.48  </strong></span>(This problem is modified from <span class="citation">[<a href="#ref-euler" role="doc-biblioref">3</a>]</span>)<br />
+<span id="exr:unnamed-chunk-60" class="exercise"><strong>Exercise 1.49  </strong></span>(This problem is modified from <span class="citation">[<a href="#ref-euler" role="doc-biblioref">3</a>]</span>)<br />
 The prime factors of <span class="math inline">\(13195\)</span> are <span class="math inline">\(5, 7, 13\)</span> and <span class="math inline">\(29\)</span>. Write code to find
 the largest prime factor of the number <span class="math inline">\(600851475143\)</span>? Your code needs
 to run error free and output only the largest prime factor.
@@ -1408,7 +1405,7 @@ to run error free and output only the largest prime factor.
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-60" class="exercise"><strong>Exercise 1.49  </strong></span>(This problem is modified from <span class="citation">[<a href="#ref-euler" role="doc-biblioref">3</a>]</span>)<br />
+<p><span id="exr:unnamed-chunk-61" class="exercise"><strong>Exercise 1.50  </strong></span>(This problem is modified from <span class="citation">[<a href="#ref-euler" role="doc-biblioref">3</a>]</span>)<br />
 The number 2520 is the smallest number that can be divided by each of
 the numbers from 1 to 10 without any remainder. Write code to find the
 smallest positive number that is evenly divisible by all of the numbers
@@ -1418,7 +1415,7 @@ from 1 to 20?</p>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-61" class="exercise"><strong>Exercise 1.50  </strong></span>The following iterative sequence is defined for the set of positive
+<p><span id="exr:unnamed-chunk-62" class="exercise"><strong>Exercise 1.51  </strong></span>The following iterative sequence is defined for the set of positive
 integers:
 <span class="math display">\[\begin{aligned}
         &amp; n \to \frac{n}{2} \quad \text{(n is even)} \\
@@ -1440,7 +1437,7 @@ allowed to go above one million.
 <h3><span class="header-section-number">1.6.2</span> Applying What You’ve Learned</h3>
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-62" class="exercise"><strong>Exercise 1.51  </strong></span>(This problem is modified from <span class="citation">[<a href="#ref-chartier" role="doc-biblioref">4</a>]</span>)<br />
+<p><span id="exr:unnamed-chunk-63" class="exercise"><strong>Exercise 1.52  </strong></span>(This problem is modified from <span class="citation">[<a href="#ref-chartier" role="doc-biblioref">4</a>]</span>)<br />
 Sometimes floating point arithmetic does not work like we would expect (and hope) as compared to by-hand mathematics. In each of the following problems we have a mathematical problem that the computer gets wrong. Explain why the computer is getting these wrong.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Mathematically we know that <span class="math inline">\(\sqrt{5}^2\)</span> should just give us 5 back. In Python type <code>np.sqrt(5)**2 == 5</code>. What do you get and why do you get it?</li>
@@ -1452,7 +1449,7 @@ Sometimes floating point arithmetic does not work like we would expect (and hope
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-63" class="exercise"><strong>Exercise 1.52  </strong></span>(This problem is modified from <span class="citation">[<a href="#ref-chartier" role="doc-biblioref">4</a>]</span>)<br />
+<p><span id="exr:unnamed-chunk-64" class="exercise"><strong>Exercise 1.53  </strong></span>(This problem is modified from <span class="citation">[<a href="#ref-chartier" role="doc-biblioref">4</a>]</span>)<br />
 In the 1999 movie <em>Office Space</em>, a character creates a program that
 takes fractions of cents that are truncated in a bank’s transactions and
 deposits them to his own account. This is idea has been attempted in the
@@ -1486,7 +1483,7 @@ account has accumulated $1,000,000. How long does it take?</li>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-65" class="exercise"><strong>Exercise 1.53  </strong></span>(This problem is modified from <span class="citation">[<a href="#ref-chartier" role="doc-biblioref">4</a>]</span>)<br />
+<p><span id="exr:unnamed-chunk-66" class="exercise"><strong>Exercise 1.54  </strong></span>(This problem is modified from <span class="citation">[<a href="#ref-chartier" role="doc-biblioref">4</a>]</span>)<br />
 In the 1991 Gulf War, the Patriot missle defense system failed due to
 roundoff error. The troubles stemmed from a computer that performed the
 tracking calculations with an internal clock whose integer values in
@@ -1507,12 +1504,12 @@ during the time error computed in (c).</li>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-66" class="exercise"><strong>Exercise 1.54  </strong></span>Find the Taylor Series for <span class="math inline">\(f(x) = \frac{1}{\ln(x)}\)</span> centered at the point <span class="math inline">\(x_0 = e\)</span>. Then use the Taylor Series to approximate the number <span class="math inline">\(\frac{1}{\ln(3)}\)</span> to 5 decimal places.
+<span id="exr:unnamed-chunk-67" class="exercise"><strong>Exercise 1.55  </strong></span>Find the Taylor Series for <span class="math inline">\(f(x) = \frac{1}{\ln(x)}\)</span> centered at the point <span class="math inline">\(x_0 = e\)</span>. Then use the Taylor Series to approximate the number <span class="math inline">\(\frac{1}{\ln(3)}\)</span> to 5 decimal places.
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-67" class="exercise"><strong>Exercise 1.55  </strong></span>In this problem we will use Taylor Series to build approximations for
+<p><span id="exr:unnamed-chunk-68" class="exercise"><strong>Exercise 1.56  </strong></span>In this problem we will use Taylor Series to build approximations for
 the irrational number <span class="math inline">\(\pi\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Write the Taylor series centered at <span class="math inline">\(x_0=0\)</span> for the function
@@ -1538,7 +1535,7 @@ Hence, if we integrate each term of the Taylor Series that results from part (b)
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-68" class="exercise"><strong>Exercise 1.56  </strong></span>In this problem we will prove the famous (and the author’s favorite)
+<p><span id="exr:unnamed-chunk-69" class="exercise"><strong>Exercise 1.57  </strong></span>In this problem we will prove the famous (and the author’s favorite)
 formula <span class="math display">\[e^{i\theta} = \cos(\theta) + i \sin(\theta).\]</span> This is known
 as Euler’s formula after the famous mathematician Leonard Euler. Show
 all of your work for the following tasks.</p>
@@ -1564,7 +1561,7 @@ notice?</p></li>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-69" class="exercise"><strong>Exercise 1.57  </strong></span>In physics, the <em>relativistic energy</em> is defined as
+<p><span id="exr:unnamed-chunk-70" class="exercise"><strong>Exercise 1.58  </strong></span>In physics, the <em>relativistic energy</em> is defined as
 <span class="math display">\[ E_{rel} = \gamma mc^2 \]</span>
 where
 <span class="math display">\[ \gamma = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}}. \]</span>
