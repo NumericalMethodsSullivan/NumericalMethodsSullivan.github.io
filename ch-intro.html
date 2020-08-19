@@ -658,13 +658,13 @@ numbers that are possible to store in a computer. Moreover, since there is finit
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-21" class="exercise"><strong>Exercise 1.17  </strong></span>Let’s start the discussion with a very concrete example. Consider the number <span class="math inline">\(x = -129.15625\)</span> (in base 10). As we’ve seen this number can be converted into binary. Indeed <span class="math display">\[x = -123.15625_{10} = -1111011.00101_2\]</span> (you should check this).</p>
+<p><span id="exr:unnamed-chunk-21" class="exercise"><strong>Exercise 1.17  </strong></span>Let’s start the discussion with a very concrete example. Consider the number <span class="math inline">\(x = -123.15625\)</span> (in base 10). As we’ve seen this number can be converted into binary. Indeed <span class="math display">\[x = -123.15625_{10} = -1111011.00101_2\]</span> (you should check this).</p>
 <ol style="list-style-type: lower-alpha">
 <li>If a computer needs to store this number then first they put in the binary version of scientific notation. In this case we write <span class="math display">\[x = -1. \underline{\hspace{1in}} \times 2^{\underline{\hspace{0.25in}}}\]</span></li>
 <li>Based on the fact that every binary number, other than 0, can be written in this way, what three things do you suppose a computer needs to store for any given number?</li>
-<li>Using your answer to part (b), what would a computer need to store for the binary number <span class="math inline">\(x=10001001.1100110011_2\)</span>?
-</div></li>
+<li>Using your answer to part (b), what would a computer need to store for the binary number <span class="math inline">\(x=10001001.1100110011_2\)</span>?</li>
 </ol>
+</div>
 <hr />
 <p>For any base-2 number <span class="math inline">\(x\)</span> we can write
 <span class="math display">\[x = (-1)^{s} \times (1+ m) \times 2^E\]</span> where <span class="math inline">\(s \in \{0,1\}\)</span> is
@@ -1152,7 +1152,7 @@ meaning that we expect the error to be proportional to <span class="math inline"
 </table>
 </div>
 <hr />
-<p>Observe in the previous exercise that the actual absolute error and the expected error get closer and closer to each other. Using the first term in the remainder to estimate the approximation error of truncating a Taylor Series is crude but very easy to implement.</p>
+<p>Observe in the previous exercise that the actual absolute error is always less than the expected error. Using the first term in the remainder to estimate the approximation error of truncating a Taylor Series is crude but very easy to implement.</p>
 <hr />
 
 <div class="theorem">

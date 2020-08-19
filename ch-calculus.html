@@ -2910,13 +2910,22 @@ based on the numerical method that you used in part (2).</p>
 <li>Write Python code that performs edge detection as described above on the image. In the end you should produce side-by-side plots of the original picture and the image showing only the edges. To calculate the gradient use a centered difference scheme for the first derivatives
 <span class="math display">\[ f&#39;(x) \approx \frac{f(x+h)-f(x-h)}{2h}. \]</span>
 In an image we can take <span class="math inline">\(h=1\)</span> (why?), and since the gradient is two dimensional we get
-<span class="math display">\[ \nabla G(x,y) \approx \left&lt; \frac{G(x+1,y)-G(x-1,y)}{2} \, , \, \frac{G(x,y+1)-G(x,y-1)}{2}  \right&gt;. \]</span></li>
-<li>There are many ways to approximate numerical first derivatives. The simplest approach is what you did in part (2) – using a centered difference scheme. However, pixels are necessarily tightly packed in an image and the immediate neighbors of a point may not have enough contrast to truly detect edges. Your job is to build several other approaches to calculating the gradient vector, implement them to perform edge detection, and show the resulting images. For each method you need to give the full mathematical details for how you calculated the gradient as well as give a list of pros and cons for using the new numerical gradient for edge detection based on what you see in your images. As an example, you could use a centered difference scheme that looks two pixels away instead of at the immediate neighboring pixels
+<span class="math display">\[ \nabla G(x,y) \approx \left&lt; \frac{G(x+1,y)-G(x-1,y)}{2} \, , \, \frac{G(x,y+1)-G(x,y-1)}{2}  \right&gt;. \]</span>
+Figure <a href="ch-calculus.html#fig:gray-gradient">3.13</a> depicts what this looks like when we zoom in to a pixel and its immediate neighbors. The pixel labeled <code>G[i,j]</code> is the pixel at which we want to evaluate the gradient, and the surrounding pixels are labeled by their indices relative to <code>[i,j]</code>.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:gray-gradient"></span>
+<img src="images/GrayGradient.png" alt="The gradient computation on a single pixel using a centered difference scheme for the first derivative." width="90%" />
+<p class="caption">
+Figure 3.13: The gradient computation on a single pixel using a centered difference scheme for the first derivative.
+</p>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>There are many ways to approximate numerical first derivatives. The simplest approach is what you did in part (2) – using a centered difference scheme. However, pixels are necessarily tightly packed in an image and the immediate neighbors of a point may not have enough contrast to truly detect edges. If you examine Figure <a href="ch-calculus.html#fig:gray-gradient">3.13</a> you’ll notice that we only use 4 of the 8 neighbors of the pixel <code>[i,j]</code>. Also notice that we didn’t reach out any further than a single pixel. Your job now is to build several other approaches to calculating the gradient vector, implement them to perform edge detection, and show the resulting images. For each method you need to give the full mathematical details for how you calculated the gradient as well as give a list of pros and cons for using the new numerical gradient for edge detection based on what you see in your images. As an example, you could use a centered difference scheme that looks two pixels away instead of at the immediate neighboring pixels
 <span class="math display">\[ f&#39;(x) \approx \frac{??? f(x-2) + ??? f(x+2)}{???}. \]</span>
 Of course you would need to determine the coefficients in this approximation scheme.<br />
 Another idea could use a centered difference scheme that uses pixels that are immediate neighbors AND pixels that are two units away
 <span class="math display">\[ f&#39;(x) \approx \frac{??? f(x-2) + ??? f(x-1) + ??? f(x+1) + ??? f(x+2)}{???}. \]</span><br />
-In any case, you will need to use Taylor Series to derive coefficients in the formulas for the derivatives as well as the order of the error. There are many ways to approximate the first derivatives so be creative. You are not restricted to using just the first derivative either. There could be some argument for using the second derivatives of the gray scale image function <span class="math inline">\(G(x,y)\)</span> and using some function of the concavity as a means of edge detection. Explore and have fun!</li>
+In any case, you will need to use Taylor Series to derive coefficients in the formulas for the derivatives as well as the order of the error. There are many ways to approximate the first derivatives so be creative. In your exploration you are not restricted to using just the first derivative. There could be some argument for using the second derivatives and/or the Hessian matrix of the gray scale image function <span class="math inline">\(G(x,y)\)</span> and using some function of the concavity as a means of edge detection. Explore and have fun!</li>
 </ol>
 <p>The following code will allow you to read an image into Python as an <code>np.array()</code>.</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb60-1"><a href="ch-calculus.html#cb60-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -2932,11 +2941,11 @@ The output should be a 2 dimensional <code>numpy</code> array which you can show
 <div class="sourceCode" id="cb61"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb61-1"><a href="ch-calculus.html#cb61-1"></a>plt.imshow(G, cmap<span class="op">=</span><span class="st">&#39;gray&#39;</span>) <span class="co"># &quot;cmap&quot; stands for &quot;color map&quot;</span></span>
 <span id="cb61-2"><a href="ch-calculus.html#cb61-2"></a>plt.axis(<span class="st">&quot;off&quot;</span>)</span>
 <span id="cb61-3"><a href="ch-calculus.html#cb61-3"></a>plt.show()</span></code></pre></div>
-<p>Figure <a href="ch-calculus.html#fig:edgedetection">3.13</a> shows the result of different threshold values applied to the simplest numerical gradient computations. The image was taken by the author.</p>
+<p>Figure <a href="ch-calculus.html#fig:edgedetection">3.14</a> shows the result of different threshold values applied to the simplest numerical gradient computations. The image was taken by the author.</p>
 <div class="figure" style="text-align: center"><span id="fig:edgedetection"></span>
 <img src="images/Ch03_EdgeDetection.png" alt="Edge detection using different thresholds for the value of the gradient on the grayscale image" width="95%" />
 <p class="caption">
-Figure 3.13: Edge detection using different thresholds for the value of the gradient on the grayscale image
+Figure 3.14: Edge detection using different thresholds for the value of the gradient on the grayscale image
 </p>
 </div>
 
