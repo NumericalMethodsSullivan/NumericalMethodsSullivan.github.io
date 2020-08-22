@@ -418,7 +418,7 @@ Figure 2.1: A Typical Root Finding Problem
 <!-- ![](images/Ch02Sec01_IntroRootFinding.png) -->
 <p>On the left-hand side of Figure <a href="ch-algebra.html#fig:root-finding-intro">2.1</a> we see the solutions to the equation <span class="math inline">\(3\sin(x) + 9 = x^2 - \cos(x)\)</span>, and on the right-hand side we see the solutions to the equation
 <span class="math display">\[ \left( 3\sin(x)+9 \right) - \left( x^2 - \cos(x) \right) = 0.\]</span>
-From the plots it is apparent that the two equations have the same solutions: <span class="math inline">\(x_1 \approx -2.55\)</span> and <span class="math inline">\(x_2 \approx 2.88\)</span>. This plot should demonstrate what we me when we say that solving equations of the form <span class="math inline">\(\ell(x) = r(x)\)</span> will give the same answer and solving <span class="math inline">\(f(x) = 0\)</span>.</p>
+From the plots it is apparent that the two equations have the same solutions: <span class="math inline">\(x_1 \approx -2.55\)</span> and <span class="math inline">\(x_2 \approx 2.88\)</span>. Figure <a href="ch-algebra.html#fig:root-finding-intro">2.1</a> should demonstrate what we mean when we say that solving equations of the form <span class="math inline">\(\ell(x) = r(x)\)</span> will give the same answer as solving <span class="math inline">\(f(x) = 0\)</span>. Pause for a moment and closely examine the plots to verify this for yourself.</p>
 <p>We now have one way to view every equation-solving problem. As we’ll see in this chapter, if <span class="math inline">\(f(x)\)</span> has certain properties then different numerical techniques for solving the equation will apply – and some will be much faster and more accurate than others. The following sections give several different techniques for solving equations of the form <span class="math inline">\(f(x) = 0\)</span>. We will start with the simplest techniques to implement and then move to the more powerful techniques that require some ideas from Calculus to understand and analyze. Throughout this chapter we will also work to quantify the amount of error that we make while using these techniques.</p>
 </div>
 <div id="the-bisection-method" class="section level2" number="2.2">
@@ -776,10 +776,10 @@ Figure 2.4: The base-2 logarithm of the absolute error at iteration <span class=
 </p>
 </div>
 <ol start="4" style="list-style-type: lower-alpha">
-<li>The final plot that we will make in analyzing the bisection method is the same as the plot that we just made but with the base-10 logarithm instead. See Figure <a href="ch-algebra.html#fig:bisection-error-3">2.5</a>. In future algorithms we will not know that the error decreases by a factor of 2 so instead we will just try the base-10 logarithm. We will be able to extract the exact same information from this plot. The primary advantage of this last plot is that we can see how the order of magnitude (the power of 10) for the error progresses as the algorithm steps forward. Notice that</li>
+<li>The final plot that we will make in analyzing the bisection method is the same as the plot that we just made but with the base-10 logarithm instead. See Figure <a href="ch-algebra.html#fig:bisection-error-3">2.5</a>. In future algorithms we will not know that the error decreases by a factor of 2 so instead we will just try the base-10 logarithm. We will be able to extract the exact same information from this plot. The primary advantage of this last plot is that we can see how the order of magnitude (the power of 10) for the error progresses as the algorithm steps forward. Notice that for every order of magnitude iteration <span class="math inline">\(k\)</span> decreases, iteration <span class="math inline">\(k+1\)</span> decreases by one order of magnitude. That is, the slope of the best fit line in Figure <a href="ch-algebra.html#fig:bisection-error-3">2.5</a> is approximately <span class="math inline">\(1\)</span>. Discuss what this means about how the error in the bisection method behaves as the iterations progress.</li>
 </ol>
 <div class="figure" style="text-align: center"><span id="fig:bisection-error-3"></span>
-<img src="images/Ch02Sec02_BisectionError3.png" alt="The base-10 logarithm of the absolute error at iteration $k$ vs the base-10 logarithm of the absolute error at iteration $k+1$." width="75%" />
+<img src="images/Ch02Sec02_BisectionError4.png" alt="The base-10 logarithm of the absolute error at iteration $k$ vs the base-10 logarithm of the absolute error at iteration $k+1$." width="75%" />
 <p class="caption">
 Figure 2.5: The base-10 logarithm of the absolute error at iteration <span class="math inline">\(k\)</span> vs the base-10 logarithm of the absolute error at iteration <span class="math inline">\(k+1\)</span>.
 </p>
@@ -792,9 +792,9 @@ Figure 2.5: The base-10 logarithm of the absolute error at iteration <span class
 <dt>Hints:</dt>
 <dd><p>You will need to create a modified bisection method function which returns all of the iterations instead of just the final root.</p>
 </dd>
-<dd><p>If the logarithms of your absolute errors are in a Python list called <code>error</code> then a command like <code>plt.plot(error[0:-1],error[1:],'b*')</code> will plot the <span class="math inline">\((k+1)^{st}\)</span> absolute error against the <span class="math inline">\(k^{th}\)</span> absolute error.</p>
+<dd><p>If the logarithms of your absolute errors are in a Python list called <code>error</code> then a command like <code>plt.plot(error[:-1],error[1:],'b*')</code> will plot the <span class="math inline">\((k+1)^{st}\)</span> absolute error against the <span class="math inline">\(k^{th}\)</span> absolute error.</p>
 </dd>
-<dd><p>If you want the actual slope and intercept of the trend line then you can use <code>m, b = np.polyfit(error[0:-1], error[1:], deg=1)</code>.</p>
+<dd><p>If you want the actual slope and intercept of the trend line then you can use <code>m, b = np.polyfit(error[:-1], error[1:], deg=1)</code>.</p>
 </dd>
 </dl>
 </div>
