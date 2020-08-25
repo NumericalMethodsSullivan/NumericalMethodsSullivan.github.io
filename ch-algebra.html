@@ -1052,8 +1052,7 @@ in the previous step with <span class="math inline">\(x_{n+1}\)</span> and <span
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-104" class="exercise"><strong>Exercise 2.38  </strong></span>Create a new Python function called <code>newton()</code> and write comments giving pseudo-code for Newton’s method. our function needs to accept a Python function for <span class="math inline">\(f(x)\)</span>, a Python function for <span class="math inline">\(f&#39;(x)\)</span>, an initial guess,
-and an optional error tolerance. You don’t need to set aside any code for calculating the derivative.
+<span id="exr:unnamed-chunk-104" class="exercise"><strong>Exercise 2.38  </strong></span>Create a new Python function called <code>newton()</code> and write comments giving pseudo-code for Newton’s method. Your function needs to accept a Python function for <span class="math inline">\(f(x)\)</span>, a Python function for <span class="math inline">\(f&#39;(x)\)</span>, an initial guess, and an optional error tolerance. You don’t need to set aside any code for calculating the derivative.
 </div>
 <hr />
 
@@ -1241,6 +1240,7 @@ and we see that this is a linear function (on a log-log plot) and the slope is 2
 <li>Create the error plot with <span class="math inline">\(|x_{k} - x_*|\)</span> on the horizontal axis and <span class="math inline">\(|x_{k+1} - x_*|\)</span> on the vertical axis</li>
 <li>Demonstrate that this plot has a slope of 2.</li>
 <li>Give a thorough explanation for how to interpret the plot that you just made.</li>
+<li>When solving an equation with Newton’s method Joe found that the absolute error at iteration 1 of the process was <span class="math inline">\(0.15\)</span>. Based on the fact that Newton’s method is a second order method this means that the absolute error at step 2 will be less than or equal to some constant times <span class="math inline">\(0.15^2 = 0.0225\)</span>. Similarly, the error at step 3 will be less than or equal to some scalar multiple of <span class="math inline">\(0.0025^2 = 0.00050625\)</span>. What would Joe’s expected error be bounded by for the fourth iteration, fifth iteration, etc?</li>
 </ol>
 </div>
 <hr />
@@ -1393,56 +1393,37 @@ constant <span class="math inline">\(C\)</span> such that <span class="math disp
 finding technique, and <span class="math inline">\(x_{k+1}\)</span> is the <span class="math inline">\((k+1)^{st}\)</span> iteration of the
 root finding technique.</p>
 <ol style="list-style-type: lower-alpha">
-<li><p>If we consider the equation <span class="math display">\[|x_{k+1} - x_*| \leq C |x_k - x_*|^M\]</span>
-and take the logarithm (base 10) of both sides then we get
-<span class="math display">\[\log\left( |x_{k+1} - x_*| \right) \leq \underline{\hspace{1in}} +
-            \underline{\hspace{1in}}\]</span></p></li>
-<li><p>In part (a) you should have found that the log of new error is a
-linear function of the log of the old error. What is the slope of
-this linear function on a log-log plot?</p></li>
-<li><p>In the plots below you will see three different log-log plots of the
-new error to the old error for different root finding techniques.
-What is the order of the convergence rate for each of these methods?</p></li>
+<li><p>If we consider the equation <span class="math display">\[|x_{k+1} - x_*| \leq C |x_k - x_*|^M\]</span> and take the logarithm (base 10) of both sides then we get <span class="math display">\[\log\left( |x_{k+1} - x_*| \right) \leq \underline{\hspace{1in}} + \underline{\hspace{1in}}\]</span></p></li>
+<li><p>In part (a) you should have found that the log of new error is a linear function of the log of the old error. What is the slope of this linear function on a log-log plot?</p></li>
+<li><p>In the plots below you will see six different log-log plots of the new error to the old error for different root finding techniques. What is the order of the approximate convergence rate for each of these methods?</p></li>
 </ol>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:thee-error-plots"></span>
-<img src="images/Ch02_ErrorsExercise.png" alt="Three Error Plots" width="95%" />
+<img src="images/Ch02_ErrorsExercise2.png" alt="Three Error Plots" width="95%" />
 <p class="caption">
 Figure 2.12: Three Error Plots
 </p>
 </div>
 <ol start="4" style="list-style-type: lower-alpha">
-<li>In your own words, what does it mean for a root finding method to
-have a “first order convergence rate”? “Second order convergence
-rate”? etc.</li>
+<li>In your own words, what does it mean for a root finding method to have a “first order convergence rate”? “Second order convergence rate”? etc.</li>
 </ol>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-124" class="exercise"><strong>Exercise 2.59  </strong></span>Multiple Choice: For every step of Newton’s method the new estimate of
-the error between the Newton iteration and the exact answer is
-approximately:</p>
-<ol style="list-style-type: lower-alpha">
-<li><p>the same as it was on the previous step.</p></li>
-<li><p>ten times smaller than it was on the previous step</p></li>
-<li><p>one hundred times smaller than it was on the previous step</p></li>
-<li><p>one thousand times smaller than it was on the previous step</p></li>
-</ol>
-<p>Defend your answer with a sentence or two.</p>
+<p><span id="exr:unnamed-chunk-124" class="exercise"><strong>Exercise 2.59  </strong></span>
+Shelby started using Newton’s method to solve a root-finding problem. To test her code she was using an equation for which she new the solution. Given the starting point the absolute error after one step of Newton’s method was <span class="math inline">\(|x_1 - x_*| = 0.2\)</span>. What is the approximate expected error at step 2? What about at step 3? Step 4? Defend your answers by fully describing your thought process.</p>
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-125" class="exercise"><strong>Exercise 2.60  </strong></span>There are MANY other root finding techniques beyond the four that we have studied thus far. In this problem you will built the Chebyshev Method – named for the famous mathematician <a href="https://en.wikipedia.org/wiki/Pafnuty_Chebyshev">Pafnuty Chebyshev</a>.</p>
-<p>The iteration scheme for Chebyshev’s Method is given as
-<span class="math display">\[x_{n+1} = x_n - \frac{f(x_n)}{f&#39;(x_n)} - \frac{1}{2} \left( \frac{f(x_n)}{f&#39;(x_n)}
-    \right)^2 \frac{f&#39;&#39;(x_n)}{f&#39;(x_n)},\]</span></p>
+<p><span id="exr:unnamed-chunk-125" class="exercise"><strong>Exercise 2.60  </strong></span>There are MANY other root finding techniques beyond the four that we have studied thus far. We can build these methods using Taylor Series as follows:</p>
+<p>Near <span class="math inline">\(x=x_0\)</span> the function <span class="math inline">\(f(x)\)</span> is approximated by the Taylor Series <span class="math display">\[f(x) \approx y = f(x_0) + \sum_{n=1}^N \frac{f^{(n)}(x_0)}{n!} (x-x_0)^n\]</span>
+where <span class="math inline">\(N\)</span> is a positive integer. In a root-finding algorithm we set <span class="math inline">\(y\)</span> to zero to find the root of the approximation function. The root of this function <em>should</em> be close to the actual root that we’re looking for. Therefore, to find the next iterate we solve the equation <span class="math display">\[0 = f(x_0) + \sum_{n=1}^N \frac{f^{(n)}(x_0)}{n!} (x-x_0)^n\]</span> for <span class="math inline">\(x\)</span>. For example, if <span class="math inline">\(N=1\)</span> then we need to solve <span class="math inline">\(0 = f(x_0) + f&#39;(x_0)(x-x_0)\)</span> for <span class="math inline">\(x\)</span>. In doing so we get <span class="math inline">\(x = x_0 - f(x_0)/f&#39;(x_0)\)</span>. This is exactly Newton’s method. If <span class="math inline">\(N=2\)</span> then we need to solve <span class="math display">\[0 = f(x_0) + f&#39;(x_0)(x-x_0) + \frac{f&#39;&#39;(x_0)}{2!}(x-x_0)^2\]</span> for <span class="math inline">\(x\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
-<li>Write a Python function that implements the Chebyshev Method.</li>
-<li>Demonstrate that your code is indeed working by solving several problems where you know the exact solution.</li>
-<li>Show several plots that demonstrates that the Chebyshev Method exhibits a third-order
-convergence rate. That is, create a log-log plot of the successive errors for several different equation-solving problems. What does this “third order convergence” mean about the successive approximations in the Chebyshev iterations?</li>
-<li>What are the pro’s and con’s to using Chebyshev’s method instead of Newton’s method?</li>
+<li>Solve for <span class="math inline">\(x\)</span> in the case that <span class="math inline">\(N=2\)</span>. Then write a Python function that implements this root-finding method.</li>
+<li>Demonstrate that your code from part (a) is indeed working by solving several problems where you know the exact solution.</li>
+<li>Show several plots that estimates the order of the method from part (a). That is, create a log-log plot of the successive errors for several different equation-solving problems.</li>
+<li>What are the pro’s and con’s to using this new method?</li>
 </ol>
 </div>
 <hr />
@@ -1470,27 +1451,12 @@ your estimates of when the object will hit the ground?</p></li>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-127" class="exercise"><strong>Exercise 2.62  </strong></span>Can the Bisection Method, Regula Falsi Method, or Newton’s Method be used to find the roots of the function <span class="math inline">\(f(x) = cos(x) + 1\)</span>? Explain why or why not for each technique?
+<span id="exr:unnamed-chunk-127" class="exercise"><strong>Exercise 2.62  </strong></span>Can the Bisection Method, Regula Falsi Method, or Newton’s Method be used to find the roots of the function <span class="math inline">\(f(x) = \cos(x) + 1\)</span>? Explain why or why not for each technique?
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-128" class="exercise"><strong>Exercise 2.63  </strong></span>Consider our four primary root finding methods: Bisection, Regula Falsi,
-Newton’s method, and the Secant method.</p>
-<ol style="list-style-type: lower-alpha">
-<li><p>For each method give a mathematical situation where you might want
-to use the method and give a mathematical situation where you might
-not want to use the method.</p></li>
-<li><p>For each of these methods give one example where the method will
-fail.</p></li>
-</ol>
-<p>Support your arguments with proper mathematics. You are welcome to argue
-graphically but be sure to fully explain your graphical reasoning.</p>
-</div>
-<hr />
-
-<div class="exercise">
-<span id="exr:unnamed-chunk-129" class="exercise"><strong>Exercise 2.64  </strong></span>In Single Variable Calculus you studied methods for finding local and
+<span id="exr:unnamed-chunk-128" class="exercise"><strong>Exercise 2.63  </strong></span>In Single Variable Calculus you studied methods for finding local and
 global extrema of functions. You likely recall that part of the process
 is to set the first derivative to zero and to solve for the independent
 variable (remind yourself why you’re doing this). The trouble with this
@@ -1502,7 +1468,7 @@ Find the local extrema for the function <span class="math inline">\(f(x) = x^3(x
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-130" class="exercise"><strong>Exercise 2.65  </strong></span>A <em>fixed point</em> of a function <span class="math inline">\(f(x)\)</span> is a point that solves the equation
+<p><span id="exr:unnamed-chunk-129" class="exercise"><strong>Exercise 2.64  </strong></span>A <em>fixed point</em> of a function <span class="math inline">\(f(x)\)</span> is a point that solves the equation
 <span class="math inline">\(f(x) =  x\)</span>. Fixed points are interesting in iterative processes since fixed
 points don’t change under repeated application of the function <span class="math inline">\(f\)</span>.</p>
 <p>For example, consider the function <span class="math inline">\(f(x) = x^2 - 6\)</span>. The fixed points of
@@ -1520,7 +1486,7 @@ the function <span class="math inline">\(f(x) = x^2 - 6\)</span> on the interval
 <hr />
 
 <div class="exercise">
-<p><span id="exr:fsolve" class="exercise"><strong>Exercise 2.66  (<code>scipy.optimize.fsolve()</code>)  </strong></span>The <code>scipy</code> library in Python has many built-in numerical analysis routines much like the ones that we have built in this chapter. Of particular interest to the task of root finding is the <code>fsolve</code> command in the <code>scipy.optimize</code> library.</p>
+<p><span id="exr:fsolve" class="exercise"><strong>Exercise 2.65  (<code>scipy.optimize.fsolve()</code>)  </strong></span>The <code>scipy</code> library in Python has many built-in numerical analysis routines much like the ones that we have built in this chapter. Of particular interest to the task of root finding is the <code>fsolve</code> command in the <code>scipy.optimize</code> library.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Go to the <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fsolve.html">help documentation</a> for <code>scipy.optimize.fsolve</code> and make yourself familiar with how to use the tool.</li>
 <li>First solve the equation <span class="math inline">\(x\sin(x) - \ln(x) = 0\)</span> for <span class="math inline">\(x\)</span> starting at <span class="math inline">\(x_0 = 3\)</span>.
@@ -1541,11 +1507,14 @@ The following Python code allows you to use <code>scipy.optimize.fsolve()</code>
 <span id="cb4-2"><a href="ch-algebra.html#cb4-2"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> fsolve</span>
 <span id="cb4-3"><a href="ch-algebra.html#cb4-3"></a></span>
 <span id="cb4-4"><a href="ch-algebra.html#cb4-4"></a><span class="kw">def</span> F(x):</span>
-<span id="cb4-5"><a href="ch-algebra.html#cb4-5"></a>  Output <span class="op">=</span> [x[<span class="dv">0</span>]<span class="op">*</span>np.cos(x[<span class="dv">1</span>])<span class="op">-</span><span class="dv">4</span>]</span>
+<span id="cb4-5"><a href="ch-algebra.html#cb4-5"></a>  Output <span class="op">=</span> [ x[<span class="dv">0</span>]<span class="op">*</span>np.cos(x[<span class="dv">1</span>])<span class="op">-</span><span class="dv">4</span> ]</span>
 <span id="cb4-6"><a href="ch-algebra.html#cb4-6"></a>  Output.append( x[<span class="dv">0</span>]<span class="op">*</span>x[<span class="dv">1</span>] <span class="op">-</span> x[<span class="dv">1</span>] <span class="op">-</span> <span class="dv">5</span> )</span>
 <span id="cb4-7"><a href="ch-algebra.html#cb4-7"></a>  <span class="cf">return</span> Output</span>
 <span id="cb4-8"><a href="ch-algebra.html#cb4-8"></a></span>
-<span id="cb4-9"><a href="ch-algebra.html#cb4-9"></a>fsolve(F,[<span class="dv">6</span>,<span class="dv">1</span>],full_output<span class="op">=</span><span class="dv">1</span>) <span class="co"># Note: full_output gives the solver diagnostics</span></span></code></pre></div>
+<span id="cb4-9"><a href="ch-algebra.html#cb4-9"></a><span class="co"># Or alternately we could define the system as a lambda function with</span></span>
+<span id="cb4-10"><a href="ch-algebra.html#cb4-10"></a><span class="co"># F = lambda x: [ x[0]*np.cos(x[1])-4 , x[0]*x[1]-x[1]-5 ]</span></span>
+<span id="cb4-11"><a href="ch-algebra.html#cb4-11"></a></span>
+<span id="cb4-12"><a href="ch-algebra.html#cb4-12"></a>fsolve(F,[<span class="dv">6</span>,<span class="dv">1</span>],full_output<span class="op">=</span><span class="dv">1</span>) <span class="co"># Note: full_output gives the solver diagnostics</span></span></code></pre></div>
 <hr />
 </div>
 </div>
