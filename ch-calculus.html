@@ -397,21 +397,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">3.1</span> Intro to Numerical Calculus</h2>
 <p>In this chapter we build some of the common techniques for approximating
 the two primary computations in calculus: taking derivatives and
-evaluating definite integrals. Recall the typical tools of differential calculus:</p>
-<ul>
-<li>the power rule,</li>
-<li>the chain rule,</li>
-<li>the product rule,</li>
-<li>the quotient rule,</li>
-<li>the differentiation rules for exponentials, inverses, and trig
-functions,</li>
-<li>implicit differentiation,</li>
-<li>etc.</li>
-</ul>
-<p>With these rules, and enough time and patience, we can find a derivative
-of any algebraically defined function. The truth of the matter is that
-not all functions are given to us algebraically, and even the ones that
-are given algebraically are sometimes really cumbersome.</p>
+evaluating definite integrals. Beyond differentiation and integration one of the major applications of differential calculus was optimization. The last several sections of this chapter focus on numerical routines for approximating the solutions to optimization problems.</p>
+<p>Recall the typical techniques from differential calculus: the power rule, the chain rule, the product rule, the quotient rule, the differentiation rules for exponentials, inverses, and trig functions, implicit differentiation, etc. With these rules, and enough time and patience, we can find a derivative of any algebraically defined function. The truth of the matter is that not all functions are given to us algebraically, and even the ones that are given algebraically are sometimes really cumbersome.</p>
 <hr />
 
 <div class="exercise">
@@ -1301,14 +1288,10 @@ percent error is less than (but close to) 1%?</p></li>
 <div class="exercise">
 <p><span id="exr:unnamed-chunk-170" class="exercise"><strong>Exercise 3.31  </strong></span>Consider the shaded area of the region under the function plotted in
 Figure <a href="ch-calculus.html#fig:integration-ex1">3.4</a> between <span class="math inline">\(x=0\)</span> and <span class="math inline">\(x=2\)</span>.</p>
-<ol style="list-style-type: decimal">
-<li><p>What rectangle with area 6 gives an upper bound for the area under
-the curve? Can you give a better upper bound?</p></li>
-<li><p>Why must the area under the curve be greater than 3?</p></li>
-<li><p>Is the area greater than 4? Why/Why not?</p></li>
-<li><p>Work with your partner to give an estimate of the area and provide
-an estimate for the amount of error that you’re making.</p></li>
-</ol>
+<p>a.What rectangle with area 6 gives an upper bound for the area under the curve? Can you give a better upper bound?
+b. Why must the area under the curve be greater than 3?
+c. Is the area greater than 4? Why/Why not?
+d. Work with your partner to give an estimate of the area and provide an estimate for the amount of error that you’re making.</p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:integration-ex1"></span>
 <img src="images/Ch03_InitialIntegral.png" alt="A sample integration" width="45%" />
@@ -1349,8 +1332,8 @@ of the rectangles will get to the integral.</p>
 start by writing pseudo-code as comments in your function. Your Python function
 should accept a Python Function, a lower
 bound, an upper bound, the number of subintervals, and an optional input
-that allows the user to designate whether they want left, right, or
-midpoint rectangles. Test your code on several functions for which you know the integral. You
+that allows the user to designate whether they want <code>left</code>, <code>right</code>, or
+<code>midpoint</code> rectangles. Test your code on several functions for which you know the integral. You
 should write your code without any loops.
 </div>
 <hr />
@@ -1374,49 +1357,49 @@ left-justified rectangles. Fill in the table with your results.</p></li>
 </thead>
 <tbody>
 <tr class="odd">
+<td><span class="math inline">\(2^{-1} = 0.5\)</span></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
 <td><span class="math inline">\(2^{-2} = 0.25\)</span></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
-<td><span class="math inline">\(2^{-3} = 0.125\)</span></td>
+<tr class="odd">
+<td><span class="math inline">\(2^{-3}\)</span></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><span class="math inline">\(2^{-4}\)</span></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><span class="math inline">\(2^{-5}\)</span></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><span class="math inline">\(2^{-6}\)</span></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><span class="math inline">\(2^{-7}\)</span></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
-<td><span class="math inline">\(2^{-8}\)</span></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
 <tr class="even">
-<td><span class="math inline">\(2^{-9}\)</span></td>
+<td><span class="math inline">\(2^{-8}\)</span></td>
 <td></td>
 <td></td>
 <td></td>
@@ -1467,11 +1450,7 @@ the absolute percent error will be approximately <span class="math inline">\(\un
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-176" class="exercise"><strong>Exercise 3.36  </strong></span>Create a plot with the width of the subintervals on the horizontal axis
-and the absolute error between your (left) Riemann sum calculation and
-the exact integral for a known definite integral. Your plot should be on
-a log-log scale. Based on your plot, what is the approximate order of
-the error in the Riemann sum approximation?
+<span id="exr:unnamed-chunk-176" class="exercise"><strong>Exercise 3.36  </strong></span>Create a plot with the width of the subintervals on the horizontal axis and the absolute error between your Riemann sum calculations (left, right, and midpoint) and the exact integral for a known definite integral. Your plot should be on a log-log scale. Based on your plot, what is the approximate order of the error in the Riemann sum approximation?
 </div>
 <hr />
 </div>
@@ -1517,7 +1496,9 @@ Figure 3.7: A single trapezoid to approximate area under a curve.
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-178" class="exercise"><strong>Exercise 3.38  </strong></span>Consider the function <span class="math inline">\(f(x) = \frac{1}{5}x^2(5-x)\)</span> again.</p>
+<p><span id="exr:unnamed-chunk-178" class="exercise"><strong>Exercise 3.38  </strong></span>Again consider the function <span class="math inline">\(f(x) = \frac{1}{5}x^2(5-x)\)</span> on the interval <span class="math inline">\([1,4]\)</span>. We want to evaluate the integral
+<span class="math display">\[\int_1^4 f(x) dx\]</span>
+using trapezoids to approximate the area.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Work out the exact value of the definite integral by hand.</p></li>
 <li><p>Summarize your answers to the previous problems in the following
@@ -1739,7 +1720,9 @@ further research to the curious reader.</p>
 <span id="thm:num-int" class="theorem"><strong>Theorem 3.3  (Numerical Integration Schemes)  </strong></span>Let <span class="math inline">\(f(x)\)</span> be a continuous function on the interval <span class="math inline">\([a,b]\)</span>. The integral <span class="math inline">\(\int_a^b f(x) dx\)</span> can be approximated with any of the following.
 <span class="math display">\[\begin{aligned}
        &amp;\text{Riemann Sum: }  \int_a^b f(x) dx \approx \sum_{j=1}^N f(x_j) \Delta x \\
-       &amp; \qquad \text{Error for Riemann Sums: } \mathcal{O}(\Delta x) \\
+       &amp; \qquad \text{Error for Left and Right Riemann Sums: } \mathcal{O}(\Delta x) \\
+       &amp;\text{Riemann Sum: }  \int_a^b f(x) dx \approx \sum_{m=1}^N f(x_m) \Delta x \\
+       &amp; \qquad \text{Error for Midpoint Riemann Sums: } \mathcal{O}(\Delta x^2) \\
        &amp;\text{Trapezoidal Rule: }  \int_a^b f(x) dx \approx \frac{1}{2} \sum_{j=1}^N
        \left( f(x_j) + f(x_{j-1}) \right) \Delta x \\
        &amp; \qquad \text{Error for Trapezoidal Rule: } \mathcal{O}(\Delta x^2) \\
@@ -1801,8 +1784,7 @@ Figure 3.8: Folds to make a cardboard box
 </p>
 </div>
 <hr />
-<p>Now we’ll propose a few numerical techniques that can approximate the
-solution to these types of problems. The basic ideas are simple!</p>
+<p>The hard part of the single variable optimization process is often solving the equation <span class="math inline">\(f&#39;(x) = 0\)</span>. We could use numerical root finding schemes to solve this equation, but we could also potentially do better without actually finding the derivative. In the following we propose a few numerical techniques that can approximate the solution to these types of problems. The basic ideas are simple!</p>
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-188" class="exercise"><strong>Exercise 3.49  </strong></span>If you were blind folded and standing on a hill could you find the top of the hill? (assume no trees and no cliffs …this isn’t supposed to be dangerous) How would you do it? Explain your technique clearly.
@@ -1820,9 +1802,9 @@ descending the hill to the bottom (minimization).</p>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-190" class="exercise"><strong>Exercise 3.51  </strong></span>Let’s turn your intuition into an algorithm. If <span class="math inline">\(f(x)\)</span> is the function that you are trying to maximize then turn your algorithm from the previous problems into a step-by-step algorithm which could be coded. Then try out your code on the function
-<span class="math display">\[f(x) = e^{-x^2} + \sin(x^2)\]</span> to see if your algorithm can find the
-local maximum near <span class="math inline">\(x \approx 1.14\)</span>.
+<span id="exr:unnamed-chunk-190" class="exercise"><strong>Exercise 3.51  </strong></span>Let’s turn your intuitions into algorithms. If <span class="math inline">\(f(x)\)</span> is the function that you are trying to maximize then turn your ideas from the previous problems into step-by-step algorithms which could be coded. Then try out your codes on the function
+<span class="math display">\[f(x) = e^{-x^2} + \sin(x^2)\]</span> to see if your algorithms can find the
+local maximum near <span class="math inline">\(x \approx 1.14\)</span>. Try to generate several different algorithms.
 </div>
 <hr />
 <p>Some of the most common algorithms are listed below. Read through them and see which one(s) you ended up recreating? The intuition for these algorithms is pretty darn simple – travel uphill if you want to maximize – travel downhill if you want to minimize.</p>
@@ -1952,7 +1934,10 @@ problem is no longer really a desirable way to go. Use an appropriate
 numerical technique to solve this problem.
 </div>
 <hr />
-<p>Numerical optimization is often seen as quite challenging since the algorithms that we have introduced here could all get “stuck” at local extrema. To illustrate this see the function shown in Figure <a href="ch-calculus.html#fig:num-opt-challenging">3.9</a>. How will derivative free optimization methods have trouble finding the red point starting at the black point with this function? How will gradient descent/ascent methods have trouble? Why?</p>
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-202" class="exercise"><strong>Exercise 3.60  </strong></span>Numerical optimization is often seen as quite challenging since the algorithms that we have introduced here could all get “stuck” at local extrema. To illustrate this see the function shown in Figure <a href="ch-calculus.html#fig:num-opt-challenging">3.9</a>. How will derivative free optimization methods have trouble finding the red point starting at the black point with this function? How will gradient descent/ascent methods have trouble? Why?</p>
+</div>
 <div class="figure" style="text-align: center"><span id="fig:num-opt-challenging"></span>
 <img src="images/Ch03_HardOptimization.png" alt="A challenging numerical optimization problem. If we start at the black point then how will any of our algorithms find the local minimum at the red point?" width="50%" />
 <p class="caption">
@@ -1983,7 +1968,7 @@ multivariable. This particular subsection is intentionally quite brief. If you w
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-202" class="exercise"><strong>Exercise 3.60  </strong></span>The derivative free optimization method discussed in the single variable
+<p><span id="exr:unnamed-chunk-203" class="exercise"><strong>Exercise 3.61  </strong></span>The derivative free optimization method discussed in the single variable
 optimization section just said that you should pick two points and pick
 the one that takes you furthest uphill.</p>
 <ol style="list-style-type: lower-alpha">
@@ -2000,11 +1985,21 @@ point at a time so that your three points eventually converge to a
 nearby local maximum. It may be helpful to make a surface plot or a
 contour plot of a well-known function just as a visual.</p></li>
 </ol>
+<p>The clode below will demonstrate how to make a contour plot.</p>
 </div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="ch-calculus.html#cb16-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb16-2"><a href="ch-calculus.html#cb16-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb16-3"><a href="ch-calculus.html#cb16-3"></a>xdomain <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">100</span>)</span>
+<span id="cb16-4"><a href="ch-calculus.html#cb16-4"></a>ydomain <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">100</span>)</span>
+<span id="cb16-5"><a href="ch-calculus.html#cb16-5"></a>X, Y <span class="op">=</span> np.meshgrid(xdomain,ydomain)</span>
+<span id="cb16-6"><a href="ch-calculus.html#cb16-6"></a>f <span class="op">=</span> <span class="kw">lambda</span> x, y: np.sin(x)<span class="op">*</span>np.cos(x)</span>
+<span id="cb16-7"><a href="ch-calculus.html#cb16-7"></a>plt.contour(X,Y,f(X,Y))</span>
+<span id="cb16-8"><a href="ch-calculus.html#cb16-8"></a>plt.grid()</span>
+<span id="cb16-9"><a href="ch-calculus.html#cb16-9"></a>plt.show()</span></code></pre></div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-203" class="exercise"><strong>Exercise 3.61  </strong></span>Now let’s tackle the gradient ascent/descent algorithm. You should
+<span id="exr:unnamed-chunk-205" class="exercise"><strong>Exercise 3.62  </strong></span>Now let’s tackle the gradient ascent/descent algorithm. You should
 recall that the gradient vector points in the direction of maximum
 change. How can you use this fact to modify the gradient ascent/descent
 algorithm given previously? Clearly write your algorithm so that a
@@ -2013,32 +2008,29 @@ classmate could turn it into code.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-204" class="exercise"><strong>Exercise 3.62  </strong></span>How does the Monte Carlo algorithm extend to a two-variable optimization
+<span id="exr:unnamed-chunk-206" class="exercise"><strong>Exercise 3.63  </strong></span>How does the Monte Carlo algorithm extend to a two-variable optimization
 problem? Clearly write your algorithm.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-205" class="exercise"><strong>Exercise 3.63  </strong></span>Try out the three algorithms that you just wrote on the function
-<span class="math inline">\(f(x,y) =  \sin(x)\cos(y) + 0.1 x^2\)</span> which has many local extrema and no global
-maximum.
+<span id="exr:unnamed-chunk-207" class="exercise"><strong>Exercise 3.64  </strong></span>Try out the gradient descent/ascent and Monte Carlo algorithms on the function
+<span class="math inline">\(f(x,y) = \sin(x)\cos(y) + 0.1 x^2\)</span> which has many local extrema and no global
+maximum. We are not going to code the multidimensional derivative free optimization routine in this section.
 </div>
 <hr />
-
-<div class="exercise">
-<span id="exr:unnamed-chunk-206" class="exercise"><strong>Exercise 3.64  </strong></span>The derivative free, gradient ascent/descent, and monte carlo techniques
+<p>The derivative free, gradient ascent/descent, and monte carlo techniques
 still have good analogues in higher dimensions. We just need to be a bit
 careful since in higher dimensions there is much more room to move.
 Below we’ll give the full description of the gradient ascent/descent
 algorithm. We don’t give the full description of the derivative free or
 Monte Carlo algorithms since there are many ways to implement them. The
 interested reader should see a course in mathematical optimization or
-machine learning.
-</div>
+machine learning.</p>
 <hr />
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-207" class="definition"><strong>Definition 3.9  (The Gradient Descent Algorithm)  </strong></span>We want to solve the problem
+<p><span id="def:unnamed-chunk-208" class="definition"><strong>Definition 3.9  (The Gradient Descent Algorithm)  </strong></span>We want to solve the problem
 <span class="math display">\[\text{minimize } f(x_1, x_2, \ldots, x_n) \text{ subject to }(x_1, x_2, \ldots, x_n) \in S.\]</span></p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Choose an arbitrary starting point
@@ -2058,20 +2050,13 @@ are <em>close enough</em> to each other.</p></li>
 <p>Take Note: If you are looking to maximize your objective function then in the
 Monte-Carlo search you should examine if <span class="math inline">\(z\)</span> is greater than your
 current largest value. For gradient descent you should actually do a
-gradient <em>ascent</em> and follow the positive gradient instead of the
+gradient <em>ascent</em> instead and follow the positive gradient instead of the
 negative gradient.</p>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-208" class="exercise"><strong>Exercise 3.65  </strong></span>Write generic code to implement the Gradient Descent algorithm in as
-many dimensions as necessary and test your code on a multivariable
-function where you know the location and value of a local minimum.
-</div>
-<hr />
-
-<div class="exercise">
-<span id="exr:unnamed-chunk-209" class="exercise"><strong>Exercise 3.66  </strong></span>The functions like <span class="math inline">\(f(x,y) = \sin(x)\cos(y)\)</span> have many local extreme
-values which makes optimization challenging. Impelement your Gradient
+<span id="exr:unnamed-chunk-209" class="exercise"><strong>Exercise 3.65  </strong></span>The functions like <span class="math inline">\(f(x,y) = \sin(x)\cos(y)\)</span> have many local extreme
+values which makes optimization challenging. Implement your Gradient
 Descent code on this function to find the local minimum <span class="math inline">\((0,0)\)</span>. Start
 somewhere near <span class="math inline">\((0,0)\)</span> and show by way of example that your gradient
 descent code may not converge to this particular local minimum. Why is
@@ -2089,101 +2074,101 @@ this important?
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-210" class="exercise"><strong>Exercise 3.67  </strong></span>In the following blocks of Python code we demonstrate what the <code>np.diff()</code> command does. Use these examples to give a thorough description for what <code>np.diff()</code> does to a Python list.
+<span id="exr:unnamed-chunk-210" class="exercise"><strong>Exercise 3.66  </strong></span>In the following blocks of Python code we demonstrate what the <code>np.diff()</code> command does. Use these examples to give a thorough description for what <code>np.diff()</code> does to a Python list.
 </div>
 <p><strong>First example of <code>np.diff()</code>:</strong></p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="ch-calculus.html#cb16-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb16-2"><a href="ch-calculus.html#cb16-2"></a>myList <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">10</span>)</span>
-<span id="cb16-3"><a href="ch-calculus.html#cb16-3"></a><span class="bu">print</span>(myList)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="ch-calculus.html#cb17-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb17-2"><a href="ch-calculus.html#cb17-2"></a>myList <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">10</span>)</span>
+<span id="cb17-3"><a href="ch-calculus.html#cb17-3"></a><span class="bu">print</span>(myList)</span></code></pre></div>
 <pre><code>## [0 1 2 3 4 5 6 7 8 9]</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="ch-calculus.html#cb18-1"></a><span class="bu">print</span>( np.diff(myList) )</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="ch-calculus.html#cb19-1"></a><span class="bu">print</span>( np.diff(myList) )</span></code></pre></div>
 <pre><code>## [1 1 1 1 1 1 1 1 1]</code></pre>
 <p><strong>Second example of <code>np.diff()</code>:</strong></p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="ch-calculus.html#cb20-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb20-2"><a href="ch-calculus.html#cb20-2"></a>myList <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">6</span>)</span>
-<span id="cb20-3"><a href="ch-calculus.html#cb20-3"></a><span class="bu">print</span>(myList)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="ch-calculus.html#cb21-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb21-2"><a href="ch-calculus.html#cb21-2"></a>myList <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">6</span>)</span>
+<span id="cb21-3"><a href="ch-calculus.html#cb21-3"></a><span class="bu">print</span>(myList)</span></code></pre></div>
 <pre><code>## [0.  0.2 0.4 0.6 0.8 1. ]</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="ch-calculus.html#cb22-1"></a><span class="bu">print</span>( np.diff(myList) )</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="ch-calculus.html#cb23-1"></a><span class="bu">print</span>( np.diff(myList) )</span></code></pre></div>
 <pre><code>## [0.2 0.2 0.2 0.2 0.2]</code></pre>
 <p><strong>Third example of <code>np.diff()</code>:</strong></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="ch-calculus.html#cb24-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb24-2"><a href="ch-calculus.html#cb24-2"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">6</span>)</span>
-<span id="cb24-3"><a href="ch-calculus.html#cb24-3"></a>dx <span class="op">=</span> x[<span class="dv">1</span>]<span class="op">-</span>x[<span class="dv">0</span>]</span>
-<span id="cb24-4"><a href="ch-calculus.html#cb24-4"></a>y <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb24-5"><a href="ch-calculus.html#cb24-5"></a>dy <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>x</span>
-<span id="cb24-6"><a href="ch-calculus.html#cb24-6"></a><span class="bu">print</span>(<span class="st">&quot;function values: </span><span class="ch">\n</span><span class="st">&quot;</span>,y)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="ch-calculus.html#cb25-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb25-2"><a href="ch-calculus.html#cb25-2"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">6</span>)</span>
+<span id="cb25-3"><a href="ch-calculus.html#cb25-3"></a>dx <span class="op">=</span> x[<span class="dv">1</span>]<span class="op">-</span>x[<span class="dv">0</span>]</span>
+<span id="cb25-4"><a href="ch-calculus.html#cb25-4"></a>y <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb25-5"><a href="ch-calculus.html#cb25-5"></a>dy <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>x</span>
+<span id="cb25-6"><a href="ch-calculus.html#cb25-6"></a><span class="bu">print</span>(<span class="st">&quot;function values: </span><span class="ch">\n</span><span class="st">&quot;</span>,y)</span></code></pre></div>
 <pre><code>## function values: 
 ##  [0.   0.04 0.16 0.36 0.64 1.  ]</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="ch-calculus.html#cb26-1"></a><span class="bu">print</span>(<span class="st">&quot;exact values of derivative: </span><span class="ch">\n</span><span class="st">&quot;</span>,dy)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="ch-calculus.html#cb27-1"></a><span class="bu">print</span>(<span class="st">&quot;exact values of derivative: </span><span class="ch">\n</span><span class="st">&quot;</span>,dy)</span></code></pre></div>
 <pre><code>## exact values of derivative: 
 ##  [0.  0.4 0.8 1.2 1.6 2. ]</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="ch-calculus.html#cb28-1"></a><span class="bu">print</span>(<span class="st">&quot;values from np.diff(): </span><span class="ch">\n</span><span class="st">&quot;</span>,np.diff(y))</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="ch-calculus.html#cb29-1"></a><span class="bu">print</span>(<span class="st">&quot;values from np.diff(): </span><span class="ch">\n</span><span class="st">&quot;</span>,np.diff(y))</span></code></pre></div>
 <pre><code>## values from np.diff(): 
 ##  [0.04 0.12 0.2  0.28 0.36]</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="ch-calculus.html#cb30-1"></a><span class="bu">print</span>(<span class="st">&quot;values from np.diff()/dx: </span><span class="ch">\n</span><span class="st">&quot;</span>,np.diff(y) <span class="op">/</span> dx )</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="ch-calculus.html#cb31-1"></a><span class="bu">print</span>(<span class="st">&quot;values from np.diff()/dx: </span><span class="ch">\n</span><span class="st">&quot;</span>,np.diff(y) <span class="op">/</span> dx )</span></code></pre></div>
 <pre><code>## values from np.diff()/dx: 
 ##  [0.2 0.6 1.  1.4 1.8]</code></pre>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-214" class="exercise"><strong>Exercise 3.68  </strong></span>Why does the <code>np.diff()</code> command produce a list that is one element shorter than the original list?
+<span id="exr:unnamed-chunk-214" class="exercise"><strong>Exercise 3.67  </strong></span>Why does the <code>np.diff()</code> command produce a list that is one element shorter than the original list?
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-215" class="exercise"><strong>Exercise 3.69  </strong></span>If we have a list of <span class="math inline">\(x\)</span> values and a list of <span class="math inline">\(y\)</span> values for a function <span class="math inline">\(y=f(x)\)</span> then how do we use <code>np.diff()</code> to approximate the first derivative of <span class="math inline">\(f(x)\)</span>? What is the order of the error in the approximation?
+<span id="exr:unnamed-chunk-215" class="exercise"><strong>Exercise 3.68  </strong></span>If we have a list of <span class="math inline">\(x\)</span> values and a list of <span class="math inline">\(y\)</span> values for a function <span class="math inline">\(y=f(x)\)</span> then how do we use <code>np.diff()</code> to approximate the first derivative of <span class="math inline">\(f(x)\)</span>? What is the order of the error in the approximation?
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-216" class="exercise"><strong>Exercise 3.70  </strong></span>What does the following block of Python code do?
+<span id="exr:unnamed-chunk-216" class="exercise"><strong>Exercise 3.69  </strong></span>What does the following block of Python code do?
 </div>
-<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="ch-calculus.html#cb32-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb32-2"><a href="ch-calculus.html#cb32-2"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">6</span>)</span>
-<span id="cb32-3"><a href="ch-calculus.html#cb32-3"></a>dx <span class="op">=</span> x[<span class="dv">1</span>]<span class="op">-</span>x[<span class="dv">0</span>]</span>
-<span id="cb32-4"><a href="ch-calculus.html#cb32-4"></a>y <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb32-5"><a href="ch-calculus.html#cb32-5"></a><span class="bu">print</span>( np.diff(y,<span class="dv">2</span>) <span class="op">/</span> dx<span class="op">**</span><span class="dv">2</span> )</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="ch-calculus.html#cb33-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb33-2"><a href="ch-calculus.html#cb33-2"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">6</span>)</span>
+<span id="cb33-3"><a href="ch-calculus.html#cb33-3"></a>dx <span class="op">=</span> x[<span class="dv">1</span>]<span class="op">-</span>x[<span class="dv">0</span>]</span>
+<span id="cb33-4"><a href="ch-calculus.html#cb33-4"></a>y <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb33-5"><a href="ch-calculus.html#cb33-5"></a><span class="bu">print</span>( np.diff(y,<span class="dv">2</span>) <span class="op">/</span> dx<span class="op">**</span><span class="dv">2</span> )</span></code></pre></div>
 <pre><code>## [2. 2. 2. 2.]</code></pre>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-218" class="exercise"><strong>Exercise 3.71  </strong></span>Use the <code>np.diff()</code> command to approximate the first and second derivatives of the function <span class="math inline">\(f(x) = x\sin(x) - \ln(x)\)</span> on the domain <span class="math inline">\([1,5]\)</span>. Then create a plot that shows <span class="math inline">\(f(x)\)</span> and the approximations of <span class="math inline">\(f&#39;(x)\)</span> and <span class="math inline">\(f&#39;&#39;(x)\)</span>.
+<span id="exr:unnamed-chunk-218" class="exercise"><strong>Exercise 3.70  </strong></span>Use the <code>np.diff()</code> command to approximate the first and second derivatives of the function <span class="math inline">\(f(x) = x\sin(x) - \ln(x)\)</span> on the domain <span class="math inline">\([1,5]\)</span>. Then create a plot that shows <span class="math inline">\(f(x)\)</span> and the approximations of <span class="math inline">\(f&#39;(x)\)</span> and <span class="math inline">\(f&#39;&#39;(x)\)</span>.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-219" class="exercise"><strong>Exercise 3.72  </strong></span>Next we look into the <code>scipy.misc.derivative()</code> command from the <code>scipy</code> library. This will be another way to calculate the derivative of a function. One advantage will be that you can just send in a Python function (or a lambda function) without actually computing the lists of values. Examine the following Python code and fully describe what it does.
+<span id="exr:unnamed-chunk-219" class="exercise"><strong>Exercise 3.71  </strong></span>Next we look into the <code>scipy.misc.derivative()</code> command from the <code>scipy</code> library. This will be another way to calculate the derivative of a function. One advantage will be that you can just send in a Python function (or a lambda function) without actually computing the lists of values. Examine the following Python code and fully describe what it does.
 </div>
-<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="ch-calculus.html#cb34-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb34-2"><a href="ch-calculus.html#cb34-2"></a><span class="im">import</span> scipy.misc</span>
-<span id="cb34-3"><a href="ch-calculus.html#cb34-3"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb34-4"><a href="ch-calculus.html#cb34-4"></a>x <span class="op">=</span> np.linspace(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">5</span>)</span>
-<span id="cb34-5"><a href="ch-calculus.html#cb34-5"></a>df <span class="op">=</span> scipy.misc.derivative(f,x,dx <span class="op">=</span> <span class="fl">1e-10</span>)</span>
-<span id="cb34-6"><a href="ch-calculus.html#cb34-6"></a><span class="bu">print</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="ch-calculus.html#cb35-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb35-2"><a href="ch-calculus.html#cb35-2"></a><span class="im">import</span> scipy.misc</span>
+<span id="cb35-3"><a href="ch-calculus.html#cb35-3"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb35-4"><a href="ch-calculus.html#cb35-4"></a>x <span class="op">=</span> np.linspace(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">5</span>)</span>
+<span id="cb35-5"><a href="ch-calculus.html#cb35-5"></a>df <span class="op">=</span> scipy.misc.derivative(f,x,dx <span class="op">=</span> <span class="fl">1e-10</span>)</span>
+<span id="cb35-6"><a href="ch-calculus.html#cb35-6"></a><span class="bu">print</span>(df)</span></code></pre></div>
 <pre><code>## [ 2.00000017  4.00000033  6.0000005   8.00000066 10.00000083]</code></pre>
 <p>One advantage to using <code>scipy.misc.derivative()</code> is that you get to dictate the error in the derivative computation, and that error is not tied to the list of values that you provide. In its simplest form you can provide just a single <span class="math inline">\(x\)</span> value just like in the next block of code.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="ch-calculus.html#cb36-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb36-2"><a href="ch-calculus.html#cb36-2"></a><span class="im">import</span> scipy.misc</span>
-<span id="cb36-3"><a href="ch-calculus.html#cb36-3"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb36-4"><a href="ch-calculus.html#cb36-4"></a>df <span class="op">=</span> scipy.misc.derivative(f,<span class="dv">1</span>,dx <span class="op">=</span> <span class="fl">1e-10</span>) <span class="co"># derivative at x=1</span></span>
-<span id="cb36-5"><a href="ch-calculus.html#cb36-5"></a><span class="bu">print</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="ch-calculus.html#cb37-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb37-2"><a href="ch-calculus.html#cb37-2"></a><span class="im">import</span> scipy.misc</span>
+<span id="cb37-3"><a href="ch-calculus.html#cb37-3"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb37-4"><a href="ch-calculus.html#cb37-4"></a>df <span class="op">=</span> scipy.misc.derivative(f,<span class="dv">1</span>,dx <span class="op">=</span> <span class="fl">1e-10</span>) <span class="co"># derivative at x=1</span></span>
+<span id="cb37-5"><a href="ch-calculus.html#cb37-5"></a><span class="bu">print</span>(df)</span></code></pre></div>
 <pre><code>## 2.000000165480742</code></pre>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-222" class="exercise"><strong>Exercise 3.73  </strong></span>In the following code we find the first and second derivatives of <span class="math inline">\(f(x) = x\sin(x) - \ln(x)\)</span> using <code>scipy.misc.derivative()</code>. Notice that we’ve chosen to take <code>dx=1e-6</code> for each of the derivative computations. That may seem like an odd choice, but there is more going on here. Try successively smaller and smaller values for the <code>dx</code> parameter. What do you find? Why does it happen?
+<span id="exr:unnamed-chunk-222" class="exercise"><strong>Exercise 3.72  </strong></span>In the following code we find the first and second derivatives of <span class="math inline">\(f(x) = x\sin(x) - \ln(x)\)</span> using <code>scipy.misc.derivative()</code>. Notice that we’ve chosen to take <code>dx=1e-6</code> for each of the derivative computations. That may seem like an odd choice, but there is more going on here. Try successively smaller and smaller values for the <code>dx</code> parameter. What do you find? Why does it happen?
 </div>
-<div class="sourceCode" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="ch-calculus.html#cb38-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb38-2"><a href="ch-calculus.html#cb38-2"></a><span class="im">import</span> scipy.misc </span>
-<span id="cb38-3"><a href="ch-calculus.html#cb38-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb38-4"><a href="ch-calculus.html#cb38-4"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: np.sin(x)<span class="op">*</span>x<span class="op">-</span>np.log(x)</span>
-<span id="cb38-5"><a href="ch-calculus.html#cb38-5"></a>x <span class="op">=</span> np.linspace(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">100</span>) <span class="co"># x domain: 100 points between 1 and 5</span></span>
-<span id="cb38-6"><a href="ch-calculus.html#cb38-6"></a>df <span class="op">=</span> scipy.misc.derivative(f,x,dx<span class="op">=</span><span class="fl">1e-6</span>)</span>
-<span id="cb38-7"><a href="ch-calculus.html#cb38-7"></a>df2 <span class="op">=</span> scipy.misc.derivative(f,x,dx<span class="op">=</span><span class="fl">1e-6</span>,n<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb38-8"><a href="ch-calculus.html#cb38-8"></a>plt.plot(x,f(x),<span class="st">&#39;b&#39;</span>,x,df,<span class="st">&#39;r--&#39;</span>,x,df2,<span class="st">&#39;k--&#39;</span>)</span>
-<span id="cb38-9"><a href="ch-calculus.html#cb38-9"></a>plt.legend([<span class="st">&quot;f(x)&quot;</span>,<span class="st">&quot;f&#39;(x)&quot;</span>,<span class="st">&quot;f&#39;&#39;(x)&quot;</span>])</span>
-<span id="cb38-10"><a href="ch-calculus.html#cb38-10"></a>plt.grid()</span>
-<span id="cb38-11"><a href="ch-calculus.html#cb38-11"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="ch-calculus.html#cb39-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb39-2"><a href="ch-calculus.html#cb39-2"></a><span class="im">import</span> scipy.misc </span>
+<span id="cb39-3"><a href="ch-calculus.html#cb39-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb39-4"><a href="ch-calculus.html#cb39-4"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: np.sin(x)<span class="op">*</span>x<span class="op">-</span>np.log(x)</span>
+<span id="cb39-5"><a href="ch-calculus.html#cb39-5"></a>x <span class="op">=</span> np.linspace(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">100</span>) <span class="co"># x domain: 100 points between 1 and 5</span></span>
+<span id="cb39-6"><a href="ch-calculus.html#cb39-6"></a>df <span class="op">=</span> scipy.misc.derivative(f,x,dx<span class="op">=</span><span class="fl">1e-6</span>)</span>
+<span id="cb39-7"><a href="ch-calculus.html#cb39-7"></a>df2 <span class="op">=</span> scipy.misc.derivative(f,x,dx<span class="op">=</span><span class="fl">1e-6</span>,n<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb39-8"><a href="ch-calculus.html#cb39-8"></a>plt.plot(x,f(x),<span class="st">&#39;b&#39;</span>,x,df,<span class="st">&#39;r--&#39;</span>,x,df2,<span class="st">&#39;k--&#39;</span>)</span>
+<span id="cb39-9"><a href="ch-calculus.html#cb39-9"></a>plt.legend([<span class="st">&quot;f(x)&quot;</span>,<span class="st">&quot;f&#39;(x)&quot;</span>,<span class="st">&quot;f&#39;&#39;(x)&quot;</span>])</span>
+<span id="cb39-10"><a href="ch-calculus.html#cb39-10"></a>plt.grid()</span>
+<span id="cb39-11"><a href="ch-calculus.html#cb39-11"></a>plt.show()</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-224"></span>
 <img src="images/Ch03_ScipyDerivatives.png" alt="Derivatives with scipy" width="75%" />
 <p class="caption">
@@ -2198,45 +2183,45 @@ Figure 3.10: Derivatives with scipy
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-225" class="exercise"><strong>Exercise 3.74  </strong></span>First we’ll approximate the integral <span class="math inline">\(\int_{-2}^2 x^2 dx\)</span>. The exact answer is
+<span id="exr:unnamed-chunk-225" class="exercise"><strong>Exercise 3.73  </strong></span>First we’ll approximate the integral <span class="math inline">\(\int_{-2}^2 x^2 dx\)</span>. The exact answer is
 <span class="math display">\[ \int_{-2}^2 x^2 dx = \frac{x^3}{3} \Big|_{-2}^2 = \frac{16}{3} = 5.3333... \]</span>
 </div>
-<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="ch-calculus.html#cb39-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb39-2"><a href="ch-calculus.html#cb39-2"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">100</span>)</span>
-<span id="cb39-3"><a href="ch-calculus.html#cb39-3"></a>dx <span class="op">=</span> x[<span class="dv">1</span>]<span class="op">-</span>x[<span class="dv">0</span>]</span>
-<span id="cb39-4"><a href="ch-calculus.html#cb39-4"></a>y <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb39-5"><a href="ch-calculus.html#cb39-5"></a><span class="bu">print</span>(<span class="st">&quot;Approximate integral is &quot;</span>,np.trapz(y)<span class="op">*</span>dx)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="ch-calculus.html#cb40-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb40-2"><a href="ch-calculus.html#cb40-2"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">100</span>)</span>
+<span id="cb40-3"><a href="ch-calculus.html#cb40-3"></a>dx <span class="op">=</span> x[<span class="dv">1</span>]<span class="op">-</span>x[<span class="dv">0</span>]</span>
+<span id="cb40-4"><a href="ch-calculus.html#cb40-4"></a>y <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb40-5"><a href="ch-calculus.html#cb40-5"></a><span class="bu">print</span>(<span class="st">&quot;Approximate integral is &quot;</span>,np.trapz(y)<span class="op">*</span>dx)</span></code></pre></div>
 <pre><code>## Approximate integral is  5.334421657653986</code></pre>
 <p>Next we’ll approximate <span class="math inline">\(\int_0^{2\pi} \sin(x) dx\)</span>. We know that the exact value is 0.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="ch-calculus.html#cb41-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb41-2"><a href="ch-calculus.html#cb41-2"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">2</span><span class="op">*</span>np.pi,<span class="dv">100</span>)</span>
-<span id="cb41-3"><a href="ch-calculus.html#cb41-3"></a>dx <span class="op">=</span> x[<span class="dv">1</span>]<span class="op">-</span>x[<span class="dv">0</span>]</span>
-<span id="cb41-4"><a href="ch-calculus.html#cb41-4"></a>y <span class="op">=</span> np.sin(x)</span>
-<span id="cb41-5"><a href="ch-calculus.html#cb41-5"></a><span class="bu">print</span>(<span class="st">&quot;Approximate integral is &quot;</span>,np.trapz(y)<span class="op">*</span>dx)</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="ch-calculus.html#cb42-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb42-2"><a href="ch-calculus.html#cb42-2"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">2</span><span class="op">*</span>np.pi,<span class="dv">100</span>)</span>
+<span id="cb42-3"><a href="ch-calculus.html#cb42-3"></a>dx <span class="op">=</span> x[<span class="dv">1</span>]<span class="op">-</span>x[<span class="dv">0</span>]</span>
+<span id="cb42-4"><a href="ch-calculus.html#cb42-4"></a>y <span class="op">=</span> np.sin(x)</span>
+<span id="cb42-5"><a href="ch-calculus.html#cb42-5"></a><span class="bu">print</span>(<span class="st">&quot;Approximate integral is &quot;</span>,np.trapz(y)<span class="op">*</span>dx)</span></code></pre></div>
 <pre><code>## Approximate integral is  -2.2019371830862577e-17</code></pre>
 <p>Pick a function and an interval for which you know the exact definite integral. Demonstrate how to use <code>np.trapz()</code> on your definite integral.</p>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-228" class="exercise"><strong>Exercise 3.75  </strong></span>Notice in the last examples that we multiplied the result of the <code>np.trapz()</code> command by <code>dx</code>. Why did we do this? What is the <code>np.trapz()</code> command doing without the <code>dx</code>?
+<span id="exr:unnamed-chunk-228" class="exercise"><strong>Exercise 3.74  </strong></span>Notice in the last examples that we multiplied the result of the <code>np.trapz()</code> command by <code>dx</code>. Why did we do this? What is the <code>np.trapz()</code> command doing without the <code>dx</code>?
 </div>
 <hr />
 <p>In the <code>scipy</code> library there is a more general tool called <code>scipy.integrate.quad()</code>. The term “quad” is short for “quadrature”. In numerical analysis literature rules like Simpson’s rule are called quadrature rules for integration. The function <code>scipy.integrate.quad()</code> accepts a Python function (or a lambda function) and the bounds of the definite integral. It outputs an approximation of the integral along with an approximation of the error in the integral calculation. See the Python code below.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="ch-calculus.html#cb43-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb43-2"><a href="ch-calculus.html#cb43-2"></a><span class="im">import</span> scipy.integrate</span>
-<span id="cb43-3"><a href="ch-calculus.html#cb43-3"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb43-4"><a href="ch-calculus.html#cb43-4"></a>I <span class="op">=</span> scipy.integrate.quad(f,<span class="op">-</span><span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb43-5"><a href="ch-calculus.html#cb43-5"></a><span class="bu">print</span>(I)</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="ch-calculus.html#cb44-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb44-2"><a href="ch-calculus.html#cb44-2"></a><span class="im">import</span> scipy.integrate</span>
+<span id="cb44-3"><a href="ch-calculus.html#cb44-3"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb44-4"><a href="ch-calculus.html#cb44-4"></a>I <span class="op">=</span> scipy.integrate.quad(f,<span class="op">-</span><span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb44-5"><a href="ch-calculus.html#cb44-5"></a><span class="bu">print</span>(I)</span></code></pre></div>
 <pre><code>## (5.333333333333333, 5.921189464667501e-14)</code></pre>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-230" class="exercise"><strong>Exercise 3.76  </strong></span>What are the advantages and disadvantages to using the <code>scipy.integrate.quad()</code> command as compared to the <code>np.trapz()</code> command.
+<span id="exr:unnamed-chunk-230" class="exercise"><strong>Exercise 3.75  </strong></span>What are the advantages and disadvantages to using the <code>scipy.integrate.quad()</code> command as compared to the <code>np.trapz()</code> command.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-231" class="exercise"><strong>Exercise 3.77  </strong></span>If you have data for the hourly rate at which water is being drained from a dam and you want to find the total amount of water drained over the course of the time in the dataset, then which of the tools that we know would you use? Why?
+<span id="exr:unnamed-chunk-231" class="exercise"><strong>Exercise 3.76  </strong></span>If you have data for the hourly rate at which water is being drained from a dam and you want to find the total amount of water drained over the course of the time in the dataset, then which of the tools that we know would you use? Why?
 </div>
 <hr />
 </div>
@@ -2246,12 +2231,12 @@ Figure 3.10: Derivatives with scipy
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-232" class="exercise"><strong>Exercise 3.78  </strong></span>Let’s solve a very simple function minimization problem to get started. Consider the function <span class="math inline">\(f(x) = (x-3)^2 - 5\)</span>. A moment’s thought reveals that the global minimum of this parabolic function occurs at <span class="math inline">\((3,-5)\)</span>. We can have <code>scipy.optimize.minimize()</code> find this value for us numerically. The routine is much like Newton’s Method in that we give it a starting point <em>near</em> where we think the optimum will be and it will iterate through some algorithm (like a derivative free optimization routine) to approximate the minimum.
+<span id="exr:unnamed-chunk-232" class="exercise"><strong>Exercise 3.77  </strong></span>Let’s solve a very simple function minimization problem to get started. Consider the function <span class="math inline">\(f(x) = (x-3)^2 - 5\)</span>. A moment’s thought reveals that the global minimum of this parabolic function occurs at <span class="math inline">\((3,-5)\)</span>. We can have <code>scipy.optimize.minimize()</code> find this value for us numerically. The routine is much like Newton’s Method in that we give it a starting point <em>near</em> where we think the optimum will be and it will iterate through some algorithm (like a derivative free optimization routine) to approximate the minimum.
 </div>
-<div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="ch-calculus.html#cb45-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb45-2"><a href="ch-calculus.html#cb45-2"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
-<span id="cb45-3"><a href="ch-calculus.html#cb45-3"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: (x<span class="op">-</span><span class="dv">3</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">5</span></span>
-<span id="cb45-4"><a href="ch-calculus.html#cb45-4"></a>minimize(f,<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="ch-calculus.html#cb46-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb46-2"><a href="ch-calculus.html#cb46-2"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
+<span id="cb46-3"><a href="ch-calculus.html#cb46-3"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: (x<span class="op">-</span><span class="dv">3</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">5</span></span>
+<span id="cb46-4"><a href="ch-calculus.html#cb46-4"></a>minimize(f,<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>##       fun: -5.0
 ##  hess_inv: array([[0.49999999]])
 ##       jac: array([0.])
@@ -2269,12 +2254,12 @@ Figure 3.10: Derivatives with scipy
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-234" class="exercise"><strong>Exercise 3.79  </strong></span>There is not a function called <code>scipy.optimize.maximize()</code>. Instead, Python expects you to rewrite every maximization problem as a minimization problem. How do you do that?
+<span id="exr:unnamed-chunk-234" class="exercise"><strong>Exercise 3.78  </strong></span>There is not a function called <code>scipy.optimize.maximize()</code>. Instead, Python expects you to rewrite every maximization problem as a minimization problem. How do you do that?
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-235" class="exercise"><strong>Exercise 3.80  </strong></span>Solve Exercise <a href="ch-calculus.html#exr:cardboard-problem">3.48</a> using <code>scipy.optimize.minimize()</code>.
+<span id="exr:unnamed-chunk-235" class="exercise"><strong>Exercise 3.79  </strong></span>Solve Exercise <a href="ch-calculus.html#exr:cardboard-problem">3.48</a> using <code>scipy.optimize.minimize()</code>.
 </div>
 <hr />
 </div>
@@ -2288,7 +2273,7 @@ Figure 3.10: Derivatives with scipy
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-236" class="exercise"><strong>Exercise 3.81  </strong></span>Consider the function <span class="math inline">\(f(x)\)</span> that goes exactly through the points
+<p><span id="exr:unnamed-chunk-236" class="exercise"><strong>Exercise 3.80  </strong></span>Consider the function <span class="math inline">\(f(x)\)</span> that goes exactly through the points
 <span class="math inline">\((0,1)\)</span>, <span class="math inline">\((1,4)\)</span>, and <span class="math inline">\((2,13)\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Find a function that goes through these points exactly. Be able to
@@ -2300,7 +2285,7 @@ out there that also goes exactly through these points?</p></li>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:first-least-squares" class="exercise"><strong>Exercise 3.82  </strong></span>Now let’s make a minor tweak to the previous problem. Let’s say that we
+<p><span id="exr:first-least-squares" class="exercise"><strong>Exercise 3.81  </strong></span>Now let’s make a minor tweak to the previous problem. Let’s say that we
 have the data points <span class="math inline">\((0,1.07)\)</span>, <span class="math inline">\((1,3.9)\)</span>, <span class="math inline">\((2,14.8)\)</span>, and <span class="math inline">\((3,26.8)\)</span>.
 Notice that these points are <em>close</em> to the points we had in the
 previous problem, but all of the <span class="math inline">\(y\)</span> values have a little noise in them
@@ -2312,20 +2297,20 @@ chosen values of <span class="math inline">\(a\)</span>, <span class="math inlin
 <li><p>Work with your partner(s) to systematically change <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, and <span class="math inline">\(c\)</span> so that you get a good visual match to the data. The Python code below will help you get started.</p></li>
 </ol>
 </div>
-<div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb47-1"><a href="ch-calculus.html#cb47-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb47-2"><a href="ch-calculus.html#cb47-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb47-3"><a href="ch-calculus.html#cb47-3"></a>xdata <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
-<span id="cb47-4"><a href="ch-calculus.html#cb47-4"></a>ydata <span class="op">=</span> np.array([<span class="fl">1.07</span>, <span class="fl">3.9</span>, <span class="fl">14.8</span>, <span class="fl">26.8</span>])</span>
-<span id="cb47-5"><a href="ch-calculus.html#cb47-5"></a>a <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb47-6"><a href="ch-calculus.html#cb47-6"></a>b <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb47-7"><a href="ch-calculus.html#cb47-7"></a>c <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb47-8"><a href="ch-calculus.html#cb47-8"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">4</span>,<span class="dv">100</span>)</span>
-<span id="cb47-9"><a href="ch-calculus.html#cb47-9"></a>guess <span class="op">=</span> a<span class="op">*</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> b<span class="op">*</span>x <span class="op">+</span> c</span>
-<span id="cb47-10"><a href="ch-calculus.html#cb47-10"></a>plt.plot(xdata,ydata,<span class="st">&#39;bo&#39;</span>,markersize<span class="op">=</span><span class="dv">5</span>)</span>
-<span id="cb47-11"><a href="ch-calculus.html#cb47-11"></a>plt.plot(x,guess,<span class="st">&#39;r--&#39;</span>)</span>
-<span id="cb47-12"><a href="ch-calculus.html#cb47-12"></a>plt.grid()</span>
-<span id="cb47-13"><a href="ch-calculus.html#cb47-13"></a>plt.legend([<span class="st">&#39;Data&#39;</span>,<span class="st">&#39;Guess&#39;</span>])</span>
-<span id="cb47-14"><a href="ch-calculus.html#cb47-14"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="ch-calculus.html#cb48-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb48-2"><a href="ch-calculus.html#cb48-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb48-3"><a href="ch-calculus.html#cb48-3"></a>xdata <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
+<span id="cb48-4"><a href="ch-calculus.html#cb48-4"></a>ydata <span class="op">=</span> np.array([<span class="fl">1.07</span>, <span class="fl">3.9</span>, <span class="fl">14.8</span>, <span class="fl">26.8</span>])</span>
+<span id="cb48-5"><a href="ch-calculus.html#cb48-5"></a>a <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb48-6"><a href="ch-calculus.html#cb48-6"></a>b <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb48-7"><a href="ch-calculus.html#cb48-7"></a>c <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb48-8"><a href="ch-calculus.html#cb48-8"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">4</span>,<span class="dv">100</span>)</span>
+<span id="cb48-9"><a href="ch-calculus.html#cb48-9"></a>guess <span class="op">=</span> a<span class="op">*</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> b<span class="op">*</span>x <span class="op">+</span> c</span>
+<span id="cb48-10"><a href="ch-calculus.html#cb48-10"></a>plt.plot(xdata,ydata,<span class="st">&#39;bo&#39;</span>,markersize<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb48-11"><a href="ch-calculus.html#cb48-11"></a>plt.plot(x,guess,<span class="st">&#39;r--&#39;</span>)</span>
+<span id="cb48-12"><a href="ch-calculus.html#cb48-12"></a>plt.grid()</span>
+<span id="cb48-13"><a href="ch-calculus.html#cb48-13"></a>plt.legend([<span class="st">&#39;Data&#39;</span>,<span class="st">&#39;Guess&#39;</span>])</span>
+<span id="cb48-14"><a href="ch-calculus.html#cb48-14"></a>plt.show()</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-238"></span>
 <img src="images/Ch03_DataMatch.png" alt="Initial attempt at matching data with a quadratic." width="75%" />
 <p class="caption">
@@ -2333,15 +2318,15 @@ Figure 3.11: Initial attempt at matching data with a quadratic.
 </p>
 </div>
 <p>As an alternative to loading the data manually we could download the data from the book’s github page. All datasets in the text can be loaded in this way. We will be using the <code>pandas</code> library (a Python data science library) to load the <code>.csv</code> files.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="ch-calculus.html#cb48-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb48-2"><a href="ch-calculus.html#cb48-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb48-3"><a href="ch-calculus.html#cb48-3"></a>data <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_82.csv&#39;</span>) )</span>
-<span id="cb48-4"><a href="ch-calculus.html#cb48-4"></a>xdata <span class="op">=</span> data[:,<span class="dv">0</span>]</span>
-<span id="cb48-5"><a href="ch-calculus.html#cb48-5"></a>ydata <span class="op">=</span> data[:,<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="ch-calculus.html#cb49-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb49-2"><a href="ch-calculus.html#cb49-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb49-3"><a href="ch-calculus.html#cb49-3"></a>data <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_datafit1.csv&#39;</span>) )</span>
+<span id="cb49-4"><a href="ch-calculus.html#cb49-4"></a>xdata <span class="op">=</span> data[:,<span class="dv">0</span>]</span>
+<span id="cb49-5"><a href="ch-calculus.html#cb49-5"></a>ydata <span class="op">=</span> data[:,<span class="dv">1</span>]</span></code></pre></div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-240" class="exercise"><strong>Exercise 3.83  </strong></span>Now let’s be a bit more systematic about things from the previous problem. Let’s say that you have a pretty good guess that <span class="math inline">\(b \approx 2\)</span> and <span class="math inline">\(c \approx 0.7\)</span>. We need to get a good estimate for <span class="math inline">\(a\)</span>.</p>
+<p><span id="exr:unnamed-chunk-240" class="exercise"><strong>Exercise 3.82  </strong></span>Now let’s be a bit more systematic about things from the previous problem. Let’s say that you have a pretty good guess that <span class="math inline">\(b \approx 2\)</span> and <span class="math inline">\(c \approx 0.7\)</span>. We need to get a good estimate for <span class="math inline">\(a\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Pick an arbitrary starting value for <span class="math inline">\(a\)</span> then for each of the four points find the error between the predicted <span class="math inline">\(y\)</span> value and the actual <span class="math inline">\(y\)</span> value. These errors are called the <em>residuals</em>.</li>
 <li>Square all four of your errors and add them up. (Pause, ponder, and discuss: why are we squaring the errors before we sum them?)</li>
@@ -2352,25 +2337,25 @@ Figure 3.11: Initial attempt at matching data with a quadratic.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-241" class="exercise"><strong>Exercise 3.84  </strong></span>We’re going to revisit part (c) of the previous problem. Write a loop that tries many values of <span class="math inline">\(a\)</span> in very small increments and calculates the sum of the squared errors. The following partial Python code should help you get started. In the resulting plot you should see a clear local minimum. What does that minimum tell you about solving this problem?
+<span id="exr:unnamed-chunk-241" class="exercise"><strong>Exercise 3.83  </strong></span>We’re going to revisit part (c) of the previous problem. Write a loop that tries many values of <span class="math inline">\(a\)</span> in very small increments and calculates the sum of the squared errors. The following partial Python code should help you get started. In the resulting plot you should see a clear local minimum. What does that minimum tell you about solving this problem?
 </div>
-<div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="ch-calculus.html#cb49-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb49-2"><a href="ch-calculus.html#cb49-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb49-3"><a href="ch-calculus.html#cb49-3"></a>xdata <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
-<span id="cb49-4"><a href="ch-calculus.html#cb49-4"></a>ydata <span class="op">=</span> np.array([<span class="fl">1.07</span>, <span class="fl">3.9</span>, <span class="fl">14.8</span>, <span class="fl">26.8</span>])</span>
-<span id="cb49-5"><a href="ch-calculus.html#cb49-5"></a>b <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb49-6"><a href="ch-calculus.html#cb49-6"></a>c <span class="op">=</span> <span class="fl">0.75</span></span>
-<span id="cb49-7"><a href="ch-calculus.html#cb49-7"></a>A <span class="op">=</span> <span class="co"># give a numpy array of values for a</span></span>
-<span id="cb49-8"><a href="ch-calculus.html#cb49-8"></a>SumSqRes <span class="op">=</span> [] <span class="co"># this is blank storage for the sum of the squared residuals</span></span>
-<span id="cb49-9"><a href="ch-calculus.html#cb49-9"></a><span class="cf">for</span> a <span class="kw">in</span> A:</span>
-<span id="cb49-10"><a href="ch-calculus.html#cb49-10"></a>  guess <span class="op">=</span> a<span class="op">*</span>xdata<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> b<span class="op">*</span>xdata <span class="op">+</span> c</span>
-<span id="cb49-11"><a href="ch-calculus.html#cb49-11"></a>  residuals <span class="op">=</span> <span class="co"># write code to calculate the residuals</span></span>
-<span id="cb49-12"><a href="ch-calculus.html#cb49-12"></a>  SumSqRes.append( ??? ) <span class="co"># calculate the sum of the squared residuals</span></span>
-<span id="cb49-13"><a href="ch-calculus.html#cb49-13"></a>plt.plot(A,SumSqRes,<span class="st">&#39;r*&#39;</span>)</span>
-<span id="cb49-14"><a href="ch-calculus.html#cb49-14"></a>plt.grid()</span>
-<span id="cb49-15"><a href="ch-calculus.html#cb49-15"></a>plt.xlabel(<span class="st">&#39;Value of a&#39;</span>)</span>
-<span id="cb49-16"><a href="ch-calculus.html#cb49-16"></a>plt.ylabel(<span class="st">&#39;Sum of squared residuals&#39;</span>)</span>
-<span id="cb49-17"><a href="ch-calculus.html#cb49-17"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb50-1"><a href="ch-calculus.html#cb50-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb50-2"><a href="ch-calculus.html#cb50-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb50-3"><a href="ch-calculus.html#cb50-3"></a>xdata <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
+<span id="cb50-4"><a href="ch-calculus.html#cb50-4"></a>ydata <span class="op">=</span> np.array([<span class="fl">1.07</span>, <span class="fl">3.9</span>, <span class="fl">14.8</span>, <span class="fl">26.8</span>])</span>
+<span id="cb50-5"><a href="ch-calculus.html#cb50-5"></a>b <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb50-6"><a href="ch-calculus.html#cb50-6"></a>c <span class="op">=</span> <span class="fl">0.75</span></span>
+<span id="cb50-7"><a href="ch-calculus.html#cb50-7"></a>A <span class="op">=</span> <span class="co"># give a numpy array of values for a</span></span>
+<span id="cb50-8"><a href="ch-calculus.html#cb50-8"></a>SumSqRes <span class="op">=</span> [] <span class="co"># this is blank storage for the sum of the squared residuals</span></span>
+<span id="cb50-9"><a href="ch-calculus.html#cb50-9"></a><span class="cf">for</span> a <span class="kw">in</span> A:</span>
+<span id="cb50-10"><a href="ch-calculus.html#cb50-10"></a>  guess <span class="op">=</span> a<span class="op">*</span>xdata<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> b<span class="op">*</span>xdata <span class="op">+</span> c</span>
+<span id="cb50-11"><a href="ch-calculus.html#cb50-11"></a>  residuals <span class="op">=</span> <span class="co"># write code to calculate the residuals</span></span>
+<span id="cb50-12"><a href="ch-calculus.html#cb50-12"></a>  SumSqRes.append( ??? ) <span class="co"># calculate the sum of the squared residuals</span></span>
+<span id="cb50-13"><a href="ch-calculus.html#cb50-13"></a>plt.plot(A,SumSqRes,<span class="st">&#39;r*&#39;</span>)</span>
+<span id="cb50-14"><a href="ch-calculus.html#cb50-14"></a>plt.grid()</span>
+<span id="cb50-15"><a href="ch-calculus.html#cb50-15"></a>plt.xlabel(<span class="st">&#39;Value of a&#39;</span>)</span>
+<span id="cb50-16"><a href="ch-calculus.html#cb50-16"></a>plt.ylabel(<span class="st">&#39;Sum of squared residuals&#39;</span>)</span>
+<span id="cb50-17"><a href="ch-calculus.html#cb50-17"></a>plt.show()</span></code></pre></div>
 <hr />
 <p>Now let’s formalize the process that we’ve described in the previous problems.</p>
 
@@ -2404,29 +2389,29 @@ of the square errors.</p></li>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-243" class="exercise"><strong>Exercise 3.85  </strong></span>In <a href="ch-calculus.html#def:least-squares">3.10</a> the last step is a bit vague. That was purposeful since there are many techniques that could be used to minimize the sum of the square errors. However, if we just think about the sum of the squared residuals as a function then we can apply <code>scipy.optimize.minimize()</code> to that function in order to return the values of the parameters that best minimize the sum of the squared residuals. The following blocks of Python code implement the idea in a very streamlined way. Go through the code and comment each line to describe exactly what it does.
+<span id="exr:unnamed-chunk-243" class="exercise"><strong>Exercise 3.84  </strong></span>In <a href="ch-calculus.html#def:least-squares">3.10</a> the last step is a bit vague. That was purposeful since there are many techniques that could be used to minimize the sum of the square errors. However, if we just think about the sum of the squared residuals as a function then we can apply <code>scipy.optimize.minimize()</code> to that function in order to return the values of the parameters that best minimize the sum of the squared residuals. The following blocks of Python code implement the idea in a very streamlined way. Go through the code and comment each line to describe exactly what it does.
 </div>
-<div class="sourceCode" id="cb50"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb50-1"><a href="ch-calculus.html#cb50-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb50-2"><a href="ch-calculus.html#cb50-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb50-3"><a href="ch-calculus.html#cb50-3"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize </span>
-<span id="cb50-4"><a href="ch-calculus.html#cb50-4"></a>xdata <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
-<span id="cb50-5"><a href="ch-calculus.html#cb50-5"></a>ydata <span class="op">=</span> np.array([<span class="fl">1.07</span>, <span class="fl">3.9</span>, <span class="fl">14.8</span>, <span class="fl">26.8</span>])</span>
-<span id="cb50-6"><a href="ch-calculus.html#cb50-6"></a></span>
-<span id="cb50-7"><a href="ch-calculus.html#cb50-7"></a><span class="kw">def</span> SSRes(parameters):</span>
-<span id="cb50-8"><a href="ch-calculus.html#cb50-8"></a>  <span class="co"># In the next line of code we want to build our quadratic approximation.</span></span>
-<span id="cb50-9"><a href="ch-calculus.html#cb50-9"></a>  <span class="co"># y = ax^2 + bx + c</span></span>
-<span id="cb50-10"><a href="ch-calculus.html#cb50-10"></a>  <span class="co"># We are sending in a list of parameters so </span></span>
-<span id="cb50-11"><a href="ch-calculus.html#cb50-11"></a>  <span class="co"># a = parameters[0], b = parameters[1], and c = parameters[2]</span></span>
-<span id="cb50-12"><a href="ch-calculus.html#cb50-12"></a>  yapprox <span class="op">=</span> parameters[<span class="dv">0</span>]<span class="op">*</span>xdata<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> parameters[<span class="dv">1</span>]<span class="op">*</span>xdata <span class="op">+</span> parameters[<span class="dv">2</span>]</span>
-<span id="cb50-13"><a href="ch-calculus.html#cb50-13"></a>  residuals <span class="op">=</span> np.<span class="bu">abs</span>(ydata<span class="op">-</span>yapprox)</span>
-<span id="cb50-14"><a href="ch-calculus.html#cb50-14"></a>  <span class="cf">return</span> np.<span class="bu">sum</span>(residuals<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb50-15"><a href="ch-calculus.html#cb50-15"></a></span>
-<span id="cb50-16"><a href="ch-calculus.html#cb50-16"></a></span>
-<span id="cb50-17"><a href="ch-calculus.html#cb50-17"></a>BestParameters <span class="op">=</span> minimize(SSRes,[<span class="dv">2</span>,<span class="dv">2</span>,<span class="fl">0.75</span>])</span>
-<span id="cb50-18"><a href="ch-calculus.html#cb50-18"></a><span class="bu">print</span>(<span class="st">&quot;The best values of a, b, and c are: </span><span class="ch">\n</span><span class="st">&quot;</span>,BestParameters.x)</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb51-1"><a href="ch-calculus.html#cb51-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb51-2"><a href="ch-calculus.html#cb51-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb51-3"><a href="ch-calculus.html#cb51-3"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize </span>
+<span id="cb51-4"><a href="ch-calculus.html#cb51-4"></a>xdata <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
+<span id="cb51-5"><a href="ch-calculus.html#cb51-5"></a>ydata <span class="op">=</span> np.array([<span class="fl">1.07</span>, <span class="fl">3.9</span>, <span class="fl">14.8</span>, <span class="fl">26.8</span>])</span>
+<span id="cb51-6"><a href="ch-calculus.html#cb51-6"></a></span>
+<span id="cb51-7"><a href="ch-calculus.html#cb51-7"></a><span class="kw">def</span> SSRes(parameters):</span>
+<span id="cb51-8"><a href="ch-calculus.html#cb51-8"></a>  <span class="co"># In the next line of code we want to build our quadratic approximation.</span></span>
+<span id="cb51-9"><a href="ch-calculus.html#cb51-9"></a>  <span class="co"># y = ax^2 + bx + c</span></span>
+<span id="cb51-10"><a href="ch-calculus.html#cb51-10"></a>  <span class="co"># We are sending in a list of parameters so </span></span>
+<span id="cb51-11"><a href="ch-calculus.html#cb51-11"></a>  <span class="co"># a = parameters[0], b = parameters[1], and c = parameters[2]</span></span>
+<span id="cb51-12"><a href="ch-calculus.html#cb51-12"></a>  yapprox <span class="op">=</span> parameters[<span class="dv">0</span>]<span class="op">*</span>xdata<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> parameters[<span class="dv">1</span>]<span class="op">*</span>xdata <span class="op">+</span> parameters[<span class="dv">2</span>]</span>
+<span id="cb51-13"><a href="ch-calculus.html#cb51-13"></a>  residuals <span class="op">=</span> np.<span class="bu">abs</span>(ydata<span class="op">-</span>yapprox)</span>
+<span id="cb51-14"><a href="ch-calculus.html#cb51-14"></a>  <span class="cf">return</span> np.<span class="bu">sum</span>(residuals<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb51-15"><a href="ch-calculus.html#cb51-15"></a></span>
+<span id="cb51-16"><a href="ch-calculus.html#cb51-16"></a></span>
+<span id="cb51-17"><a href="ch-calculus.html#cb51-17"></a>BestParameters <span class="op">=</span> minimize(SSRes,[<span class="dv">2</span>,<span class="dv">2</span>,<span class="fl">0.75</span>])</span>
+<span id="cb51-18"><a href="ch-calculus.html#cb51-18"></a><span class="bu">print</span>(<span class="st">&quot;The best values of a, b, and c are: </span><span class="ch">\n</span><span class="st">&quot;</span>,BestParameters.x)</span></code></pre></div>
 <pre><code>## The best values of a, b, and c are: 
 ##  [2.29249989 1.93150033 0.72149989]</code></pre>
-<div class="sourceCode" id="cb52"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb52-1"><a href="ch-calculus.html#cb52-1"></a><span class="bu">print</span>(<span class="st">&quot;The minimization diagnostics are: </span><span class="ch">\n</span><span class="st">&quot;</span>,BestParameters)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb53-1"><a href="ch-calculus.html#cb53-1"></a><span class="bu">print</span>(<span class="st">&quot;The minimization diagnostics are: </span><span class="ch">\n</span><span class="st">&quot;</span>,BestParameters)</span></code></pre></div>
 <pre><code>## The minimization diagnostics are: 
 ##        fun: 2.4290450000000545
 ##  hess_inv: array([[ 0.12500001, -0.37500002,  0.12499999],
@@ -2440,15 +2425,15 @@ of the square errors.</p></li>
 ##    status: 0
 ##   success: True
 ##         x: array([2.29249989, 1.93150033, 0.72149989])</code></pre>
-<div class="sourceCode" id="cb54"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb54-1"><a href="ch-calculus.html#cb54-1"></a>plt.plot(xdata,ydata,<span class="st">&#39;bo&#39;</span>,markersize<span class="op">=</span><span class="dv">5</span>)</span>
-<span id="cb54-2"><a href="ch-calculus.html#cb54-2"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">4</span>,<span class="dv">100</span>)</span>
-<span id="cb54-3"><a href="ch-calculus.html#cb54-3"></a>y <span class="op">=</span> BestParameters.x[<span class="dv">0</span>]<span class="op">*</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> BestParameters.x[<span class="dv">1</span>]<span class="op">*</span>x <span class="op">+</span> BestParameters.x[<span class="dv">2</span>]</span>
-<span id="cb54-4"><a href="ch-calculus.html#cb54-4"></a>plt.plot(x,y,<span class="st">&#39;r--&#39;</span>)</span>
-<span id="cb54-5"><a href="ch-calculus.html#cb54-5"></a>plt.grid()</span>
-<span id="cb54-6"><a href="ch-calculus.html#cb54-6"></a>plt.xlabel(<span class="st">&#39;x&#39;</span>)</span>
-<span id="cb54-7"><a href="ch-calculus.html#cb54-7"></a>plt.ylabel(<span class="st">&#39;y&#39;</span>)</span>
-<span id="cb54-8"><a href="ch-calculus.html#cb54-8"></a>plt.title(<span class="st">&#39;Best Fit Quadratic&#39;</span>)</span>
-<span id="cb54-9"><a href="ch-calculus.html#cb54-9"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb55-1"><a href="ch-calculus.html#cb55-1"></a>plt.plot(xdata,ydata,<span class="st">&#39;bo&#39;</span>,markersize<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb55-2"><a href="ch-calculus.html#cb55-2"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">4</span>,<span class="dv">100</span>)</span>
+<span id="cb55-3"><a href="ch-calculus.html#cb55-3"></a>y <span class="op">=</span> BestParameters.x[<span class="dv">0</span>]<span class="op">*</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> BestParameters.x[<span class="dv">1</span>]<span class="op">*</span>x <span class="op">+</span> BestParameters.x[<span class="dv">2</span>]</span>
+<span id="cb55-4"><a href="ch-calculus.html#cb55-4"></a>plt.plot(x,y,<span class="st">&#39;r--&#39;</span>)</span>
+<span id="cb55-5"><a href="ch-calculus.html#cb55-5"></a>plt.grid()</span>
+<span id="cb55-6"><a href="ch-calculus.html#cb55-6"></a>plt.xlabel(<span class="st">&#39;x&#39;</span>)</span>
+<span id="cb55-7"><a href="ch-calculus.html#cb55-7"></a>plt.ylabel(<span class="st">&#39;y&#39;</span>)</span>
+<span id="cb55-8"><a href="ch-calculus.html#cb55-8"></a>plt.title(<span class="st">&#39;Best Fit Quadratic&#39;</span>)</span>
+<span id="cb55-9"><a href="ch-calculus.html#cb55-9"></a>plt.show()</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-246"></span>
 <img src="images/Ch03_BestQuadratic.png" alt="Best fit quadratic function." width="75%" />
 <p class="caption">
@@ -2458,7 +2443,7 @@ Figure 3.12: Best fit quadratic function.
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-247" class="exercise"><strong>Exercise 3.86  </strong></span>With a partner choose a function and then choose 10 points on that function. Add a small bit of error into the <span class="math inline">\(y\)</span>-values of your points. Give your 10 points to another group. Upon receiving your new points:</p>
+<p><span id="exr:unnamed-chunk-247" class="exercise"><strong>Exercise 3.85  </strong></span>With a partner choose a function and then choose 10 points on that function. Add a small bit of error into the <span class="math inline">\(y\)</span>-values of your points. Give your 10 points to another group. Upon receiving your new points:</p>
 <ul>
 <li>Plot your points.</li>
 <li>Make a guess about the basic form of the function that might best fit the data. Your general form will likely have several parameters (just like the quadratic had the parameters <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, and <span class="math inline">\(c\)</span>).<br />
@@ -2472,14 +2457,14 @@ Figure 3.12: Best fit quadratic function.
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-248" class="exercise"><strong>Exercise 3.87  </strong></span>For each dataset associated with this exercise give a functional form that might be a good model for the data. Be sure to choose the most general form of your guess. For example, if you choose “quadratic” then your functional guess is <span class="math inline">\(f(x) = ax^2 + bx + c\)</span> or if you choose sinusoidal then your guess should be something like <span class="math inline">\(f(x) = A\sin(Bx) + C\cos(Dx) + E\)</span>. Once you have a guess of the function type create a plot showing your data along with your guess for a reasonable set of parameters. Then write a function that leverages <code>scipy.optimize.minimize()</code> to find the best set of parameters so that your function best fits the data.</p>
+<p><span id="exr:unnamed-chunk-248" class="exercise"><strong>Exercise 3.86  </strong></span>For each dataset associated with this exercise give a functional form that might be a good model for the data. Be sure to choose the most general form of your guess. For example, if you choose “quadratic” then your functional guess is <span class="math inline">\(f(x) = ax^2 + bx + c\)</span> or if you choose sinusoidal then your guess should be something like <span class="math inline">\(f(x) = A\sin(Bx) + C\cos(Dx) + E\)</span>. Once you have a guess of the function type create a plot showing your data along with your guess for a reasonable set of parameters. Then write a function that leverages <code>scipy.optimize.minimize()</code> to find the best set of parameters so that your function best fits the data.</p>
 You can load the data with the following script.
 </div>
-<div class="sourceCode" id="cb55"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb55-1"><a href="ch-calculus.html#cb55-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb55-2"><a href="ch-calculus.html#cb55-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb55-3"><a href="ch-calculus.html#cb55-3"></a>datasetA <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_87a.csv&#39;</span>) )</span>
-<span id="cb55-4"><a href="ch-calculus.html#cb55-4"></a>datasetB <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_87b.csv&#39;</span>) )</span>
-<span id="cb55-5"><a href="ch-calculus.html#cb55-5"></a>datasetC <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_87c.csv&#39;</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb56-1"><a href="ch-calculus.html#cb56-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb56-2"><a href="ch-calculus.html#cb56-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb56-3"><a href="ch-calculus.html#cb56-3"></a>datasetA <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_datafit2.csv&#39;</span>) )</span>
+<span id="cb56-4"><a href="ch-calculus.html#cb56-4"></a>datasetB <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_datafit3.csv&#39;</span>) )</span>
+<span id="cb56-5"><a href="ch-calculus.html#cb56-5"></a>datasetC <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_datafit4.csv&#39;</span>) )</span></code></pre></div>
 <hr />
 </div>
 <div id="exercises-2" class="section level2" number="3.7">
@@ -2488,7 +2473,7 @@ You can load the data with the following script.
 <h3><span class="header-section-number">3.7.1</span> Algorithm Summaries</h3>
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-250" class="exercise"><strong>Exercise 3.88  </strong></span>Starting from Taylor series prove that
+<span id="exr:unnamed-chunk-250" class="exercise"><strong>Exercise 3.87  </strong></span>Starting from Taylor series prove that
 <span class="math display">\[f&#39;(x) \approx \frac{f(x+h) - f(x)}{h}\]</span> is a first-order approximation
 of the first derivative of <span class="math inline">\(f(x)\)</span>. Clearly describe what “first-order
 approximation” means in this context.
@@ -2496,7 +2481,7 @@ approximation” means in this context.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-251" class="exercise"><strong>Exercise 3.89  </strong></span>Starting from Taylor series prove that
+<span id="exr:unnamed-chunk-251" class="exercise"><strong>Exercise 3.88  </strong></span>Starting from Taylor series prove that
 <span class="math display">\[f&#39;(x) \approx \frac{f(x+h) - f(x-h)}{2h}\]</span> is a second-order
 approximation of the first derivative of <span class="math inline">\(f(x)\)</span>. Clearly describe what
 “second-order approximation” means in this context.
@@ -2504,7 +2489,7 @@ approximation of the first derivative of <span class="math inline">\(f(x)\)</spa
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-252" class="exercise"><strong>Exercise 3.90  </strong></span>Starting from Taylor series prove that
+<span id="exr:unnamed-chunk-252" class="exercise"><strong>Exercise 3.89  </strong></span>Starting from Taylor series prove that
 <span class="math display">\[f&#39;&#39;(x) \approx \frac{f(x+h) - 2f(x) + f(x-h)}{h^2}\]</span> is a second-order
 approximation of the second derivative of <span class="math inline">\(f(x)\)</span>. Clearly describe what
 “second-order approximation” means in this context.
@@ -2512,7 +2497,7 @@ approximation of the second derivative of <span class="math inline">\(f(x)\)</sp
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-253" class="exercise"><strong>Exercise 3.91  </strong></span>Explain how to approximate the value of a definite integral with Riemann
+<span id="exr:unnamed-chunk-253" class="exercise"><strong>Exercise 3.90  </strong></span>Explain how to approximate the value of a definite integral with Riemann
 sums. When will the Riemann sum approximation be exact? The Riemann sum
 approximation is first order. Expain what “first order” means for
 calculating a definite integral.
@@ -2520,7 +2505,7 @@ calculating a definite integral.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-254" class="exercise"><strong>Exercise 3.92  </strong></span>Explain how to approximate the value of a definite integral with the
+<span id="exr:unnamed-chunk-254" class="exercise"><strong>Exercise 3.91  </strong></span>Explain how to approximate the value of a definite integral with the
 Trapezoid rule. When will the Trapezoid rule approximation be exact? The
 Trapezoidal rule approximation is second order. Expain what “second
 order” means for calculating a definite integral.
@@ -2528,7 +2513,7 @@ order” means for calculating a definite integral.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-255" class="exercise"><strong>Exercise 3.93  </strong></span>Explain how to approximate the value of a definite integral with
+<span id="exr:unnamed-chunk-255" class="exercise"><strong>Exercise 3.92  </strong></span>Explain how to approximate the value of a definite integral with
 Simpson’s rule. Give the full mathematical details for where Simpson’s
 rule comes from. When will the Simpson’s rule approximation be exact?
 The Simpson’s rule approximation is fourth order. Expain what “fourth
@@ -2537,25 +2522,25 @@ order” means for calculating a definite integral.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-256" class="exercise"><strong>Exercise 3.94  </strong></span>Explain in clear language how the derivative free optimization method
+<span id="exr:unnamed-chunk-256" class="exercise"><strong>Exercise 3.93  </strong></span>Explain in clear language how the derivative free optimization method
 works on a single-variable function.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-257" class="exercise"><strong>Exercise 3.95  </strong></span>Explain in clear language how the gradient descent/ascent optimization
+<span id="exr:unnamed-chunk-257" class="exercise"><strong>Exercise 3.94  </strong></span>Explain in clear language how the gradient descent/ascent optimization
 method works on a single-variable function.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-258" class="exercise"><strong>Exercise 3.96  </strong></span>Explain in clear language how the Monte Carlo search optimization method
+<span id="exr:unnamed-chunk-258" class="exercise"><strong>Exercise 3.95  </strong></span>Explain in clear language how the Monte Carlo search optimization method
 works on a single-variable function.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-259" class="exercise"><strong>Exercise 3.97  </strong></span>Explain in clear language how you find the optimal set of parameters
+<span id="exr:unnamed-chunk-259" class="exercise"><strong>Exercise 3.96  </strong></span>Explain in clear language how you find the optimal set of parameters
 given a set of data and a proposed general function type.
 </div>
 <hr />
@@ -2564,7 +2549,7 @@ given a set of data and a proposed general function type.
 <h3><span class="header-section-number">3.7.2</span> Applying What You’ve Learned</h3>
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-260" class="exercise"><strong>Exercise 3.98  </strong></span>For each of the following numerical differentiation formulas (1) prove
+<p><span id="exr:unnamed-chunk-260" class="exercise"><strong>Exercise 3.97  </strong></span>For each of the following numerical differentiation formulas (1) prove
 that the formula is true and (2) find the order of the method. To prove
 that each of the formulas is true you will need to write the Taylor
 series for all of the terms in the numerator on the right and then
@@ -2580,7 +2565,7 @@ remainder should reveal the order of the method.</p>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-261" class="exercise"><strong>Exercise 3.99  </strong></span>Write a function that accepts a list of
+<span id="exr:unnamed-chunk-261" class="exercise"><strong>Exercise 3.98  </strong></span>Write a function that accepts a list of
 <span class="math inline">\((x,y)\)</span> ordered pairs from a spreadsheet and returns a list of
 <span class="math inline">\((x,y)\)</span> ordered pairs for a first order approximation of the first
 derivative of the underlying function. Create a test spreadsheet file and a
@@ -2590,7 +2575,7 @@ finding the correct derivative.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-262" class="exercise"><strong>Exercise 3.100  </strong></span>Write a function that accepts a list of <span class="math inline">\((x,y)\)</span> ordered pairs from an
+<span id="exr:unnamed-chunk-262" class="exercise"><strong>Exercise 3.99  </strong></span>Write a function that accepts a list of <span class="math inline">\((x,y)\)</span> ordered pairs from an
 Excel spreadsheet and returns a list of <span class="math inline">\((x,y)\)</span> ordered pairs for a
 second order approximation of the second derivative of the underlying
 function. Create a test Excel file and a test script that have graphical
@@ -2599,7 +2584,7 @@ output showing that your function is finding the correct derivative.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-263" class="exercise"><strong>Exercise 3.101  </strong></span>Write a function that implements the
+<span id="exr:unnamed-chunk-263" class="exercise"><strong>Exercise 3.100  </strong></span>Write a function that implements the
 trapezoidal rule on a list of <span class="math inline">\((x,y)\)</span> order pairs representing the
 integrand function. The list of ordered pairs should be read from an
 Excel file. Create a test Excel file and a test script showing that your
@@ -2608,7 +2593,7 @@ function is finding the correct integral.
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-264" class="exercise"><strong>Exercise 3.102  </strong></span>Use numerical integration to answer the question in each of the following scenarios</p>
+<p><span id="exr:unnamed-chunk-264" class="exercise"><strong>Exercise 3.101  </strong></span>Use numerical integration to answer the question in each of the following scenarios</p>
 <ol style="list-style-type: lower-alpha">
 <li>We measure the rate at which water is flowing out of a reservoir (in
 gallons per second) several times over the course of one hour.
@@ -2643,9 +2628,9 @@ that hour.</li>
 </table>
 You can download the data directly from the textbook’s github page with the code below.
 </div>
-<div class="sourceCode" id="cb56"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb56-1"><a href="ch-calculus.html#cb56-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb56-2"><a href="ch-calculus.html#cb56-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb56-3"><a href="ch-calculus.html#cb56-3"></a>data <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_102.csv&#39;</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb57-1"><a href="ch-calculus.html#cb57-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb57-2"><a href="ch-calculus.html#cb57-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb57-3"><a href="ch-calculus.html#cb57-3"></a>data <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_waterflow.csv&#39;</span>) )</span></code></pre></div>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>The department of transportation finds that the rate at which cars
 cross a bridge can be approximated by the function
@@ -2658,14 +2643,14 @@ provide sufficient mathematical evidence of your error estimate.</li>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-266" class="exercise"><strong>Exercise 3.103  </strong></span>Consider the integrals
+<span id="exr:unnamed-chunk-266" class="exercise"><strong>Exercise 3.102  </strong></span>Consider the integrals
 <span class="math display">\[\int_{-2}^2 e^{-x^2/2} dx \quad \text{and} \quad \int_0^1 \cos(x^2) dx.\]</span>
 Neither of these integrals have closed-form solutions so a numerical method is necessary. Create a loglog plot that shows the errors for the integrals with different values of <span class="math inline">\(h\)</span> (log of <span class="math inline">\(h\)</span> on the <span class="math inline">\(x\)</span>-axis and log of the absolute error on the <span class="math inline">\(y\)</span>-axis). Write a complete interpretation of the loglog plot. To get the <em>exact</em> answer for these plots use Python’s <code>scipy.integrate.quad</code> command. (What we’re really doing here is comparing our algorithms to ’s built in algorithm).
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-267" class="exercise"><strong>Exercise 3.104  </strong></span>Go to <a href="https://www.data.gov/">data.gov</a> or the <a href="http://apps.who.int/gho/data/?theme=home">World Health
+<p><span id="exr:unnamed-chunk-267" class="exercise"><strong>Exercise 3.103  </strong></span>Go to <a href="https://www.data.gov/">data.gov</a> or the <a href="http://apps.who.int/gho/data/?theme=home">World Health
 Organization Data Repository</a>
 and find data sets for the following tasks.</p>
 <ol style="list-style-type: lower-alpha">
@@ -2686,7 +2671,7 @@ and the units of your answer.</p>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-268" class="exercise"><strong>Exercise 3.105  </strong></span>Integrate each of the functions over the interval <span class="math inline">\([-1,2]\)</span> and verify
+<p><span id="exr:unnamed-chunk-268" class="exercise"><strong>Exercise 3.104  </strong></span>Integrate each of the functions over the interval <span class="math inline">\([-1,2]\)</span> and verify
 mathematically that your numerical integral is correct to 10 decimal
 places. Then provide a plot of the function along with its numerical
 first derivative.</p>
@@ -2699,7 +2684,7 @@ first derivative.</p>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-269" class="exercise"><strong>Exercise 3.106  </strong></span>A bicyclist completes a race course in 90 seconds. The speed of the
+<p><span id="exr:unnamed-chunk-269" class="exercise"><strong>Exercise 3.105  </strong></span>A bicyclist completes a race course in 90 seconds. The speed of the
 biker at each 10-second interval is determined using a radar gun and is
 given in the table in feet per second. How long is the race course?</p>
 <table>
@@ -2736,13 +2721,13 @@ given in the table in feet per second. How long is the race course?</p>
 </table>
 You can download the data with the following code.
 </div>
-<div class="sourceCode" id="cb57"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb57-1"><a href="ch-calculus.html#cb57-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb57-2"><a href="ch-calculus.html#cb57-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb57-3"><a href="ch-calculus.html#cb57-3"></a>data <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_106.csv&#39;</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb58-1"><a href="ch-calculus.html#cb58-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb58-2"><a href="ch-calculus.html#cb58-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb58-3"><a href="ch-calculus.html#cb58-3"></a>data <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_bikespeed.csv&#39;</span>) )</span></code></pre></div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-271" class="exercise"><strong>Exercise 3.107  </strong></span>For each of the following functions write code to find the local maximum
+<p><span id="exr:unnamed-chunk-271" class="exercise"><strong>Exercise 3.106  </strong></span>For each of the following functions write code to find the local maximum
 or minimum that is closest to <span class="math inline">\(x=0\)</span>. You may want to start with a plot
 of the function just to get a feel for where the local extreme value(s)
 might be.</p>
@@ -2754,7 +2739,7 @@ might be.</p>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-272" class="exercise"><strong>Exercise 3.108  </strong></span>Go back to your old Calculus textbook or homework and find your favorite
+<span id="exr:unnamed-chunk-272" class="exercise"><strong>Exercise 3.107  </strong></span>Go back to your old Calculus textbook or homework and find your favorite
 optimization problem. State the problem, create the mathematical model,
 and use any of the numerical optimization techniques in this chapter to
 get an approximate solution to the problem.
@@ -2762,7 +2747,7 @@ get an approximate solution to the problem.
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-273" class="exercise"><strong>Exercise 3.109  </strong></span>In the code below you can download several sets of noisy data from measurements of elementary single variable functions.</p>
+<p><span id="exr:unnamed-chunk-273" class="exercise"><strong>Exercise 3.108  </strong></span>In the code below you can download several sets of noisy data from measurements of elementary single variable functions.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Make a hypothesis about which function would best model the data. Be
 sure to choose the most general (parameterized) form of your
@@ -2773,16 +2758,16 @@ function.</p></li>
 </ol>
 The functions that you propose must be continuous functions.
 </div>
-<div class="sourceCode" id="cb58"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb58-1"><a href="ch-calculus.html#cb58-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb58-2"><a href="ch-calculus.html#cb58-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb58-3"><a href="ch-calculus.html#cb58-3"></a>datasetA <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_109a.csv&#39;</span>) )</span>
-<span id="cb58-4"><a href="ch-calculus.html#cb58-4"></a>datasetB <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_109b.csv&#39;</span>) )</span>
-<span id="cb58-5"><a href="ch-calculus.html#cb58-5"></a>datasetC <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_109c.csv&#39;</span>) )</span>
-<span id="cb58-6"><a href="ch-calculus.html#cb58-6"></a>datasetD <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_109d.csv&#39;</span>) )</span>
-<span id="cb58-7"><a href="ch-calculus.html#cb58-7"></a>datasetE <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_109e.csv&#39;</span>) )</span>
-<span id="cb58-8"><a href="ch-calculus.html#cb58-8"></a>datasetF <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_109f.csv&#39;</span>) )</span>
-<span id="cb58-9"><a href="ch-calculus.html#cb58-9"></a>datasetG <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_109g.csv&#39;</span>) )</span>
-<span id="cb58-10"><a href="ch-calculus.html#cb58-10"></a>datasetH <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_109h.csv&#39;</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb59-1"><a href="ch-calculus.html#cb59-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb59-2"><a href="ch-calculus.html#cb59-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb59-3"><a href="ch-calculus.html#cb59-3"></a>datasetA <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_datafit5.csv&#39;</span>) )</span>
+<span id="cb59-4"><a href="ch-calculus.html#cb59-4"></a>datasetB <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_datafit6.csv&#39;</span>) )</span>
+<span id="cb59-5"><a href="ch-calculus.html#cb59-5"></a>datasetC <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_datafit7.csv&#39;</span>) )</span>
+<span id="cb59-6"><a href="ch-calculus.html#cb59-6"></a>datasetD <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_datafit8.csv&#39;</span>) )</span>
+<span id="cb59-7"><a href="ch-calculus.html#cb59-7"></a>datasetE <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_datafit9.csv&#39;</span>) )</span>
+<span id="cb59-8"><a href="ch-calculus.html#cb59-8"></a>datasetF <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_datafit10.csv&#39;</span>) )</span>
+<span id="cb59-9"><a href="ch-calculus.html#cb59-9"></a>datasetG <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_datafit11.csv&#39;</span>) )</span>
+<span id="cb59-10"><a href="ch-calculus.html#cb59-10"></a>datasetH <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_datafit12.csv&#39;</span>) )</span></code></pre></div>
 <hr />
 </div>
 </div>
@@ -2816,9 +2801,9 @@ hole at the center of this galaxy is often referred to as the “Galactic
 Spaghetti Monster” since the magnetic field “sustains a mammoth network
 of spaghetti-like gas filaments around it”. You can download the data file
 associated with this project with the following Python code.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb59-1"><a href="ch-calculus.html#cb59-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb59-2"><a href="ch-calculus.html#cb59-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb59-3"><a href="ch-calculus.html#cb59-3"></a>ngc1275 <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/ngc1275.csv&#39;</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb60-1"><a href="ch-calculus.html#cb60-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb60-2"><a href="ch-calculus.html#cb60-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb60-3"><a href="ch-calculus.html#cb60-3"></a>ngc1275 <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/ngc1275.csv&#39;</span>) )</span></code></pre></div>
 <p>In the data you will see the spectral data measuring
 the light intensity from ncg 1275 at several different wavelengths
 (measured in Angstroms ). You will notice in this data set that there
@@ -2927,19 +2912,19 @@ Another idea could use a centered difference scheme that uses pixels that are im
 In any case, you will need to use Taylor Series to derive coefficients in the formulas for the derivatives as well as the order of the error. There are many ways to approximate the first derivatives so be creative. In your exploration you are not restricted to using just the first derivative. There could be some argument for using the second derivatives and/or the Hessian matrix of the gray scale image function <span class="math inline">\(G(x,y)\)</span> and using some function of the concavity as a means of edge detection. Explore and have fun!</li>
 </ol>
 <p>The following code will allow you to read an image into Python as an <code>np.array()</code>.</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb60-1"><a href="ch-calculus.html#cb60-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb60-2"><a href="ch-calculus.html#cb60-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb60-3"><a href="ch-calculus.html#cb60-3"></a><span class="im">from</span> matplotlib <span class="im">import</span> image</span>
-<span id="cb60-4"><a href="ch-calculus.html#cb60-4"></a>I <span class="op">=</span> np.array(image.imread(<span class="st">&#39;ImageName.jpg&#39;</span>))</span>
-<span id="cb60-5"><a href="ch-calculus.html#cb60-5"></a>plt.imshow(I)</span>
-<span id="cb60-6"><a href="ch-calculus.html#cb60-6"></a>plt.axis(<span class="st">&quot;off&quot;</span>)</span>
-<span id="cb60-7"><a href="ch-calculus.html#cb60-7"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb61-1"><a href="ch-calculus.html#cb61-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb61-2"><a href="ch-calculus.html#cb61-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb61-3"><a href="ch-calculus.html#cb61-3"></a><span class="im">from</span> matplotlib <span class="im">import</span> image</span>
+<span id="cb61-4"><a href="ch-calculus.html#cb61-4"></a>I <span class="op">=</span> np.array(image.imread(<span class="st">&#39;ImageName.jpg&#39;</span>))</span>
+<span id="cb61-5"><a href="ch-calculus.html#cb61-5"></a>plt.imshow(I)</span>
+<span id="cb61-6"><a href="ch-calculus.html#cb61-6"></a>plt.axis(<span class="st">&quot;off&quot;</span>)</span>
+<span id="cb61-7"><a href="ch-calculus.html#cb61-7"></a>plt.show()</span></code></pre></div>
 <p>You should notice that the image, <code>I</code>, is a three dimensional array. The three layers are the red, green, and blue channels of the image. To flatten the image to gray scale you can apply the rule
 <span class="math display">\[ \text{grayscale value} = 0.3 \text{Red} + 0.59 \text{Green} + 0.11 \text{Blue}. \]</span>
 The output should be a 2 dimensional <code>numpy</code> array which you can show with the following Python code.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb61-1"><a href="ch-calculus.html#cb61-1"></a>plt.imshow(G, cmap<span class="op">=</span><span class="st">&#39;gray&#39;</span>) <span class="co"># &quot;cmap&quot; stands for &quot;color map&quot;</span></span>
-<span id="cb61-2"><a href="ch-calculus.html#cb61-2"></a>plt.axis(<span class="st">&quot;off&quot;</span>)</span>
-<span id="cb61-3"><a href="ch-calculus.html#cb61-3"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb62-1"><a href="ch-calculus.html#cb62-1"></a>plt.imshow(G, cmap<span class="op">=</span><span class="st">&#39;gray&#39;</span>) <span class="co"># &quot;cmap&quot; stands for &quot;color map&quot;</span></span>
+<span id="cb62-2"><a href="ch-calculus.html#cb62-2"></a>plt.axis(<span class="st">&quot;off&quot;</span>)</span>
+<span id="cb62-3"><a href="ch-calculus.html#cb62-3"></a>plt.show()</span></code></pre></div>
 <p>Figure <a href="ch-calculus.html#fig:edgedetection">3.14</a> shows the result of different threshold values applied to the simplest numerical gradient computations. The image was taken by the author.</p>
 <div class="figure" style="text-align: center"><span id="fig:edgedetection"></span>
 <img src="images/Ch03_EdgeDetection.png" alt="Edge detection using different thresholds for the value of the gradient on the grayscale image" width="95%" />
