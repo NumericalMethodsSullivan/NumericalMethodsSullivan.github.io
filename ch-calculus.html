@@ -2301,16 +2301,13 @@ chosen values of <span class="math inline">\(a\)</span>, <span class="math inlin
 <span id="cb48-2"><a href="ch-calculus.html#cb48-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb48-3"><a href="ch-calculus.html#cb48-3"></a>xdata <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
 <span id="cb48-4"><a href="ch-calculus.html#cb48-4"></a>ydata <span class="op">=</span> np.array([<span class="fl">1.07</span>, <span class="fl">3.9</span>, <span class="fl">14.8</span>, <span class="fl">26.8</span>])</span>
-<span id="cb48-5"><a href="ch-calculus.html#cb48-5"></a>a <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb48-6"><a href="ch-calculus.html#cb48-6"></a>b <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb48-7"><a href="ch-calculus.html#cb48-7"></a>c <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb48-8"><a href="ch-calculus.html#cb48-8"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">4</span>,<span class="dv">100</span>)</span>
+<span id="cb48-5"><a href="ch-calculus.html#cb48-5"></a>a <span class="op">=</span> <span class="co"># conjecture a value of a</span></span>
+<span id="cb48-6"><a href="ch-calculus.html#cb48-6"></a>b <span class="op">=</span> <span class="co"># conjecture a value of b</span></span>
+<span id="cb48-7"><a href="ch-calculus.html#cb48-7"></a>c <span class="op">=</span> <span class="co"># conjecture a value of c</span></span>
+<span id="cb48-8"><a href="ch-calculus.html#cb48-8"></a>x <span class="op">=</span> <span class="co"># build an x domain starting at 0 and going through 4 </span></span>
 <span id="cb48-9"><a href="ch-calculus.html#cb48-9"></a>guess <span class="op">=</span> a<span class="op">*</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> b<span class="op">*</span>x <span class="op">+</span> c</span>
-<span id="cb48-10"><a href="ch-calculus.html#cb48-10"></a>plt.plot(xdata,ydata,<span class="st">&#39;bo&#39;</span>,markersize<span class="op">=</span><span class="dv">5</span>)</span>
-<span id="cb48-11"><a href="ch-calculus.html#cb48-11"></a>plt.plot(x,guess,<span class="st">&#39;r--&#39;</span>)</span>
-<span id="cb48-12"><a href="ch-calculus.html#cb48-12"></a>plt.grid()</span>
-<span id="cb48-13"><a href="ch-calculus.html#cb48-13"></a>plt.legend([<span class="st">&#39;Data&#39;</span>,<span class="st">&#39;Guess&#39;</span>])</span>
-<span id="cb48-14"><a href="ch-calculus.html#cb48-14"></a>plt.show()</span></code></pre></div>
+<span id="cb48-10"><a href="ch-calculus.html#cb48-10"></a><span class="co"># make a plot of the data</span></span>
+<span id="cb48-11"><a href="ch-calculus.html#cb48-11"></a><span class="co"># make a plot of your function on top of the data</span></span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-238"></span>
 <img src="images/Ch03_DataMatch.png" alt="Initial attempt at matching data with a quadratic." width="75%" />
 <p class="caption">
@@ -2457,7 +2454,7 @@ Figure 3.12: Best fit quadratic function.
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-248" class="exercise"><strong>Exercise 3.86  </strong></span>For each dataset associated with this exercise give a functional form that might be a good model for the data. Be sure to choose the most general form of your guess. For example, if you choose “quadratic” then your functional guess is <span class="math inline">\(f(x) = ax^2 + bx + c\)</span> or if you choose sinusoidal then your guess should be something like <span class="math inline">\(f(x) = A\sin(Bx) + C\cos(Dx) + E\)</span>. Once you have a guess of the function type create a plot showing your data along with your guess for a reasonable set of parameters. Then write a function that leverages <code>scipy.optimize.minimize()</code> to find the best set of parameters so that your function best fits the data.</p>
+<p><span id="exr:unnamed-chunk-248" class="exercise"><strong>Exercise 3.86  </strong></span>For each dataset associated with this exercise give a functional form that might be a good model for the data. Be sure to choose the most general form of your guess. For example, if you choose “quadratic” then your functional guess is <span class="math inline">\(f(x) = ax^2 + bx + c\)</span>, if you choose “quadratic” then your functional guess should be something like <span class="math inline">\(f(x) = ae^{b(x-c)}+d\)</span>, or if you choose “sinusoidal” then your guess should be something like <span class="math inline">\(f(x) = a\sin(bx) + c\cos(dx) + e\)</span>. Once you have a guess of the function type create a plot showing your data along with your guess for a reasonable set of parameters. Then write a function that leverages <code>scipy.optimize.minimize()</code> to find the best set of parameters so that your function best fits the data. Note that if <code>scipy.optimize.minimize()</code> does not converge then try the alternative <code>scipy</code> function <code>scipy.optimize.fmin()</code>. Also note that you likely need to be very close to the optimal parameters to get the optimizer to work properly.</p>
 You can load the data with the following script.
 </div>
 <div class="sourceCode" id="cb56"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb56-1"><a href="ch-calculus.html#cb56-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -2575,10 +2572,9 @@ finding the correct derivative.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-262" class="exercise"><strong>Exercise 3.99  </strong></span>Write a function that accepts a list of <span class="math inline">\((x,y)\)</span> ordered pairs from an
-Excel spreadsheet and returns a list of <span class="math inline">\((x,y)\)</span> ordered pairs for a
+<span id="exr:unnamed-chunk-262" class="exercise"><strong>Exercise 3.99  </strong></span>Write a function that accepts a list of <span class="math inline">\((x,y)\)</span> ordered pairs from a spreadsheet or a <code>*.csv</code> file and returns a list of <span class="math inline">\((x,y)\)</span> ordered pairs for a
 second order approximation of the second derivative of the underlying
-function. Create a test Excel file and a test script that have graphical
+function. Create a test spreadsheet file and a test script that have graphical
 output showing that your function is finding the correct derivative.
 </div>
 <hr />
@@ -2586,8 +2582,7 @@ output showing that your function is finding the correct derivative.
 <div class="exercise">
 <span id="exr:unnamed-chunk-263" class="exercise"><strong>Exercise 3.100  </strong></span>Write a function that implements the
 trapezoidal rule on a list of <span class="math inline">\((x,y)\)</span> order pairs representing the
-integrand function. The list of ordered pairs should be read from an
-Excel file. Create a test Excel file and a test script showing that your
+integrand function. The list of ordered pairs should be read from a spreadsheet file. Create a test spreadsheet file and a test script showing that your
 function is finding the correct integral.
 </div>
 <hr />
@@ -2645,7 +2640,7 @@ provide sufficient mathematical evidence of your error estimate.</li>
 <div class="exercise">
 <span id="exr:unnamed-chunk-266" class="exercise"><strong>Exercise 3.102  </strong></span>Consider the integrals
 <span class="math display">\[\int_{-2}^2 e^{-x^2/2} dx \quad \text{and} \quad \int_0^1 \cos(x^2) dx.\]</span>
-Neither of these integrals have closed-form solutions so a numerical method is necessary. Create a loglog plot that shows the errors for the integrals with different values of <span class="math inline">\(h\)</span> (log of <span class="math inline">\(h\)</span> on the <span class="math inline">\(x\)</span>-axis and log of the absolute error on the <span class="math inline">\(y\)</span>-axis). Write a complete interpretation of the loglog plot. To get the <em>exact</em> answer for these plots use Python’s <code>scipy.integrate.quad</code> command. (What we’re really doing here is comparing our algorithms to ’s built in algorithm).
+Neither of these integrals have closed-form solutions so a numerical method is necessary. Create a loglog plot that shows the errors for the integrals with different values of <span class="math inline">\(h\)</span> (log of <span class="math inline">\(h\)</span> on the <span class="math inline">\(x\)</span>-axis and log of the absolute error on the <span class="math inline">\(y\)</span>-axis). Write a complete interpretation of the loglog plot. To get the <em>exact</em> answer for these plots use Python’s <code>scipy.integrate.quad</code> command. (What we’re really doing here is comparing our algorithms to Python’s <code>scipy.integrate.quad()</code> algorithm).
 </div>
 <hr />
 
@@ -2671,10 +2666,7 @@ and the units of your answer.</p>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-268" class="exercise"><strong>Exercise 3.104  </strong></span>Integrate each of the functions over the interval <span class="math inline">\([-1,2]\)</span> and verify
-mathematically that your numerical integral is correct to 10 decimal
-places. Then provide a plot of the function along with its numerical
-first derivative.</p>
+<p><span id="exr:unnamed-chunk-268" class="exercise"><strong>Exercise 3.104  </strong></span>Numerically integrate each of the functions over the interval <span class="math inline">\([-1,2]\)</span> with an appropriate technique and verify mathematically that your numerical integral is correct to 10 decimal places. Then provide a plot of the function along with its numerical first derivative.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p><span class="math inline">\(f(x) = \frac{x}{1+x^4}\)</span></p></li>
 <li><p><span class="math inline">\(g(x) = (x-1)^3 (x-2)^2\)</span></p></li>
@@ -2727,10 +2719,7 @@ You can download the data with the following code.
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-271" class="exercise"><strong>Exercise 3.106  </strong></span>For each of the following functions write code to find the local maximum
-or minimum that is closest to <span class="math inline">\(x=0\)</span>. You may want to start with a plot
-of the function just to get a feel for where the local extreme value(s)
-might be.</p>
+<p><span id="exr:unnamed-chunk-271" class="exercise"><strong>Exercise 3.106  </strong></span>For each of the following functions write code to numerically approximate the local maximum or minimum that is closest to <span class="math inline">\(x=0\)</span>. You may want to start with a plot of the function just to get a feel for where the local extreme value(s) might be.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p><span class="math inline">\(\displaystyle f(x) = \frac{x}{1+x^4} + \sin(x)\)</span></p></li>
 <li><p><span class="math inline">\(\displaystyle g(x) =  \left(x-1\right)^3\cdot\left(x-2\right)^2+e^{-0.5\cdot x}\)</span></p></li>
