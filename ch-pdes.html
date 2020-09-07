@@ -272,7 +272,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3" data-path="ch-odes.html"><a href="ch-odes.html#eulers-method"><i class="fa fa-check"></i><b>5.3</b> Euler’s Method</a></li>
 <li class="chapter" data-level="5.4" data-path="ch-odes.html"><a href="ch-odes.html#the-midpoint-method"><i class="fa fa-check"></i><b>5.4</b> The Midpoint Method</a></li>
 <li class="chapter" data-level="5.5" data-path="ch-odes.html"><a href="ch-odes.html#the-runge-kutta-4-method"><i class="fa fa-check"></i><b>5.5</b> The Runge-Kutta 4 Method</a></li>
-<li class="chapter" data-level="5.6" data-path="ch-odes.html"><a href="ch-odes.html#animating-ode-solutions"><i class="fa fa-check"></i><b>5.6</b> Animating ODE Solutions</a></li>
+<li class="chapter" data-level="5.6" data-path="ch-odes.html"><a href="ch-odes.html#animating-ode-solutions"><i class="fa fa-check"></i><b>5.6</b> Animating ODE Solutions</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="ch-odes.html"><a href="ch-odes.html#ipywidgets.interactive"><i class="fa fa-check"></i><b>5.6.1</b> <code>ipywidgets.interactive</code></a></li>
+<li class="chapter" data-level="5.6.2" data-path="ch-odes.html"><a href="ch-odes.html#matplotlib.animation"><i class="fa fa-check"></i><b>5.6.2</b> <code>matplotlib.animation</code></a></li>
+</ul></li>
 <li class="chapter" data-level="5.7" data-path="ch-odes.html"><a href="ch-odes.html#the-backwards-euler-method"><i class="fa fa-check"></i><b>5.7</b> The Backwards Euler Method</a></li>
 <li class="chapter" data-level="5.8" data-path="ch-odes.html"><a href="ch-odes.html#fitting-ode-models-to-data"><i class="fa fa-check"></i><b>5.8</b> Fitting ODE Models to Data</a></li>
 <li class="chapter" data-level="5.9" data-path="ch-odes.html"><a href="ch-odes.html#exercises-4"><i class="fa fa-check"></i><b>5.9</b> Exercises</a>
@@ -443,7 +447,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>So what <em>is</em> a Partial Differential Equation?</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-521" class="definition"><strong>Definition 6.1  (Partial Differential Equation)  </strong></span>A partial differential equation (PDE) is an equation that relates a function and its partial derivatives. Typically we use the function name <span class="math inline">\(u\)</span> for the unknown function, and in most cases that we consider in this book we are thinking of <span class="math inline">\(u\)</span> as a function of time <span class="math inline">\(t\)</span> as well as one, two, or three spatial dimensions <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>, and <span class="math inline">\(z\)</span>.
+<span id="def:unnamed-chunk-532" class="definition"><strong>Definition 6.1  (Partial Differential Equation)  </strong></span>A partial differential equation (PDE) is an equation that relates a function and its partial derivatives. Typically we use the function name <span class="math inline">\(u\)</span> for the unknown function, and in most cases that we consider in this book we are thinking of <span class="math inline">\(u\)</span> as a function of time <span class="math inline">\(t\)</span> as well as one, two, or three spatial dimensions <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>, and <span class="math inline">\(z\)</span>.
 </div>
 <hr />
 <p>Specific examples of some common PDEs are:</p>
@@ -469,7 +473,7 @@ This PDE states that the acceleration at a point is proportional to the sum of t
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-522" class="exercise"><strong>Exercise 6.1  </strong></span>With your partner answer each of the following questions. The main ideas in this problem <em>should</em> be review from multivariable calculus. If you and your partner are stuck then ask another group.</p>
+<p><span id="exr:unnamed-chunk-533" class="exercise"><strong>Exercise 6.1  </strong></span>With your partner answer each of the following questions. The main ideas in this problem <em>should</em> be review from multivariable calculus. If you and your partner are stuck then ask another group.</p>
 <ol style="list-style-type: lower-alpha">
 <li>What is a partial derivative (explain geometrically)</li>
 <li>What is the gradient of a function? What does it tell us physically or geometrically? If <span class="math inline">\(u(x,y)=x^2+\sin(xy)\)</span> then what is <span class="math inline">\(\nabla u\)</span>?</li>
@@ -482,7 +486,7 @@ This PDE states that the acceleration at a point is proportional to the sum of t
 <h2><span class="header-section-number">6.1</span> Solutions to PDEs</h2>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-523" class="example"><strong>Example 6.1  </strong></span>If we were to claim that <span class="math inline">\(x(t) = 7e^{3t}\)</span> is a solution to the ordinary differential equation <span class="math inline">\(\frac{dx}{dt} = 3x\)</span> with <span class="math inline">\(x(0) = 7\)</span> then you could easily check that the claim was true by doing two things:</p>
+<p><span id="exm:unnamed-chunk-534" class="example"><strong>Example 6.1  </strong></span>If we were to claim that <span class="math inline">\(x(t) = 7e^{3t}\)</span> is a solution to the ordinary differential equation <span class="math inline">\(\frac{dx}{dt} = 3x\)</span> with <span class="math inline">\(x(0) = 7\)</span> then you could easily check that the claim was true by doing two things:</p>
 <ol style="list-style-type: decimal">
 <li>Check that the proposed solution matches the initial condition. In this example we see that <span class="math inline">\(x(0) = 7e^{3 \cdot 0} = 7 \quad \checkmark.\)</span></li>
 <li>Check that the function satisfies the differential equation. In other words, substitute the function <span class="math inline">\(x(t)\)</span> into the differential equation <span class="math inline">\(x&#39; = 3x\)</span> and verify that the equal sign is actually true. In this case, <span class="math inline">\(x&#39; = 3\cdot 7e^{3t} = 3 x \quad \checkmark .\)</span></li>
@@ -493,7 +497,7 @@ This PDE states that the acceleration at a point is proportional to the sum of t
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-524" class="exercise"><strong>Exercise 6.2  </strong></span>Consider the PDE <span class="math inline">\(u_t = D u_{xx}\)</span> where <span class="math inline">\(u(t,x)\)</span> is the temperature of a long thin metal rod at time <span class="math inline">\(t\)</span> (in seconds) and spatial location <span class="math inline">\(x\)</span> (in meters).</p>
+<p><span id="exr:unnamed-chunk-535" class="exercise"><strong>Exercise 6.2  </strong></span>Consider the PDE <span class="math inline">\(u_t = D u_{xx}\)</span> where <span class="math inline">\(u(t,x)\)</span> is the temperature of a long thin metal rod at time <span class="math inline">\(t\)</span> (in seconds) and spatial location <span class="math inline">\(x\)</span> (in meters).</p>
 <p>Note: the symbol <span class="math inline">\(u_t\)</span> is quick shorthand for the partial derivative <span class="math inline">\(\frac{\partial u}{\partial t}\)</span> and <span class="math inline">\(u_{xx}\)</span> is a quick shorthand for the second partial derivative <span class="math inline">\(\frac{\partial^2 u}{\partial x^2}\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
 <li>What are the units of the constant <span class="math inline">\(D\)</span>?</li>
@@ -520,7 +524,7 @@ This PDE states that the acceleration at a point is proportional to the sum of t
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-525" class="exercise"><strong>Exercise 6.3  </strong></span>Consider the PDE <span class="math inline">\(u_t = D u_{xx}\)</span>, and suppose that <span class="math inline">\(D=4\)</span>. For each of the following functions, find the value of the parameter <span class="math inline">\(a\)</span> that will make the function solve the PDE, by taking derivatives and substituting them into the equation.</p>
+<p><span id="exr:unnamed-chunk-536" class="exercise"><strong>Exercise 6.3  </strong></span>Consider the PDE <span class="math inline">\(u_t = D u_{xx}\)</span>, and suppose that <span class="math inline">\(D=4\)</span>. For each of the following functions, find the value of the parameter <span class="math inline">\(a\)</span> that will make the function solve the PDE, by taking derivatives and substituting them into the equation.</p>
 <ol style="list-style-type: lower-alpha">
 <li><span class="math inline">\(u(t,x) = 6 e^{-8 t} \sin(ax)\)</span></li>
 <li><span class="math inline">\(u(t,x) = -5 e^{38 t} \cos(ax)\)</span></li>
@@ -533,7 +537,7 @@ This PDE states that the acceleration at a point is proportional to the sum of t
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-526" class="exercise"><strong>Exercise 6.4  </strong></span>Consider again the PDE <span class="math inline">\(u_t = D u_{xx}\)</span>. Is the function <span class="math inline">\(u(t,x) = x^2 - t^3\)</span> a valid solution for this differential equation? If so, what is the value of the constant <span class="math inline">\(k\)</span>?</p>
+<p><span id="exr:unnamed-chunk-537" class="exercise"><strong>Exercise 6.4  </strong></span>Consider again the PDE <span class="math inline">\(u_t = D u_{xx}\)</span>. Is the function <span class="math inline">\(u(t,x) = x^2 - t^3\)</span> a valid solution for this differential equation? If so, what is the value of the constant <span class="math inline">\(k\)</span>?</p>
 <ol style="list-style-type: lower-alpha">
 <li>Calculate <span class="math inline">\(u_t\)</span> and <span class="math inline">\(u_{xx}\)</span>
 <span class="math display">\[ u_t = \underline{\hspace{1in}} \quad \text{and} \quad u_{xx} = \underline{\hspace{1in}} \]</span></li>
@@ -545,7 +549,7 @@ This PDE states that the acceleration at a point is proportional to the sum of t
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-527" class="exercise"><strong>Exercise 6.5  </strong></span>The PDE <span class="math inline">\(u_t = D u_{xx}\)</span> can be seen as asking two questions: (1) the time derivative of the function <span class="math inline">\(u(t,x)\)</span> is related to the function <span class="math inline">\(u\)</span> itself, and (2) the second spatial derivative of the function <span class="math inline">\(u(t,x)\)</span> is related to the function <span class="math inline">\(u\)</span> itself.</p>
+<p><span id="exr:unnamed-chunk-538" class="exercise"><strong>Exercise 6.5  </strong></span>The PDE <span class="math inline">\(u_t = D u_{xx}\)</span> can be seen as asking two questions: (1) the time derivative of the function <span class="math inline">\(u(t,x)\)</span> is related to the function <span class="math inline">\(u\)</span> itself, and (2) the second spatial derivative of the function <span class="math inline">\(u(t,x)\)</span> is related to the function <span class="math inline">\(u\)</span> itself.</p>
 <ol style="list-style-type: lower-alpha">
 <li>What sort of function has the property that when you take the derivative you get a scaled version of the function back.</li>
 <li>What sort of function has the property that when you take two derivatives you get a scaled version of the function back.</li>
@@ -555,50 +559,50 @@ This PDE states that the acceleration at a point is proportional to the sum of t
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-528" class="exercise"><strong>Exercise 6.6  </strong></span>Is the function <span class="math inline">\(u(t,x) = e^{-0.2t} \sin(\pi x)\)</span> a solution to the PDE <span class="math inline">\(u_t =Dk u_{xx}\)</span>? If this function is a solution to the PDE then what is the associated value of <span class="math inline">\(D\)</span>?
+<span id="exr:unnamed-chunk-539" class="exercise"><strong>Exercise 6.6  </strong></span>Is the function <span class="math inline">\(u(t,x) = e^{-0.2t} \sin(\pi x)\)</span> a solution to the PDE <span class="math inline">\(u_t =Dk u_{xx}\)</span>? If this function is a solution to the PDE then what is the associated value of <span class="math inline">\(D\)</span>?
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-529" class="exercise"><strong>Exercise 6.7  </strong></span>Is a scalar multiple of the function in the previous exercise also a solution to the PDE <span class="math inline">\(u_t = D u_{xx}\)</span> with the exact same value for <span class="math inline">\(k\)</span>? Will this always be true? That is, if we have one solution <span class="math inline">\(u(t,x)\)</span> to the PDE <span class="math inline">\(u_t = D u_{xx}\)</span> then will <span class="math inline">\(c u(t,x)\)</span> be another solution for any real number <span class="math inline">\(c\)</span>?
+<span id="exr:unnamed-chunk-540" class="exercise"><strong>Exercise 6.7  </strong></span>Is a scalar multiple of the function in the previous exercise also a solution to the PDE <span class="math inline">\(u_t = D u_{xx}\)</span> with the exact same value for <span class="math inline">\(k\)</span>? Will this always be true? That is, if we have one solution <span class="math inline">\(u(t,x)\)</span> to the PDE <span class="math inline">\(u_t = D u_{xx}\)</span> then will <span class="math inline">\(c u(t,x)\)</span> be another solution for any real number <span class="math inline">\(c\)</span>?
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-530" class="exercise"><strong>Exercise 6.8  </strong></span>When we studied ODEs we always had a starting point for a solution – the initial condition. In the case of a PDE we also need to have an initial condition, but the initial condition is associated with every point in the spatial domain. Hence, the initial condition is actually a function of <span class="math inline">\(x\)</span>. In the previous exercise you found the <span class="math inline">\(u(t,x) = e^{-0.2t} \sin(\pi x)\)</span> is a solution to the PDE <span class="math inline">\(u_t = D u_{xx}\)</span>. What is the initial condition that this solution satisfies? In other words, what is the function <span class="math inline">\(u(t,x)\)</span> at time <span class="math inline">\(t=0\)</span>?
+<span id="exr:unnamed-chunk-541" class="exercise"><strong>Exercise 6.8  </strong></span>When we studied ODEs we always had a starting point for a solution – the initial condition. In the case of a PDE we also need to have an initial condition, but the initial condition is associated with every point in the spatial domain. Hence, the initial condition is actually a function of <span class="math inline">\(x\)</span>. In the previous exercise you found the <span class="math inline">\(u(t,x) = e^{-0.2t} \sin(\pi x)\)</span> is a solution to the PDE <span class="math inline">\(u_t = D u_{xx}\)</span>. What is the initial condition that this solution satisfies? In other words, what is the function <span class="math inline">\(u(t,x)\)</span> at time <span class="math inline">\(t=0\)</span>?
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-531" class="exercise"><strong>Exercise 6.9  </strong></span>Since we have both temporal and spatial variables in PDEs it stands to reason that we need conditions on both variables in order to get a unique solution to the PDE. For the PDE <span class="math inline">\(u_t = D u_{xx}\)</span> we already saw that <span class="math inline">\(u(t,x) = e^{-0.2t} \sin(\pi x)\)</span> is a solution to the PDE and the initial condition for that solution is <span class="math inline">\(u(0,x) = \sin(\pi x)\)</span>. If we are solving the PDE on the domain <span class="math inline">\(x \in [0,1]\)</span> then what are the conditions that holds for all time at the points <span class="math inline">\(x=0\)</span> and <span class="math inline">\(x=1\)</span>? These conditions are called <strong>boundary conditions</strong>.
+<span id="exr:unnamed-chunk-542" class="exercise"><strong>Exercise 6.9  </strong></span>Since we have both temporal and spatial variables in PDEs it stands to reason that we need conditions on both variables in order to get a unique solution to the PDE. For the PDE <span class="math inline">\(u_t = D u_{xx}\)</span> we already saw that <span class="math inline">\(u(t,x) = e^{-0.2t} \sin(\pi x)\)</span> is a solution to the PDE and the initial condition for that solution is <span class="math inline">\(u(0,x) = \sin(\pi x)\)</span>. If we are solving the PDE on the domain <span class="math inline">\(x \in [0,1]\)</span> then what are the conditions that holds for all time at the points <span class="math inline">\(x=0\)</span> and <span class="math inline">\(x=1\)</span>? These conditions are called <strong>boundary conditions</strong>.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-532" class="exercise"><strong>Exercise 6.10  (Visualizing Solutions to PDEs)  </strong></span>Solutions to PDEs are multivariable functions. In the previous few problems we have examined the heat equation <span class="math inline">\(u_t = D u_{xx}\)</span>. The function <span class="math inline">\(u\)</span> is a function of time, <span class="math inline">\(t\)</span>, and one spatial variable, <span class="math inline">\(x\)</span>. We have several choices when we make a plot of this type of function. Implement and complete the blocks of code below to get three different visualizations of the solution <span class="math inline">\(u(t,x) = e^{-0.2t} \sin(\pi x)\)</span> on the domain <span class="math inline">\(t \in [0,1]\)</span> and <span class="math inline">\(x \in [0,1]\)</span>.
+<span id="exr:unnamed-chunk-543" class="exercise"><strong>Exercise 6.10  (Visualizing Solutions to PDEs)  </strong></span>Solutions to PDEs are multivariable functions. In the previous few problems we have examined the heat equation <span class="math inline">\(u_t = D u_{xx}\)</span>. The function <span class="math inline">\(u\)</span> is a function of time, <span class="math inline">\(t\)</span>, and one spatial variable, <span class="math inline">\(x\)</span>. We have several choices when we make a plot of this type of function. Implement and complete the blocks of code below to get three different visualizations of the solution <span class="math inline">\(u(t,x) = e^{-0.2t} \sin(\pi x)\)</span> on the domain <span class="math inline">\(t \in [0,1]\)</span> and <span class="math inline">\(x \in [0,1]\)</span>.
 </div>
 <ol style="list-style-type: lower-alpha">
 <li>The first idea is to show several discrete snapshots of time and to arrange the plots in an array so we can read from left to right to see the evolution in time.</li>
 </ol>
-<div class="sourceCode" id="cb152"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb152-1"><a href="ch-pdes.html#cb152-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb152-2"><a href="ch-pdes.html#cb152-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb152-3"><a href="ch-pdes.html#cb152-3"></a>u <span class="op">=</span> <span class="kw">lambda</span> t, x: np.exp(<span class="op">-</span><span class="fl">0.2</span><span class="op">*</span>t) <span class="op">*</span> np.sin(np.pi<span class="op">*</span>x)</span>
-<span id="cb152-4"><a href="ch-pdes.html#cb152-4"></a>x <span class="op">=</span> <span class="co"># code that gives 100 equally spaced points from 0 to 1 </span></span>
-<span id="cb152-5"><a href="ch-pdes.html#cb152-5"></a>t <span class="op">=</span> <span class="co"># code that gives 16 equally spaced points from 0 to 10</span></span>
-<span id="cb152-6"><a href="ch-pdes.html#cb152-6"></a>fig, ax <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">4</span>,ncols<span class="op">=</span><span class="dv">4</span>)</span>
-<span id="cb152-7"><a href="ch-pdes.html#cb152-7"></a>counter <span class="op">=</span> <span class="dv">0</span> <span class="co"># this counter will count through the times</span></span>
-<span id="cb152-8"><a href="ch-pdes.html#cb152-8"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
-<span id="cb152-9"><a href="ch-pdes.html#cb152-9"></a>    <span class="cf">for</span> m <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
-<span id="cb152-10"><a href="ch-pdes.html#cb152-10"></a>        ax[n,m].plot(??? , ???, <span class="st">&#39;b&#39;</span>) <span class="co"># plot x vs u(t[counter],x)</span></span>
-<span id="cb152-11"><a href="ch-pdes.html#cb152-11"></a>        ax[n,m].grid()</span>
-<span id="cb152-12"><a href="ch-pdes.html#cb152-12"></a>        ax[n,m].set_ylim(<span class="dv">0</span>,<span class="dv">1</span>) <span class="co"># same axis for every plot</span></span>
-<span id="cb152-13"><a href="ch-pdes.html#cb152-13"></a>        ax[n,m].set_xlabel(<span class="st">&#39;x&#39;</span>)</span>
-<span id="cb152-14"><a href="ch-pdes.html#cb152-14"></a>        ax[n,m].set_ylabel(<span class="st">&#39;u&#39;</span>)</span>
-<span id="cb152-15"><a href="ch-pdes.html#cb152-15"></a>        ax[n,m].set_title(<span class="st">&quot;time=&quot;</span><span class="op">+</span>np.<span class="bu">str</span>(t[counter]))</span>
-<span id="cb152-16"><a href="ch-pdes.html#cb152-16"></a>        counter <span class="op">+=</span> <span class="dv">1</span> <span class="co"># increment the counter</span></span>
-<span id="cb152-17"><a href="ch-pdes.html#cb152-17"></a>fig.tight_layout()        </span>
-<span id="cb152-18"><a href="ch-pdes.html#cb152-18"></a>plt.show()</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-534"></span>
+<div class="sourceCode" id="cb159"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb159-1"><a href="ch-pdes.html#cb159-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb159-2"><a href="ch-pdes.html#cb159-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb159-3"><a href="ch-pdes.html#cb159-3"></a>u <span class="op">=</span> <span class="kw">lambda</span> t, x: np.exp(<span class="op">-</span><span class="fl">0.2</span><span class="op">*</span>t) <span class="op">*</span> np.sin(np.pi<span class="op">*</span>x)</span>
+<span id="cb159-4"><a href="ch-pdes.html#cb159-4"></a>x <span class="op">=</span> <span class="co"># code that gives 100 equally spaced points from 0 to 1 </span></span>
+<span id="cb159-5"><a href="ch-pdes.html#cb159-5"></a>t <span class="op">=</span> <span class="co"># code that gives 16 equally spaced points from 0 to 10</span></span>
+<span id="cb159-6"><a href="ch-pdes.html#cb159-6"></a>fig, ax <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">4</span>,ncols<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb159-7"><a href="ch-pdes.html#cb159-7"></a>counter <span class="op">=</span> <span class="dv">0</span> <span class="co"># this counter will count through the times</span></span>
+<span id="cb159-8"><a href="ch-pdes.html#cb159-8"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb159-9"><a href="ch-pdes.html#cb159-9"></a>    <span class="cf">for</span> m <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb159-10"><a href="ch-pdes.html#cb159-10"></a>        ax[n,m].plot(??? , ???, <span class="st">&#39;b&#39;</span>) <span class="co"># plot x vs u(t[counter],x)</span></span>
+<span id="cb159-11"><a href="ch-pdes.html#cb159-11"></a>        ax[n,m].grid()</span>
+<span id="cb159-12"><a href="ch-pdes.html#cb159-12"></a>        ax[n,m].set_ylim(<span class="dv">0</span>,<span class="dv">1</span>) <span class="co"># same axis for every plot</span></span>
+<span id="cb159-13"><a href="ch-pdes.html#cb159-13"></a>        ax[n,m].set_xlabel(<span class="st">&#39;x&#39;</span>)</span>
+<span id="cb159-14"><a href="ch-pdes.html#cb159-14"></a>        ax[n,m].set_ylabel(<span class="st">&#39;u&#39;</span>)</span>
+<span id="cb159-15"><a href="ch-pdes.html#cb159-15"></a>        ax[n,m].set_title(<span class="st">&quot;time=&quot;</span><span class="op">+</span>np.<span class="bu">str</span>(t[counter]))</span>
+<span id="cb159-16"><a href="ch-pdes.html#cb159-16"></a>        counter <span class="op">+=</span> <span class="dv">1</span> <span class="co"># increment the counter</span></span>
+<span id="cb159-17"><a href="ch-pdes.html#cb159-17"></a>fig.tight_layout()        </span>
+<span id="cb159-18"><a href="ch-pdes.html#cb159-18"></a>plt.show()</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-545"></span>
 <img src="images/Ch06_TimeEvolution1.png" alt="Time evolution of a solution to the PDE" width="95%" />
 <p class="caption">
 Figure 6.1: Time evolution of a solution to the PDE
@@ -607,22 +611,22 @@ Figure 6.1: Time evolution of a solution to the PDE
 <ol start="2" style="list-style-type: lower-alpha">
 <li>A second idea for plotting the solution to a PDE is to give an interactive plot where we can use a slider to advance (or reverse) time.</li>
 </ol>
-<div class="sourceCode" id="cb153"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb153-1"><a href="ch-pdes.html#cb153-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb153-2"><a href="ch-pdes.html#cb153-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb153-3"><a href="ch-pdes.html#cb153-3"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interactive</span>
-<span id="cb153-4"><a href="ch-pdes.html#cb153-4"></a></span>
-<span id="cb153-5"><a href="ch-pdes.html#cb153-5"></a>u <span class="op">=</span> <span class="kw">lambda</span> t, x: np.exp(<span class="op">-</span><span class="fl">0.2</span><span class="op">*</span>t) <span class="op">*</span> (<span class="dv">1</span><span class="op">*</span>np.sin(<span class="dv">1</span><span class="op">*</span>np.pi<span class="op">*</span>x))</span>
-<span id="cb153-6"><a href="ch-pdes.html#cb153-6"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">100</span>)</span>
-<span id="cb153-7"><a href="ch-pdes.html#cb153-7"></a></span>
-<span id="cb153-8"><a href="ch-pdes.html#cb153-8"></a><span class="kw">def</span> plotter(T):</span>
-<span id="cb153-9"><a href="ch-pdes.html#cb153-9"></a>  plt.plot(x , u(T,x), <span class="st">&#39;b&#39;</span>)</span>
-<span id="cb153-10"><a href="ch-pdes.html#cb153-10"></a>  plt.grid()</span>
-<span id="cb153-11"><a href="ch-pdes.html#cb153-11"></a>  plt.ylim(<span class="dv">0</span>,<span class="dv">1</span>)</span>
-<span id="cb153-12"><a href="ch-pdes.html#cb153-12"></a>  plt.show()</span>
-<span id="cb153-13"><a href="ch-pdes.html#cb153-13"></a></span>
-<span id="cb153-14"><a href="ch-pdes.html#cb153-14"></a>interactive_plot <span class="op">=</span> interactive(plotter, T<span class="op">=</span>(<span class="dv">0</span>,<span class="dv">20</span>,<span class="fl">0.1</span>))</span>
-<span id="cb153-15"><a href="ch-pdes.html#cb153-15"></a>interactive_plot</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-536"></span>
+<div class="sourceCode" id="cb160"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb160-1"><a href="ch-pdes.html#cb160-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb160-2"><a href="ch-pdes.html#cb160-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb160-3"><a href="ch-pdes.html#cb160-3"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interactive</span>
+<span id="cb160-4"><a href="ch-pdes.html#cb160-4"></a></span>
+<span id="cb160-5"><a href="ch-pdes.html#cb160-5"></a>u <span class="op">=</span> <span class="kw">lambda</span> t, x: np.exp(<span class="op">-</span><span class="fl">0.2</span><span class="op">*</span>t) <span class="op">*</span> (<span class="dv">1</span><span class="op">*</span>np.sin(<span class="dv">1</span><span class="op">*</span>np.pi<span class="op">*</span>x))</span>
+<span id="cb160-6"><a href="ch-pdes.html#cb160-6"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">100</span>)</span>
+<span id="cb160-7"><a href="ch-pdes.html#cb160-7"></a></span>
+<span id="cb160-8"><a href="ch-pdes.html#cb160-8"></a><span class="kw">def</span> plotter(T):</span>
+<span id="cb160-9"><a href="ch-pdes.html#cb160-9"></a>  plt.plot(x , u(T,x), <span class="st">&#39;b&#39;</span>)</span>
+<span id="cb160-10"><a href="ch-pdes.html#cb160-10"></a>  plt.grid()</span>
+<span id="cb160-11"><a href="ch-pdes.html#cb160-11"></a>  plt.ylim(<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb160-12"><a href="ch-pdes.html#cb160-12"></a>  plt.show()</span>
+<span id="cb160-13"><a href="ch-pdes.html#cb160-13"></a></span>
+<span id="cb160-14"><a href="ch-pdes.html#cb160-14"></a>interactive_plot <span class="op">=</span> interactive(plotter, T<span class="op">=</span>(<span class="dv">0</span>,<span class="dv">20</span>,<span class="fl">0.1</span>))</span>
+<span id="cb160-15"><a href="ch-pdes.html#cb160-15"></a>interactive_plot</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-547"></span>
 <img src="images/Ch06_TimeEvolution2.png" alt="Snapshot of animated time evolution of a solution to the PDE" width="75%" />
 <p class="caption">
 Figure 6.2: Snapshot of animated time evolution of a solution to the PDE
@@ -631,21 +635,21 @@ Figure 6.2: Snapshot of animated time evolution of a solution to the PDE
 <ol start="3" style="list-style-type: lower-alpha">
 <li>A third idea for plotting the solution to a PDE is to create a three dimensional plot with time on one axis, <span class="math inline">\(x\)</span> on the second axis, and <span class="math inline">\(u\)</span> on the vertical axis. To read this plot we start our eyes at <span class="math inline">\(t=0\)</span> and then scan down the <span class="math inline">\(t\)</span> axis. In this way we can see the whole time evolution of the PDE in one plot without animation. Of course, if the PDE had two or more spatial dimensions plus time then this sort of plot would not be feasible.</li>
 </ol>
-<div class="sourceCode" id="cb154"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb154-1"><a href="ch-pdes.html#cb154-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb154-2"><a href="ch-pdes.html#cb154-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb154-3"><a href="ch-pdes.html#cb154-3"></a><span class="im">from</span> mpl_toolkits.mplot3d <span class="im">import</span> Axes3D</span>
-<span id="cb154-4"><a href="ch-pdes.html#cb154-4"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">8</span>))</span>
-<span id="cb154-5"><a href="ch-pdes.html#cb154-5"></a>ax <span class="op">=</span> fig.gca(projection<span class="op">=</span><span class="st">&#39;3d&#39;</span>) <span class="co"># gca stands for &quot;Get Current Axis&quot;</span></span>
-<span id="cb154-6"><a href="ch-pdes.html#cb154-6"></a>u <span class="op">=</span> <span class="kw">lambda</span> t, x: np.exp(<span class="op">-</span><span class="fl">0.2</span><span class="op">*</span>t)<span class="op">*</span>np.sin(np.pi<span class="op">*</span>x)</span>
-<span id="cb154-7"><a href="ch-pdes.html#cb154-7"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">25</span>)</span>
-<span id="cb154-8"><a href="ch-pdes.html#cb154-8"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">25</span>)</span>
-<span id="cb154-9"><a href="ch-pdes.html#cb154-9"></a>T, X <span class="op">=</span> np.meshgrid(t,x)</span>
-<span id="cb154-10"><a href="ch-pdes.html#cb154-10"></a>ax.plot_wireframe(T,X,u(T,X))</span>
-<span id="cb154-11"><a href="ch-pdes.html#cb154-11"></a>ax.set_xlabel(<span class="st">&#39;time&#39;</span>)</span>
-<span id="cb154-12"><a href="ch-pdes.html#cb154-12"></a>ax.set_ylabel(<span class="st">&#39;x&#39;</span>)</span>
-<span id="cb154-13"><a href="ch-pdes.html#cb154-13"></a>ax.set_zlabel(<span class="st">&#39;u(t,x)&#39;</span>)</span>
-<span id="cb154-14"><a href="ch-pdes.html#cb154-14"></a>plt.show()</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-538"></span>
+<div class="sourceCode" id="cb161"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb161-1"><a href="ch-pdes.html#cb161-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb161-2"><a href="ch-pdes.html#cb161-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb161-3"><a href="ch-pdes.html#cb161-3"></a><span class="im">from</span> mpl_toolkits.mplot3d <span class="im">import</span> Axes3D</span>
+<span id="cb161-4"><a href="ch-pdes.html#cb161-4"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">8</span>))</span>
+<span id="cb161-5"><a href="ch-pdes.html#cb161-5"></a>ax <span class="op">=</span> fig.gca(projection<span class="op">=</span><span class="st">&#39;3d&#39;</span>) <span class="co"># gca stands for &quot;Get Current Axis&quot;</span></span>
+<span id="cb161-6"><a href="ch-pdes.html#cb161-6"></a>u <span class="op">=</span> <span class="kw">lambda</span> t, x: np.exp(<span class="op">-</span><span class="fl">0.2</span><span class="op">*</span>t)<span class="op">*</span>np.sin(np.pi<span class="op">*</span>x)</span>
+<span id="cb161-7"><a href="ch-pdes.html#cb161-7"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">25</span>)</span>
+<span id="cb161-8"><a href="ch-pdes.html#cb161-8"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">25</span>)</span>
+<span id="cb161-9"><a href="ch-pdes.html#cb161-9"></a>T, X <span class="op">=</span> np.meshgrid(t,x)</span>
+<span id="cb161-10"><a href="ch-pdes.html#cb161-10"></a>ax.plot_wireframe(T,X,u(T,X))</span>
+<span id="cb161-11"><a href="ch-pdes.html#cb161-11"></a>ax.set_xlabel(<span class="st">&#39;time&#39;</span>)</span>
+<span id="cb161-12"><a href="ch-pdes.html#cb161-12"></a>ax.set_ylabel(<span class="st">&#39;x&#39;</span>)</span>
+<span id="cb161-13"><a href="ch-pdes.html#cb161-13"></a>ax.set_zlabel(<span class="st">&#39;u(t,x)&#39;</span>)</span>
+<span id="cb161-14"><a href="ch-pdes.html#cb161-14"></a>plt.show()</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-549"></span>
 <img src="images/Ch06_TimeEvolution3.png" alt="3D plot showing the time evolution of the solution to the PDE." width="75%" />
 <p class="caption">
 Figure 6.3: 3D plot showing the time evolution of the solution to the PDE.
@@ -654,7 +658,7 @@ Figure 6.3: 3D plot showing the time evolution of the solution to the PDE.
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-539" class="exercise"><strong>Exercise 6.11  </strong></span>In the previous problem you built several plots of the function <span class="math inline">\(u(t,x) = e^{-0.2t} \sin(\pi x)\)</span> as a solution to the heat equation <span class="math inline">\(u_t = D u_{xx}\)</span>.</p>
+<p><span id="exr:unnamed-chunk-550" class="exercise"><strong>Exercise 6.11  </strong></span>In the previous problem you built several plots of the function <span class="math inline">\(u(t,x) = e^{-0.2t} \sin(\pi x)\)</span> as a solution to the heat equation <span class="math inline">\(u_t = D u_{xx}\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Based on the plots, why do you think the equation <span class="math inline">\(u_t = D u_{xx}\)</span> called the “heat equation”? That is, why do the solutions look like dissipating heat?<br />
 </li>
@@ -666,13 +670,13 @@ Explain why your answer makes sense if we are solving an equation, called the �
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-540" class="exercise"><strong>Exercise 6.12  </strong></span>Propose another solution to the PDE <span class="math inline">\(u_t = D u_{xx}\)</span> that exactly matches the boundary conditions <span class="math inline">\(u(t,0)=0\)</span> and <span class="math inline">\(u(t,1)=0\)</span> for all time <span class="math inline">\(t\)</span> AND exactly the same value for <span class="math inline">\(D\)</span> as with the function <span class="math inline">\(u(t,x) = e^{-0.2t} \sin(\pi x)\)</span>. What is the new initial condition associated with your new solution?</p>
+<p><span id="exr:unnamed-chunk-551" class="exercise"><strong>Exercise 6.12  </strong></span>Propose another solution to the PDE <span class="math inline">\(u_t = D u_{xx}\)</span> that exactly matches the boundary conditions <span class="math inline">\(u(t,0)=0\)</span> and <span class="math inline">\(u(t,1)=0\)</span> for all time <span class="math inline">\(t\)</span> AND exactly the same value for <span class="math inline">\(D\)</span> as with the function <span class="math inline">\(u(t,x) = e^{-0.2t} \sin(\pi x)\)</span>. What is the new initial condition associated with your new solution?</p>
 Hint: You may want to start with a function of the form <span class="math inline">\(u(t,x) = e^{at} \sin( bx)\)</span> and then determine values of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> that will satisfy all of the required conditions.
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-541" class="exercise"><strong>Exercise 6.13  </strong></span>We now have two solutions to the PDE <span class="math inline">\(u_t = D u_{xx}\)</span> that satisfy both the PDE and the boundary conditions <span class="math inline">\(u(t,0) = 0\)</span> and <span class="math inline">\(u(t,1)=0\)</span>.</p>
+<p><span id="exr:unnamed-chunk-552" class="exercise"><strong>Exercise 6.13  </strong></span>We now have two solutions to the PDE <span class="math inline">\(u_t = D u_{xx}\)</span> that satisfy both the PDE and the boundary conditions <span class="math inline">\(u(t,0) = 0\)</span> and <span class="math inline">\(u(t,1)=0\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Prove that the sum of the two solutions also satisfies the PDE and the same boundary conditions? If so, then the sum appears to be <em>another</em> valid solution to the PDE.</li>
 <li>What is the initial condition associated with the new solution you found in part (a)?</li>
@@ -683,46 +687,46 @@ Hint: You may want to start with a function of the form <span class="math inline
 <p>Let’s take stock of what we’ve investigated thus far.</p>
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-542" class="theorem"><strong>Theorem 6.1  </strong></span>If <span class="math inline">\(u_0(t,x)\)</span> and <span class="math inline">\(u_1(t,x)\)</span> are both solutions to the PDE <span class="math inline">\(u_t = D u_{xx}\)</span> matching the same boundary conditions <span class="math inline">\(u(t,0) = u(t,1) = 0\)</span> then for real scalars <span class="math inline">\(c_0\)</span> and <span class="math inline">\(c_1\)</span> the function <span class="math inline">\(c_0 u_0(t,x) + c_1 u_1(t,x)\)</span> is another solution to the PDE matching the same boundary conditions but perhaps having a different initial condition.
+<span id="thm:unnamed-chunk-553" class="theorem"><strong>Theorem 6.1  </strong></span>If <span class="math inline">\(u_0(t,x)\)</span> and <span class="math inline">\(u_1(t,x)\)</span> are both solutions to the PDE <span class="math inline">\(u_t = D u_{xx}\)</span> matching the same boundary conditions <span class="math inline">\(u(t,0) = u(t,1) = 0\)</span> then for real scalars <span class="math inline">\(c_0\)</span> and <span class="math inline">\(c_1\)</span> the function <span class="math inline">\(c_0 u_0(t,x) + c_1 u_1(t,x)\)</span> is another solution to the PDE matching the same boundary conditions but perhaps having a different initial condition.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-543" class="exercise"><strong>Exercise 6.14  </strong></span>Prove the previous theorem. Then extend the theorem to show that if there are many functions that satisfy <span class="math inline">\(u_t = D u_{xx}\)</span> and the boundary conditions <span class="math inline">\(u(t,0) = u(t,1) = 0\)</span> then the sum of all of the functions is also a solution and also satisfies the boundary conditions.
+<span id="exr:unnamed-chunk-554" class="exercise"><strong>Exercise 6.14  </strong></span>Prove the previous theorem. Then extend the theorem to show that if there are many functions that satisfy <span class="math inline">\(u_t = D u_{xx}\)</span> and the boundary conditions <span class="math inline">\(u(t,0) = u(t,1) = 0\)</span> then the sum of all of the functions is also a solution and also satisfies the boundary conditions.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-544" class="exercise"><strong>Exercise 6.15  </strong></span>Propose several solutions to the PDE <span class="math inline">\(u_t = D u_{xx}\)</span> with the boundary conditions <span class="math inline">\(u(t,0) = 0\)</span> and <span class="math inline">\(u_x(t,1) = 0\)</span>. That is to say that the function <span class="math inline">\(u(t,x)\)</span> is <span class="math inline">\(0\)</span> at <span class="math inline">\(x=0\)</span> and the derivative of <span class="math inline">\(u\)</span> with respect to <span class="math inline">\(x\)</span> at <span class="math inline">\(x=1\)</span> is 0 (there is a horizontal tangent line to the function <span class="math inline">\(u\)</span> at <span class="math inline">\(x=1\)</span> for all times <span class="math inline">\(t\)</span>). Then use your plotting code to verify that your solution satisfies the boundary conditions and visually shows the diffusion of heat as time evolves.
+<span id="exr:unnamed-chunk-555" class="exercise"><strong>Exercise 6.15  </strong></span>Propose several solutions to the PDE <span class="math inline">\(u_t = D u_{xx}\)</span> with the boundary conditions <span class="math inline">\(u(t,0) = 0\)</span> and <span class="math inline">\(u_x(t,1) = 0\)</span>. That is to say that the function <span class="math inline">\(u(t,x)\)</span> is <span class="math inline">\(0\)</span> at <span class="math inline">\(x=0\)</span> and the derivative of <span class="math inline">\(u\)</span> with respect to <span class="math inline">\(x\)</span> at <span class="math inline">\(x=1\)</span> is 0 (there is a horizontal tangent line to the function <span class="math inline">\(u\)</span> at <span class="math inline">\(x=1\)</span> for all times <span class="math inline">\(t\)</span>). Then use your plotting code to verify that your solution satisfies the boundary conditions and visually shows the diffusion of heat as time evolves.
 </div>
 <hr />
 <p>At this point we have a good notion of what the solutions to the PDE <span class="math inline">\(u_t = D u_{xx}\)</span> look and behave like. Now let’s ramp this up to two spatial dimensions.</p>
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-545" class="exercise"><strong>Exercise 6.16  </strong></span>Leverage what you learned in the previous exercises to propose a function <span class="math inline">\(u(t,x,y)\)</span> that solves the equation
+<span id="exr:unnamed-chunk-556" class="exercise"><strong>Exercise 6.16  </strong></span>Leverage what you learned in the previous exercises to propose a function <span class="math inline">\(u(t,x,y)\)</span> that solves the equation
 <span class="math display">\[ u_t = D \left( u_{xx} + u_{yy} \right) \]</span>
 on the domain <span class="math inline">\(x \in [0,1]\)</span> and <span class="math inline">\(y \in [0,1]\)</span> with <span class="math inline">\(D=1\)</span>, the boundary conditions <span class="math inline">\(u(t,0,y) = 0\)</span>, <span class="math inline">\(u(t,1,y) = 0\)</span>, <span class="math inline">\(u(t,x,0)=u(t,x,1)=0\)</span>, and the initial condition <span class="math inline">\(u(0,x,y) = \sin(2\pi x) \sin(2\pi y)\)</span> (showing in Figure <a href="ch-pdes.html#fig:heat-ic">6.4</a>. Then use the code below to show the time evolution of your solution.
 </div>
-<div class="sourceCode" id="cb155"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb155-1"><a href="ch-pdes.html#cb155-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb155-2"><a href="ch-pdes.html#cb155-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb155-3"><a href="ch-pdes.html#cb155-3"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interactive</span>
-<span id="cb155-4"><a href="ch-pdes.html#cb155-4"></a></span>
-<span id="cb155-5"><a href="ch-pdes.html#cb155-5"></a>u <span class="op">=</span> <span class="kw">lambda</span> t, x, y: <span class="co"># your function goes here</span></span>
-<span id="cb155-6"><a href="ch-pdes.html#cb155-6"></a>x, y <span class="op">=</span> np.meshgrid( np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">25</span>), np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">25</span>) )</span>
-<span id="cb155-7"><a href="ch-pdes.html#cb155-7"></a></span>
-<span id="cb155-8"><a href="ch-pdes.html#cb155-8"></a><span class="kw">def</span> plotter(T):</span>
-<span id="cb155-9"><a href="ch-pdes.html#cb155-9"></a>    fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">15</span>,<span class="dv">12</span>))</span>
-<span id="cb155-10"><a href="ch-pdes.html#cb155-10"></a>    ax <span class="op">=</span> fig.gca(projection<span class="op">=</span><span class="st">&#39;3d&#39;</span>)</span>
-<span id="cb155-11"><a href="ch-pdes.html#cb155-11"></a>    z <span class="op">=</span> u(T,x,y)</span>
-<span id="cb155-12"><a href="ch-pdes.html#cb155-12"></a>    ax.plot_surface(x,y,z)</span>
-<span id="cb155-13"><a href="ch-pdes.html#cb155-13"></a>    ax.set_xlabel(<span class="st">&#39;x&#39;</span>)</span>
-<span id="cb155-14"><a href="ch-pdes.html#cb155-14"></a>    ax.set_ylabel(<span class="st">&#39;y&#39;</span>)</span>
-<span id="cb155-15"><a href="ch-pdes.html#cb155-15"></a>    ax.set_zlabel(<span class="st">&#39;u(t,x,y)&#39;</span>)</span>
-<span id="cb155-16"><a href="ch-pdes.html#cb155-16"></a>    ax.set_zlim(<span class="dv">0</span>,<span class="dv">1</span>)</span>
-<span id="cb155-17"><a href="ch-pdes.html#cb155-17"></a>    plt.show()</span>
-<span id="cb155-18"><a href="ch-pdes.html#cb155-18"></a></span>
-<span id="cb155-19"><a href="ch-pdes.html#cb155-19"></a>interactive_plot <span class="op">=</span> interactive(plotter, T <span class="op">=</span> (<span class="dv">0</span>,<span class="dv">10</span>,<span class="fl">0.1</span>) )</span>
-<span id="cb155-20"><a href="ch-pdes.html#cb155-20"></a>interactive_plot</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb162-1"><a href="ch-pdes.html#cb162-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb162-2"><a href="ch-pdes.html#cb162-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb162-3"><a href="ch-pdes.html#cb162-3"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interactive</span>
+<span id="cb162-4"><a href="ch-pdes.html#cb162-4"></a></span>
+<span id="cb162-5"><a href="ch-pdes.html#cb162-5"></a>u <span class="op">=</span> <span class="kw">lambda</span> t, x, y: <span class="co"># your function goes here</span></span>
+<span id="cb162-6"><a href="ch-pdes.html#cb162-6"></a>x, y <span class="op">=</span> np.meshgrid( np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">25</span>), np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">25</span>) )</span>
+<span id="cb162-7"><a href="ch-pdes.html#cb162-7"></a></span>
+<span id="cb162-8"><a href="ch-pdes.html#cb162-8"></a><span class="kw">def</span> plotter(T):</span>
+<span id="cb162-9"><a href="ch-pdes.html#cb162-9"></a>    fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">15</span>,<span class="dv">12</span>))</span>
+<span id="cb162-10"><a href="ch-pdes.html#cb162-10"></a>    ax <span class="op">=</span> fig.gca(projection<span class="op">=</span><span class="st">&#39;3d&#39;</span>)</span>
+<span id="cb162-11"><a href="ch-pdes.html#cb162-11"></a>    z <span class="op">=</span> u(T,x,y)</span>
+<span id="cb162-12"><a href="ch-pdes.html#cb162-12"></a>    ax.plot_surface(x,y,z)</span>
+<span id="cb162-13"><a href="ch-pdes.html#cb162-13"></a>    ax.set_xlabel(<span class="st">&#39;x&#39;</span>)</span>
+<span id="cb162-14"><a href="ch-pdes.html#cb162-14"></a>    ax.set_ylabel(<span class="st">&#39;y&#39;</span>)</span>
+<span id="cb162-15"><a href="ch-pdes.html#cb162-15"></a>    ax.set_zlabel(<span class="st">&#39;u(t,x,y)&#39;</span>)</span>
+<span id="cb162-16"><a href="ch-pdes.html#cb162-16"></a>    ax.set_zlim(<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb162-17"><a href="ch-pdes.html#cb162-17"></a>    plt.show()</span>
+<span id="cb162-18"><a href="ch-pdes.html#cb162-18"></a></span>
+<span id="cb162-19"><a href="ch-pdes.html#cb162-19"></a>interactive_plot <span class="op">=</span> interactive(plotter, T <span class="op">=</span> (<span class="dv">0</span>,<span class="dv">10</span>,<span class="fl">0.1</span>) )</span>
+<span id="cb162-20"><a href="ch-pdes.html#cb162-20"></a>interactive_plot</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:heat-ic"></span>
 <img src="images/Ch06_IC_2DHeat.png" alt="Initial condition" width="75%" />
 <p class="caption">
@@ -732,13 +736,13 @@ Figure 6.4: Initial condition
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-547" class="exercise"><strong>Exercise 6.17  </strong></span>Prove that the function <span class="math inline">\(u(t,x,y) = e^{-0.2t} \sin(\pi x) \sin(\pi y)\)</span> is a solution to the two dimensional heat equation <span class="math inline">\(u_t = D(u_{xx} + u_{yy})\)</span>. Determine the value of <span class="math inline">\(D\)</span> for this particular solution. What are the boundary conditions and the initial condition?
+<span id="exr:unnamed-chunk-558" class="exercise"><strong>Exercise 6.17  </strong></span>Prove that the function <span class="math inline">\(u(t,x,y) = e^{-0.2t} \sin(\pi x) \sin(\pi y)\)</span> is a solution to the two dimensional heat equation <span class="math inline">\(u_t = D(u_{xx} + u_{yy})\)</span>. Determine the value of <span class="math inline">\(D\)</span> for this particular solution. What are the boundary conditions and the initial condition?
 </div>
 <hr />
 <p>Let’s move on to a different PDE: the wave equation.</p>
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-548" class="exercise"><strong>Exercise 6.18  </strong></span>Consider the wave equation <span class="math display">\[\frac{\partial^2 u}{\partial t^2} = c \frac{\partial^2 u}{\partial x^2}.\]</span></p>
+<p><span id="exr:unnamed-chunk-559" class="exercise"><strong>Exercise 6.18  </strong></span>Consider the wave equation <span class="math display">\[\frac{\partial^2 u}{\partial t^2} = c \frac{\partial^2 u}{\partial x^2}.\]</span></p>
 <ol style="list-style-type: lower-alpha">
 <li>What are the units of <span class="math inline">\(c\)</span>?</li>
 <li>Reading from left-to-right, the partial differential equation says that the second derivative of some function of <span class="math inline">\(t\)</span> is related to that same function. If you had to guess the <em>type</em> of function, what would you guess and why?</li>
@@ -750,18 +754,18 @@ Figure 6.4: Initial condition
 <hr />
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-549" class="theorem"><strong>Theorem 6.2  </strong></span>If the function <span class="math inline">\(u(t,x)\)</span> solves the 1D wave equation <span class="math inline">\(u_{tt} = c u_{xx}\)</span> then <span class="math inline">\(u(t,x)\)</span> likely has the functional form
+<span id="thm:unnamed-chunk-560" class="theorem"><strong>Theorem 6.2  </strong></span>If the function <span class="math inline">\(u(t,x)\)</span> solves the 1D wave equation <span class="math inline">\(u_{tt} = c u_{xx}\)</span> then <span class="math inline">\(u(t,x)\)</span> likely has the functional form
 <span class="math display">\[u(t,x) = \underline{\hspace{2in}}.\]</span>
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-550" class="exercise"><strong>Exercise 6.19  </strong></span>Prove your hypotheses from the previous theorem.
+<span id="exr:unnamed-chunk-561" class="exercise"><strong>Exercise 6.19  </strong></span>Prove your hypotheses from the previous theorem.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-551" class="exercise"><strong>Exercise 6.20  </strong></span>Make several plots of your solution showing the time evolution of the function. Examples of the plots are shown in Figures <a href="ch-pdes.html#fig:wave1">6.5</a> and <a href="ch-pdes.html#fig:wave2">6.6</a>. Your plots may look different given the oscillation period and the initial condition.
+<span id="exr:unnamed-chunk-562" class="exercise"><strong>Exercise 6.20  </strong></span>Make several plots of your solution showing the time evolution of the function. Examples of the plots are shown in Figures <a href="ch-pdes.html#fig:wave1">6.5</a> and <a href="ch-pdes.html#fig:wave2">6.6</a>. Your plots may look different given the oscillation period and the initial condition.
 </div>
 <div class="figure" style="text-align: center"><span id="fig:wave1"></span>
 <img src="images/Ch06_WaveTimeEvolution1.png" alt="Time evolution of a solution to the wave equation." width="95%" />
@@ -778,12 +782,12 @@ Figure 6.6: 3D plot of the time evolution of a solution to the wave equation.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-552" class="exercise"><strong>Exercise 6.21  </strong></span>If <span class="math inline">\(u_0(t,x)\)</span> and <span class="math inline">\(u_1(t,x)\)</span> are both solutions the wave equation <span class="math inline">\(u_{tt} = c u_{xx}\)</span> matching boundary conditions <span class="math inline">\(u(t,0) = u(t,1) = 0\)</span>, then is a linear combination of <span class="math inline">\(u_0\)</span> and <span class="math inline">\(u_1\)</span> also a solution that matches the particular boundary conditions?
+<span id="exr:unnamed-chunk-563" class="exercise"><strong>Exercise 6.21  </strong></span>If <span class="math inline">\(u_0(t,x)\)</span> and <span class="math inline">\(u_1(t,x)\)</span> are both solutions the wave equation <span class="math inline">\(u_{tt} = c u_{xx}\)</span> matching boundary conditions <span class="math inline">\(u(t,0) = u(t,1) = 0\)</span>, then is a linear combination of <span class="math inline">\(u_0\)</span> and <span class="math inline">\(u_1\)</span> also a solution that matches the particular boundary conditions?
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-553" class="exercise"><strong>Exercise 6.22  </strong></span>Consider the wave equation <span class="math inline">\(u_{tt} = c ( u_{xx} + u_{yy})\)</span> where <span class="math inline">\(u(x,y,t)\)</span> is the height (in centimeters) of a wave at time <span class="math inline">\(t\)</span> in seconds and spatial location <span class="math inline">\((x,y)\)</span> (each in centimeters).</p>
+<p><span id="exr:unnamed-chunk-564" class="exercise"><strong>Exercise 6.22  </strong></span>Consider the wave equation <span class="math inline">\(u_{tt} = c ( u_{xx} + u_{yy})\)</span> where <span class="math inline">\(u(x,y,t)\)</span> is the height (in centimeters) of a wave at time <span class="math inline">\(t\)</span> in seconds and spatial location <span class="math inline">\((x,y)\)</span> (each in centimeters).</p>
 <ol style="list-style-type: lower-alpha">
 <li>What are the units of the constant <span class="math inline">\(c\)</span>?</li>
 <li>For each of the following functions, test whether it is an analytical solution to this PDE by substituting the derivatives into the equation. If <span class="math inline">\(c = 2\)</span>, which of these functions is a solution?
@@ -803,18 +807,18 @@ Figure 6.6: 3D plot of the time evolution of a solution to the wave equation.
 <hr />
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-554" class="theorem"><strong>Theorem 6.3  </strong></span>If the function <span class="math inline">\(u(t,x,y)\)</span> solves the 2D wave equation <span class="math inline">\(u_{tt} = c \left( u_{xx} + u_{yy} \right)\)</span> then <span class="math inline">\(u(t,x,y)\)</span> likely has the functional form
+<span id="thm:unnamed-chunk-565" class="theorem"><strong>Theorem 6.3  </strong></span>If the function <span class="math inline">\(u(t,x,y)\)</span> solves the 2D wave equation <span class="math inline">\(u_{tt} = c \left( u_{xx} + u_{yy} \right)\)</span> then <span class="math inline">\(u(t,x,y)\)</span> likely has the functional form
 <span class="math display">\[u(t,x,y) = \underline{\hspace{2in}}.\]</span>
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-555" class="exercise"><strong>Exercise 6.23  </strong></span>Prove your hypotheses from the previous theorem.
+<span id="exr:unnamed-chunk-566" class="exercise"><strong>Exercise 6.23  </strong></span>Prove your hypotheses from the previous theorem.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-556" class="exercise"><strong>Exercise 6.24  </strong></span>Propose a solution to the wave equation <span class="math inline">\(u_{tt} = c u_{xx}\)</span> where <span class="math inline">\(u(t,0) = 0\)</span> and <span class="math inline">\(u_x(t,1)=0\)</span>.
+<span id="exr:unnamed-chunk-567" class="exercise"><strong>Exercise 6.24  </strong></span>Propose a solution to the wave equation <span class="math inline">\(u_{tt} = c u_{xx}\)</span> where <span class="math inline">\(u(t,0) = 0\)</span> and <span class="math inline">\(u_x(t,1)=0\)</span>.
 </div>
 <hr />
 <p>At this point we have only examined two PDEs, the heat and wave equations, and have proposed possible forms of the analytic solutions. These two particular PDEs have nice analytic solutions in terms of exponential and trigonometric functions so it isn’t terribly challenging to <em>guess</em> at the proper functional forms of the solutions. However, if we were to change the initial conditions, boundary conditions, or the differential equation by just a bit it may be more challenging to propose analytic solutions. It is not the purpose of this chapter to give a complete treatment of the analytic solutions to PDEs (not even the heat or wave equations). The purpose of what we just did was to build some intuition about the types of behaviors that we should expect from these prototypical PDEs. This way we will be able to determine if our numerical solutions in future sections are reasonable or not.</p>
@@ -825,7 +829,7 @@ Figure 6.6: 3D plot of the time evolution of a solution to the wave equation.
 <hr />
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-557" class="definition"><strong>Definition 6.2  </strong></span>Let’s say that we want to solve a PDE with variable <span class="math inline">\(t\)</span> and <span class="math inline">\(x\)</span> on the domain <span class="math inline">\(x \in [0,1]\)</span>.</p>
+<p><span id="def:unnamed-chunk-568" class="definition"><strong>Definition 6.2  </strong></span>Let’s say that we want to solve a PDE with variable <span class="math inline">\(t\)</span> and <span class="math inline">\(x\)</span> on the domain <span class="math inline">\(x \in [0,1]\)</span>.</p>
 <ul>
 <li>The <strong>initial condition</strong> is a function <span class="math inline">\(\eta(x)\)</span> where <span class="math inline">\(u(0,x) = \eta(x)\)</span>. In other words, we are dictating the value of <span class="math inline">\(u\)</span> at every point <span class="math inline">\(x\)</span> at time <span class="math inline">\(t=0\)</span>.</li>
 <li>The boundary conditions are restrictions for how the solution behaves at <span class="math inline">\(x=0\)</span> and <span class="math inline">\(x=1\)</span> (for this problem).
@@ -839,7 +843,7 @@ Figure 6.6: 3D plot of the time evolution of a solution to the wave equation.
 <p>Let’s play with a couple problems that should help to build your intuition about boundary conditions in PDEs. Again, we will do this graphically instead of numerically.</p>
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-558" class="exercise"><strong>Exercise 6.25  </strong></span>Consider solving the heat equation <span class="math inline">\(u_t = D u_{xx}\)</span> in 1 spatial dimension.</p>
+<p><span id="exr:unnamed-chunk-569" class="exercise"><strong>Exercise 6.25  </strong></span>Consider solving the heat equation <span class="math inline">\(u_t = D u_{xx}\)</span> in 1 spatial dimension.</p>
 <ol style="list-style-type: lower-alpha">
 <li>If a long thin metal rod is initially heated in the middle and the temperature at the ends of the rod is held fixed at 0 then the heat diffusion is described by the heat equation. What type of boundary conditions do we have in this setup? How can you tell? Draw a picture showing the expected evolution of the heat equation with these boundary conditions.</li>
 <li>What if we take the initial condition for the 1D heat equation to be <span class="math inline">\(u(0,x) = \cos(2\pi x)\)</span> and enforce the conditions <span class="math inline">\(\frac{\partial u}{\partial x}\Big|_{x=0} = 0\)</span> and <span class="math inline">\(u(t,1) = 1\)</span>. What types of boundary conditions are these? Draw a collection of pictures showing the expected evolution of the heat equation with these boundary conditions.</li>
@@ -848,7 +852,7 @@ Figure 6.6: 3D plot of the time evolution of a solution to the wave equation.
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-559" class="exercise"><strong>Exercise 6.26  </strong></span>Consider solving the wave equation <span class="math inline">\(u_{tt} = c u_{xx}\)</span> in 1 spatial dimension.</p>
+<p><span id="exr:unnamed-chunk-570" class="exercise"><strong>Exercise 6.26  </strong></span>Consider solving the wave equation <span class="math inline">\(u_{tt} = c u_{xx}\)</span> in 1 spatial dimension.</p>
 <ol style="list-style-type: lower-alpha">
 <li>If a guitar string is pulled up in the center and held fixed at the frets then the resulting vibrations of the string are described by the wave equation. What type of boundary conditions do we have in this setup? How can you tell? Draw a picture showing the expected evolution of the heat equation with these boundary conditions.</li>
 <li>What if we take the initial condition for the 1D wave equation to be <span class="math inline">\(u(0,x) = \cos(2\pi x)\)</span> and enforce the conditions <span class="math inline">\(\frac{\partial u}{\partial x}\Big|_{x=0} = 0\)</span> and <span class="math inline">\(u(t,1) = 1\)</span>. What types of boundary conditions are these? Draw a collection of pictures showing the expected evolution of the wave equation with these boundary conditions.</li>
@@ -858,7 +862,7 @@ Figure 6.6: 3D plot of the time evolution of a solution to the wave equation.
 <p>An important lesson when solving partial differential equations is that if you get the boundary conditions wrong then the solution to your problem is meaningless. The next two problems should help you to understand some of the basic scenarios that we might wish to solve with the heat and wave equation.</p>
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-560" class="exercise"><strong>Exercise 6.27  </strong></span>For each of the following situations propose meaningful boundary conditions for the 1D or 2D heat equation.</p>
+<p><span id="exr:unnamed-chunk-571" class="exercise"><strong>Exercise 6.27  </strong></span>For each of the following situations propose meaningful boundary conditions for the 1D or 2D heat equation.</p>
 <ol style="list-style-type: lower-alpha">
 <li>A thin metal rod 1 meter long is heated to <span class="math inline">\(100^\circ\)</span>C on the left end and is cooled to <span class="math inline">\(0^\circ\)</span>C on the right end. We model the heat transport with the 1D heat equation <span class="math inline">\(u_t = Du_{xx}\)</span>. What are the appropriate boundary and initial conditions?</li>
 <li>A thin metal rod 1 meter long is insulated on the left end so that the heat flux through that end is 0. The rod is held at a constant temperature of <span class="math inline">\(50^\circ\)</span>C on the right end. We model the heat transport with the 1D heat equation <span class="math inline">\(u_t = D u_{xx}\)</span>. What are the appropriate boundary conditions?</li>
@@ -869,7 +873,7 @@ Figure 6.6: 3D plot of the time evolution of a solution to the wave equation.
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-561" class="exercise"><strong>Exercise 6.28  </strong></span>For each of the following situations propose meaningful boundary conditions for the 1D and 2D wave equation.</p>
+<p><span id="exr:unnamed-chunk-572" class="exercise"><strong>Exercise 6.28  </strong></span>For each of the following situations propose meaningful boundary conditions for the 1D and 2D wave equation.</p>
 <ol style="list-style-type: lower-alpha">
 <li>A guitar string is held tight at both ends and plucked in the middle. We model the vibration of the guitar string with the 1D wave equation <span class="math inline">\(u_{tt} = c u_{xx}\)</span>. What are the appropriate boundary conditions?</li>
 <li>A rope is stretched between two people. The person on the left holds the rope tight and doesn’t move. The person on the right wiggles the rope in a periodic fashion completing one full oscillation per second. We model the waves in the rope with the 1D wave equation <span class="math inline">\(u_{tt} = c u_{xx}\)</span>. What are the appropriate boundary conditions?</li>
@@ -890,7 +894,7 @@ The constant <span class="math inline">\(D\)</span> is the called the diffusivit
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-562" class="exercise"><strong>Exercise 6.29  </strong></span>In 1 spatial dimension, the heat equation is simply <span class="math display">\[u_t = D u_{xx}.\]</span> We want to build a numerical approximation to the function <span class="math inline">\(u(t,x)\)</span> for a given collection of initial and boundary conditions.</p>
+<p><span id="exr:unnamed-chunk-573" class="exercise"><strong>Exercise 6.29  </strong></span>In 1 spatial dimension, the heat equation is simply <span class="math display">\[u_t = D u_{xx}.\]</span> We want to build a numerical approximation to the function <span class="math inline">\(u(t,x)\)</span> for a given collection of initial and boundary conditions.</p>
 <p>Frist we need to introduce some notation for the numerical solution. As you’ll see, there is a lot to keep track of in numerical PDEs so careful index and well-chosen notation is essential. Let <span class="math inline">\(U_i^n\)</span> be the approximation of the solution to <span class="math inline">\(u(t,x)\)</span> at the point <span class="math inline">\(t=t_n\)</span> and <span class="math inline">\(x=x_i\)</span> (since we have two variables we need to two indices). For example, <span class="math inline">\(U_4^1\)</span> is the value of the approximation at time <span class="math inline">\(t_1\)</span> and at the spatial point <span class="math inline">\(x_4\)</span>.</p>
 <p>Next we need to approximate both derivatives <span class="math inline">\(u_t\)</span> and <span class="math inline">\(u_{xx}\)</span> in the PDE using methods that we have used before. Now would be a good time to go back to Chapter <a href="ch-calculus.html#ch:calculus">3</a> and refresh your memory for how we build approximations of derivatives.</p>
 <ol style="list-style-type: lower-alpha">
@@ -924,7 +928,7 @@ Figure 6.7: The finite difference stencil for the 1D heat equation.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-563" class="exercise"><strong>Exercise 6.30  </strong></span>Now we want to implement your answer to part (d) of the previous exercise to approximate the solution to the
+<span id="exr:unnamed-chunk-574" class="exercise"><strong>Exercise 6.30  </strong></span>Now we want to implement your answer to part (d) of the previous exercise to approximate the solution to the
 following problem:
 <span class="math display">\[\text{Solve: } u_t = 0.5u_{xx} \quad \text{with} \quad x \in (0,1), \, u(0,x) =
     \sin(2 \pi x), \, u(t,0) = 0, \, \text{and} \, u(t,1) = 0.\]</span>
@@ -933,62 +937,62 @@ Some partial code is given below to get you started.
 <ul>
 <li>First we import the proper libraries, set up the time domain, and set up the spatial domain.</li>
 </ul>
-<div class="sourceCode" id="cb156"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb156-1"><a href="ch-pdes.html#cb156-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb156-2"><a href="ch-pdes.html#cb156-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb156-3"><a href="ch-pdes.html#cb156-3"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interactive</span>
-<span id="cb156-4"><a href="ch-pdes.html#cb156-4"></a></span>
-<span id="cb156-5"><a href="ch-pdes.html#cb156-5"></a><span class="co"># Write code to give an array of times starting at t=0 and ending </span></span>
-<span id="cb156-6"><a href="ch-pdes.html#cb156-6"></a><span class="co"># at t=1.  Be sure that you use many points in the partition of </span></span>
-<span id="cb156-7"><a href="ch-pdes.html#cb156-7"></a><span class="co"># the time domain.  Be sure to either specify or calculate the </span></span>
-<span id="cb156-8"><a href="ch-pdes.html#cb156-8"></a><span class="co"># value of Delta t.</span></span>
-<span id="cb156-9"><a href="ch-pdes.html#cb156-9"></a></span>
-<span id="cb156-10"><a href="ch-pdes.html#cb156-10"></a><span class="co"># Write code to give an array of x values starting at x=0 and </span></span>
-<span id="cb156-11"><a href="ch-pdes.html#cb156-11"></a><span class="co"># ending exactly at x=1. This is best done with the np.linspace() </span></span>
-<span id="cb156-12"><a href="ch-pdes.html#cb156-12"></a><span class="co"># command since you can guarantee that you end exactly at x=1.  </span></span>
-<span id="cb156-13"><a href="ch-pdes.html#cb156-13"></a><span class="co"># Be sure to either specify or calculate the value of Delta x as</span></span>
-<span id="cb156-14"><a href="ch-pdes.html#cb156-14"></a><span class="co"># part of your code. </span></span>
-<span id="cb156-15"><a href="ch-pdes.html#cb156-15"></a></span>
-<span id="cb156-16"><a href="ch-pdes.html#cb156-16"></a><span class="co"># The next two lines build two parameters that are of interest </span></span>
-<span id="cb156-17"><a href="ch-pdes.html#cb156-17"></a><span class="co"># for the finite difference scheme.</span></span>
-<span id="cb156-18"><a href="ch-pdes.html#cb156-18"></a>D <span class="op">=</span> <span class="fl">0.5</span> <span class="co"># The diffusion coefficient for the heat equation given.</span></span>
-<span id="cb156-19"><a href="ch-pdes.html#cb156-19"></a><span class="co"># The coefficient &quot;a&quot; appears in the finite difference scheme.</span></span>
-<span id="cb156-20"><a href="ch-pdes.html#cb156-20"></a>a <span class="op">=</span> D<span class="op">*</span>dt <span class="op">/</span> dx<span class="op">**</span><span class="dv">2</span> </span>
-<span id="cb156-21"><a href="ch-pdes.html#cb156-21"></a><span class="bu">print</span>(<span class="st">&quot;dt=&quot;</span>,dt,<span class="st">&quot;, dx=&quot;</span>,dx,<span class="st">&quot; and D dt/dx^2=&quot;</span>,a)</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb163-1"><a href="ch-pdes.html#cb163-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb163-2"><a href="ch-pdes.html#cb163-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb163-3"><a href="ch-pdes.html#cb163-3"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interactive</span>
+<span id="cb163-4"><a href="ch-pdes.html#cb163-4"></a></span>
+<span id="cb163-5"><a href="ch-pdes.html#cb163-5"></a><span class="co"># Write code to give an array of times starting at t=0 and ending </span></span>
+<span id="cb163-6"><a href="ch-pdes.html#cb163-6"></a><span class="co"># at t=1.  Be sure that you use many points in the partition of </span></span>
+<span id="cb163-7"><a href="ch-pdes.html#cb163-7"></a><span class="co"># the time domain.  Be sure to either specify or calculate the </span></span>
+<span id="cb163-8"><a href="ch-pdes.html#cb163-8"></a><span class="co"># value of Delta t.</span></span>
+<span id="cb163-9"><a href="ch-pdes.html#cb163-9"></a></span>
+<span id="cb163-10"><a href="ch-pdes.html#cb163-10"></a><span class="co"># Write code to give an array of x values starting at x=0 and </span></span>
+<span id="cb163-11"><a href="ch-pdes.html#cb163-11"></a><span class="co"># ending exactly at x=1. This is best done with the np.linspace() </span></span>
+<span id="cb163-12"><a href="ch-pdes.html#cb163-12"></a><span class="co"># command since you can guarantee that you end exactly at x=1.  </span></span>
+<span id="cb163-13"><a href="ch-pdes.html#cb163-13"></a><span class="co"># Be sure to either specify or calculate the value of Delta x as</span></span>
+<span id="cb163-14"><a href="ch-pdes.html#cb163-14"></a><span class="co"># part of your code. </span></span>
+<span id="cb163-15"><a href="ch-pdes.html#cb163-15"></a></span>
+<span id="cb163-16"><a href="ch-pdes.html#cb163-16"></a><span class="co"># The next two lines build two parameters that are of interest </span></span>
+<span id="cb163-17"><a href="ch-pdes.html#cb163-17"></a><span class="co"># for the finite difference scheme.</span></span>
+<span id="cb163-18"><a href="ch-pdes.html#cb163-18"></a>D <span class="op">=</span> <span class="fl">0.5</span> <span class="co"># The diffusion coefficient for the heat equation given.</span></span>
+<span id="cb163-19"><a href="ch-pdes.html#cb163-19"></a><span class="co"># The coefficient &quot;a&quot; appears in the finite difference scheme.</span></span>
+<span id="cb163-20"><a href="ch-pdes.html#cb163-20"></a>a <span class="op">=</span> D<span class="op">*</span>dt <span class="op">/</span> dx<span class="op">**</span><span class="dv">2</span> </span>
+<span id="cb163-21"><a href="ch-pdes.html#cb163-21"></a><span class="bu">print</span>(<span class="st">&quot;dt=&quot;</span>,dt,<span class="st">&quot;, dx=&quot;</span>,dx,<span class="st">&quot; and D dt/dx^2=&quot;</span>,a)</span></code></pre></div>
 <ul>
 <li>Next we build the array <span class="math inline">\(U\)</span> so we can store all of the approximations at all times and at all spatial points. The array will have the dimensions <code>len(t)</code> versus <code>len(x)</code>. We then need to enforce the boundary conditions so for all times we fill the proper portions of the array with the proper boundary conditions. Lastly, we will build the initial condition for all spatial steps in the first time step.</li>
 </ul>
-<div class="sourceCode" id="cb157"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb157-1"><a href="ch-pdes.html#cb157-1"></a>U <span class="op">=</span> np.zeros( (<span class="bu">len</span>(t),<span class="bu">len</span>(x)) )</span>
-<span id="cb157-2"><a href="ch-pdes.html#cb157-2"></a>U[:,<span class="dv">0</span>] <span class="op">=</span> <span class="co"># left boundary condition</span></span>
-<span id="cb157-3"><a href="ch-pdes.html#cb157-3"></a>U[:,<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="co"># right boundary condition</span></span>
-<span id="cb157-4"><a href="ch-pdes.html#cb157-4"></a>U[<span class="dv">0</span>,:] <span class="op">=</span> <span class="co"># the function for the initial condition (should depend on x)</span></span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb164-1"><a href="ch-pdes.html#cb164-1"></a>U <span class="op">=</span> np.zeros( (<span class="bu">len</span>(t),<span class="bu">len</span>(x)) )</span>
+<span id="cb164-2"><a href="ch-pdes.html#cb164-2"></a>U[:,<span class="dv">0</span>] <span class="op">=</span> <span class="co"># left boundary condition</span></span>
+<span id="cb164-3"><a href="ch-pdes.html#cb164-3"></a>U[:,<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="co"># right boundary condition</span></span>
+<span id="cb164-4"><a href="ch-pdes.html#cb164-4"></a>U[<span class="dv">0</span>,:] <span class="op">=</span> <span class="co"># the function for the initial condition (should depend on x)</span></span></code></pre></div>
 <ul>
 <li>Now we step through a loop that fills the <span class="math inline">\(U\)</span> array one row at a time. Keep in mind that we want to leave the boundary conditions fixed so we will only fill indices <code>1</code> through <code>-2</code> (stop and explain this). Be careful to get the indexing correct. For example, if we want <span class="math inline">\(U_i^n\)</span> we use <code>U[n,1:-1]</code>, if we want <span class="math inline">\(U_{i+1}^n\)</span> we use <code>U[n,2:]</code>, if we want <span class="math inline">\(U_i^{n+1}\)</span> we use <code>U[n+1,1:-1]</code>, etc.</li>
 </ul>
-<div class="sourceCode" id="cb158"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb158-1"><a href="ch-pdes.html#cb158-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(t)<span class="op">-</span><span class="dv">1</span>):</span>
-<span id="cb158-2"><a href="ch-pdes.html#cb158-2"></a>    U[n<span class="op">+</span><span class="dv">1</span>,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> U[n,?:?] <span class="op">+</span> a<span class="op">*</span>( U[n,?:] <span class="op">-</span> <span class="dv">2</span><span class="op">*</span>U[n,?:?] <span class="op">+</span> U[n,:?])</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb165-1"><a href="ch-pdes.html#cb165-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(t)<span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb165-2"><a href="ch-pdes.html#cb165-2"></a>    U[n<span class="op">+</span><span class="dv">1</span>,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> U[n,?:?] <span class="op">+</span> a<span class="op">*</span>( U[n,?:] <span class="op">-</span> <span class="dv">2</span><span class="op">*</span>U[n,?:?] <span class="op">+</span> U[n,:?])</span></code></pre></div>
 <ul>
 <li>It remains to plot the solutions. One way to do this is with the <code>ipywidgets.interactive</code> tool. We first need to create a function which returns a plot at a particular time step. Then we call the function inside the <code>interactive</code> function.</li>
 </ul>
-<div class="sourceCode" id="cb159"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb159-1"><a href="ch-pdes.html#cb159-1"></a><span class="kw">def</span> plotter(Frame):</span>
-<span id="cb159-2"><a href="ch-pdes.html#cb159-2"></a>    plt.plot(x,U[Frame,:],<span class="st">&#39;b&#39;</span>)</span>
-<span id="cb159-3"><a href="ch-pdes.html#cb159-3"></a>    plt.grid()</span>
-<span id="cb159-4"><a href="ch-pdes.html#cb159-4"></a>    plt.ylim(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb159-5"><a href="ch-pdes.html#cb159-5"></a>    plt.show()</span>
-<span id="cb159-6"><a href="ch-pdes.html#cb159-6"></a>interactive_plot <span class="op">=</span> interactive(plotter, Frame<span class="op">=</span>(<span class="dv">0</span>,<span class="bu">len</span>(t)<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>))</span>
-<span id="cb159-7"><a href="ch-pdes.html#cb159-7"></a>interactive_plot</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb166-1"><a href="ch-pdes.html#cb166-1"></a><span class="kw">def</span> plotter(Frame):</span>
+<span id="cb166-2"><a href="ch-pdes.html#cb166-2"></a>    plt.plot(x,U[Frame,:],<span class="st">&#39;b&#39;</span>)</span>
+<span id="cb166-3"><a href="ch-pdes.html#cb166-3"></a>    plt.grid()</span>
+<span id="cb166-4"><a href="ch-pdes.html#cb166-4"></a>    plt.ylim(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb166-5"><a href="ch-pdes.html#cb166-5"></a>    plt.show()</span>
+<span id="cb166-6"><a href="ch-pdes.html#cb166-6"></a>interactive_plot <span class="op">=</span> interactive(plotter, Frame<span class="op">=</span>(<span class="dv">0</span>,<span class="bu">len</span>(t)<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb166-7"><a href="ch-pdes.html#cb166-7"></a>interactive_plot</span></code></pre></div>
 <p>Note: If you don’t want to do an interactive plot then you can produce several snapshots of the solutions with the following code.</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb160-1"><a href="ch-pdes.html#cb160-1"></a><span class="cf">for</span> Frame <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(t),<span class="dv">20</span>): <span class="co"># built every 20th frame, for example</span></span>
-<span id="cb160-2"><a href="ch-pdes.html#cb160-2"></a>    plotter(Frame)</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb167-1"><a href="ch-pdes.html#cb167-1"></a><span class="cf">for</span> Frame <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(t),<span class="dv">20</span>): <span class="co"># built every 20th frame, for example</span></span>
+<span id="cb167-2"><a href="ch-pdes.html#cb167-2"></a>    plotter(Frame)</span></code></pre></div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-569" class="exercise"><strong>Exercise 6.31  </strong></span>You may have found that you didn’t get a sensible solution out for the previous problem. The point of this exercise is to show that value of <span class="math inline">\(a = D\frac{\Delta t}{\Delta x^2}\)</span> controls the stability of the finite difference solution to the heat equation, and furthermore that there is a cutoff for <span class="math inline">\(a\)</span> below which the finite difference scheme will be stable. Experiment with values of <span class="math inline">\(\Delta t\)</span> and <span class="math inline">\(\Delta x\)</span> and conjecture the values of <span class="math inline">\(a = D \frac{\Delta t}{\Delta x^2}\)</span> that give a stable result. Your conjecture should take the form:</p>
+<p><span id="exr:unnamed-chunk-580" class="exercise"><strong>Exercise 6.31  </strong></span>You may have found that you didn’t get a sensible solution out for the previous problem. The point of this exercise is to show that value of <span class="math inline">\(a = D\frac{\Delta t}{\Delta x^2}\)</span> controls the stability of the finite difference solution to the heat equation, and furthermore that there is a cutoff for <span class="math inline">\(a\)</span> below which the finite difference scheme will be stable. Experiment with values of <span class="math inline">\(\Delta t\)</span> and <span class="math inline">\(\Delta x\)</span> and conjecture the values of <span class="math inline">\(a = D \frac{\Delta t}{\Delta x^2}\)</span> that give a stable result. Your conjecture should take the form:</p>
 <p><em>If <span class="math inline">\(a = D\frac{\Delta t}{\Delta x^2} &lt; \underline{\hspace{0.5in}}\)</span> then the finite difference solution for the 1D heat equation is stable. Otherwise it is unstable</em>.</p>
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-570" class="exercise"><strong>Exercise 6.32  </strong></span>The consider the one dimensional heat equation with diffusion coefficient <span class="math inline">\(D=1\)</span>:
+<p><span id="exr:unnamed-chunk-581" class="exercise"><strong>Exercise 6.32  </strong></span>The consider the one dimensional heat equation with diffusion coefficient <span class="math inline">\(D=1\)</span>:
 <span class="math display">\[ u_t = u_{xx}. \]</span>
 We want to solve this equation on the domain <span class="math inline">\(x \in (0,1)\)</span> and <span class="math inline">\(t\in (0,0.5)\)</span> subject to the initial condition <span class="math inline">\(u(0,x) = \sin(\pi x)\)</span> and the boundary conditions <span class="math inline">\(u(t,0)=u(t,1) = 0\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
@@ -1002,7 +1006,7 @@ We want to solve this equation on the domain <span class="math inline">\(x \in (
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-571" class="exercise"><strong>Exercise 6.33  </strong></span>In any initial and boundary value problem such as the heat equation, the boundary values can either be classified as Dirichlet or Neumann type. In Dirichlet boundary conditions the values of the solution at the boundary are dictated specifically. So far we have only solved the heat equation with Dirichlet boundary conditions. In contrast, Neumann boundary conditions dictate the flux at the boundary instead of the value of the solution. Consider the 1D heat equation <span class="math inline">\(u_t = u_{xx}\)</span> with boundary conditions <span class="math inline">\(u_x(t,0)=0\)</span> and <span class="math inline">\(u(t,1)=0\)</span> with initial condition <span class="math inline">\(u(0,x) = \cos(\pi x/2)\)</span>. Notice that the initial condition satisfies both boundary conditions: <span class="math inline">\(\frac{d}{dx}(\cos(\pi \cdot x/2))\Big|_{x=0} = 0\)</span> and <span class="math inline">\(\cos(\pi \cdot 1/2)=0\)</span>. As the heat profile evolves in time the Neumann boundary condition <span class="math inline">\(u_x(t,0)=0\)</span> says that the slope of the solution needs to be fixed at 0 at the left-hand boundary.</p>
+<p><span id="exr:unnamed-chunk-582" class="exercise"><strong>Exercise 6.33  </strong></span>In any initial and boundary value problem such as the heat equation, the boundary values can either be classified as Dirichlet or Neumann type. In Dirichlet boundary conditions the values of the solution at the boundary are dictated specifically. So far we have only solved the heat equation with Dirichlet boundary conditions. In contrast, Neumann boundary conditions dictate the flux at the boundary instead of the value of the solution. Consider the 1D heat equation <span class="math inline">\(u_t = u_{xx}\)</span> with boundary conditions <span class="math inline">\(u_x(t,0)=0\)</span> and <span class="math inline">\(u(t,1)=0\)</span> with initial condition <span class="math inline">\(u(0,x) = \cos(\pi x/2)\)</span>. Notice that the initial condition satisfies both boundary conditions: <span class="math inline">\(\frac{d}{dx}(\cos(\pi \cdot x/2))\Big|_{x=0} = 0\)</span> and <span class="math inline">\(\cos(\pi \cdot 1/2)=0\)</span>. As the heat profile evolves in time the Neumann boundary condition <span class="math inline">\(u_x(t,0)=0\)</span> says that the slope of the solution needs to be fixed at 0 at the left-hand boundary.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Draw several images of what the solution to the PDE should look like as time evolves. Be sure that all boundary conditions are satisfied and that your solution appears to solve the heat equation.</li>
 <li>The Neumann boundary condition <span class="math inline">\(u_x(t,0) = 0\)</span> can be approximated with the first order approximation
@@ -1014,7 +1018,7 @@ If we set this approximation to 0 (since <span class="math inline">\(u_x(t,0)=0\
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-572" class="exercise"><strong>Exercise 6.34  </strong></span>Modify your 1D heat equation code to solve the following problems. For each be sure to classify the type of boundary conditions given. Notice that we are now using initial and boundary conditions where it would be quite challenging to built the analytic solution so we weill only show numerical solutions. Be sure that you choose <span class="math inline">\(\Delta t\)</span> and <span class="math inline">\(\Delta x\)</span> so that your solution is stable.</p>
+<p><span id="exr:unnamed-chunk-583" class="exercise"><strong>Exercise 6.34  </strong></span>Modify your 1D heat equation code to solve the following problems. For each be sure to classify the type of boundary conditions given. Notice that we are now using initial and boundary conditions where it would be quite challenging to built the analytic solution so we weill only show numerical solutions. Be sure that you choose <span class="math inline">\(\Delta t\)</span> and <span class="math inline">\(\Delta x\)</span> so that your solution is stable.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Solve <span class="math inline">\(u_t = 0.5 u_{xx}\)</span> with <span class="math inline">\(x \in (0,1)\)</span>, <span class="math inline">\(u(0,x) = x^2\)</span>, <span class="math inline">\(u(t,0) = 0\)</span> and <span class="math inline">\(u(t,1) = 1\)</span>.</li>
 <li>Solve <span class="math inline">\(u_t = 0.5 u_{xx}\)</span> with <span class="math inline">\(x \in (0,1)\)</span>, <span class="math inline">\(u(0,x) = 1-\cos(\pi x/2)\)</span>, <span class="math inline">\(u_x(t,0) = 0\)</span> and <span class="math inline">\(u(t,1) = 1\)</span>.</li>
@@ -1030,7 +1034,7 @@ or using subscript notation for the partial derivatives,
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-573" class="exercise"><strong>Exercise 6.35  </strong></span>Let’s build a numerical solution to the 2D heat equation. We need to make a minor modification to our notation since there is now one more spatial dimension to keep track of. Let <span class="math inline">\(U_{i,j}^n\)</span> be the approximation to <span class="math inline">\(u\)</span> at the point <span class="math inline">\((t_n, x_i, y_j)\)</span>. For example, <span class="math inline">\(U_{2,3}^4\)</span> will be the approximation to the solution at the point <span class="math inline">\((t_4,x_2,y_3)\)</span>.</p>
+<p><span id="exr:unnamed-chunk-584" class="exercise"><strong>Exercise 6.35  </strong></span>Let’s build a numerical solution to the 2D heat equation. We need to make a minor modification to our notation since there is now one more spatial dimension to keep track of. Let <span class="math inline">\(U_{i,j}^n\)</span> be the approximation to <span class="math inline">\(u\)</span> at the point <span class="math inline">\((t_n, x_i, y_j)\)</span>. For example, <span class="math inline">\(U_{2,3}^4\)</span> will be the approximation to the solution at the point <span class="math inline">\((t_4,x_2,y_3)\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
 <li>We already know how to approximate the time derivative in the heat equation:
 <span class="math display">\[ u_t(t_{n+1}, x_i, y_j) \approx \frac{U_{i,j}^{n+1} - U_{i,j}^n}{\Delta t}. \]</span>
@@ -1057,85 +1061,85 @@ Figure 6.8: The finite difference stencil for the 2D heat equation.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-574" class="exercise"><strong>Exercise 6.36  </strong></span>Now we need to implement the finite difference scheme that you developed in the previous problem. As a model problem, consider the 2D heat equation <span class="math inline">\(u_t = D(u_{xx} + u_{yy})\)</span> on the domain <span class="math inline">\((x,y) \in [0,1] \times [0,1]\)</span> with the initial condition <span class="math inline">\(u(0,x,y) = \sin(\pi x)\sin(\pi y)\)</span>, homogeneous Dirichlet boundary conditions, and <span class="math inline">\(D=1\)</span>.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> Fill in the holes in the following code chunks.
+<span id="exr:unnamed-chunk-585" class="exercise"><strong>Exercise 6.36  </strong></span>Now we need to implement the finite difference scheme that you developed in the previous problem. As a model problem, consider the 2D heat equation <span class="math inline">\(u_t = D(u_{xx} + u_{yy})\)</span> on the domain <span class="math inline">\((x,y) \in [0,1] \times [0,1]\)</span> with the initial condition <span class="math inline">\(u(0,x,y) = \sin(\pi x)\sin(\pi y)\)</span>, homogeneous Dirichlet boundary conditions, and <span class="math inline">\(D=1\)</span>.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> Fill in the holes in the following code chunks.
 </div>
 <ul>
 <li>First we import the proper libraries and set up the domains for <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>, and <span class="math inline">\(t\)</span>.</li>
 </ul>
-<div class="sourceCode" id="cb161"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb161-1"><a href="ch-pdes.html#cb161-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb161-2"><a href="ch-pdes.html#cb161-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb161-3"><a href="ch-pdes.html#cb161-3"></a><span class="im">from</span> matplotlib <span class="im">import</span> cm <span class="co"># this allows for color maps of a surface plot</span></span>
-<span id="cb161-4"><a href="ch-pdes.html#cb161-4"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interactive</span>
-<span id="cb161-5"><a href="ch-pdes.html#cb161-5"></a></span>
-<span id="cb161-6"><a href="ch-pdes.html#cb161-6"></a><span class="co"># Write code to build a linearly spaced array of x values starting at 0 </span></span>
-<span id="cb161-7"><a href="ch-pdes.html#cb161-7"></a><span class="co"># and ending at exactly 1</span></span>
-<span id="cb161-8"><a href="ch-pdes.html#cb161-8"></a>x <span class="op">=</span> <span class="co"># your code here</span></span>
-<span id="cb161-9"><a href="ch-pdes.html#cb161-9"></a>y <span class="op">=</span> x <span class="co"># This is a step that allows for us to have y = x and hence dy = dx.</span></span>
-<span id="cb161-10"><a href="ch-pdes.html#cb161-10"></a>dx <span class="op">=</span> <span class="co"># Extract dx from your array of x values.</span></span>
-<span id="cb161-11"><a href="ch-pdes.html#cb161-11"></a><span class="co"># Now write code to build a linearly spaced array of time values </span></span>
-<span id="cb161-12"><a href="ch-pdes.html#cb161-12"></a><span class="co"># starting at 0 and ending at 0.25.</span></span>
-<span id="cb161-13"><a href="ch-pdes.html#cb161-13"></a><span class="co"># You will want to use many more values for time than for space </span></span>
-<span id="cb161-14"><a href="ch-pdes.html#cb161-14"></a><span class="co"># (think about the stability conditions from the 1D heat equation).</span></span>
-<span id="cb161-15"><a href="ch-pdes.html#cb161-15"></a>t <span class="op">=</span> <span class="co"># your code here</span></span>
-<span id="cb161-16"><a href="ch-pdes.html#cb161-16"></a>dt <span class="op">=</span> <span class="co"># Extract dt from your array of t values</span></span>
-<span id="cb161-17"><a href="ch-pdes.html#cb161-17"></a></span>
-<span id="cb161-18"><a href="ch-pdes.html#cb161-18"></a><span class="co"># Next we will use the np.meshgrid() command to turn the arrays of </span></span>
-<span id="cb161-19"><a href="ch-pdes.html#cb161-19"></a><span class="co"># x and y values into 2D grids of x and y values.  </span></span>
-<span id="cb161-20"><a href="ch-pdes.html#cb161-20"></a><span class="co"># If you match the corresponding entries of X and Y then you get every</span></span>
-<span id="cb161-21"><a href="ch-pdes.html#cb161-21"></a><span class="co"># ordered pair in the domain.</span></span>
-<span id="cb161-22"><a href="ch-pdes.html#cb161-22"></a>X, Y <span class="op">=</span> np.meshgrid(x,y)</span>
-<span id="cb161-23"><a href="ch-pdes.html#cb161-23"></a></span>
-<span id="cb161-24"><a href="ch-pdes.html#cb161-24"></a><span class="co"># Next we set up a 3 dimensional array of zeros to store all of </span></span>
-<span id="cb161-25"><a href="ch-pdes.html#cb161-25"></a><span class="co"># the time steps of the solutions.</span></span>
-<span id="cb161-26"><a href="ch-pdes.html#cb161-26"></a>U <span class="op">=</span> np.zeros( (<span class="bu">len</span>(t), <span class="bu">len</span>(x), <span class="bu">len</span>(y)))</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb168-1"><a href="ch-pdes.html#cb168-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb168-2"><a href="ch-pdes.html#cb168-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb168-3"><a href="ch-pdes.html#cb168-3"></a><span class="im">from</span> matplotlib <span class="im">import</span> cm <span class="co"># this allows for color maps of a surface plot</span></span>
+<span id="cb168-4"><a href="ch-pdes.html#cb168-4"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interactive</span>
+<span id="cb168-5"><a href="ch-pdes.html#cb168-5"></a></span>
+<span id="cb168-6"><a href="ch-pdes.html#cb168-6"></a><span class="co"># Write code to build a linearly spaced array of x values starting at 0 </span></span>
+<span id="cb168-7"><a href="ch-pdes.html#cb168-7"></a><span class="co"># and ending at exactly 1</span></span>
+<span id="cb168-8"><a href="ch-pdes.html#cb168-8"></a>x <span class="op">=</span> <span class="co"># your code here</span></span>
+<span id="cb168-9"><a href="ch-pdes.html#cb168-9"></a>y <span class="op">=</span> x <span class="co"># This is a step that allows for us to have y = x and hence dy = dx.</span></span>
+<span id="cb168-10"><a href="ch-pdes.html#cb168-10"></a>dx <span class="op">=</span> <span class="co"># Extract dx from your array of x values.</span></span>
+<span id="cb168-11"><a href="ch-pdes.html#cb168-11"></a><span class="co"># Now write code to build a linearly spaced array of time values </span></span>
+<span id="cb168-12"><a href="ch-pdes.html#cb168-12"></a><span class="co"># starting at 0 and ending at 0.25.</span></span>
+<span id="cb168-13"><a href="ch-pdes.html#cb168-13"></a><span class="co"># You will want to use many more values for time than for space </span></span>
+<span id="cb168-14"><a href="ch-pdes.html#cb168-14"></a><span class="co"># (think about the stability conditions from the 1D heat equation).</span></span>
+<span id="cb168-15"><a href="ch-pdes.html#cb168-15"></a>t <span class="op">=</span> <span class="co"># your code here</span></span>
+<span id="cb168-16"><a href="ch-pdes.html#cb168-16"></a>dt <span class="op">=</span> <span class="co"># Extract dt from your array of t values</span></span>
+<span id="cb168-17"><a href="ch-pdes.html#cb168-17"></a></span>
+<span id="cb168-18"><a href="ch-pdes.html#cb168-18"></a><span class="co"># Next we will use the np.meshgrid() command to turn the arrays of </span></span>
+<span id="cb168-19"><a href="ch-pdes.html#cb168-19"></a><span class="co"># x and y values into 2D grids of x and y values.  </span></span>
+<span id="cb168-20"><a href="ch-pdes.html#cb168-20"></a><span class="co"># If you match the corresponding entries of X and Y then you get every</span></span>
+<span id="cb168-21"><a href="ch-pdes.html#cb168-21"></a><span class="co"># ordered pair in the domain.</span></span>
+<span id="cb168-22"><a href="ch-pdes.html#cb168-22"></a>X, Y <span class="op">=</span> np.meshgrid(x,y)</span>
+<span id="cb168-23"><a href="ch-pdes.html#cb168-23"></a></span>
+<span id="cb168-24"><a href="ch-pdes.html#cb168-24"></a><span class="co"># Next we set up a 3 dimensional array of zeros to store all of </span></span>
+<span id="cb168-25"><a href="ch-pdes.html#cb168-25"></a><span class="co"># the time steps of the solutions.</span></span>
+<span id="cb168-26"><a href="ch-pdes.html#cb168-26"></a>U <span class="op">=</span> np.zeros( (<span class="bu">len</span>(t), <span class="bu">len</span>(x), <span class="bu">len</span>(y)))</span></code></pre></div>
 <ul>
 <li>Next we have to set up the boundary and initial conditions for the given problem.</li>
 </ul>
-<div class="sourceCode" id="cb162"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb162-1"><a href="ch-pdes.html#cb162-1"></a>U[<span class="dv">0</span>,:,:] <span class="op">=</span> <span class="co"># initial condition depending on X and Y</span></span>
-<span id="cb162-2"><a href="ch-pdes.html#cb162-2"></a>U[:,<span class="dv">0</span>,:] <span class="op">=</span> <span class="co"># boundary condition for x=0</span></span>
-<span id="cb162-3"><a href="ch-pdes.html#cb162-3"></a>U[:,<span class="op">-</span><span class="dv">1</span>,:] <span class="op">=</span> <span class="co"># boundary condition for x=1</span></span>
-<span id="cb162-4"><a href="ch-pdes.html#cb162-4"></a>U[:,:,<span class="dv">0</span>] <span class="op">=</span> <span class="co"># boundary condition for y=0</span></span>
-<span id="cb162-5"><a href="ch-pdes.html#cb162-5"></a>U[:,:,<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="co"># boundary condition for y=1</span></span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb169-1"><a href="ch-pdes.html#cb169-1"></a>U[<span class="dv">0</span>,:,:] <span class="op">=</span> <span class="co"># initial condition depending on X and Y</span></span>
+<span id="cb169-2"><a href="ch-pdes.html#cb169-2"></a>U[:,<span class="dv">0</span>,:] <span class="op">=</span> <span class="co"># boundary condition for x=0</span></span>
+<span id="cb169-3"><a href="ch-pdes.html#cb169-3"></a>U[:,<span class="op">-</span><span class="dv">1</span>,:] <span class="op">=</span> <span class="co"># boundary condition for x=1</span></span>
+<span id="cb169-4"><a href="ch-pdes.html#cb169-4"></a>U[:,:,<span class="dv">0</span>] <span class="op">=</span> <span class="co"># boundary condition for y=0</span></span>
+<span id="cb169-5"><a href="ch-pdes.html#cb169-5"></a>U[:,:,<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="co"># boundary condition for y=1</span></span></code></pre></div>
 <ul>
 <li>We know that the value of <span class="math inline">\(D \Delta t / \Delta x^2\)</span> controls the stability of finite element methods. Therefore, the next step in our code is to calculate this value and print it.</li>
 </ul>
-<div class="sourceCode" id="cb163"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb163-1"><a href="ch-pdes.html#cb163-1"></a>D <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb163-2"><a href="ch-pdes.html#cb163-2"></a>a <span class="op">=</span> D<span class="op">*</span>dt<span class="op">/</span>dx<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb163-3"><a href="ch-pdes.html#cb163-3"></a><span class="bu">print</span>(a)</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb170-1"><a href="ch-pdes.html#cb170-1"></a>D <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb170-2"><a href="ch-pdes.html#cb170-2"></a>a <span class="op">=</span> D<span class="op">*</span>dt<span class="op">/</span>dx<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb170-3"><a href="ch-pdes.html#cb170-3"></a><span class="bu">print</span>(a)</span></code></pre></div>
 <ul>
 <li>Next for the part of the code that actually calculates all of the time steps. Be sure to keep the indexing straight. Also be sure that we are calculating all of the spatial indices <em>inside</em> the domain since the boundary conditions dictate what happens on the boundary.</li>
 </ul>
-<div class="sourceCode" id="cb164"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb164-1"><a href="ch-pdes.html#cb164-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(t)<span class="op">-</span><span class="dv">1</span>):</span>
-<span id="cb164-2"><a href="ch-pdes.html#cb164-2"></a>  U[n<span class="op">+</span><span class="dv">1</span>,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> U[n,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> </span>
-<span id="cb164-3"><a href="ch-pdes.html#cb164-3"></a>    a<span class="op">*</span>(U[n, ?:? , ?:?] <span class="op">+</span> U[n, ?:?, ?:?] <span class="op">-</span> <span class="dv">4</span><span class="op">*</span>U[n, ?:?, ?:?] <span class="op">+</span> U[n, ?:?, ?:?] <span class="op">+</span> U[n, ?:?, ?:?])</span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb171-1"><a href="ch-pdes.html#cb171-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(t)<span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb171-2"><a href="ch-pdes.html#cb171-2"></a>  U[n<span class="op">+</span><span class="dv">1</span>,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> U[n,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> </span>
+<span id="cb171-3"><a href="ch-pdes.html#cb171-3"></a>    a<span class="op">*</span>(U[n, ?:? , ?:?] <span class="op">+</span> U[n, ?:?, ?:?] <span class="op">-</span> <span class="dv">4</span><span class="op">*</span>U[n, ?:?, ?:?] <span class="op">+</span> U[n, ?:?, ?:?] <span class="op">+</span> U[n, ?:?, ?:?])</span></code></pre></div>
 <ul>
 <li>Finally, we just need to visualize the solution. Again we use the <code>ipywidgets.interactive</code> tool to build an interactive plot with time as the slider.</li>
 </ul>
-<div class="sourceCode" id="cb165"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb165-1"><a href="ch-pdes.html#cb165-1"></a><span class="kw">def</span> plotter(Frame):</span>
-<span id="cb165-2"><a href="ch-pdes.html#cb165-2"></a>  fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">10</span>))</span>
-<span id="cb165-3"><a href="ch-pdes.html#cb165-3"></a>  ax <span class="op">=</span> fig.gca(projection<span class="op">=</span><span class="st">&#39;3d&#39;</span>)</span>
-<span id="cb165-4"><a href="ch-pdes.html#cb165-4"></a>  ax.plot_surface(X,Y,U[Frame,:,:], cmap<span class="op">=</span>cm.coolwarm)</span>
-<span id="cb165-5"><a href="ch-pdes.html#cb165-5"></a>  ax.set_zlim(<span class="dv">0</span>,<span class="dv">1</span>)</span>
-<span id="cb165-6"><a href="ch-pdes.html#cb165-6"></a>  plt.show()</span>
-<span id="cb165-7"><a href="ch-pdes.html#cb165-7"></a></span>
-<span id="cb165-8"><a href="ch-pdes.html#cb165-8"></a>interactive_plot <span class="op">=</span> interactive(plotter, Frame<span class="op">=</span>(<span class="dv">0</span>,<span class="bu">len</span>(t)))</span>
-<span id="cb165-9"><a href="ch-pdes.html#cb165-9"></a>interactive_plot</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb172-1"><a href="ch-pdes.html#cb172-1"></a><span class="kw">def</span> plotter(Frame):</span>
+<span id="cb172-2"><a href="ch-pdes.html#cb172-2"></a>  fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">10</span>))</span>
+<span id="cb172-3"><a href="ch-pdes.html#cb172-3"></a>  ax <span class="op">=</span> fig.gca(projection<span class="op">=</span><span class="st">&#39;3d&#39;</span>)</span>
+<span id="cb172-4"><a href="ch-pdes.html#cb172-4"></a>  ax.plot_surface(X,Y,U[Frame,:,:], cmap<span class="op">=</span>cm.coolwarm)</span>
+<span id="cb172-5"><a href="ch-pdes.html#cb172-5"></a>  ax.set_zlim(<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb172-6"><a href="ch-pdes.html#cb172-6"></a>  plt.show()</span>
+<span id="cb172-7"><a href="ch-pdes.html#cb172-7"></a></span>
+<span id="cb172-8"><a href="ch-pdes.html#cb172-8"></a>interactive_plot <span class="op">=</span> interactive(plotter, Frame<span class="op">=</span>(<span class="dv">0</span>,<span class="bu">len</span>(t)))</span>
+<span id="cb172-9"><a href="ch-pdes.html#cb172-9"></a>interactive_plot</span></code></pre></div>
 <p>Fill in all of the holes in the code and verify that your solution appears to solve a heat dissipation problem.</p>
 <hr />
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-580" class="theorem"><strong>Theorem 6.4  </strong></span>In order for the finite difference solution to the 2D heat equation on a square domain to be stable then we need <span class="math inline">\(D \Delta t / \Delta x^2 &lt; \underline{\hspace{0.5in}}\)</span>.</p>
+<p><span id="thm:unnamed-chunk-591" class="theorem"><strong>Theorem 6.4  </strong></span>In order for the finite difference solution to the 2D heat equation on a square domain to be stable then we need <span class="math inline">\(D \Delta t / \Delta x^2 &lt; \underline{\hspace{0.5in}}\)</span>.</p>
 Experiment with several parameters to imperically determine the bound.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-581" class="exercise"><strong>Exercise 6.37  </strong></span>Time to do some experimentation with your new 2D heat equation code! Numerically solve the 2D heat equation with different boundary conditions (both Dirichlet and Neumann). Be prepared to present your solutions.
+<span id="exr:unnamed-chunk-592" class="exercise"><strong>Exercise 6.37  </strong></span>Time to do some experimentation with your new 2D heat equation code! Numerically solve the 2D heat equation with different boundary conditions (both Dirichlet and Neumann). Be prepared to present your solutions.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-582" class="exercise"><strong>Exercise 6.38  </strong></span>Now solve the 2D heat equation on a rectangular domain. You will need to make some modifications to your code since it is unlikely that assuming that <span class="math inline">\(\Delta x = \Delta y\)</span> is a good assumption any longer. Again, be prepared to present your solutions.
+<span id="exr:unnamed-chunk-593" class="exercise"><strong>Exercise 6.38  </strong></span>Now solve the 2D heat equation on a rectangular domain. You will need to make some modifications to your code since it is unlikely that assuming that <span class="math inline">\(\Delta x = \Delta y\)</span> is a good assumption any longer. Again, be prepared to present your solutions.
 </div>
 <hr />
 </div>
@@ -1143,12 +1147,12 @@ Experiment with several parameters to imperically determine the bound.
 <h2><span class="header-section-number">6.4</span> Analysis of the Heat Equation</h2>
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-583" class="exercise"><strong>Exercise 6.39  (Sawtooth Errors)  </strong></span>We have already seen that the 1D heat equation is stable if <span class="math inline">\(D \Delta t / \Delta x^2 &lt; 0.5\)</span>. The goal of this problem is to show what, exactly, occurs when we choose parameters in the unstable region. We’ll solve the PDE <span class="math inline">\(u_t = u_{xx}\)</span> on the domain <span class="math inline">\(x \in [0,1]\)</span> with initial conditions <span class="math inline">\(u(0,x) = \sin(\pi x)\)</span> then the analytic solution is <span class="math inline">\(u(t,x) = e^{-\pi^2 t}\sin(\pi x)\)</span>. To build the spatial and temporal domains we will use <code>x = np.linspace(0,1,21)</code> and <code>t = np.linspace(0,0.25,101)</code>. This means that <span class="math inline">\(\Delta x = 0.05\)</span> and <span class="math inline">\(\Delta t = 0.0025\)</span> so the ratio <span class="math inline">\(D \Delta t / \Delta x^2 = 1 &gt; 0.5\)</span> (certainly in the unstable region). Solve the heat equation with finite differences using these parameters. Make plots of the approximate solution on top of the exact solution at time steps 0, 10, 20, 30, 31, 32, 33, 34, etc. Describe what you observe as the time step exceeds 30.
+<span id="exr:unnamed-chunk-594" class="exercise"><strong>Exercise 6.39  (Sawtooth Errors)  </strong></span>We have already seen that the 1D heat equation is stable if <span class="math inline">\(D \Delta t / \Delta x^2 &lt; 0.5\)</span>. The goal of this problem is to show what, exactly, occurs when we choose parameters in the unstable region. We’ll solve the PDE <span class="math inline">\(u_t = u_{xx}\)</span> on the domain <span class="math inline">\(x \in [0,1]\)</span> with initial conditions <span class="math inline">\(u(0,x) = \sin(\pi x)\)</span> then the analytic solution is <span class="math inline">\(u(t,x) = e^{-\pi^2 t}\sin(\pi x)\)</span>. To build the spatial and temporal domains we will use <code>x = np.linspace(0,1,21)</code> and <code>t = np.linspace(0,0.25,101)</code>. This means that <span class="math inline">\(\Delta x = 0.05\)</span> and <span class="math inline">\(\Delta t = 0.0025\)</span> so the ratio <span class="math inline">\(D \Delta t / \Delta x^2 = 1 &gt; 0.5\)</span> (certainly in the unstable region). Solve the heat equation with finite differences using these parameters. Make plots of the approximate solution on top of the exact solution at time steps 0, 10, 20, 30, 31, 32, 33, 34, etc. Describe what you observe as the time step exceeds 30.
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-584" class="exercise"><strong>Exercise 6.40  </strong></span>Solve the 2D heat equation on the unit square with the following parameters:</p>
+<p><span id="exr:unnamed-chunk-595" class="exercise"><strong>Exercise 6.40  </strong></span>Solve the 2D heat equation on the unit square with the following parameters:</p>
 <ul>
 <li>A partition of 21 points in both the <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> direction.</li>
 <li>301 points between 0 and 0.25 for time</li>
@@ -1159,12 +1163,12 @@ What happens near time step number 70?
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-585" class="exercise"><strong>Exercise 6.41  </strong></span>What you saw in the previous two exercises is an example of a <strong>sawtooth error</strong> that occurs when a numerical solution technique for a PDE is unstable. Propose a conjecture for why this type of error occurs.
+<span id="exr:unnamed-chunk-596" class="exercise"><strong>Exercise 6.41  </strong></span>What you saw in the previous two exercises is an example of a <strong>sawtooth error</strong> that occurs when a numerical solution technique for a PDE is unstable. Propose a conjecture for why this type of error occurs.
 </div>
 <hr />
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-586" class="theorem"><strong>Theorem 6.5  </strong></span>Let’s summarize the stability criteria for the finite difference solutions to the heat equation.</p>
+<p><span id="thm:unnamed-chunk-597" class="theorem"><strong>Theorem 6.5  </strong></span>Let’s summarize the stability criteria for the finite difference solutions to the heat equation.</p>
 <ul>
 <li>In the 1D heat equation the finite difference solution is stable if <span class="math inline">\(D \Delta t / \Delta x^2 &lt; \underline{\hspace{0.5in}}\)</span>.</li>
 <li>In the 2D heat equation the finite difference solution is stable if <span class="math inline">\(D \Delta t / \Delta x^2 &lt; \underline{\hspace{0.5in}}\)</span> (assuming a square domain where <span class="math inline">\(\Delta x = \Delta y\)</span>)</li>
@@ -1174,34 +1178,34 @@ What happens near time step number 70?
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-587" class="exercise"><strong>Exercise 6.42  </strong></span>Rewrite your finite difference code so that it produces an error message when the parameters will result in an unstable finite difference solution. Do the same for your 2D heat equation code.
+<span id="exr:unnamed-chunk-598" class="exercise"><strong>Exercise 6.42  </strong></span>Rewrite your finite difference code so that it produces an error message when the parameters will result in an unstable finite difference solution. Do the same for your 2D heat equation code.
 </div>
 <hr />
 <p>Next we’ll examine the order of the error for the 1D heat equation.</p>
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-588" class="exercise"><strong>Exercise 6.43  </strong></span>In the finite difference schemes for the 1D heat equation we have built methods that are first order in time and second order in space. That is to say
+<p><span id="exr:unnamed-chunk-599" class="exercise"><strong>Exercise 6.43  </strong></span>In the finite difference schemes for the 1D heat equation we have built methods that are first order in time and second order in space. That is to say
 <span class="math display">\[ \text{Numerical Error} = \mathcal{O}(\Delta t) + \mathcal{O}(\Delta x^2). \]</span>
 We want to know what this means.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Build a Python function that accepts an array of times, an array of <span class="math inline">\(x\)</span> values, the boundary conditions, and the initial condition and returns the array <span class="math inline">\(U\)</span> for the finite difference approximation of the 1D heat equation.</li>
 </ol>
 </div>
-<div class="sourceCode" id="cb166"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb166-1"><a href="ch-pdes.html#cb166-1"></a><span class="kw">def</span> buildU(t,x,leftBC,rightBC,IC):</span>
-<span id="cb166-2"><a href="ch-pdes.html#cb166-2"></a>  U <span class="op">=</span> np.zeros( (<span class="bu">len</span>(t),<span class="bu">len</span>(x)) )</span>
-<span id="cb166-3"><a href="ch-pdes.html#cb166-3"></a>  U[:,<span class="dv">0</span>] <span class="op">=</span> ???</span>
-<span id="cb166-4"><a href="ch-pdes.html#cb166-4"></a>  U[:,<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> ???</span>
-<span id="cb166-5"><a href="ch-pdes.html#cb166-5"></a>  U[<span class="dv">0</span>,:] <span class="op">=</span> ???</span>
-<span id="cb166-6"><a href="ch-pdes.html#cb166-6"></a>  <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(t)<span class="op">-</span><span class="dv">1</span>):</span>
-<span id="cb166-7"><a href="ch-pdes.html#cb166-7"></a>    <span class="co"># build the finite difference solution here</span></span>
-<span id="cb166-8"><a href="ch-pdes.html#cb166-8"></a>  <span class="cf">return</span> U</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb173-1"><a href="ch-pdes.html#cb173-1"></a><span class="kw">def</span> buildU(t,x,leftBC,rightBC,IC):</span>
+<span id="cb173-2"><a href="ch-pdes.html#cb173-2"></a>  U <span class="op">=</span> np.zeros( (<span class="bu">len</span>(t),<span class="bu">len</span>(x)) )</span>
+<span id="cb173-3"><a href="ch-pdes.html#cb173-3"></a>  U[:,<span class="dv">0</span>] <span class="op">=</span> ???</span>
+<span id="cb173-4"><a href="ch-pdes.html#cb173-4"></a>  U[:,<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> ???</span>
+<span id="cb173-5"><a href="ch-pdes.html#cb173-5"></a>  U[<span class="dv">0</span>,:] <span class="op">=</span> ???</span>
+<span id="cb173-6"><a href="ch-pdes.html#cb173-6"></a>  <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(t)<span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb173-7"><a href="ch-pdes.html#cb173-7"></a>    <span class="co"># build the finite difference solution here</span></span>
+<span id="cb173-8"><a href="ch-pdes.html#cb173-8"></a>  <span class="cf">return</span> U</span></code></pre></div>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>Build a Python function that accepts an array <span class="math inline">\(U\)</span>, an array of times, an array of <span class="math inline">\(x\)</span> values, a specific time step <span class="math inline">\(N\)</span>, and a <code>lambda</code> function for the analytic solution to the heat equation and returns the relative normed error between the approximation at time step <span class="math inline">\(N\)</span> and the approximate solution at time step <span class="math inline">\(N\)</span>. Explain exactly what this function is meant to measure.</li>
 </ol>
-<div class="sourceCode" id="cb167"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb167-1"><a href="ch-pdes.html#cb167-1"></a><span class="kw">def</span> errorT(U,t,x,TimeStep,exact):</span>
-<span id="cb167-2"><a href="ch-pdes.html#cb167-2"></a>  approxSoln <span class="op">=</span> U[N,:]</span>
-<span id="cb167-3"><a href="ch-pdes.html#cb167-3"></a>  exactSoln <span class="op">=</span> exact(t[N],x)</span>
-<span id="cb167-4"><a href="ch-pdes.html#cb167-4"></a>  <span class="cf">return</span>( np.linalg.norm(approxSoln <span class="op">-</span> exactSoln) <span class="op">/</span> np.linalg.norm(exactSoln))</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb174-1"><a href="ch-pdes.html#cb174-1"></a><span class="kw">def</span> errorT(U,t,x,TimeStep,exact):</span>
+<span id="cb174-2"><a href="ch-pdes.html#cb174-2"></a>  approxSoln <span class="op">=</span> U[N,:]</span>
+<span id="cb174-3"><a href="ch-pdes.html#cb174-3"></a>  exactSoln <span class="op">=</span> exact(t[N],x)</span>
+<span id="cb174-4"><a href="ch-pdes.html#cb174-4"></a>  <span class="cf">return</span>( np.linalg.norm(approxSoln <span class="op">-</span> exactSoln) <span class="op">/</span> np.linalg.norm(exactSoln))</span></code></pre></div>
 <ol start="3" style="list-style-type: lower-alpha">
 <li><p>If we start with the initial condition <span class="math inline">\(u(0,x) = \sin(\pi x)\)</span> then the exact solution the heat equation <span class="math inline">\(u_t = u_{xx}\)</span> is <span class="math inline">\(u(t,x) = e^{-\pi^2 t}\sin(\pi t)\)</span>. Write a loop that builds finite difference solutions to this heat equation with different values of <span class="math inline">\(\Delta t\)</span> ranging from <span class="math inline">\(10^{-1}\)</span> to <span class="math inline">\(10^{-7}\)</span> and a fixed value of <span class="math inline">\(\Delta x\)</span>. On a log-log scale, plot the value of <span class="math inline">\(\Delta t\)</span> against the value of the relative normed error at a specific time step of your choosing (don’t choose time step 0). What do you see in the log-log plot? Given a specific time, what will happen to the error in your finite difference solution when you divide your value of <span class="math inline">\(\Delta t\)</span> by 10?</p></li>
 <li><p>Now we want to repeat the process for the spatial step. Fix a very small value of <span class="math inline">\(\Delta t\)</span> and build a function that measures the relative normed error between the full time evolution of the solution and the analytic solution at a fixed spatial point (e.g. the center point in the domain). Make a log-log plot with the value of <span class="math inline">\(\Delta x\)</span> on the horizontal axis and the value of the relative normed error on the vertical axis.</p></li>
@@ -1212,7 +1216,7 @@ We want to know what this means.</p>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-591" class="exercise"><strong>Exercise 6.44  </strong></span>The instabilities of the heat equation with and Euler-type time discretization and a central differencing scheme is maddening. Thankfully, we can avoid this issue almost entirely by considering an implicit scheme called the <strong>Crank-Nicolson method</strong>. In this method we approximate the temporal derivative with an Euler-type approximation, but we approximate the spatial derivative as the average of the central difference at the old time step and the central difference at the new time step. That is:
+<p><span id="exr:unnamed-chunk-602" class="exercise"><strong>Exercise 6.44  </strong></span>The instabilities of the heat equation with and Euler-type time discretization and a central differencing scheme is maddening. Thankfully, we can avoid this issue almost entirely by considering an implicit scheme called the <strong>Crank-Nicolson method</strong>. In this method we approximate the temporal derivative with an Euler-type approximation, but we approximate the spatial derivative as the average of the central difference at the old time step and the central difference at the new time step. That is:
 <span class="math display">\[\frac{U_i^{n+1} - U_i^n}{\Delta t} = \frac{1}{2} \left[D \left( \frac{U_{i+1}^n - 2U_i^n +
         U_{i+1}^n}{\Delta x^2}\right) +D \left(\frac{U_{i+1}^{n+1} - 2U_i^{n+1} +
     U_{i+1}^{n+1}}{\Delta x^2} \right) \right].\]</span>
@@ -1306,7 +1310,7 @@ where <span class="math inline">\(c\)</span> is a parameter modeling the stiffne
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-592" class="exercise"><strong>Exercise 6.45  </strong></span>Let’s write code to numerically solve the 1D wave equation. As before, we use the notation <span class="math inline">\(U_i^n\)</span> to represent the approximate solution <span class="math inline">\(u(t,x)\)</span> at the point <span class="math inline">\(t=t_n\)</span> and <span class="math inline">\(x=x_i\)</span>.</p>
+<p><span id="exr:unnamed-chunk-603" class="exercise"><strong>Exercise 6.45  </strong></span>Let’s write code to numerically solve the 1D wave equation. As before, we use the notation <span class="math inline">\(U_i^n\)</span> to represent the approximate solution <span class="math inline">\(u(t,x)\)</span> at the point <span class="math inline">\(t=t_n\)</span> and <span class="math inline">\(x=x_i\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Give a reasonable discretization of the second derivative in time:
 <span class="math display">\[ u_{tt}(t_{n+1}, x_i) = \underline{\hspace{1in}}. \]</span></li>
@@ -1331,37 +1335,37 @@ Figure 6.10: The finite difference stencil for the 1D wave equation.
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-593" class="exercise"><strong>Exercise 6.46  </strong></span>The ratio <span class="math inline">\(c\Delta t^2 / \Delta x^2\)</span> shows up explicitly in the finite difference scheme for the 1D wave equation. Just like in the heat equation, this parameter controlls when the finite difference solution will be stable. Experiment with your finite difference solution and conjecture a value of <span class="math inline">\(a = c \Delta t^2 / \Delta x^2\)</span> which divides the regions of stability versus instability. Your answer should be in the form:</p>
+<p><span id="exr:unnamed-chunk-604" class="exercise"><strong>Exercise 6.46  </strong></span>The ratio <span class="math inline">\(c\Delta t^2 / \Delta x^2\)</span> shows up explicitly in the finite difference scheme for the 1D wave equation. Just like in the heat equation, this parameter controlls when the finite difference solution will be stable. Experiment with your finite difference solution and conjecture a value of <span class="math inline">\(a = c \Delta t^2 / \Delta x^2\)</span> which divides the regions of stability versus instability. Your answer should be in the form:</p>
 <p><em>If <span class="math inline">\(a = c\Delta t^2 / \Delta x^2 &lt; \underline{\hspace{0.5in}}\)</span> then the finite difference scheme for the 1D wave equation will be stable. Otherwise it will be unstable.</em></p>
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-594" class="exercise"><strong>Exercise 6.47  </strong></span>Show several plots demonstrating what occurs to the finite difference solution of the wave equation when the parameters are in the unstable region and right on the edge of the unstable region.
+<span id="exr:unnamed-chunk-605" class="exercise"><strong>Exercise 6.47  </strong></span>Show several plots demonstrating what occurs to the finite difference solution of the wave equation when the parameters are in the unstable region and right on the edge of the unstable region.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-595" class="exercise"><strong>Exercise 6.48  </strong></span>What is the expected error in the finite difference scheme for the 1D wave equation? What does this mean in plain English?
+<span id="exr:unnamed-chunk-606" class="exercise"><strong>Exercise 6.48  </strong></span>What is the expected error in the finite difference scheme for the 1D wave equation? What does this mean in plain English?
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-596" class="exercise"><strong>Exercise 6.49  </strong></span>Use your finite difference code to solve the 1D wave equation
+<span id="exr:unnamed-chunk-607" class="exercise"><strong>Exercise 6.49  </strong></span>Use your finite difference code to solve the 1D wave equation
 <span class="math display">\[ u_{tt} = c u_{xx} \]</span>
 with boundary conditions <span class="math inline">\(u(t,0) = u(t,1) = 0\)</span>, initial condition <span class="math inline">\(u(0,x) = 4x(1-x)\)</span>, and zero initial velocity. Experiment with different values of <span class="math inline">\(c\)</span>. What does the parameter <span class="math inline">\(c\)</span> to the wave? Give a physical interpretation of <span class="math inline">\(c\)</span>.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-597" class="exercise"><strong>Exercise 6.50  </strong></span>Solve the 1D wave equation
+<span id="exr:unnamed-chunk-608" class="exercise"><strong>Exercise 6.50  </strong></span>Solve the 1D wave equation
 <span class="math display">\[ u_{tt} = u_{xx} \]</span>
 with Dirichlet boundary conditions <span class="math inline">\(u(t,0) = 0.4 \sin(\pi t)\)</span> and <span class="math inline">\(u(t,1) = 0\)</span> along with initial condition <span class="math inline">\(u(0,x) = 0\)</span> and zero initial velocity. This time the left-hand boundary is being controlled externally and the string starts off at equilibrium. Give a physical situation where this sort of setup might arise. Then modify your solution so that both sides of the string are being wiggled at different frequencies.
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-598" class="exercise"><strong>Exercise 6.51  </strong></span>Now consider the 2D wave equation
+<p><span id="exr:unnamed-chunk-609" class="exercise"><strong>Exercise 6.51  </strong></span>Now consider the 2D wave equation
 <span class="math display">\[ u_{tt} = c\left( u_{xx} + u_{yy} \right). \]</span>
 We want to build a numerical solution to this new PDE. Just like with the 2D heat equation we propose the notation <span class="math inline">\(U_{i,j}^n\)</span> for the approximation of the function <span class="math inline">\(u(t,x,y)\)</span> at the point <span class="math inline">\(t=t_n\)</span>, <span class="math inline">\(x=x_i\)</span>, and <span class="math inline">\(y=y_j\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
@@ -1375,12 +1379,12 @@ We want to build a numerical solution to this new PDE. Just like with the 2D hea
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-599" class="exercise"><strong>Exercise 6.52  </strong></span>What is the region of stability for the finite difference scheme on the 2D wave equation? Produce several plots showing what happens when we are in the unstable region as well as when we are right on the edge of the stable region.
+<span id="exr:unnamed-chunk-610" class="exercise"><strong>Exercise 6.52  </strong></span>What is the region of stability for the finite difference scheme on the 2D wave equation? Produce several plots showing what happens when we are in the unstable region as well as when we are right on the edge of the stable region.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-600" class="exercise"><strong>Exercise 6.53  </strong></span>Solve the 2D wave equation on the unit square with <span class="math inline">\(u\)</span> starting at rest and being driven by a wave coming in from one boundary.
+<span id="exr:unnamed-chunk-611" class="exercise"><strong>Exercise 6.53  </strong></span>Solve the 2D wave equation on the unit square with <span class="math inline">\(u\)</span> starting at rest and being driven by a wave coming in from one boundary.
 </div>
 <hr />
 </div>
@@ -1392,7 +1396,7 @@ In this equation <span class="math inline">\(u(t,x)\)</span> is the height of a 
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-601" class="exercise"><strong>Exercise 6.54  </strong></span>Consider the PDE <span class="math inline">\(u_t + v u_x = 0\)</span>. There is a very easy way to get an analytic solution to this traveling wave equation. If we have the initial condition <span class="math inline">\(u(0,x) = f(x) = e^{-(x-4)^2}\)</span> then we claim that <span class="math inline">\(u(t,x) = f(x-vt)\)</span> is an analytic solution to the PDE. More explicitely, we are claiming that
+<p><span id="exr:unnamed-chunk-612" class="exercise"><strong>Exercise 6.54  </strong></span>Consider the PDE <span class="math inline">\(u_t + v u_x = 0\)</span>. There is a very easy way to get an analytic solution to this traveling wave equation. If we have the initial condition <span class="math inline">\(u(0,x) = f(x) = e^{-(x-4)^2}\)</span> then we claim that <span class="math inline">\(u(t,x) = f(x-vt)\)</span> is an analytic solution to the PDE. More explicitely, we are claiming that
 <span class="math display">\[ u(t,x) = e^{-(x-vt-4)^2} \]</span>
 is the analytic solution to the PDE. Let’s prove this.</p>
 <ol style="list-style-type: lower-alpha">
@@ -1404,40 +1408,40 @@ is the analytic solution to the PDE. Let’s prove this.</p>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-602" class="exercise"><strong>Exercise 6.55  </strong></span>Now would like to visualize the solution to the PDE from the previous exercise. The Python code below gives an interactive visual of the solution. Experiment with different values of <span class="math inline">\(v\)</span> and different initial conditions.
+<span id="exr:unnamed-chunk-613" class="exercise"><strong>Exercise 6.55  </strong></span>Now would like to visualize the solution to the PDE from the previous exercise. The Python code below gives an interactive visual of the solution. Experiment with different values of <span class="math inline">\(v\)</span> and different initial conditions.
 </div>
-<div class="sourceCode" id="cb168"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb168-1"><a href="ch-pdes.html#cb168-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb168-2"><a href="ch-pdes.html#cb168-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb168-3"><a href="ch-pdes.html#cb168-3"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interactive </span>
-<span id="cb168-4"><a href="ch-pdes.html#cb168-4"></a>v <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb168-5"><a href="ch-pdes.html#cb168-5"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: np.exp(<span class="op">-</span>(x<span class="op">-</span><span class="dv">4</span>)<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb168-6"><a href="ch-pdes.html#cb168-6"></a>u <span class="op">=</span> <span class="kw">lambda</span> t, x: f(x <span class="op">-</span> v<span class="op">*</span>t)</span>
-<span id="cb168-7"><a href="ch-pdes.html#cb168-7"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">100</span>)</span>
-<span id="cb168-8"><a href="ch-pdes.html#cb168-8"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">100</span>)</span>
-<span id="cb168-9"><a href="ch-pdes.html#cb168-9"></a></span>
-<span id="cb168-10"><a href="ch-pdes.html#cb168-10"></a><span class="kw">def</span> plotter(N):</span>
-<span id="cb168-11"><a href="ch-pdes.html#cb168-11"></a>  plt.plot(x,u(t[N],x),<span class="st">&#39;b&#39;</span>)</span>
-<span id="cb168-12"><a href="ch-pdes.html#cb168-12"></a>  plt.grid()</span>
-<span id="cb168-13"><a href="ch-pdes.html#cb168-13"></a>  plt.ylim(<span class="dv">0</span>,<span class="dv">1</span>)</span>
-<span id="cb168-14"><a href="ch-pdes.html#cb168-14"></a>  plt.show()</span>
-<span id="cb168-15"><a href="ch-pdes.html#cb168-15"></a>interactive_plot <span class="op">=</span> interactive(plotter, N<span class="op">=</span>(<span class="dv">0</span>,<span class="bu">len</span>(t)<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>))</span>
-<span id="cb168-16"><a href="ch-pdes.html#cb168-16"></a>interactive_plot</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb175-1"><a href="ch-pdes.html#cb175-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb175-2"><a href="ch-pdes.html#cb175-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb175-3"><a href="ch-pdes.html#cb175-3"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interactive </span>
+<span id="cb175-4"><a href="ch-pdes.html#cb175-4"></a>v <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb175-5"><a href="ch-pdes.html#cb175-5"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: np.exp(<span class="op">-</span>(x<span class="op">-</span><span class="dv">4</span>)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb175-6"><a href="ch-pdes.html#cb175-6"></a>u <span class="op">=</span> <span class="kw">lambda</span> t, x: f(x <span class="op">-</span> v<span class="op">*</span>t)</span>
+<span id="cb175-7"><a href="ch-pdes.html#cb175-7"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">100</span>)</span>
+<span id="cb175-8"><a href="ch-pdes.html#cb175-8"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">100</span>)</span>
+<span id="cb175-9"><a href="ch-pdes.html#cb175-9"></a></span>
+<span id="cb175-10"><a href="ch-pdes.html#cb175-10"></a><span class="kw">def</span> plotter(N):</span>
+<span id="cb175-11"><a href="ch-pdes.html#cb175-11"></a>  plt.plot(x,u(t[N],x),<span class="st">&#39;b&#39;</span>)</span>
+<span id="cb175-12"><a href="ch-pdes.html#cb175-12"></a>  plt.grid()</span>
+<span id="cb175-13"><a href="ch-pdes.html#cb175-13"></a>  plt.ylim(<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb175-14"><a href="ch-pdes.html#cb175-14"></a>  plt.show()</span>
+<span id="cb175-15"><a href="ch-pdes.html#cb175-15"></a>interactive_plot <span class="op">=</span> interactive(plotter, N<span class="op">=</span>(<span class="dv">0</span>,<span class="bu">len</span>(t)<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb175-16"><a href="ch-pdes.html#cb175-16"></a>interactive_plot</span></code></pre></div>
 <hr />
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-604" class="theorem"><strong>Theorem 6.6  </strong></span>If <span class="math inline">\(u_t + v u_{x} = 0\)</span> with initial condition <span class="math inline">\(u(0,x) = f(x)\)</span> then the function <span class="math inline">\(u(t,x) = f(x-vt)\)</span> is an analytic solution to the PDE.
+<span id="thm:unnamed-chunk-615" class="theorem"><strong>Theorem 6.6  </strong></span>If <span class="math inline">\(u_t + v u_{x} = 0\)</span> with initial condition <span class="math inline">\(u(0,x) = f(x)\)</span> then the function <span class="math inline">\(u(t,x) = f(x-vt)\)</span> is an analytic solution to the PDE.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-605" class="exercise"><strong>Exercise 6.56  </strong></span>Use the chain rule to prove the previous theorem.
+<span id="exr:unnamed-chunk-616" class="exercise"><strong>Exercise 6.56  </strong></span>Use the chain rule to prove the previous theorem.
 </div>
 <hr />
 <p>The traveling wave equation <span class="math inline">\(u_t + vu_x = 0\)</span> has a very nice analytic solution which we can always find. Therefore there is no need to ever find a numerical solution – we can just write down the analytic solution if we are given the initial condition. As it turns out though the numerical solutions exhibit some very interesting behavior.</p>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-606" class="exercise"><strong>Exercise 6.57  </strong></span>Consider the traveling wave equation <span class="math inline">\(u_t + vu_x = 0\)</span> with initial condition <span class="math inline">\(u(0,x) = f(x)\)</span> for some given function <span class="math inline">\(f\)</span> and boundary condition <span class="math inline">\(u(t,0) = 0\)</span>. To build a numerical solution we will again adopt the notation <span class="math inline">\(U_i^n\)</span> for the approximation to <span class="math inline">\(u(t,x)\)</span> at the point <span class="math inline">\(t=t_n\)</span> and <span class="math inline">\(x=x_i\)</span>.</p>
+<p><span id="exr:unnamed-chunk-617" class="exercise"><strong>Exercise 6.57  </strong></span>Consider the traveling wave equation <span class="math inline">\(u_t + vu_x = 0\)</span> with initial condition <span class="math inline">\(u(0,x) = f(x)\)</span> for some given function <span class="math inline">\(f\)</span> and boundary condition <span class="math inline">\(u(t,0) = 0\)</span>. To build a numerical solution we will again adopt the notation <span class="math inline">\(U_i^n\)</span> for the approximation to <span class="math inline">\(u(t,x)\)</span> at the point <span class="math inline">\(t=t_n\)</span> and <span class="math inline">\(x=x_i\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Write an approximation of <span class="math inline">\(u_t\)</span> using <span class="math inline">\(U_i^{n+1}\)</span> and <span class="math inline">\(U_i^n\)</span>.</li>
 <li>Write an approximation of <span class="math inline">\(u_x\)</span> using <span class="math inline">\(U_{i+1}^n\)</span> and <span class="math inline">\(U_i^n\)</span>.</li>
@@ -1457,12 +1461,12 @@ Figure 6.11: The finite difference stencil for the 1D downwind scheme on the tra
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-607" class="exercise"><strong>Exercise 6.58  </strong></span>You should have noticed in the previous exercise that you cannot reasonbly stabilize the finite difference scheme. Propose several reasons why this method appears to be unstable no matter what you use for the ratio <span class="math inline">\(v \Delta t / \Delta x\)</span>.
+<span id="exr:unnamed-chunk-618" class="exercise"><strong>Exercise 6.58  </strong></span>You should have noticed in the previous exercise that you cannot reasonbly stabilize the finite difference scheme. Propose several reasons why this method appears to be unstable no matter what you use for the ratio <span class="math inline">\(v \Delta t / \Delta x\)</span>.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-608" class="exercise"><strong>Exercise 6.59  </strong></span>One of the troubles with the finite difference scheme that we have built for the traveling wave equation is that we are using the information at our present spatial location and the next spatial location to the right to propogate the solution forward in time. The trouble here is that the wave is moving from left to right, so the interesting information about the next time step’s solution is actually coming from the left, not the right. We call this “looking upwind” since you can think of a fictitious <em>wind</em> blowing from left to right, and we need to look “upwind” to see what is coming at us. If we write the spatial derivative as
+<span id="exr:unnamed-chunk-619" class="exercise"><strong>Exercise 6.59  </strong></span>One of the troubles with the finite difference scheme that we have built for the traveling wave equation is that we are using the information at our present spatial location and the next spatial location to the right to propogate the solution forward in time. The trouble here is that the wave is moving from left to right, so the interesting information about the next time step’s solution is actually coming from the left, not the right. We call this “looking upwind” since you can think of a fictitious <em>wind</em> blowing from left to right, and we need to look “upwind” to see what is coming at us. If we write the spatial derivative as
 <span class="math display">\[ u_x \approx \frac{U_i^n - U_{i-1}^n}{\Delta x}  \]</span>
 we still have a first-order approximation of the derivative but we are now looking left instead of right for our spatial derivative. Make this modification in your finite difference code for the traveling wave equation (call it the “upwind method”). Approximate the solution to the same PDE as we worked with in the previous exercises. What do you notice now?
 </div>
@@ -1477,7 +1481,7 @@ Figure 6.12: The finite difference stencil for the 1D downwind scheme on the tra
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-609" class="exercise"><strong>Exercise 6.60  </strong></span>Complete the following sentences:</p>
+<p><span id="exr:unnamed-chunk-620" class="exercise"><strong>Exercise 6.60  </strong></span>Complete the following sentences:</p>
 <ol style="list-style-type: lower-alpha">
 <li>In the downwind finite difference scheme for the traveling wave equation, the approximate solution moves at the correct speed, but …<br />
 </li>
@@ -1487,7 +1491,7 @@ Figure 6.12: The finite difference stencil for the 1D downwind scheme on the tra
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-610" class="exercise"><strong>Exercise 6.61  </strong></span>Neither the downwind nor the upwind solutions for the traveling wave equation are satisfactory. They completely miss the interesting dynamics of the analytic solution to the PDE. Some ideas for stabilizing the finite difference solution for the traveling wave equation are as follows. Implement each of these ideas and discuss pros and cons of each. Also draw a finite difference stencil for each of these methods.</p>
+<p><span id="exr:unnamed-chunk-621" class="exercise"><strong>Exercise 6.61  </strong></span>Neither the downwind nor the upwind solutions for the traveling wave equation are satisfactory. They completely miss the interesting dynamics of the analytic solution to the PDE. Some ideas for stabilizing the finite difference solution for the traveling wave equation are as follows. Implement each of these ideas and discuss pros and cons of each. Also draw a finite difference stencil for each of these methods.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Perhaps one of the issues is that we are using first-order methods to approximate <span class="math inline">\(u_t\)</span> and <span class="math inline">\(u_x\)</span>. What if we used a second-order approximation for these first derivatives
 <span class="math display">\[ u_t \approx \frac{U_i^{n+1} - U_i^{n-1}}{2\Delta t} \quad \text{ and } \quad u_x \approx \frac{U_{i+1}^n - U_{i-1}^n}{2\Delta x}? \]</span>
@@ -1514,7 +1518,7 @@ to the right-hand side of the equation. Notice that this new term is a scalar mu
 <h2><span class="header-section-number">6.7</span> The Laplace and Poisson Equations</h2>
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-611" class="exercise"><strong>Exercise 6.62  </strong></span>Consider the 1D heat equation <span class="math inline">\(u_t = 1 u_{xx}\)</span> with boundary conditions <span class="math inline">\(u(t,0) = 0\)</span> and <span class="math inline">\(u(t,1)=1\)</span> and initial condition <span class="math inline">\(u(0,x) = 0\)</span>.</p>
+<p><span id="exr:unnamed-chunk-622" class="exercise"><strong>Exercise 6.62  </strong></span>Consider the 1D heat equation <span class="math inline">\(u_t = 1 u_{xx}\)</span> with boundary conditions <span class="math inline">\(u(t,0) = 0\)</span> and <span class="math inline">\(u(t,1)=1\)</span> and initial condition <span class="math inline">\(u(0,x) = 0\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Describe the physical setup for this problem.<br />
 </li>
@@ -1525,7 +1529,7 @@ to the right-hand side of the equation. Notice that this new term is a scalar mu
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-612" class="exercise"><strong>Exercise 6.63  </strong></span>Now consider the forced 1D heat equation <span class="math inline">\(u_t = u_{xx} + e^{-(x-0.5)^2}\)</span> with the same boundary and initial conditions as the previous exercise. The exponential forcing function introduced in this equation is an external source of heat (like a flame held to the middle of the metal rod).</p>
+<p><span id="exr:unnamed-chunk-623" class="exercise"><strong>Exercise 6.63  </strong></span>Now consider the forced 1D heat equation <span class="math inline">\(u_t = u_{xx} + e^{-(x-0.5)^2}\)</span> with the same boundary and initial conditions as the previous exercise. The exponential forcing function introduced in this equation is an external source of heat (like a flame held to the middle of the metal rod).</p>
 <ol style="list-style-type: lower-alpha">
 <li>Conjecture what the steady state heat profile will look like for this particular setup. Be able to defend your answer.</li>
 <li>Modify your 1D heat equation code to show the full time evolution of this PDE. Run the simulation long enough so that you see the steady state heat profile.</li>
@@ -1534,7 +1538,7 @@ to the right-hand side of the equation. Notice that this new term is a scalar mu
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-613" class="exercise"><strong>Exercise 6.64  </strong></span>Next we’ll examine 2D steady state heat profiles. Consider the PDE <span class="math inline">\(u_t = u_{xx} + u_{yy}\)</span> with boundary conditions <span class="math inline">\(u(t,0,y) = u(t,x,0) = u(t,x,1) = 0\)</span> and <span class="math inline">\(u(t,1,y) = 1\)</span> with initial condition <span class="math inline">\(u(0,x,y) = 0\)</span>.</p>
+<p><span id="exr:unnamed-chunk-624" class="exercise"><strong>Exercise 6.64  </strong></span>Next we’ll examine 2D steady state heat profiles. Consider the PDE <span class="math inline">\(u_t = u_{xx} + u_{yy}\)</span> with boundary conditions <span class="math inline">\(u(t,0,y) = u(t,x,0) = u(t,x,1) = 0\)</span> and <span class="math inline">\(u(t,1,y) = 1\)</span> with initial condition <span class="math inline">\(u(0,x,y) = 0\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Describe the physical setup for this problem.</li>
 <li>Based on the physical system, describe the steady state heat profile for this PDE. Be sure that your steady state solution still satisfies the boundary conditions.</li>
@@ -1544,7 +1548,7 @@ to the right-hand side of the equation. Notice that this new term is a scalar mu
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-614" class="exercise"><strong>Exercise 6.65  </strong></span>Now consider the forced 2D heat equation <span class="math inline">\(u_t = u_{xx} + u_{yy} + e^{-(x-0.5)^2-(y-0.5)^2}\)</span> with the same boundary and initial conditions as the previous exercise. The exponential forcing function introduced in this equation is an external source of heat (like a flame held to the middle of the metal sheet).</p>
+<p><span id="exr:unnamed-chunk-625" class="exercise"><strong>Exercise 6.65  </strong></span>Now consider the forced 2D heat equation <span class="math inline">\(u_t = u_{xx} + u_{yy} + e^{-(x-0.5)^2-(y-0.5)^2}\)</span> with the same boundary and initial conditions as the previous exercise. The exponential forcing function introduced in this equation is an external source of heat (like a flame held to the middle of the metal sheet).</p>
 <ol style="list-style-type: lower-alpha">
 <li>Conjecture what the steady state heat profile will look like for this particular setup. Be able to defend your answer.</li>
 <li>Modify your 2D heat equation code to show the full time evolution of this PDE. Run the simulation long enough so that you see the steady state heat profile.</li>
@@ -1559,7 +1563,7 @@ Notice that both the Laplace and Poisson equations are the equations that we get
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-615" class="exercise"><strong>Exercise 6.66  </strong></span>Consider a 1-dimensional rod that is infinitely thin and has unit length. For the sake of simplicity assume the following:</p>
+<p><span id="exr:unnamed-chunk-626" class="exercise"><strong>Exercise 6.66  </strong></span>Consider a 1-dimensional rod that is infinitely thin and has unit length. For the sake of simplicity assume the following:</p>
 <ul>
 <li>the specific heat of the rod is exactly 1 for the entire length of the rod,</li>
 <li>the temperature of the left end is held fixed at <span class="math inline">\(u(0) = 0\)</span>,</li>
@@ -1589,19 +1593,19 @@ Notice that there are really only four unknowns since the boundary conditions di
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-616" class="exercise"><strong>Exercise 6.67  </strong></span>Solve the 1D Laplace equation with Dirichlet boundary conditions is rather uninteresting since the answer will alway be a linear function connecting the two boundary conditions. Prove this.</p>
+<p><span id="exr:unnamed-chunk-627" class="exercise"><strong>Exercise 6.67  </strong></span>Solve the 1D Laplace equation with Dirichlet boundary conditions is rather uninteresting since the answer will alway be a linear function connecting the two boundary conditions. Prove this.</p>
 </div>
 <hr />
 <p>The Poisson equation, <span class="math inline">\(u_{xx} = f(x)\)</span>, is more interesting than the Laplace equation in 1D. The function <span class="math inline">\(f(x)\)</span> is called a forcing function. You can think of it this way: if <span class="math inline">\(u\)</span> is the amount of force on a linear bridge, then <span class="math inline">\(f\)</span> might be a function that gives the distribution of the forces on the bridge due to the cars sitting on the bridge. In terms of heat we can think of this as an external source of heat energy warming up the one-dimensional rod somewhere in the middle (like a flame being held to one place on the rod).</p>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-617" class="exercise"><strong>Exercise 6.68  </strong></span>How would we analytically solve the Poisson equation <span class="math inline">\(u_{xx} = f(x)\)</span> in one spatial dimension? As a sample problem consider <span class="math inline">\(x\in [0,1]\)</span>, the forcing function <span class="math inline">\(f(x) = 5\sin(2 \pi x)\)</span> and boundary conditions <span class="math inline">\(u(0) = 2\)</span> and <span class="math inline">\(u(1) = 0.5\)</span>. Of course you need to check your answer by taking two derivatives and making sure that the second derivative exactly matches <span class="math inline">\(f(x)\)</span>. Also be sure that your solution matches the boundary conditions exactly.</p>
+<p><span id="exr:unnamed-chunk-628" class="exercise"><strong>Exercise 6.68  </strong></span>How would we analytically solve the Poisson equation <span class="math inline">\(u_{xx} = f(x)\)</span> in one spatial dimension? As a sample problem consider <span class="math inline">\(x\in [0,1]\)</span>, the forcing function <span class="math inline">\(f(x) = 5\sin(2 \pi x)\)</span> and boundary conditions <span class="math inline">\(u(0) = 2\)</span> and <span class="math inline">\(u(1) = 0.5\)</span>. Of course you need to check your answer by taking two derivatives and making sure that the second derivative exactly matches <span class="math inline">\(f(x)\)</span>. Also be sure that your solution matches the boundary conditions exactly.</p>
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-618" class="exercise"><strong>Exercise 6.69  </strong></span>Now we can solve the Poisson equation from the previous problem numerically. Let’s again build this with a partition that contains only 6 points just like we did with the Laplace equation a few exercise ago. We know the approximation for <span class="math inline">\(u_{xx}\)</span> so we have the linear system
+<p><span id="exr:unnamed-chunk-629" class="exercise"><strong>Exercise 6.69  </strong></span>Now we can solve the Poisson equation from the previous problem numerically. Let’s again build this with a partition that contains only 6 points just like we did with the Laplace equation a few exercise ago. We know the approximation for <span class="math inline">\(u_{xx}\)</span> so we have the linear system
 <span class="math display">\[\begin{aligned}
 U_0 &amp;= 2 \quad \text{(left boundary condition)}\\
 \frac{U_2 - 2U_1 + U_0}{\Delta x} &amp;= f(x_1) \\ 
@@ -1619,7 +1623,7 @@ U_5 &amp;= 0.5 \quad \text{(right boundary condition).}
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-619" class="exercise"><strong>Exercise 6.70  </strong></span>The previous exercises only account for Dirichlet boundary conditions (fixed boundary conditions). We would now like to modify our Poisson solution to allow for a Neumann condition: where we know the derivative of <span class="math inline">\(u\)</span> at one of the boundaries. The statement of the problem is as follows:
+<p><span id="exr:unnamed-chunk-630" class="exercise"><strong>Exercise 6.70  </strong></span>The previous exercises only account for Dirichlet boundary conditions (fixed boundary conditions). We would now like to modify our Poisson solution to allow for a Neumann condition: where we know the derivative of <span class="math inline">\(u\)</span> at one of the boundaries. The statement of the problem is as follows:
 <span class="math display">\[\text{Solve: } u_{xx} = f(x) \quad \text{on} \quad x \in (0,1) \quad \text{with} \quad u_x(0) = \alpha \quad \text{and} \quad u(1) = \beta.\]</span>
 The derivative condition on the boundary can be approximated by using a first-order approximation of the derivative, and as a consequence we have one new equation. Specifically, if we know that <span class="math inline">\(u_x(0) = \alpha\)</span> then we can approximate this condition as
 <span class="math display">\[ \frac{U_1 - U_0}{\Delta x} = \alpha, \]</span>
@@ -1641,7 +1645,7 @@ There are 5 equations this time.</p>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-620" class="exercise"><strong>Exercise 6.71  </strong></span>We conclude this section by increasing from one dimension to two. Solve the Poisson equation <span class="math inline">\(u_{xx} + u_{yy} = f(x,y)\)</span> on the domain <span class="math inline">\((x,y) \in (0,1)\times (0,1)\)</span> with homogenous Dirichlet boundary conditions and focing function <span class="math inline">\(f(x,y) = 20\text{exp}\left( -\frac{(x-0.5)^2 + (y-0.5)^2}{0.05} \right)\)</span> numerically. Start with a <span class="math inline">\(6 \times 6\)</span> grid of points and explicitly write down all of the equations. There should only be 16 total equations since in a <span class="math inline">\(6 \times 6\)</span> grid there are 20 points on the boundary and 16 points in the interior of the domain. Then generalize your code to solve the Poisson equation with a much smaller value of <span class="math inline">\(\Delta x = \Delta y\)</span>.</p>
+<p><span id="exr:unnamed-chunk-631" class="exercise"><strong>Exercise 6.71  </strong></span>We conclude this section by increasing from one dimension to two. Solve the Poisson equation <span class="math inline">\(u_{xx} + u_{yy} = f(x,y)\)</span> on the domain <span class="math inline">\((x,y) \in (0,1)\times (0,1)\)</span> with homogenous Dirichlet boundary conditions and focing function <span class="math inline">\(f(x,y) = 20\text{exp}\left( -\frac{(x-0.5)^2 + (y-0.5)^2}{0.05} \right)\)</span> numerically. Start with a <span class="math inline">\(6 \times 6\)</span> grid of points and explicitly write down all of the equations. There should only be 16 total equations since in a <span class="math inline">\(6 \times 6\)</span> grid there are 20 points on the boundary and 16 points in the interior of the domain. Then generalize your code to solve the Poisson equation with a much smaller value of <span class="math inline">\(\Delta x = \Delta y\)</span>.</p>
 <p>Hint: You will want to number the nodes in your 2D domain and then carefully construct the coefficient matrix based on your numbering scheme. You should observe a nice pattern in your coefficient matrix that will allow you to more easily generalize your code.</p>
 </div>
 <hr />
@@ -1652,61 +1656,61 @@ There are 5 equations this time.</p>
 <h3><span class="header-section-number">6.8.1</span> Algorithm Summaries</h3>
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-621" class="exercise"><strong>Exercise 6.72  </strong></span>Explain in clear language what it means to check an analytic solution to
+<p><span id="exr:unnamed-chunk-632" class="exercise"><strong>Exercise 6.72  </strong></span>Explain in clear language what it means to check an analytic solution to
 a differential equation.</p>
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-622" class="exercise"><strong>Exercise 6.73  </strong></span>Explain in clear language what Dirichlet boundary conditions are.</p>
+<p><span id="exr:unnamed-chunk-633" class="exercise"><strong>Exercise 6.73  </strong></span>Explain in clear language what Dirichlet boundary conditions are.</p>
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-623" class="exercise"><strong>Exercise 6.74  </strong></span>Explain in clear language what Neumann boundary conditions are.</p>
+<p><span id="exr:unnamed-chunk-634" class="exercise"><strong>Exercise 6.74  </strong></span>Explain in clear language what Neumann boundary conditions are.</p>
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-624" class="exercise"><strong>Exercise 6.75  </strong></span>Show the full mathematical details for building a first-order in time
+<p><span id="exr:unnamed-chunk-635" class="exercise"><strong>Exercise 6.75  </strong></span>Show the full mathematical details for building a first-order in time
 and second-order in space approximation method for the one-dimensional
 heat equation. Explain what the order of the error means in this context</p>
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-625" class="exercise"><strong>Exercise 6.76  </strong></span>Show the full mathematical details for building a second-order in time
+<p><span id="exr:unnamed-chunk-636" class="exercise"><strong>Exercise 6.76  </strong></span>Show the full mathematical details for building a second-order in time
 and second-order in space approximation method for the one-dimensional
 wave equation. Explain what the order of the error means in this context</p>
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-626" class="exercise"><strong>Exercise 6.77  </strong></span>Show the full mathematical details for building a first-order in time
+<p><span id="exr:unnamed-chunk-637" class="exercise"><strong>Exercise 6.77  </strong></span>Show the full mathematical details for building a first-order in time
 and second-order in space approximation method for the two-dimensional
 heat equation. Explain what the order of the error means in this context</p>
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-627" class="exercise"><strong>Exercise 6.78  </strong></span>Show the full mathematical details for building a second-order in time
+<p><span id="exr:unnamed-chunk-638" class="exercise"><strong>Exercise 6.78  </strong></span>Show the full mathematical details for building a second-order in time
 and second-order in space approximation method for the two-dimensional
 wave equation. Explain what the order of the error means in this context</p>
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-628" class="exercise"><strong>Exercise 6.79  </strong></span>Explain in clear language what it means for a finite difference method to be stable vs unstable.</p>
+<p><span id="exr:unnamed-chunk-639" class="exercise"><strong>Exercise 6.79  </strong></span>Explain in clear language what it means for a finite difference method to be stable vs unstable.</p>
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-629" class="exercise"><strong>Exercise 6.80  </strong></span>Show the full mathematical details for building a downwind finite difference scheme for the traveling wave equation. Discuss the primary disadvantages of the downwind scheme.
+<span id="exr:unnamed-chunk-640" class="exercise"><strong>Exercise 6.80  </strong></span>Show the full mathematical details for building a downwind finite difference scheme for the traveling wave equation. Discuss the primary disadvantages of the downwind scheme.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-630" class="exercise"><strong>Exercise 6.81  </strong></span>Show the full mathematical details for building an upwind finite difference scheme for the traveling wave equation. Discuss the primary disadvantages of the upwind scheme.
+<span id="exr:unnamed-chunk-641" class="exercise"><strong>Exercise 6.81  </strong></span>Show the full mathematical details for building an upwind finite difference scheme for the traveling wave equation. Discuss the primary disadvantages of the upwind scheme.
 </div>
 <hr />
 </div>
@@ -1714,7 +1718,7 @@ wave equation. Explain what the order of the error means in this context</p>
 <h3><span class="header-section-number">6.8.2</span> Applying What You’ve Learned</h3>
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-631" class="exercise"><strong>Exercise 6.82  </strong></span>In this problem we will solve a more realistic 1D heat equation. We will
+<p><span id="exr:unnamed-chunk-642" class="exercise"><strong>Exercise 6.82  </strong></span>In this problem we will solve a more realistic 1D heat equation. We will
 allow the diffusivity to change spatially, so <span class="math inline">\(D = D(x)\)</span> and we want to
 solve <span class="math display">\[u_t = \left( D(x) u_x \right)_x\]</span> on <span class="math inline">\(x \in (0,1)\)</span> with
 Dirichlet boundary conditions <span class="math inline">\(u(t,0) = u(t,1) = 0\)</span> and initial
@@ -1746,7 +1750,7 @@ changing diffusivity change the shape of the solution?</p></li>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-632" class="exercise"><strong>Exercise 6.83  </strong></span>In a square domain create a function <span class="math inline">\(u(0,x,y)\)</span> that looks like your
+<span id="exr:unnamed-chunk-643" class="exercise"><strong>Exercise 6.83  </strong></span>In a square domain create a function <span class="math inline">\(u(0,x,y)\)</span> that looks like your
 college logo. The simplest way to do this might be to take a photo of
 the logo, crop it to a square, and use the <code>scipy.ndimage.imread</code> command to read in the image.
 Use this function as the initial condition for the heat equation on a
@@ -1757,13 +1761,13 @@ happens to the logo as time evolves.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-633" class="exercise"><strong>Exercise 6.84  </strong></span>Repeat the previous exercise but this time solve the wave equation with
+<span id="exr:unnamed-chunk-644" class="exercise"><strong>Exercise 6.84  </strong></span>Repeat the previous exercise but this time solve the wave equation with
 the logo as the initial condition.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-634" class="exercise"><strong>Exercise 6.85  </strong></span>Consider the time-independent partial differential equation
+<span id="exr:unnamed-chunk-645" class="exercise"><strong>Exercise 6.85  </strong></span>Consider the time-independent partial differential equation
 <span class="math inline">\(-\varepsilon u_{xx} +  u_x = 1\)</span> on the domain <span class="math inline">\(x \in (0,1)\)</span> with boundary conditions
 <span class="math inline">\(u(0) = u(1) = 0\)</span> and parameter <span class="math inline">\(\varepsilon\)</span> with
 <span class="math inline">\(0.001&lt;\varepsilon&lt;1\)</span>. Write code to solve this boundary valued problem
@@ -1773,7 +1777,7 @@ and provide plots of your numerical solution for various values of
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-635" class="exercise"><strong>Exercise 6.86  </strong></span>Suppose that we have a concrete slab that is 10 meters in length, with
+<p><span id="exr:unnamed-chunk-646" class="exercise"><strong>Exercise 6.86  </strong></span>Suppose that we have a concrete slab that is 10 meters in length, with
 the left boundary held at a temperature of <span class="math inline">\(75^\circ\)</span> and the right
 boundary held at a temperature of <span class="math inline">\(90^\circ\)</span>. Assume that the thermal
 diffusivity of concrete is about <span class="math inline">\(k = 10^{-5}\)</span> m<span class="math inline">\(^2\)</span>/s. Assume that the
@@ -1794,7 +1798,7 @@ numerical solution and the analytic solution evolve in time.</p></li>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-636" class="exercise"><strong>Exercise 6.87  </strong></span>(This problem is modified from <span class="citation">[<a href="#ref-simiodeheat" role="doc-biblioref">11</a>]</span>. The data given below is real experimental data provided courtesy of the authors.)</p>
+<p><span id="exr:unnamed-chunk-647" class="exercise"><strong>Exercise 6.87  </strong></span>(This problem is modified from <span class="citation">[<a href="#ref-simiodeheat" role="doc-biblioref">11</a>]</span>. The data given below is real experimental data provided courtesy of the authors.)</p>
 <p>Harry and Sally set up an experiment to gather data specifically for the heat diffusion through a long thin metal rod. Their experimental setup was as follows.</p>
 <ul>
 <li>The ends of the rod are submerged in water baths at different temperatures and the heat from the hot water bath (on the right hand side) travels through the metal to the cooler end (on the left hand side).</li>
@@ -1946,13 +1950,13 @@ numerical solution and the analytic solution evolve in time.</p></li>
 </ol>
 You can load the data directly with the following code.
 </div>
-<div class="sourceCode" id="cb169"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb169-1"><a href="ch-pdes.html#cb169-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb169-2"><a href="ch-pdes.html#cb169-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb169-3"><a href="ch-pdes.html#cb169-3"></a>data <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise6_87.csv&#39;</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb176-1"><a href="ch-pdes.html#cb176-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb176-2"><a href="ch-pdes.html#cb176-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb176-3"><a href="ch-pdes.html#cb176-3"></a>data <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise6_87.csv&#39;</span>) )</span></code></pre></div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-638" class="exercise"><strong>Exercise 6.88  </strong></span>You may recall from your differential equations class that population growth under limited resources is goverened by the logistic equation <span class="math inline">\(x&#39; = k_1x(1-x/k_2)\)</span> where <span class="math inline">\(x=x(t)\)</span> is the population, <span class="math inline">\(k_1\)</span> is the intrinsic growth rate of the population, and <span class="math inline">\(k_2\)</span> is the carrying capacity of the population. The carrying capacity is the maximum population that can be supported by the environment. The trouble with this model is that the species is presumed to be fixed to a spatial location. Let’s make a modification to this model that allows the species to spread out over time while they reproduce. We have seen throughout this chapter that the heat equation <span class="math inline">\(u_t = D(u_{xx} + u_{yy})\)</span> models the diffusion of a substance (like heat or concentration). We therefore propose the model<br />
+<span id="exr:unnamed-chunk-649" class="exercise"><strong>Exercise 6.88  </strong></span>You may recall from your differential equations class that population growth under limited resources is goverened by the logistic equation <span class="math inline">\(x&#39; = k_1x(1-x/k_2)\)</span> where <span class="math inline">\(x=x(t)\)</span> is the population, <span class="math inline">\(k_1\)</span> is the intrinsic growth rate of the population, and <span class="math inline">\(k_2\)</span> is the carrying capacity of the population. The carrying capacity is the maximum population that can be supported by the environment. The trouble with this model is that the species is presumed to be fixed to a spatial location. Let’s make a modification to this model that allows the species to spread out over time while they reproduce. We have seen throughout this chapter that the heat equation <span class="math inline">\(u_t = D(u_{xx} + u_{yy})\)</span> models the diffusion of a substance (like heat or concentration). We therefore propose the model<br />
 <span class="math display">\[ \frac{\partial u}{\partial t} = k_1 u \left( 1 - \frac{u}{k_2} \right) + D \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)  \]</span>
 where <span class="math inline">\(u(t,x,y)\)</span> is the population density of the species at time <span class="math inline">\(t\)</span> and spatial point <span class="math inline">\((x,y)\)</span>, <span class="math inline">\((x,y)\)</span> is a point in some square spatial domain, <span class="math inline">\(k_1\)</span> is the growth rate of the population, <span class="math inline">\(k_2\)</span> is the carrying capacity of the population, and <span class="math inline">\(D\)</span> is the rate of diffusion. Develop a finite difference scheme to solve this PDE. Experiment with this model showing the interplay between the parameters <span class="math inline">\(D\)</span>, <span class="math inline">\(k_1\)</span>, and <span class="math inline">\(k_2\)</span>. Take an initial condition of
 <span class="math display">\[ u(0,x,y) = e^{-( (x-0.5)^2 + (y-0.5)^2)/0.05}. \]</span>

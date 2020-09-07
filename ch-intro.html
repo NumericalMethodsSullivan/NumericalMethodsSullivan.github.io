@@ -272,7 +272,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3" data-path="ch-odes.html"><a href="ch-odes.html#eulers-method"><i class="fa fa-check"></i><b>5.3</b> Euler’s Method</a></li>
 <li class="chapter" data-level="5.4" data-path="ch-odes.html"><a href="ch-odes.html#the-midpoint-method"><i class="fa fa-check"></i><b>5.4</b> The Midpoint Method</a></li>
 <li class="chapter" data-level="5.5" data-path="ch-odes.html"><a href="ch-odes.html#the-runge-kutta-4-method"><i class="fa fa-check"></i><b>5.5</b> The Runge-Kutta 4 Method</a></li>
-<li class="chapter" data-level="5.6" data-path="ch-odes.html"><a href="ch-odes.html#animating-ode-solutions"><i class="fa fa-check"></i><b>5.6</b> Animating ODE Solutions</a></li>
+<li class="chapter" data-level="5.6" data-path="ch-odes.html"><a href="ch-odes.html#animating-ode-solutions"><i class="fa fa-check"></i><b>5.6</b> Animating ODE Solutions</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="ch-odes.html"><a href="ch-odes.html#ipywidgets.interactive"><i class="fa fa-check"></i><b>5.6.1</b> <code>ipywidgets.interactive</code></a></li>
+<li class="chapter" data-level="5.6.2" data-path="ch-odes.html"><a href="ch-odes.html#matplotlib.animation"><i class="fa fa-check"></i><b>5.6.2</b> <code>matplotlib.animation</code></a></li>
+</ul></li>
 <li class="chapter" data-level="5.7" data-path="ch-odes.html"><a href="ch-odes.html#the-backwards-euler-method"><i class="fa fa-check"></i><b>5.7</b> The Backwards Euler Method</a></li>
 <li class="chapter" data-level="5.8" data-path="ch-odes.html"><a href="ch-odes.html#fitting-ode-models-to-data"><i class="fa fa-check"></i><b>5.8</b> Fitting ODE Models to Data</a></li>
 <li class="chapter" data-level="5.9" data-path="ch-odes.html"><a href="ch-odes.html#exercises-4"><i class="fa fa-check"></i><b>5.9</b> Exercises</a>
@@ -1552,7 +1556,7 @@ notice?</p></li>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-69" class="exercise"><strong>Exercise 1.57  </strong></span>In physics, the <em>relativistic energy</em> is defined as
+<p><span id="exr:unnamed-chunk-69" class="exercise"><strong>Exercise 1.57  </strong></span>In physics, the <em>relativistic energy</em> of an object is defined as
 <span class="math display">\[ E_{rel} = \gamma mc^2 \]</span>
 where
 <span class="math display">\[ \gamma = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}}. \]</span>
@@ -1565,6 +1569,20 @@ In these equations, <span class="math inline">\(m\)</span> is the mass of the ob
 for the relativistic energy equation?<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></li>
 <li>(some physics knowledge required) What do you notice about the second term in the Taylor Series approximation of the relativistic energy function?</li>
 <li>Show all of the work to derive the Taylor Series centered at <span class="math inline">\(v = 0\)</span> given above.</li>
+</ol>
+</div>
+<hr />
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-70" class="exercise"><strong>Exercise 1.58  (The Python Caret Operator)  </strong></span>Now that you’re used to using Python to do some basic computations you are probably comfortable with the fact that the caret, <code>^</code>, does NOT do exponentiation like it does in many other programming languages. But what does the caret operator do? That’s what we explore here.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Consider the numbers <span class="math inline">\(9\)</span> and <span class="math inline">\(5\)</span>. Write these numbers in binary representation. We are going to use four bits to represent each number (it is ok if the first bit happens to be zero).
+<span class="math display">\[\begin{aligned}
+9 &amp;=&amp; \underline{\hspace{0.2in}} \, \underline{\hspace{0.2in}} \, \underline{\hspace{0.2in}} \, \underline{\hspace{0.2in}} \\
+5 &amp;=&amp; \underline{\hspace{0.2in}} \, \underline{\hspace{0.2in}} \, \underline{\hspace{0.2in}} \, \underline{\hspace{0.2in}}
+\end{aligned}\]</span></li>
+<li>Now go to Python and evaluate the expression <code>9^5</code>. Convert Python’s answer to a binary representation (again using four bits).</li>
+<li>Make a conjecture: How do we go from the binary representations of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> to the binary representation for Python’s <code>a^b</code> for numbers <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>? Test and verify your conjecture on several different examples and then write a few sentences explaining what the caret operator does in Python.</li>
 </ol>
 </div>
 <hr />
