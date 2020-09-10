@@ -2180,7 +2180,7 @@ for <span class="math inline">\(\Delta t\)</span>.
 <div class="sourceCode" id="cb155"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb155-1"><a href="ch-odes.html#cb155-1"></a><span class="kw">def</span> euler(f,x0,t0,tmax,dt):</span>
 <span id="cb155-2"><a href="ch-odes.html#cb155-2"></a>    t <span class="op">=</span> [t0]</span>
 <span id="cb155-3"><a href="ch-odes.html#cb155-3"></a>    x <span class="op">=</span> [x0]</span>
-<span id="cb155-4"><a href="ch-odes.html#cb155-4"></a>    steps <span class="op">=</span> (tmax<span class="op">-</span>t0)<span class="op">/</span>dt</span>
+<span id="cb155-4"><a href="ch-odes.html#cb155-4"></a>    steps <span class="op">=</span> <span class="bu">int</span>(np.floor((tmax<span class="op">-</span>t0)<span class="op">/</span>dt))</span>
 <span id="cb155-5"><a href="ch-odes.html#cb155-5"></a>    <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(steps):</span>
 <span id="cb155-6"><a href="ch-odes.html#cb155-6"></a>        t.append(t[n] <span class="op">+</span> dt)</span>
 <span id="cb155-7"><a href="ch-odes.html#cb155-7"></a>        x.append(x[n] <span class="op">+</span> dt<span class="op">*</span>f(t[n],x[n]))</span>
@@ -2195,21 +2195,18 @@ for <span class="math inline">\(\Delta t\)</span>.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-524" class="exercise"><strong>Exercise 5.72  </strong></span>We wish to solve the boundary valued problem <span class="math inline">\(x&#39;&#39; + 4x = \sin(t)\)</span> with
-initial condition <span class="math inline">\(x(0)=1\)</span> and boundary condition <span class="math inline">\(x(1)=2\)</span>. Notice that
+<p><span id="exr:unnamed-chunk-524" class="exercise"><strong>Exercise 5.72  </strong></span>We wish to solve the boundary valued problem <span class="math inline">\(x&#39;&#39; + 4x = \sin(t)\)</span> with
+initial condition <span class="math inline">\(x(0)=1\)</span> and boundary condition <span class="math inline">\(x(1)=2\)</span> on the domain <span class="math inline">\(t \in (0,1)\)</span>. Notice that
 you do not have the initial position and initial velocity as you
 normally would with a second order differential equation. Devise a
-method for finding a numerical solution to this problem.<br />
-Hint: First write the problem as a system of first order differential
-equations. Then think about how your bisection method code might help
-you.
+method for finding a numerical solution to this problem.</p>
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-525" class="exercise"><strong>Exercise 5.73  </strong></span>Write code to solve the boundary valued differential equation
-<span class="math display">\[y&#39;&#39; = \cos(t) y&#39; + \sin(t) y \quad \text{with} \quad y(0) = 0 \quad \text{and}
-        \quad y(1) = 1.\]</span>
+<span id="exr:unnamed-chunk-525" class="exercise"><strong>Exercise 5.73  </strong></span>Write code to numerically solve the boundary valued differential equation
+<span class="math display">\[x&#39;&#39; = \cos(t) x&#39; + \sin(t) x \quad \text{with} \quad x(0) = 0 \quad \text{and}
+        \quad x(1) = 1.\]</span>
 </div>
 <hr />
 
@@ -2248,9 +2245,7 @@ that you’re looking for <em>indifference</em> at <span class="math inline">\(t
 to find an approximation for <span class="math inline">\(\gamma\)</span>. Assume throughout this
 problem that <span class="math inline">\(\alpha=0.2\)</span>, <span class="math inline">\(\beta=0.8\)</span>, <span class="math inline">\(x(0)=2\)</span>, and <span class="math inline">\(y(0)=0\)</span>.
 Write a description for how your code works in your homework
-document.<br />
-Hint: One way to do this problem is very similar to a bisection
-method for root finding.</p></li>
+document.</p></li>
 </ol>
 </div>
 <hr />
@@ -2279,7 +2274,7 @@ four first-order equations <span class="math display">\[\begin{aligned}
 solver. Start with <span class="math inline">\(x(0) = 4\)</span>, <span class="math inline">\(y(0) = 0\)</span>, the initial <span class="math inline">\(x\)</span> velocity
 as <span class="math inline">\(0\)</span>, and the initial <span class="math inline">\(y\)</span> velocity as <span class="math inline">\(0.5\)</span>. Create several plots
 showing how the dynamics of the system change for various values of
-the initial <span class="math inline">\(y\)</span> velocity in the interval <span class="math inline">\((0,0.5]\)</span>.</p></li>
+the initial <span class="math inline">\(y\)</span> velocity in the interval <span class="math inline">\(t \in (0,100)\)</span>.</p></li>
 <li><p>Give an animated plot showing <span class="math inline">\(x(t)\)</span> versus <span class="math inline">\(y(t)\)</span>.</p></li>
 </ol>
 </div>
