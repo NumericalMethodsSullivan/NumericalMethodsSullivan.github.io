@@ -734,16 +734,20 @@ Partial code is given below. Fill in all of the details and give ample comments 
 <div class="sourceCode" id="cb108"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb108-1"><a href="ch-linearalgebra.html#cb108-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb108-2"><a href="ch-linearalgebra.html#cb108-2"></a><span class="kw">def</span> myMatrixMult(A,B):</span>
 <span id="cb108-3"><a href="ch-linearalgebra.html#cb108-3"></a>    <span class="co"># Get the shapes of the matrices A and B.</span></span>
-<span id="cb108-4"><a href="ch-linearalgebra.html#cb108-4"></a>    <span class="co"># Then write an if statement that catches size mismatches in the matrices.</span></span>
-<span id="cb108-5"><a href="ch-linearalgebra.html#cb108-5"></a>    <span class="co"># Next build a zeros matrix that is the correct size for the product of A and B.</span></span>
-<span id="cb108-6"><a href="ch-linearalgebra.html#cb108-6"></a>    AB <span class="op">=</span> <span class="co"># this is a zeros matix that will be filled with the values from the product</span></span>
-<span id="cb108-7"><a href="ch-linearalgebra.html#cb108-7"></a>    <span class="co"># </span></span>
-<span id="cb108-8"><a href="ch-linearalgebra.html#cb108-8"></a>    <span class="co"># Next we do a double for-loop that loops through all of the indices of the product</span></span>
-<span id="cb108-9"><a href="ch-linearalgebra.html#cb108-9"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n): <span class="co"># loop over the rows of AB</span></span>
-<span id="cb108-10"><a href="ch-linearalgebra.html#cb108-10"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(m): <span class="co"># loop over the columns of AB</span></span>
-<span id="cb108-11"><a href="ch-linearalgebra.html#cb108-11"></a>            <span class="co"># use the np.dot() command to take the appropriate dot product</span></span>
-<span id="cb108-12"><a href="ch-linearalgebra.html#cb108-12"></a>            AB[i,j] <span class="op">=</span> ???</span>
-<span id="cb108-13"><a href="ch-linearalgebra.html#cb108-13"></a>    <span class="cf">return</span> AB</span></code></pre></div>
+<span id="cb108-4"><a href="ch-linearalgebra.html#cb108-4"></a>    <span class="co"># Then write an if statement that catches size mismatches </span></span>
+<span id="cb108-5"><a href="ch-linearalgebra.html#cb108-5"></a>    <span class="co"># in the matrices.  Next build a zeros matrix that is the </span></span>
+<span id="cb108-6"><a href="ch-linearalgebra.html#cb108-6"></a>    <span class="co"># correct size for the product of A and B. </span></span>
+<span id="cb108-7"><a href="ch-linearalgebra.html#cb108-7"></a>    AB <span class="op">=</span> ??? </span>
+<span id="cb108-8"><a href="ch-linearalgebra.html#cb108-8"></a>    <span class="co"># AB is a zeros matix that will be filled with the values </span></span>
+<span id="cb108-9"><a href="ch-linearalgebra.html#cb108-9"></a>    <span class="co"># from the product</span></span>
+<span id="cb108-10"><a href="ch-linearalgebra.html#cb108-10"></a>    <span class="co"># </span></span>
+<span id="cb108-11"><a href="ch-linearalgebra.html#cb108-11"></a>    <span class="co"># Next we do a double for-loop that loops through all of </span></span>
+<span id="cb108-12"><a href="ch-linearalgebra.html#cb108-12"></a>    <span class="co"># the indices of the product</span></span>
+<span id="cb108-13"><a href="ch-linearalgebra.html#cb108-13"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n): <span class="co"># loop over the rows of AB</span></span>
+<span id="cb108-14"><a href="ch-linearalgebra.html#cb108-14"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(m): <span class="co"># loop over the columns of AB</span></span>
+<span id="cb108-15"><a href="ch-linearalgebra.html#cb108-15"></a>            <span class="co"># use the np.dot() command to take the dot product</span></span>
+<span id="cb108-16"><a href="ch-linearalgebra.html#cb108-16"></a>            AB[i,j] <span class="op">=</span> ???</span>
+<span id="cb108-17"><a href="ch-linearalgebra.html#cb108-17"></a>    <span class="cf">return</span> AB</span></code></pre></div>
 <p>Use the following test code to determine if you actually get the correct matrix product out of your code.</p>
 <div class="sourceCode" id="cb109"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb109-1"><a href="ch-linearalgebra.html#cb109-1"></a>A <span class="op">=</span> np.matrix([[<span class="dv">1</span>,<span class="dv">2</span>],[<span class="dv">3</span>,<span class="dv">4</span>],[<span class="dv">5</span>,<span class="dv">6</span>]])</span>
 <span id="cb109-2"><a href="ch-linearalgebra.html#cb109-2"></a>B <span class="op">=</span> np.matrix([[<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>],[<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>]])</span>
@@ -1111,8 +1115,9 @@ triangular matrix we do not have a diagonal containing all ones.
 <span id="cb115-5"><a href="ch-linearalgebra.html#cb115-5"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>( ??? ):     <span class="co"># what should we be looping over?</span></span>
 <span id="cb115-6"><a href="ch-linearalgebra.html#cb115-6"></a>        x[i] <span class="op">=</span> y[i] <span class="op">/</span> ???      <span class="co"># what should we be dividing by?</span></span>
 <span id="cb115-7"><a href="ch-linearalgebra.html#cb115-7"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>( ??? ): <span class="co"># what should we be looping over:</span></span>
-<span id="cb115-8"><a href="ch-linearalgebra.html#cb115-8"></a>            x[i] <span class="op">=</span> x[i] <span class="op">-</span> U[i,j] <span class="op">*</span> x[j] <span class="op">/</span> ??? <span class="co"># complete this line ... what does this line do?</span></span>
-<span id="cb115-9"><a href="ch-linearalgebra.html#cb115-9"></a>    <span class="cf">return</span>(x)</span></code></pre></div>
+<span id="cb115-8"><a href="ch-linearalgebra.html#cb115-8"></a>            x[i] <span class="op">=</span> x[i] <span class="op">-</span> U[i,j] <span class="op">*</span> x[j] <span class="op">/</span> ??? <span class="co"># complete this line </span></span>
+<span id="cb115-9"><a href="ch-linearalgebra.html#cb115-9"></a>            <span class="co"># ... what does the previous line do?</span></span>
+<span id="cb115-10"><a href="ch-linearalgebra.html#cb115-10"></a>    <span class="cf">return</span>(x)</span></code></pre></div>
 <hr />
 
 <div class="exercise">
@@ -1239,30 +1244,32 @@ matrices <span class="math inline">\(L\)</span> and <span class="math inline">\(
 <span id="cb116-3"><a href="ch-linearalgebra.html#cb116-3"></a></span>
 <span id="cb116-4"><a href="ch-linearalgebra.html#cb116-4"></a><span class="co"># build a symbolic augmented matrix</span></span>
 <span id="cb116-5"><a href="ch-linearalgebra.html#cb116-5"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
-<span id="cb116-6"><a href="ch-linearalgebra.html#cb116-6"></a>Ab <span class="op">=</span> sp.Matrix(np.c_[A,b]) <span class="co"># note that np.c_[A,b] does a column concatenation of A with b</span></span>
-<span id="cb116-7"><a href="ch-linearalgebra.html#cb116-7"></a></span>
-<span id="cb116-8"><a href="ch-linearalgebra.html#cb116-8"></a>t0 <span class="op">=</span> time.time()</span>
-<span id="cb116-9"><a href="ch-linearalgebra.html#cb116-9"></a>Abrref <span class="op">=</span> <span class="co"># row reduce the symbolic augmented matrix</span></span>
-<span id="cb116-10"><a href="ch-linearalgebra.html#cb116-10"></a>t1 <span class="op">=</span> time.time()</span>
-<span id="cb116-11"><a href="ch-linearalgebra.html#cb116-11"></a>RREFTime <span class="op">=</span> t1<span class="op">-</span>t0</span>
-<span id="cb116-12"><a href="ch-linearalgebra.html#cb116-12"></a></span>
+<span id="cb116-6"><a href="ch-linearalgebra.html#cb116-6"></a>Ab <span class="op">=</span> sp.Matrix(np.c_[A,b]) </span>
+<span id="cb116-7"><a href="ch-linearalgebra.html#cb116-7"></a><span class="co"># note that np.c_[A,b] does a column concatenation of A with b</span></span>
+<span id="cb116-8"><a href="ch-linearalgebra.html#cb116-8"></a></span>
+<span id="cb116-9"><a href="ch-linearalgebra.html#cb116-9"></a>t0 <span class="op">=</span> time.time()</span>
+<span id="cb116-10"><a href="ch-linearalgebra.html#cb116-10"></a>Abrref <span class="op">=</span> <span class="co"># row reduce the symbolic augmented matrix</span></span>
+<span id="cb116-11"><a href="ch-linearalgebra.html#cb116-11"></a>t1 <span class="op">=</span> time.time()</span>
+<span id="cb116-12"><a href="ch-linearalgebra.html#cb116-12"></a>RREFTime <span class="op">=</span> t1<span class="op">-</span>t0</span>
 <span id="cb116-13"><a href="ch-linearalgebra.html#cb116-13"></a></span>
-<span id="cb116-14"><a href="ch-linearalgebra.html#cb116-14"></a>t0<span class="op">=</span>time.time()</span>
-<span id="cb116-15"><a href="ch-linearalgebra.html#cb116-15"></a>exact <span class="op">=</span> <span class="co"># use np.linalg.solve() to solve the numerical linear system</span></span>
-<span id="cb116-16"><a href="ch-linearalgebra.html#cb116-16"></a>t1<span class="op">=</span>time.time()</span>
-<span id="cb116-17"><a href="ch-linearalgebra.html#cb116-17"></a>exactTime <span class="op">=</span> t1<span class="op">-</span>t0</span>
-<span id="cb116-18"><a href="ch-linearalgebra.html#cb116-18"></a></span>
-<span id="cb116-19"><a href="ch-linearalgebra.html#cb116-19"></a>t0 <span class="op">=</span> time.time()</span>
-<span id="cb116-20"><a href="ch-linearalgebra.html#cb116-20"></a>L, U <span class="op">=</span> <span class="co"># get L and U from your myLU</span></span>
-<span id="cb116-21"><a href="ch-linearalgebra.html#cb116-21"></a>y <span class="op">=</span> <span class="co"># use forward substitution to get y</span></span>
-<span id="cb116-22"><a href="ch-linearalgebra.html#cb116-22"></a>x <span class="op">=</span> <span class="co"># use bacckward substituation to get x</span></span>
-<span id="cb116-23"><a href="ch-linearalgebra.html#cb116-23"></a>t1 <span class="op">=</span> time.time()</span>
-<span id="cb116-24"><a href="ch-linearalgebra.html#cb116-24"></a>LUTime <span class="op">=</span> t1<span class="op">-</span>t0</span>
-<span id="cb116-25"><a href="ch-linearalgebra.html#cb116-25"></a></span>
-<span id="cb116-26"><a href="ch-linearalgebra.html#cb116-26"></a><span class="bu">print</span>(<span class="st">&quot;Time for symbolic RREF:</span><span class="ch">\t\t\t</span><span class="st">&quot;</span>,RREFTime)</span>
-<span id="cb116-27"><a href="ch-linearalgebra.html#cb116-27"></a><span class="bu">print</span>(<span class="st">&quot;Time for np.linalg.solve() solution:</span><span class="ch">\t</span><span class="st">&quot;</span>,exactTime)</span>
-<span id="cb116-28"><a href="ch-linearalgebra.html#cb116-28"></a><span class="bu">print</span>(<span class="st">&quot;Time for LU solution:</span><span class="ch">\t\t\t</span><span class="st">&quot;</span>,LUTime)</span>
-<span id="cb116-29"><a href="ch-linearalgebra.html#cb116-29"></a><span class="bu">print</span>(<span class="st">&quot;Error between LU and np.linalg.solve():&quot;</span>,np.linalg.norm(x<span class="op">-</span>exact))</span></code></pre></div>
+<span id="cb116-14"><a href="ch-linearalgebra.html#cb116-14"></a></span>
+<span id="cb116-15"><a href="ch-linearalgebra.html#cb116-15"></a>t0<span class="op">=</span>time.time()</span>
+<span id="cb116-16"><a href="ch-linearalgebra.html#cb116-16"></a>exact <span class="op">=</span> <span class="co"># use np.linalg.solve() to solve the linear system</span></span>
+<span id="cb116-17"><a href="ch-linearalgebra.html#cb116-17"></a>t1<span class="op">=</span>time.time()</span>
+<span id="cb116-18"><a href="ch-linearalgebra.html#cb116-18"></a>exactTime <span class="op">=</span> t1<span class="op">-</span>t0</span>
+<span id="cb116-19"><a href="ch-linearalgebra.html#cb116-19"></a></span>
+<span id="cb116-20"><a href="ch-linearalgebra.html#cb116-20"></a>t0 <span class="op">=</span> time.time()</span>
+<span id="cb116-21"><a href="ch-linearalgebra.html#cb116-21"></a>L, U <span class="op">=</span> <span class="co"># get L and U from your myLU</span></span>
+<span id="cb116-22"><a href="ch-linearalgebra.html#cb116-22"></a>y <span class="op">=</span> <span class="co"># use forward substitution to get y</span></span>
+<span id="cb116-23"><a href="ch-linearalgebra.html#cb116-23"></a>x <span class="op">=</span> <span class="co"># use bacckward substituation to get x</span></span>
+<span id="cb116-24"><a href="ch-linearalgebra.html#cb116-24"></a>t1 <span class="op">=</span> time.time()</span>
+<span id="cb116-25"><a href="ch-linearalgebra.html#cb116-25"></a>LUTime <span class="op">=</span> t1<span class="op">-</span>t0</span>
+<span id="cb116-26"><a href="ch-linearalgebra.html#cb116-26"></a></span>
+<span id="cb116-27"><a href="ch-linearalgebra.html#cb116-27"></a><span class="bu">print</span>(<span class="st">&quot;Time for symbolic RREF:</span><span class="ch">\t\t\t</span><span class="st">&quot;</span>,RREFTime)</span>
+<span id="cb116-28"><a href="ch-linearalgebra.html#cb116-28"></a><span class="bu">print</span>(<span class="st">&quot;Time for np.linalg.solve() solution:</span><span class="ch">\t</span><span class="st">&quot;</span>,exactTime)</span>
+<span id="cb116-29"><a href="ch-linearalgebra.html#cb116-29"></a><span class="bu">print</span>(<span class="st">&quot;Time for LU solution:</span><span class="ch">\t\t\t</span><span class="st">&quot;</span>,LUTime)</span>
+<span id="cb116-30"><a href="ch-linearalgebra.html#cb116-30"></a>err <span class="op">=</span> np.linalg.norm(x<span class="op">-</span>exact)</span>
+<span id="cb116-31"><a href="ch-linearalgebra.html#cb116-31"></a><span class="bu">print</span>(<span class="st">&quot;Error between LU and np.linalg.solve():&quot;</span>,err)</span></code></pre></div>
 <hr />
 
 <div class="exercise">
@@ -1413,7 +1420,7 @@ Show that this is indeed true for the matrix <span class="math inline">\(A\)</sp
 <div class="exercise">
 <p><span id="exr:unnamed-chunk-353" class="exercise"><strong>Exercise 4.45  </strong></span>Now we’ll extend the process from the previous exercises to three dimensions. This time we will seek a matrix <span class="math inline">\(Q\)</span> that has three othonormal vectors starting from the three original columns of a <span class="math inline">\(3 \times 3\)</span> matrix <span class="math inline">\(A\)</span>. Perform each of the following steps <strong>by hand</strong> on the matrix
 <span class="math display">\[ A = \begin{pmatrix} 1 &amp; 1 &amp; 0 \\ 1 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 1 \end{pmatrix}. \]</span>
-The steps are shown graphically in Figure <a href="ch-linearalgebra.html#fig:qr3d">4.2</a>. In the end you should end up with an orthonormal matrix <span class="math inline">\(Q\)</span> and an upper triangular matrix <span class="math inline">\(R\)</span>.</p>
+In the end you should end up with an orthonormal matrix <span class="math inline">\(Q\)</span> and an upper triangular matrix <span class="math inline">\(R\)</span>.</p>
 <ul>
 <li><strong>Step 1</strong>: Pick column <span class="math inline">\(\boldsymbol{a}_0\)</span> from the matrix <span class="math inline">\(A\)</span> and normalize it. Call this new vector <span class="math inline">\(\boldsymbol{q}_0\)</span> and make that the first column of the matrix <span class="math inline">\(Q\)</span>.</li>
 <li><strong>Step 2</strong>: Project column <span class="math inline">\(\boldsymbol{a}_1\)</span> of <span class="math inline">\(A\)</span> onto <span class="math inline">\(\boldsymbol{q}_0\)</span>. This forms a right triangle with <span class="math inline">\(\boldsymbol{a}_1\)</span> as the hypotenuse, the projection of <span class="math inline">\(\boldsymbol{a}_1\)</span> onto <span class="math inline">\(\boldsymbol{q}_0\)</span> as one of the legs, and the vector difference between these two as the second leg. Notice that the second leg of the newly formed right triangle is perpendicular to <span class="math inline">\(\boldsymbol{q}_0\)</span> by design. If we normalize this vector then we have the second column of <span class="math inline">\(Q\)</span>, <span class="math inline">\(\boldsymbol{q}_1\)</span>.</li>
@@ -1425,12 +1432,6 @@ The steps are shown graphically in Figure <a href="ch-linearalgebra.html#fig:qr3
 </ul></li>
 </ul>
 <p>The result should be the matrix <span class="math inline">\(Q\)</span> which contains orthonormal columns. To build the matrix <span class="math inline">\(R\)</span> we simply recall that <span class="math inline">\(A = QR\)</span> and <span class="math inline">\(Q^{-1} = Q^T\)</span> so <span class="math inline">\(R = Q^T A\)</span>.</p>
-</div>
-<div class="figure" style="text-align: center"><span id="fig:qr3d"></span>
-<img src="images/Ch04_3dQR.png" alt="The steps to building an orthonormal basis starting with 3 vectors." width="621" height="99%" />
-<p class="caption">
-Figure 4.2: The steps to building an orthonormal basis starting with 3 vectors.
-</p>
 </div>
 <hr />
 
@@ -1463,18 +1464,20 @@ Figure 4.2: The steps to building an orthonormal basis starting with 3 vectors.
 <span id="cb118-6"><a href="ch-linearalgebra.html#cb118-6"></a>        q <span class="op">=</span> A[:,j]</span>
 <span id="cb118-7"><a href="ch-linearalgebra.html#cb118-7"></a>        <span class="co"># The next loop is meant to do all of the projections.</span></span>
 <span id="cb118-8"><a href="ch-linearalgebra.html#cb118-8"></a>        <span class="co"># When do you start the inner loop and how far do you go?</span></span>
-<span id="cb118-9"><a href="ch-linearalgebra.html#cb118-9"></a>        <span class="co"># Hint: You don&#39;t need to enter this loop the first time through</span></span>
+<span id="cb118-9"><a href="ch-linearalgebra.html#cb118-9"></a>        <span class="co"># Hint: You don&#39;t need to enter this loop the first time </span></span>
 <span id="cb118-10"><a href="ch-linearalgebra.html#cb118-10"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>( ??? ): </span>
 <span id="cb118-11"><a href="ch-linearalgebra.html#cb118-11"></a>            length_of_leg <span class="op">=</span> np.<span class="bu">sum</span>(A[:,j].T <span class="op">*</span> Q[:,i])</span>
-<span id="cb118-12"><a href="ch-linearalgebra.html#cb118-12"></a>            q <span class="op">=</span> q <span class="op">-</span>  ??? <span class="op">*</span> ??? <span class="co"># This is where the projects come in.</span></span>
+<span id="cb118-12"><a href="ch-linearalgebra.html#cb118-12"></a>            q <span class="op">=</span> q <span class="op">-</span>  ??? <span class="op">*</span> ??? <span class="co"># This is where we do projections</span></span>
 <span id="cb118-13"><a href="ch-linearalgebra.html#cb118-13"></a>        Q[:,j] <span class="op">=</span> q <span class="op">/</span> np.linalg.norm(q)</span>
 <span id="cb118-14"><a href="ch-linearalgebra.html#cb118-14"></a>    R <span class="op">=</span> <span class="co"># finally build the R matrix</span></span>
 <span id="cb118-15"><a href="ch-linearalgebra.html#cb118-15"></a>    <span class="cf">return</span> Q, R</span></code></pre></div>
 <div class="sourceCode" id="cb119"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb119-1"><a href="ch-linearalgebra.html#cb119-1"></a><span class="co"># Test Code</span></span>
-<span id="cb119-2"><a href="ch-linearalgebra.html#cb119-2"></a>A <span class="op">=</span> np.matrix( ... ) <span class="co"># or you can use np.random.randn() for random matrices</span></span>
-<span id="cb119-3"><a href="ch-linearalgebra.html#cb119-3"></a>Q, R <span class="op">=</span> myQR(A)</span>
-<span id="cb119-4"><a href="ch-linearalgebra.html#cb119-4"></a>error <span class="op">=</span> np.linalg.norm(A <span class="op">-</span> Q<span class="op">*</span>R)</span>
-<span id="cb119-5"><a href="ch-linearalgebra.html#cb119-5"></a><span class="bu">print</span>(error)</span></code></pre></div>
+<span id="cb119-2"><a href="ch-linearalgebra.html#cb119-2"></a>A <span class="op">=</span> np.matrix( ... ) </span>
+<span id="cb119-3"><a href="ch-linearalgebra.html#cb119-3"></a><span class="co"># or you can buidl A with use np.random.randn() </span></span>
+<span id="cb119-4"><a href="ch-linearalgebra.html#cb119-4"></a><span class="co"># Often time random matrices are good test cases</span></span>
+<span id="cb119-5"><a href="ch-linearalgebra.html#cb119-5"></a>Q, R <span class="op">=</span> myQR(A)</span>
+<span id="cb119-6"><a href="ch-linearalgebra.html#cb119-6"></a>error <span class="op">=</span> np.linalg.norm(A <span class="op">-</span> Q<span class="op">*</span>R)</span>
+<span id="cb119-7"><a href="ch-linearalgebra.html#cb119-7"></a><span class="bu">print</span>(error)</span></code></pre></div>
 <hr />
 <p>We now have a robust algorithm for doing <span class="math inline">\(QR\)</span> factorization of square matrices we can finally return to solving systems of equations.</p>
 
@@ -1591,7 +1594,8 @@ Code to download the data directly is given below.
 </div>
 <div class="sourceCode" id="cb120"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb120-1"><a href="ch-linearalgebra.html#cb120-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb120-2"><a href="ch-linearalgebra.html#cb120-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb120-3"><a href="ch-linearalgebra.html#cb120-3"></a>data <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise4_51.csv&#39;</span>) )</span></code></pre></div>
+<span id="cb120-3"><a href="ch-linearalgebra.html#cb120-3"></a>data <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise4_51.csv&#39;</span>) )</span>
+<span id="cb120-4"><a href="ch-linearalgebra.html#cb120-4"></a><span class="co"># Exercise4_51.csv</span></span></code></pre></div>
 <hr />
 
 <div class="exercise">
@@ -1654,7 +1658,8 @@ Code to download the data directly is given below.
 </div>
 <div class="sourceCode" id="cb121"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb121-1"><a href="ch-linearalgebra.html#cb121-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb121-2"><a href="ch-linearalgebra.html#cb121-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb121-3"><a href="ch-linearalgebra.html#cb121-3"></a>data <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise4_52.csv&#39;</span>) )</span></code></pre></div>
+<span id="cb121-3"><a href="ch-linearalgebra.html#cb121-3"></a>data <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise4_52.csv&#39;</span>) )</span>
+<span id="cb121-4"><a href="ch-linearalgebra.html#cb121-4"></a><span class="co"># Exercise4_52.csv</span></span></code></pre></div>
 <hr />
 
 <div class="exercise">
@@ -1835,13 +1840,14 @@ next iteration of the loop)</p>
 <span id="cb123-12"><a href="ch-linearalgebra.html#cb123-12"></a>    counter <span class="op">=</span> <span class="dv">0</span> <span class="co"># keep track of how many steps we&#39;ve taken</span></span>
 <span id="cb123-13"><a href="ch-linearalgebra.html#cb123-13"></a>    <span class="cf">while</span> difference <span class="op">&gt;</span> tol <span class="kw">and</span> counter <span class="op">&lt;</span> <span class="dv">1000</span>:</span>
 <span id="cb123-14"><a href="ch-linearalgebra.html#cb123-14"></a>        vnew <span class="op">=</span> <span class="co"># Calcuate the new approximation of v</span></span>
-<span id="cb123-15"><a href="ch-linearalgebra.html#cb123-15"></a>        L <span class="op">=</span> ( np.transpose(vnew) <span class="op">*</span> v).item() <span class="co"># approx of the eigenvalue</span></span>
+<span id="cb123-15"><a href="ch-linearalgebra.html#cb123-15"></a>        L <span class="op">=</span> ( np.transpose(vnew) <span class="op">*</span> v).item() <span class="co"># approx of the e-value</span></span>
 <span id="cb123-16"><a href="ch-linearalgebra.html#cb123-16"></a>        vnew <span class="op">=</span> <span class="co"># normalized vnew to make it a unit vector</span></span>
-<span id="cb123-17"><a href="ch-linearalgebra.html#cb123-17"></a>        <span class="co"># use np.linalg.norm() to determine how close v and vnew are</span></span>
-<span id="cb123-18"><a href="ch-linearalgebra.html#cb123-18"></a>        difference <span class="op">=</span> ???</span>
-<span id="cb123-19"><a href="ch-linearalgebra.html#cb123-19"></a>        counter <span class="op">+=</span> <span class="dv">1</span> <span class="co"># increment the counter</span></span>
-<span id="cb123-20"><a href="ch-linearalgebra.html#cb123-20"></a>        v <span class="op">=</span> vnew <span class="co"># set v to vnew so we can start again.</span></span>
-<span id="cb123-21"><a href="ch-linearalgebra.html#cb123-21"></a>    <span class="cf">return</span> v, L</span></code></pre></div>
+<span id="cb123-17"><a href="ch-linearalgebra.html#cb123-17"></a>        <span class="co"># Next we should use np.linalg.norm() to determine how </span></span>
+<span id="cb123-18"><a href="ch-linearalgebra.html#cb123-18"></a>        <span class="co"># close v and vnew are</span></span>
+<span id="cb123-19"><a href="ch-linearalgebra.html#cb123-19"></a>        difference <span class="op">=</span> ???</span>
+<span id="cb123-20"><a href="ch-linearalgebra.html#cb123-20"></a>        counter <span class="op">+=</span> <span class="dv">1</span> <span class="co"># increment the counter</span></span>
+<span id="cb123-21"><a href="ch-linearalgebra.html#cb123-21"></a>        v <span class="op">=</span> vnew <span class="co"># set v to vnew so we can start again.</span></span>
+<span id="cb123-22"><a href="ch-linearalgebra.html#cb123-22"></a>    <span class="cf">return</span> v, L</span></code></pre></div>
 <hr />
 
 <div class="exercise">
@@ -1953,7 +1959,7 @@ system of linear equations.
 <div class="exercise">
 <p><span id="exr:heated-rod-lin-alg" class="exercise"><strong>Exercise 4.75  </strong></span>Imagine that we have a 1 meter long thin metal rod that has been heated to 100<span class="math inline">\(^\circ\)</span> on the left-hand side and cooled to 0<span class="math inline">\(^\circ\)</span> on the right-hand side. We want to know the temperature every 10 cm from left to right on the rod.</p>
 <ol style="list-style-type: lower-alpha">
-<li><p>First we break the rod into equal 10cm increments as shown. See Figure <a href="ch-linearalgebra.html#fig:heated-rod">4.3</a>. How many unknowns are there in this picture?</p></li>
+<li><p>First we break the rod into equal 10cm increments as shown. See Figure <a href="ch-linearalgebra.html#fig:heated-rod">4.2</a>. How many unknowns are there in this picture?</p></li>
 <li><p>The temperature at each point along the rod is the average of the
 temperatures at the adjacent points. For example, if we let <span class="math inline">\(T_1\)</span> be
 the temperature at point <span class="math inline">\(x_1\)</span> then <span class="math display">\[T_1 = \frac{T_0 + T_2}{2}.\]</span>
@@ -1964,7 +1970,7 @@ Write a system of equations for each of the unknown temperatures.</p></li>
 <div class="figure" style="text-align: center"><span id="fig:heated-rod"></span>
 <img src="images/Ch04_HeatedRod.png" alt="A rod to be heated broken into 10 equal-length segments." width="60%" />
 <p class="caption">
-Figure 4.3: A rod to be heated broken into 10 equal-length segments.
+Figure 4.2: A rod to be heated broken into 10 equal-length segments.
 </p>
 </div>
 <hr />
@@ -2187,7 +2193,8 @@ at 50 equally spaced points <span class="math inline">\(t\)</span> between <span
 </table>
 <div class="sourceCode" id="cb126"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb126-1"><a href="ch-linearalgebra.html#cb126-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb126-2"><a href="ch-linearalgebra.html#cb126-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb126-3"><a href="ch-linearalgebra.html#cb126-3"></a>data <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise4_89.csv&#39;</span>) )</span></code></pre></div>
+<span id="cb126-3"><a href="ch-linearalgebra.html#cb126-3"></a>data <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise4_89.csv&#39;</span>) )</span>
+<span id="cb126-4"><a href="ch-linearalgebra.html#cb126-4"></a><span class="co"># Exercise4_89.csv</span></span></code></pre></div>
 <hr />
 
 <div class="theorem">
@@ -2212,7 +2219,7 @@ following code.
 <span id="cb127-2"><a href="ch-linearalgebra.html#cb127-2"></a>N <span class="op">=</span> <span class="dv">40</span></span>
 <span id="cb127-3"><a href="ch-linearalgebra.html#cb127-3"></a>A <span class="op">=</span> np.random.randn(N,N)</span>
 <span id="cb127-4"><a href="ch-linearalgebra.html#cb127-4"></a>A <span class="op">=</span> np.matrix(A)</span>
-<span id="cb127-5"><a href="ch-linearalgebra.html#cb127-5"></a>A <span class="op">=</span> np.transpose(A) <span class="op">*</span> A <span class="co"># this should build a symmetric matrix (why?)</span></span></code></pre></div>
+<span id="cb127-5"><a href="ch-linearalgebra.html#cb127-5"></a>A <span class="op">=</span> np.transpose(A) <span class="op">*</span> A <span class="co"># why should this build a symmetric matrix</span></span></code></pre></div>
 <hr />
 
 <div class="exercise">
@@ -2339,17 +2346,17 @@ more recommendations must be more important than a page with a few
 links. However, the status of the recommendation is also important.</p>
 <p>Let us now translate this into mathematics. To help understand this we
 first consider the small web of six pages shown in Figure
-<a href="ch-linearalgebra.html#fig:example-graph">4.4</a> (a graph of the router level of the
+<a href="ch-linearalgebra.html#fig:example-graph">4.3</a> (a graph of the router level of the
 internet can be found
 <a href="https://personalpages.manchester.ac.uk/staff/m.dodge/cybergeography/atlas/lumeta_large.jpg">here</a>).
 The links between the pages are shown by arrows. An arrow pointing into
 a node is an <em>in link</em> and an arrow pointing out of a node is an
-<em>out link</em>. In Figure <a href="ch-linearalgebra.html#fig:example-graph">4.4</a>, node 3 has three out links (to nodes 1,
+<em>out link</em>. In Figure <a href="ch-linearalgebra.html#fig:example-graph">4.3</a>, node 3 has three out links (to nodes 1,
 2, and 5) and 1 in link (from node 1).</p>
 <div class="figure" style="text-align: center"><span id="fig:example-graph"></span>
 <img src="images/Ch04_GoogleGraph1.png" alt="Example web graph." width="20%" />
 <p class="caption">
-Figure 4.4: Example web graph.
+Figure 4.3: Example web graph.
 </p>
 </div>
 <p>We will first define some notation in the Page Rank algorithm:</p>
@@ -2367,10 +2374,10 @@ individual pages.</p></li>
 <ol style="list-style-type: decimal">
 <li><p>Initialize the page ranks to all be equal. This means that our
 initial assumption is that all pages are of equal rank. In the case
-of Figure <a href="ch-linearalgebra.html#fig:example-graph">4.4</a> we would take <span class="math inline">\(\boldsymbol{x}_0\)</span> to be
+of Figure <a href="ch-linearalgebra.html#fig:example-graph">4.3</a> we would take <span class="math inline">\(\boldsymbol{x}_0\)</span> to be
 <span class="math display">\[\boldsymbol{x}_0 = \begin{pmatrix} 1/6 \\ 1/6 \\ 1/6 \\ 1/6 \\ 1/6 \\ 1/6 \end{pmatrix}.\]</span></p></li>
 <li><p>Build the hyperlink matrix.<br />
-As an example we’ll consider node 3 in Figure <a href="ch-linearalgebra.html#fig:example-graph">4.4</a>. There are three out links from node 3
+As an example we’ll consider node 3 in Figure <a href="ch-linearalgebra.html#fig:example-graph">4.3</a>. There are three out links from node 3
 (to nodes 1, 2, and 5). Hence <span class="math inline">\(H_{13}=1/3\)</span>, <span class="math inline">\(H_{23} = 1/3\)</span>, and
 <span class="math inline">\(H_{53} = 1/3\)</span> and the partially complete hyperlink matrix is
 <span class="math display">\[H = \begin{pmatrix} 
@@ -2484,7 +2491,7 @@ you .</p>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-410" class="exercise"><strong>Exercise 4.93  </strong></span>Finish writing the hyperlink matrix <span class="math inline">\(H\)</span> from Figure <a href="ch-linearalgebra.html#fig:example-graph">4.4</a>.
+<span id="exr:unnamed-chunk-410" class="exercise"><strong>Exercise 4.93  </strong></span>Finish writing the hyperlink matrix <span class="math inline">\(H\)</span> from Figure <a href="ch-linearalgebra.html#fig:example-graph">4.3</a>.
 </div>
 <hr />
 
@@ -2530,19 +2537,19 @@ iterate at all. Instead, just find … what?
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-415" class="exercise"><strong>Exercise 4.98  </strong></span>Now use the previous two problems to find the resulting PageRank vector
-from the web in Figure <a href="ch-linearalgebra.html#fig:example-graph">4.4</a>? Be sure to rank the pages in order of
+from the web in Figure <a href="ch-linearalgebra.html#fig:example-graph">4.3</a>? Be sure to rank the pages in order of
 importance. Compare your answer to the one that you got in problem 2.
 </div>
 <hr />
 <div class="figure" style="text-align: center"><span id="fig:graph2"></span>
 <img src="images/Ch04_GoogleGraph2.png" alt="A second example web graph." width="20%" />
 <p class="caption">
-Figure 4.5: A second example web graph.
+Figure 4.4: A second example web graph.
 </p>
 </div>
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-416" class="exercise"><strong>Exercise 4.99  </strong></span>Consider the web in Figure <a href="ch-linearalgebra.html#fig:graph2">4.5</a>.</p>
+<p><span id="exr:unnamed-chunk-416" class="exercise"><strong>Exercise 4.99  </strong></span>Consider the web in Figure <a href="ch-linearalgebra.html#fig:graph2">4.4</a>.</p>
 <ol style="list-style-type: decimal">
 <li><p>Write the <span class="math inline">\(H\)</span> matrix and find the initial state <span class="math inline">\(\boldsymbol{x}_0\)</span>,</p></li>
 <li><p>Find steady state PageRank vector using the two different methods
@@ -2559,7 +2566,7 @@ Rank algorithm is the random behavior of humans. One, admittedly
 slightly naive, modification that we can make to the present algorithm
 is to assume that the person surfing the web will randomly jump to any
 other page in the web at any time. For example, if someone is on page 1
-in Figure <a href="ch-linearalgebra.html#fig:graph2">4.5</a> then they could randomly jump to any page 2 - 8.
+in Figure <a href="ch-linearalgebra.html#fig:graph2">4.4</a> then they could randomly jump to any page 2 - 8.
 They also have links to pages 2, 3, and 7. That is a total of 10
 possible next steps for the web surfer. There is a <span class="math inline">\(2/10\)</span> chance of
 heading to page 2. One of those is following the link from page 1 to
@@ -2568,7 +2575,7 @@ link. Similarly, there is a <span class="math inline">\(2/10\)</span> chance of 
 chance of heading to page 7, and a <span class="math inline">\(1/10\)</span> chance of randomly heading to
 any other page.</p>
 Implement this new algorithm, called the <em>random surfer algorithm</em>, on
-the web in Figure <a href="ch-linearalgebra.html#fig:graph2">4.5</a>. Compare your ranking to the non-random surfer
+the web in Figure <a href="ch-linearalgebra.html#fig:graph2">4.4</a>. Compare your ranking to the non-random surfer
 results from the previous problem.
 </div>
 <hr />

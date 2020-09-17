@@ -699,11 +699,12 @@ function should accept as input a Python function <span class="math inline">\(f(
 </div>
 <div class="sourceCode" id="cb128"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb128-1"><a href="ch-odes.html#cb128-1"></a><span class="kw">def</span> euler1d(f,x0,t0,tmax,dt):</span>
 <span id="cb128-2"><a href="ch-odes.html#cb128-2"></a>    t <span class="op">=</span> <span class="co"># set up the domain based on t0, tmax, and dt</span></span>
-<span id="cb128-3"><a href="ch-odes.html#cb128-3"></a>    x <span class="op">=</span> np.zeros_like(t) <span class="co"># set up an array for x that is the same size a t</span></span>
-<span id="cb128-4"><a href="ch-odes.html#cb128-4"></a>    x[<span class="dv">0</span>] <span class="op">=</span> <span class="co"># fill in the initial condition</span></span>
-<span id="cb128-5"><a href="ch-odes.html#cb128-5"></a>    <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>( ??? ): <span class="co"># think about how far we should loop</span></span>
-<span id="cb128-6"><a href="ch-odes.html#cb128-6"></a>        x[n<span class="op">+</span><span class="dv">1</span>] <span class="op">=</span> <span class="co"># advance the solution forward in time with Euler</span></span>
-<span id="cb128-7"><a href="ch-odes.html#cb128-7"></a>    <span class="cf">return</span> t, x</span></code></pre></div>
+<span id="cb128-3"><a href="ch-odes.html#cb128-3"></a>    <span class="co"># next set up an array for x that is the same size a t</span></span>
+<span id="cb128-4"><a href="ch-odes.html#cb128-4"></a>    x <span class="op">=</span> np.zeros_like(t)</span>
+<span id="cb128-5"><a href="ch-odes.html#cb128-5"></a>    x[<span class="dv">0</span>] <span class="op">=</span> <span class="co"># fill in the initial condition</span></span>
+<span id="cb128-6"><a href="ch-odes.html#cb128-6"></a>    <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>( ??? ): <span class="co"># think about how far we should loop</span></span>
+<span id="cb128-7"><a href="ch-odes.html#cb128-7"></a>        x[n<span class="op">+</span><span class="dv">1</span>] <span class="op">=</span> <span class="co"># advance the solution forward in time with Euler</span></span>
+<span id="cb128-8"><a href="ch-odes.html#cb128-8"></a>    <span class="cf">return</span> t, x</span></code></pre></div>
 <hr />
 
 <div class="exercise">
@@ -714,7 +715,7 @@ The partial code below should get you started.
 <div class="sourceCode" id="cb129"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb129-1"><a href="ch-odes.html#cb129-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb129-2"><a href="ch-odes.html#cb129-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb129-3"><a href="ch-odes.html#cb129-3"></a><span class="co"># put the f(t,x) function on the next line </span></span>
-<span id="cb129-4"><a href="ch-odes.html#cb129-4"></a><span class="co"># (be sure to specify t even if it doesn&#39;t show up in your test ODEs)</span></span>
+<span id="cb129-4"><a href="ch-odes.html#cb129-4"></a><span class="co"># (be sure to specify t even if it doesn&#39;t show up in your ODE)</span></span>
 <span id="cb129-5"><a href="ch-odes.html#cb129-5"></a>f <span class="op">=</span> <span class="kw">lambda</span> t, x: <span class="co"># your function goes here</span></span>
 <span id="cb129-6"><a href="ch-odes.html#cb129-6"></a>x0 <span class="op">=</span> <span class="co"># initial condition</span></span>
 <span id="cb129-7"><a href="ch-odes.html#cb129-7"></a>t0 <span class="op">=</span> <span class="co"># initial time</span></span>
@@ -798,9 +799,9 @@ Rearranging and solving for <span class="math inline">\(\boldsymbol{x}_{n+1}\)</
 </div>
 <div class="sourceCode" id="cb130"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb130-1"><a href="ch-odes.html#cb130-1"></a><span class="kw">def</span> euler(F,x0,t0,tmax,dt):</span>
 <span id="cb130-2"><a href="ch-odes.html#cb130-2"></a>    t <span class="op">=</span> <span class="co"># same code as before to set up a vector for time</span></span>
-<span id="cb130-3"><a href="ch-odes.html#cb130-3"></a>    <span class="co"># Next we set up x so that it is an array where the columns are the </span></span>
-<span id="cb130-4"><a href="ch-odes.html#cb130-4"></a>    <span class="co"># different dimensions of the problem.  For example, in this </span></span>
-<span id="cb130-5"><a href="ch-odes.html#cb130-5"></a>    <span class="co"># problem there will be 2 columns and len(t) rows</span></span>
+<span id="cb130-3"><a href="ch-odes.html#cb130-3"></a>    <span class="co"># Next we set up x so that it is an array where the columns </span></span>
+<span id="cb130-4"><a href="ch-odes.html#cb130-4"></a>    <span class="co"># are the different dimensions of the problem.  For example, </span></span>
+<span id="cb130-5"><a href="ch-odes.html#cb130-5"></a>    <span class="co"># in this problem there will be 2 columns and len(t) rows</span></span>
 <span id="cb130-6"><a href="ch-odes.html#cb130-6"></a>    x <span class="op">=</span> np.zeros( (<span class="bu">len</span>(t), <span class="bu">len</span>(x0)) ) </span>
 <span id="cb130-7"><a href="ch-odes.html#cb130-7"></a>    x[<span class="dv">0</span>,:] <span class="op">=</span> x0 <span class="co"># store the initial condition in the first row</span></span>
 <span id="cb130-8"><a href="ch-odes.html#cb130-8"></a>    <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(t)<span class="op">-</span><span class="dv">1</span>):</span>
@@ -1004,9 +1005,10 @@ Note: Indexing by <span class="math inline">\(1/2\)</span> in a computer is nons
 <span id="cb132-2"><a href="ch-odes.html#cb132-2"></a>    t <span class="op">=</span> <span class="co"># build the times</span></span>
 <span id="cb132-3"><a href="ch-odes.html#cb132-3"></a>    x <span class="op">=</span> <span class="co"># build an array for the x values</span></span>
 <span id="cb132-4"><a href="ch-odes.html#cb132-4"></a>    x[<span class="dv">0</span>] <span class="op">=</span> <span class="co"># build the initial condition</span></span>
-<span id="cb132-5"><a href="ch-odes.html#cb132-5"></a>    <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>( ??? ): <span class="co"># be careful about how far you&#39;re looping</span></span>
-<span id="cb132-6"><a href="ch-odes.html#cb132-6"></a>        <span class="co"># The interesting part of the code goes here.</span></span>
-<span id="cb132-7"><a href="ch-odes.html#cb132-7"></a>    <span class="cf">return</span> t, x</span></code></pre></div>
+<span id="cb132-5"><a href="ch-odes.html#cb132-5"></a>    <span class="co"># On the next line: be careful about how far you&#39;re looping</span></span>
+<span id="cb132-6"><a href="ch-odes.html#cb132-6"></a>    <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>( ??? ): </span>
+<span id="cb132-7"><a href="ch-odes.html#cb132-7"></a>        <span class="co"># The interesting part of the code goes here.</span></span>
+<span id="cb132-8"><a href="ch-odes.html#cb132-8"></a>    <span class="cf">return</span> t, x</span></code></pre></div>
 <p>Test your code on several differential equations where you know the solution (just to be sure that it is working).</p>
 <div class="sourceCode" id="cb133"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb133-1"><a href="ch-odes.html#cb133-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> t, x: <span class="co"># your ODE right hand side goes here</span></span>
 <span id="cb133-2"><a href="ch-odes.html#cb133-2"></a>x0 <span class="op">=</span> <span class="co"># initial condition</span></span>
@@ -1176,10 +1178,12 @@ In the code below you will find a function called <code>ode_test()</code> that y
 <span id="cb134-50"><a href="ch-odes.html#cb134-50"></a><span class="co"># Finally, we make a loglog plot of the errors.  </span></span>
 <span id="cb134-51"><a href="ch-odes.html#cb134-51"></a><span class="co"># Keep an eye on the slopes since they tell you the order of </span></span>
 <span id="cb134-52"><a href="ch-odes.html#cb134-52"></a><span class="co"># the error for the method.</span></span>
-<span id="cb134-53"><a href="ch-odes.html#cb134-53"></a>plt.loglog(H,err_euler,<span class="st">&#39;r*-&#39;</span>,H,err_midpoint,<span class="st">&#39;b*-&#39;</span>,H,err_ode_test,<span class="st">&#39;k*-&#39;</span>)</span>
-<span id="cb134-54"><a href="ch-odes.html#cb134-54"></a>plt.grid()</span>
-<span id="cb134-55"><a href="ch-odes.html#cb134-55"></a>plt.legend([<span class="st">&#39;euler&#39;</span>,<span class="st">&#39;midpoint&#39;</span>,<span class="st">&#39;test method&#39;</span>])</span>
-<span id="cb134-56"><a href="ch-odes.html#cb134-56"></a>plt.show()</span></code></pre></div>
+<span id="cb134-53"><a href="ch-odes.html#cb134-53"></a>plt.loglog(H,err_euler,<span class="st">&#39;r*-&#39;</span>,</span>
+<span id="cb134-54"><a href="ch-odes.html#cb134-54"></a>           H,err_midpoint,<span class="st">&#39;b*-&#39;</span>,</span>
+<span id="cb134-55"><a href="ch-odes.html#cb134-55"></a>           H,err_ode_test,<span class="st">&#39;k*-&#39;</span>)</span>
+<span id="cb134-56"><a href="ch-odes.html#cb134-56"></a>plt.grid()</span>
+<span id="cb134-57"><a href="ch-odes.html#cb134-57"></a>plt.legend([<span class="st">&#39;euler&#39;</span>,<span class="st">&#39;midpoint&#39;</span>,<span class="st">&#39;test method&#39;</span>])</span>
+<span id="cb134-58"><a href="ch-odes.html#cb134-58"></a>plt.show()</span></code></pre></div>
 <hr />
 
 <div class="exercise">
@@ -1506,12 +1510,13 @@ First we import all of the appropriate libraries. Of particular interest is the 
 <span id="cb137-11"><a href="ch-odes.html#cb137-11"></a>t0 <span class="op">=</span> <span class="dv">0</span></span></code></pre></div>
 <p>Next we build a function that accepts only the parameters that we want to animate over and produces only a plot. This function will be called later by the <code>ipywidgets.interactive</code> function every time we change one of the parameters so be sure that this is a clean and fast function to evaluate (keep the code simple).</p>
 <div class="sourceCode" id="cb138"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb138-1"><a href="ch-odes.html#cb138-1"></a><span class="kw">def</span> eulerAnimator(x0,tmax,dt):</span>
-<span id="cb138-2"><a href="ch-odes.html#cb138-2"></a>    t, x <span class="op">=</span> euler(f,x0,t0,tmax,dt) <span class="co"># call on the euler function to build the solution</span></span>
-<span id="cb138-3"><a href="ch-odes.html#cb138-3"></a>    plt.plot(t, x, <span class="st">&#39;b-&#39;</span>) <span class="co"># plot the solution</span></span>
-<span id="cb138-4"><a href="ch-odes.html#cb138-4"></a>    plt.xlim(<span class="dv">0</span>,<span class="dv">30</span>)</span>
-<span id="cb138-5"><a href="ch-odes.html#cb138-5"></a>    plt.ylim( np.<span class="bu">min</span>(x)<span class="op">-</span><span class="dv">1</span>, np.<span class="bu">max</span>(x)<span class="op">+</span><span class="dv">1</span>)</span>
-<span id="cb138-6"><a href="ch-odes.html#cb138-6"></a>    plt.grid()</span>
-<span id="cb138-7"><a href="ch-odes.html#cb138-7"></a>    plt.show() </span></code></pre></div>
+<span id="cb138-2"><a href="ch-odes.html#cb138-2"></a>    <span class="co"># call on the euler function to build the solution</span></span>
+<span id="cb138-3"><a href="ch-odes.html#cb138-3"></a>    t, x <span class="op">=</span> euler(f,x0,t0,tmax,dt) </span>
+<span id="cb138-4"><a href="ch-odes.html#cb138-4"></a>    plt.plot(t, x, <span class="st">&#39;b-&#39;</span>) <span class="co"># plot the solution</span></span>
+<span id="cb138-5"><a href="ch-odes.html#cb138-5"></a>    plt.xlim(<span class="dv">0</span>,<span class="dv">30</span>)</span>
+<span id="cb138-6"><a href="ch-odes.html#cb138-6"></a>    plt.ylim( np.<span class="bu">min</span>(x)<span class="op">-</span><span class="dv">1</span>, np.<span class="bu">max</span>(x)<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb138-7"><a href="ch-odes.html#cb138-7"></a>    plt.grid()</span>
+<span id="cb138-8"><a href="ch-odes.html#cb138-8"></a>    plt.show() </span></code></pre></div>
 <p>Now that we have everything set up we need to call on the <code>ipywidgets.interactive</code> command to turn the graphic into a visualization which can be controlled by sliders. In the code below we are allowing the initial condition to range between <span class="math inline">\(x_0 = -2\)</span> and <span class="math inline">\(x_0 = 5\)</span> in steps of <span class="math inline">\(0.5\)</span>, the time to range from <span class="math inline">\(t_{max}=1\)</span> to <span class="math inline">\(t_{max}=30\)</span> in steps of <span class="math inline">\(0.1\)</span>, and the time step to range from <span class="math inline">\(\Delta t = 0.01\)</span> to <span class="math inline">\(\Delta t = 0.75\)</span> in steps of <span class="math inline">\(0.005\)</span>.</p>
 <div class="sourceCode" id="cb139"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb139-1"><a href="ch-odes.html#cb139-1"></a>interactive_plot <span class="op">=</span> interactive(eulerAnimator, </span>
 <span id="cb139-2"><a href="ch-odes.html#cb139-2"></a>                               x0<span class="op">=</span>(<span class="op">-</span><span class="dv">2</span>, <span class="dv">5</span>, <span class="fl">0.5</span>), </span>
@@ -1567,9 +1572,9 @@ We start the code by importing all of the necessary libraries. Take note that we
 <span id="cb141-14"><a href="ch-odes.html#cb141-14"></a>tmax <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb141-15"><a href="ch-odes.html#cb141-15"></a>f <span class="op">=</span> <span class="kw">lambda</span> t, x: <span class="op">-</span>(<span class="dv">1</span><span class="op">/</span><span class="fl">3.0</span>)<span class="op">*</span>x <span class="op">+</span> np.sin(t)</span>
 <span id="cb141-16"><a href="ch-odes.html#cb141-16"></a></span>
-<span id="cb141-17"><a href="ch-odes.html#cb141-17"></a><span class="co"># Next we get the full Euler solution associate with these parameters.  </span></span>
-<span id="cb141-18"><a href="ch-odes.html#cb141-18"></a><span class="co"># Be careful that you put this outside your animation loop so that you</span></span>
-<span id="cb141-19"><a href="ch-odes.html#cb141-19"></a><span class="co"># don&#39;t build this over and over.</span></span>
+<span id="cb141-17"><a href="ch-odes.html#cb141-17"></a><span class="co"># Next we get the full Euler solution associate with these </span></span>
+<span id="cb141-18"><a href="ch-odes.html#cb141-18"></a><span class="co"># parameters.  Be careful that you put this outside your </span></span>
+<span id="cb141-19"><a href="ch-odes.html#cb141-19"></a><span class="co"># animation loop so that you don&#39;t build this over and over.</span></span>
 <span id="cb141-20"><a href="ch-odes.html#cb141-20"></a>t, x <span class="op">=</span> euler(f,x0,t0,tmax,dt) </span></code></pre></div>
 <p>Next we have to set up the figure that we are going to animate. This involves:</p>
 <ul>
@@ -1592,23 +1597,29 @@ We start the code by importing all of the necessary libraries. Take note that we
 <span id="cb142-7"><a href="ch-odes.html#cb142-7"></a>ax.set_ylabel(<span class="st">&#39;Approximate Solution&#39;</span>)</span>
 <span id="cb142-8"><a href="ch-odes.html#cb142-8"></a>ax.set_xlim(( t0, tmax)) </span>
 <span id="cb142-9"><a href="ch-odes.html#cb142-9"></a>ax.set_ylim((np.<span class="bu">min</span>(x)<span class="op">-</span><span class="fl">0.5</span>, np.<span class="bu">max</span>(x)<span class="op">+</span><span class="fl">0.5</span>)) </span>
-<span id="cb142-10"><a href="ch-odes.html#cb142-10"></a>frame, <span class="op">=</span> ax.plot([], [], linewidth<span class="op">=</span><span class="dv">2</span>, linestyle<span class="op">=</span><span class="st">&#39;--&#39;</span>) <span class="co"># also set line and marker parameters here</span></span></code></pre></div>
+<span id="cb142-10"><a href="ch-odes.html#cb142-10"></a>frame, <span class="op">=</span> ax.plot([], [], linewidth<span class="op">=</span><span class="dv">2</span>, linestyle<span class="op">=</span><span class="st">&#39;--&#39;</span>) </span>
+<span id="cb142-11"><a href="ch-odes.html#cb142-11"></a><span class="co"># notice we also set line and marker parameters here</span></span></code></pre></div>
 <p>Now we build a function that accepts only the animation frame number, <code>N</code>, and adds appropriate elements to the plot defined by <code>frame</code>.</p>
 <div class="sourceCode" id="cb143"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb143-1"><a href="ch-odes.html#cb143-1"></a><span class="kw">def</span> animator(N): <span class="co"># N is the animation frame number</span></span>
 <span id="cb143-2"><a href="ch-odes.html#cb143-2"></a>  T <span class="op">=</span> t[:N] <span class="co"># get t data up to the frame number</span></span>
 <span id="cb143-3"><a href="ch-odes.html#cb143-3"></a>  X <span class="op">=</span> x[:N] <span class="co"># get x data up to the frame number</span></span>
-<span id="cb143-4"><a href="ch-odes.html#cb143-4"></a>  ax.set_title(<span class="st">&#39;Time=&#39;</span><span class="op">+</span>t[N]) <span class="co"># display the current simulation time in the title</span></span>
-<span id="cb143-5"><a href="ch-odes.html#cb143-5"></a>  frame(T,X) <span class="co"># put the data for the current frame into the varable &quot;frame&quot;</span></span>
-<span id="cb143-6"><a href="ch-odes.html#cb143-6"></a>  <span class="cf">return</span> (frame,)</span></code></pre></div>
+<span id="cb143-4"><a href="ch-odes.html#cb143-4"></a>  <span class="co"># display the current simulation time in the title</span></span>
+<span id="cb143-5"><a href="ch-odes.html#cb143-5"></a>  ax.set_title(<span class="st">&#39;Time=&#39;</span><span class="op">+</span>t[N]) </span>
+<span id="cb143-6"><a href="ch-odes.html#cb143-6"></a>  <span class="co"># put the data for the current frame into the varable &quot;frame&quot;</span></span>
+<span id="cb143-7"><a href="ch-odes.html#cb143-7"></a>  frame(T,X) </span>
+<span id="cb143-8"><a href="ch-odes.html#cb143-8"></a>  <span class="cf">return</span> (frame,)</span></code></pre></div>
 <p>In the next block of code we define which frames we want to use in the animation and then we call upon the <code>matplotlib.animation</code> function to build the animation.</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb144-1"><a href="ch-odes.html#cb144-1"></a><span class="co"># The Euler solution takes many very small time steps.  To speed up the </span></span>
-<span id="cb144-2"><a href="ch-odes.html#cb144-2"></a><span class="co"># animation we view every 10th iteration.</span></span>
+<div class="sourceCode" id="cb144"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb144-1"><a href="ch-odes.html#cb144-1"></a><span class="co"># The Euler solution takes many very small time steps.  </span></span>
+<span id="cb144-2"><a href="ch-odes.html#cb144-2"></a><span class="co"># To speed up the animation we view every 10th iteration.</span></span>
 <span id="cb144-3"><a href="ch-odes.html#cb144-3"></a>PlotFrames <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(t),<span class="dv">10</span>) </span>
 <span id="cb144-4"><a href="ch-odes.html#cb144-4"></a>anim <span class="op">=</span> animation.FuncAnimation(fig, <span class="co"># call on the figure</span></span>
-<span id="cb144-5"><a href="ch-odes.html#cb144-5"></a>                               animator, <span class="co"># call the function that builds the animation frame</span></span>
-<span id="cb144-6"><a href="ch-odes.html#cb144-6"></a>                               frames<span class="op">=</span>PlotFrames, <span class="co"># tell which frames to pass to animator</span></span>
-<span id="cb144-7"><a href="ch-odes.html#cb144-7"></a>                               interval<span class="op">=</span><span class="dv">100</span> <span class="co"># delay between frame</span></span>
-<span id="cb144-8"><a href="ch-odes.html#cb144-8"></a>                               ) </span></code></pre></div>
+<span id="cb144-5"><a href="ch-odes.html#cb144-5"></a><span class="co"># next call the function that builds the animation frame</span></span>
+<span id="cb144-6"><a href="ch-odes.html#cb144-6"></a>                               animator, </span>
+<span id="cb144-7"><a href="ch-odes.html#cb144-7"></a><span class="co"># next tell which frames to pass to animator</span></span>
+<span id="cb144-8"><a href="ch-odes.html#cb144-8"></a>                               frames<span class="op">=</span>PlotFrames, </span>
+<span id="cb144-9"><a href="ch-odes.html#cb144-9"></a><span class="co"># lastly give the delay between frames                         </span></span>
+<span id="cb144-10"><a href="ch-odes.html#cb144-10"></a>                               interval<span class="op">=</span><span class="dv">100</span> </span>
+<span id="cb144-11"><a href="ch-odes.html#cb144-11"></a>                               ) </span></code></pre></div>
 <p>Finally, we embed the animation into the Google Colab environment. Take note that if you are using a different Python IDE then you may need to experiment with how to show the resulting animation.</p>
 <div class="sourceCode" id="cb145"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb145-1"><a href="ch-odes.html#cb145-1"></a>rc(<span class="st">&#39;animation&#39;</span>, html<span class="op">=</span><span class="st">&#39;jshtml&#39;</span>) <span class="co"># embed in the HTML for Google Colab</span></span>
 <span id="cb145-2"><a href="ch-odes.html#cb145-2"></a>anim <span class="co"># show the animation</span></span></code></pre></div>
@@ -1767,8 +1778,9 @@ method iteration to solve that equation – at each time step. More simply, we c
 <span id="cb146-6"><a href="ch-odes.html#cb146-6"></a>    x[<span class="dv">0</span>] <span class="op">=</span> x0</span>
 <span id="cb146-7"><a href="ch-odes.html#cb146-7"></a>    <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(t)<span class="op">-</span><span class="dv">1</span>):</span>
 <span id="cb146-8"><a href="ch-odes.html#cb146-8"></a>        G <span class="op">=</span> <span class="kw">lambda</span> X: ??? <span class="co"># define this function</span></span>
-<span id="cb146-9"><a href="ch-odes.html#cb146-9"></a>        x[n<span class="op">+</span><span class="dv">1</span>] <span class="op">=</span> optimize.fsolve(G, ??? )[<span class="dv">0</span>] <span class="co"># give the correct seed</span></span>
-<span id="cb146-10"><a href="ch-odes.html#cb146-10"></a>    <span class="cf">return</span> t, x</span></code></pre></div>
+<span id="cb146-9"><a href="ch-odes.html#cb146-9"></a>        <span class="co"># give the correct seed for the solver below</span></span>
+<span id="cb146-10"><a href="ch-odes.html#cb146-10"></a>        x[n<span class="op">+</span><span class="dv">1</span>] <span class="op">=</span> optimize.fsolve(G, ??? )[<span class="dv">0</span>] </span>
+<span id="cb146-11"><a href="ch-odes.html#cb146-11"></a>    <span class="cf">return</span> t, x</span></code></pre></div>
 <hr />
 
 <div class="exercise">
@@ -1844,26 +1856,30 @@ Plot the data as a scatter plot.
 <span id="cb147-2"><a href="ch-odes.html#cb147-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb147-3"><a href="ch-odes.html#cb147-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb147-4"><a href="ch-odes.html#cb147-4"></a>data <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise5_newtoncooling.csv&#39;</span>) )</span>
-<span id="cb147-5"><a href="ch-odes.html#cb147-5"></a><span class="co"># or you can load the data directly with </span></span>
-<span id="cb147-6"><a href="ch-odes.html#cb147-6"></a><span class="co"># data = np.array([[0,160],[60,155],[180,145],[210,142],[600,120]])</span></span>
-<span id="cb147-7"><a href="ch-odes.html#cb147-7"></a>plt.plot(data[??? , ???] , data[??? , ???], <span class="st">&#39;b*&#39;</span>)</span>
-<span id="cb147-8"><a href="ch-odes.html#cb147-8"></a>plt.grid()</span>
-<span id="cb147-9"><a href="ch-odes.html#cb147-9"></a>plt.show()</span></code></pre></div>
+<span id="cb147-5"><a href="ch-odes.html#cb147-5"></a><span class="co"># Exercise5_newtoncooling.csv</span></span>
+<span id="cb147-6"><a href="ch-odes.html#cb147-6"></a><span class="co"># </span></span>
+<span id="cb147-7"><a href="ch-odes.html#cb147-7"></a><span class="co"># or you can load the data directly with </span></span>
+<span id="cb147-8"><a href="ch-odes.html#cb147-8"></a><span class="co"># data = np.array([[0,160],[60,155],[180,145],[210,142],[600,120]])</span></span>
+<span id="cb147-9"><a href="ch-odes.html#cb147-9"></a>plt.plot(data[??? , ???] , data[??? , ???], <span class="st">&#39;b*&#39;</span>)</span>
+<span id="cb147-10"><a href="ch-odes.html#cb147-10"></a>plt.grid()</span>
+<span id="cb147-11"><a href="ch-odes.html#cb147-11"></a>plt.show()</span></code></pre></div>
 <p>Now we will build several Python functions as well as several additional lines of code that are created specifically for this problem. Note that every parameter estimate problem of this type will take similar form, but there may be subtle differences depending on the data that you need to account for in each problem. You will need to taylor make parts of each parameter estimation script for each new problem.</p>
 <ul>
 <li>First we set the stage by defining <span class="math inline">\(\Delta t\)</span>, a collection of times that contains the data, the function <span class="math inline">\(f(t,x; k)\)</span> which depends on the parameter <span class="math inline">\(k\)</span>, and any other necessary parameters of our specific problem.</li>
 </ul>
 <div class="sourceCode" id="cb148"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb148-1"><a href="ch-odes.html#cb148-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb148-2"><a href="ch-odes.html#cb148-2"></a>Tambient <span class="op">=</span> ???</span>
-<span id="cb148-3"><a href="ch-odes.html#cb148-3"></a><span class="co"># Next choose an appropriate value of dt.  Choosing dt so that values </span></span>
-<span id="cb148-4"><a href="ch-odes.html#cb148-4"></a><span class="co"># of time in the data fall within the times for the numerical solution</span></span>
-<span id="cb148-5"><a href="ch-odes.html#cb148-5"></a><span class="co"># is typically a good practice (but is not always possible).</span></span>
-<span id="cb148-6"><a href="ch-odes.html#cb148-6"></a>dt <span class="op">=</span> ??? </span>
-<span id="cb148-7"><a href="ch-odes.html#cb148-7"></a>t0 <span class="op">=</span> <span class="dv">0</span> <span class="co"># time where the data starts</span></span>
-<span id="cb148-8"><a href="ch-odes.html#cb148-8"></a>tmax <span class="op">=</span> ??? <span class="co"># just beyond where the data ends</span></span>
-<span id="cb148-9"><a href="ch-odes.html#cb148-9"></a>t <span class="op">=</span> np.arange(t0,tmax<span class="op">+</span>dt,dt) <span class="co"># set up the times </span></span>
-<span id="cb148-10"><a href="ch-odes.html#cb148-10"></a>f <span class="op">=</span> <span class="kw">lambda</span> t, x, k: <span class="op">-</span>k<span class="op">*</span>(x <span class="op">-</span> Tambient) <span class="co"># our specific differentia equation</span></span>
-<span id="cb148-11"><a href="ch-odes.html#cb148-11"></a>x0 <span class="op">=</span> ??? <span class="co"># initial condition pulled from the data</span></span></code></pre></div>
+<span id="cb148-3"><a href="ch-odes.html#cb148-3"></a><span class="co"># Next choose an appropriate value of dt.  </span></span>
+<span id="cb148-4"><a href="ch-odes.html#cb148-4"></a><span class="co"># Choosing dt so that values of time in the data fall within</span></span>
+<span id="cb148-5"><a href="ch-odes.html#cb148-5"></a><span class="co"># the times for the numerical solution is typically a good </span></span>
+<span id="cb148-6"><a href="ch-odes.html#cb148-6"></a><span class="co"># practice (but is not always possible).</span></span>
+<span id="cb148-7"><a href="ch-odes.html#cb148-7"></a>dt <span class="op">=</span> ??? </span>
+<span id="cb148-8"><a href="ch-odes.html#cb148-8"></a>t0 <span class="op">=</span> <span class="dv">0</span> <span class="co"># time where the data starts</span></span>
+<span id="cb148-9"><a href="ch-odes.html#cb148-9"></a>tmax <span class="op">=</span> ??? <span class="co"># just beyond where the data ends</span></span>
+<span id="cb148-10"><a href="ch-odes.html#cb148-10"></a>t <span class="op">=</span> np.arange(t0,tmax<span class="op">+</span>dt,dt) <span class="co"># set up the times </span></span>
+<span id="cb148-11"><a href="ch-odes.html#cb148-11"></a><span class="co"># nest we define our specific differential equation</span></span>
+<span id="cb148-12"><a href="ch-odes.html#cb148-12"></a>f <span class="op">=</span> <span class="kw">lambda</span> t, x, k: <span class="op">-</span>k<span class="op">*</span>(x <span class="op">-</span> Tambient) </span>
+<span id="cb148-13"><a href="ch-odes.html#cb148-13"></a>x0 <span class="op">=</span> ??? <span class="co"># initial condition pulled from the data</span></span></code></pre></div>
 <ul>
 <li>Now we build a Python function that will accept a value of the parameter <span class="math inline">\(k\)</span> as the only input and will return a high quality numerical solution to the proposed differential equation.</li>
 </ul>
@@ -1871,9 +1887,10 @@ Plot the data as a scatter plot.
 <span id="cb149-2"><a href="ch-odes.html#cb149-2"></a>    x <span class="op">=</span> np.zeros_like(t)</span>
 <span id="cb149-3"><a href="ch-odes.html#cb149-3"></a>    x[<span class="dv">0</span>] <span class="op">=</span> x0</span>
 <span id="cb149-4"><a href="ch-odes.html#cb149-4"></a>    <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(t)<span class="op">-</span><span class="dv">1</span>):</span>
-<span id="cb149-5"><a href="ch-odes.html#cb149-5"></a>        <span class="co"># put the code necessary to build a good numerical solver here</span></span>
-<span id="cb149-6"><a href="ch-odes.html#cb149-6"></a>        <span class="co"># be sure to account for the parameter k in each of your function calls.</span></span>
-<span id="cb149-7"><a href="ch-odes.html#cb149-7"></a>    <span class="cf">return</span> t, x</span></code></pre></div>
+<span id="cb149-5"><a href="ch-odes.html#cb149-5"></a>        <span class="co"># put the code necessary to build a good </span></span>
+<span id="cb149-6"><a href="ch-odes.html#cb149-6"></a>        <span class="co"># numerical solver here be sure to account </span></span>
+<span id="cb149-7"><a href="ch-odes.html#cb149-7"></a>        <span class="co"># for the parameter k in each of your function calls.</span></span>
+<span id="cb149-8"><a href="ch-odes.html#cb149-8"></a>    <span class="cf">return</span> t, x</span></code></pre></div>
 <ul>
 <li><p>Spend a little time now playing with different parameters and plotting numerical solutions along with the data to determine the proper ballpark value of the parameter.</p></li>
 <li><p>Now we need to write a short Python script that will find all of the indices where the value of time in the data closely match values of time in the numerical solution. There are many ways to do this, but the most readable is a pair of nested <code>for</code> loops. Outline what the following code does. Why are we using <code>dt/2</code> in the code below? You should work to find more efficient ways to code this for bigger problems since the nested <code>for</code> loops is potentially quite time consuming.</p></li>
@@ -1881,7 +1898,7 @@ Plot the data as a scatter plot.
 <div class="sourceCode" id="cb150"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb150-1"><a href="ch-odes.html#cb150-1"></a>indices <span class="op">=</span> []</span>
 <span id="cb150-2"><a href="ch-odes.html#cb150-2"></a><span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(t)):</span>
 <span id="cb150-3"><a href="ch-odes.html#cb150-3"></a>    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(data)):</span>
-<span id="cb150-4"><a href="ch-odes.html#cb150-4"></a>        <span class="cf">if</span> <span class="co"># write a check to find where &quot;t&quot; is closest to &quot;data[:,1]&quot; </span></span>
+<span id="cb150-4"><a href="ch-odes.html#cb150-4"></a>        <span class="cf">if</span> <span class="co"># write a check to find where t is closest to data[:,1]</span></span>
 <span id="cb150-5"><a href="ch-odes.html#cb150-5"></a>            indices.append(j)</span></code></pre></div>
 <ul>
 <li>Now we build a Python function <code>dataMatcher(k)</code> which accepts the parameter <span class="math inline">\(k\)</span> and outputs the sum of the squared residuals between the numerical solution associated with <span class="math inline">\(k\)</span> and our data. Carefully dissect the following code.</li>
@@ -2000,7 +2017,8 @@ Note: The total population is fixed.
 </div>
 <div class="sourceCode" id="cb153"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb153-1"><a href="ch-odes.html#cb153-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb153-2"><a href="ch-odes.html#cb153-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb153-3"><a href="ch-odes.html#cb153-3"></a>data <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise5_village.csv&#39;</span>) )</span></code></pre></div>
+<span id="cb153-3"><a href="ch-odes.html#cb153-3"></a>data <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise5_village.csv&#39;</span>) )</span>
+<span id="cb153-4"><a href="ch-odes.html#cb153-4"></a><span class="co"># Exercise5_village.csv</span></span></code></pre></div>
 <hr />
 
 <div class="exercise">
@@ -2076,7 +2094,8 @@ Propose a differential equation model that includes the number of bedridden (sic
 </div>
 <div class="sourceCode" id="cb154"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb154-1"><a href="ch-odes.html#cb154-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb154-2"><a href="ch-odes.html#cb154-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb154-3"><a href="ch-odes.html#cb154-3"></a>data <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise5_boys.csv&#39;</span>) )</span></code></pre></div>
+<span id="cb154-3"><a href="ch-odes.html#cb154-3"></a>data <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise5_boys.csv&#39;</span>) )</span>
+<span id="cb154-4"><a href="ch-odes.html#cb154-4"></a><span class="co"># Exercise5_boys.csv</span></span></code></pre></div>
 <hr />
 </div>
 <div id="exercises-4" class="section level2" number="5.9">

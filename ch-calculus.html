@@ -773,7 +773,7 @@ order of the numerical derivative method that you used?</p></li>
 <span id="cb9-8"><a href="ch-calculus.html#cb9-8"></a>    approx <span class="op">=</span> <span class="co"># FINISH THIS LINE OF CODE</span></span>
 <span id="cb9-9"><a href="ch-calculus.html#cb9-9"></a>    AbsPctError.append( np.<span class="bu">abs</span>( (approx <span class="op">-</span> exact)<span class="op">/</span>exact ) )</span>
 <span id="cb9-10"><a href="ch-calculus.html#cb9-10"></a>    <span class="bu">print</span>(<span class="st">&quot;h=&quot;</span>,h,<span class="st">&quot;</span><span class="ch">\t</span><span class="st"> Absolute Pct Error=&quot;</span>, AbsPctError[<span class="op">-</span><span class="dv">1</span>])</span>
-<span id="cb9-11"><a href="ch-calculus.html#cb9-11"></a>plt.loglog(H,AbsPctError,<span class="st">&#39;b-*&#39;</span>) <span class="co"># Why are we build a loglog plot here?</span></span>
+<span id="cb9-11"><a href="ch-calculus.html#cb9-11"></a>plt.loglog(H,AbsPctError,<span class="st">&#39;b-*&#39;</span>) <span class="co"># Why are we build a loglog plot?</span></span>
 <span id="cb9-12"><a href="ch-calculus.html#cb9-12"></a>plt.grid()</span>
 <span id="cb9-13"><a href="ch-calculus.html#cb9-13"></a>plt.show()</span></code></pre></div>
 <hr />
@@ -849,13 +849,14 @@ the previous problem to fill in the following table.</p>
 <span id="cb10-8"><a href="ch-calculus.html#cb10-8"></a>    <span class="cf">for</span> j <span class="kw">in</span> np.arange(<span class="bu">len</span>(x)<span class="op">-</span><span class="dv">1</span>): <span class="co"># What does this line of code do?  </span></span>
 <span id="cb10-9"><a href="ch-calculus.html#cb10-9"></a>        <span class="co"># What&#39;s up with the -1 in the definition of the loop?</span></span>
 <span id="cb10-10"><a href="ch-calculus.html#cb10-10"></a>        <span class="co"># </span></span>
-<span id="cb10-11"><a href="ch-calculus.html#cb10-11"></a>        <span class="co"># Now we want to build the approximation (f(x+h) - f(x)) / h.</span></span>
-<span id="cb10-12"><a href="ch-calculus.html#cb10-12"></a>        <span class="co"># Obviously &quot;x+h&quot; is just the next item in the list of x values so </span></span>
-<span id="cb10-13"><a href="ch-calculus.html#cb10-13"></a>        <span class="co"># when we do f(x+h) mathematically we should write f( x[j+1] ) in </span></span>
-<span id="cb10-14"><a href="ch-calculus.html#cb10-14"></a>        <span class="co"># Python (explain this).  </span></span>
-<span id="cb10-15"><a href="ch-calculus.html#cb10-15"></a>        <span class="co"># Fill in the question marks below</span></span>
-<span id="cb10-16"><a href="ch-calculus.html#cb10-16"></a>        df.append( (f( ??? ) <span class="op">-</span> f( ??? )) <span class="op">/</span> h )</span>
-<span id="cb10-17"><a href="ch-calculus.html#cb10-17"></a>    <span class="cf">return</span> df</span></code></pre></div>
+<span id="cb10-11"><a href="ch-calculus.html#cb10-11"></a>        <span class="co"># Now we want to build the approximation </span></span>
+<span id="cb10-12"><a href="ch-calculus.html#cb10-12"></a>        <span class="co"># (f(x+h) - f(x)) / h.</span></span>
+<span id="cb10-13"><a href="ch-calculus.html#cb10-13"></a>        <span class="co"># Obviously &quot;x+h&quot; is just the next item in the list of </span></span>
+<span id="cb10-14"><a href="ch-calculus.html#cb10-14"></a>        <span class="co"># x values so when we do f(x+h) mathematically we should </span></span>
+<span id="cb10-15"><a href="ch-calculus.html#cb10-15"></a>        <span class="co"># write f( x[j+1] ) in Python (explain this).  </span></span>
+<span id="cb10-16"><a href="ch-calculus.html#cb10-16"></a>        <span class="co"># Fill in the question marks below</span></span>
+<span id="cb10-17"><a href="ch-calculus.html#cb10-17"></a>        df.append( (f( ??? ) <span class="op">-</span> f( ??? )) <span class="op">/</span> h )</span>
+<span id="cb10-18"><a href="ch-calculus.html#cb10-18"></a>    <span class="cf">return</span> df</span></code></pre></div>
 <ol start="3" style="list-style-type: lower-alpha">
 <li>Now we want to call upon this function to build the first order approximation of the first derivative for some function. We’ll use the function <span class="math inline">\(f(x) = \sin(x)\)</span> on the interval <span class="math inline">\([0,2\pi]\)</span> with 100 sub intervals (since we know what the answer should be). Complete the code below to call upon your <code>FirstDeriv()</code> function and to plot <span class="math inline">\(f(x)\)</span>, <span class="math inline">\(f&#39;(x)\)</span>, and the approximation of <span class="math inline">\(f&#39;(x)\)</span>.</li>
 </ol>
@@ -864,19 +865,23 @@ the previous problem to fill in the following table.</p>
 <span id="cb11-3"><a href="ch-calculus.html#cb11-3"></a>a <span class="op">=</span> ???</span>
 <span id="cb11-4"><a href="ch-calculus.html#cb11-4"></a>b <span class="op">=</span> ???</span>
 <span id="cb11-5"><a href="ch-calculus.html#cb11-5"></a>N <span class="op">=</span> <span class="dv">100</span> <span class="co"># What is this?</span></span>
-<span id="cb11-6"><a href="ch-calculus.html#cb11-6"></a>x <span class="op">=</span> np.linspace(a,b,N<span class="op">+</span><span class="dv">1</span>) <span class="co"># What does this line do?  What&#39;s up with the N+1?</span></span>
-<span id="cb11-7"><a href="ch-calculus.html#cb11-7"></a></span>
-<span id="cb11-8"><a href="ch-calculus.html#cb11-8"></a>df <span class="op">=</span> FirstDeriv(f,a,b,N) <span class="co"># What does this line do?</span></span>
+<span id="cb11-6"><a href="ch-calculus.html#cb11-6"></a>x <span class="op">=</span> np.linspace(a,b,N<span class="op">+</span><span class="dv">1</span>) </span>
+<span id="cb11-7"><a href="ch-calculus.html#cb11-7"></a><span class="co"># What does the prevoius line do?  </span></span>
+<span id="cb11-8"><a href="ch-calculus.html#cb11-8"></a><span class="co"># What&#39;s up with the N+1?</span></span>
 <span id="cb11-9"><a href="ch-calculus.html#cb11-9"></a></span>
-<span id="cb11-10"><a href="ch-calculus.html#cb11-10"></a><span class="co"># In the next line we plot three curves: </span></span>
-<span id="cb11-11"><a href="ch-calculus.html#cb11-11"></a><span class="co"># 1) the function f(x) = sin(x)</span></span>
-<span id="cb11-12"><a href="ch-calculus.html#cb11-12"></a><span class="co"># 2) the function f&#39;(x) = cos(x)</span></span>
-<span id="cb11-13"><a href="ch-calculus.html#cb11-13"></a><span class="co"># 3) the approximation of f&#39;(x)</span></span>
-<span id="cb11-14"><a href="ch-calculus.html#cb11-14"></a><span class="co"># However, we do something funny with the x in the last plot.  Why?</span></span>
-<span id="cb11-15"><a href="ch-calculus.html#cb11-15"></a>plt.plot(x,f(x),<span class="st">&#39;b&#39;</span>,x,exact_df(x),<span class="st">&#39;r--&#39;</span>,x[<span class="dv">0</span>:<span class="op">-</span><span class="dv">1</span>], df, <span class="st">&#39;k-.&#39;</span>)</span>
-<span id="cb11-16"><a href="ch-calculus.html#cb11-16"></a>plt.grid()</span>
-<span id="cb11-17"><a href="ch-calculus.html#cb11-17"></a>plt.legend([<span class="st">&#39;f(x) = sin(x)&#39;</span>,<span class="st">&#39;exact first deriv&#39;</span>,<span class="st">&#39;approx first deriv&#39;</span>])</span>
-<span id="cb11-18"><a href="ch-calculus.html#cb11-18"></a>plt.show()</span></code></pre></div>
+<span id="cb11-10"><a href="ch-calculus.html#cb11-10"></a>df <span class="op">=</span> FirstDeriv(f,a,b,N) <span class="co"># What does this line do?</span></span>
+<span id="cb11-11"><a href="ch-calculus.html#cb11-11"></a></span>
+<span id="cb11-12"><a href="ch-calculus.html#cb11-12"></a><span class="co"># In the next line we plot three curves: </span></span>
+<span id="cb11-13"><a href="ch-calculus.html#cb11-13"></a><span class="co"># 1) the function f(x) = sin(x)</span></span>
+<span id="cb11-14"><a href="ch-calculus.html#cb11-14"></a><span class="co"># 2) the function f&#39;(x) = cos(x)</span></span>
+<span id="cb11-15"><a href="ch-calculus.html#cb11-15"></a><span class="co"># 3) the approximation of f&#39;(x)</span></span>
+<span id="cb11-16"><a href="ch-calculus.html#cb11-16"></a><span class="co"># However, we do something funny with the x in the last plot. Why?</span></span>
+<span id="cb11-17"><a href="ch-calculus.html#cb11-17"></a>plt.plot(x,f(x),<span class="st">&#39;b&#39;</span>,x,exact_df(x),<span class="st">&#39;r--&#39;</span>,x[<span class="dv">0</span>:<span class="op">-</span><span class="dv">1</span>], df, <span class="st">&#39;k-.&#39;</span>)</span>
+<span id="cb11-18"><a href="ch-calculus.html#cb11-18"></a>plt.grid()</span>
+<span id="cb11-19"><a href="ch-calculus.html#cb11-19"></a>plt.legend([<span class="st">&#39;f(x) = sin(x)&#39;</span>,</span>
+<span id="cb11-20"><a href="ch-calculus.html#cb11-20"></a>            <span class="st">&#39;exact first deriv&#39;</span>,</span>
+<span id="cb11-21"><a href="ch-calculus.html#cb11-21"></a>            <span class="st">&#39;approx first deriv&#39;</span>])</span>
+<span id="cb11-22"><a href="ch-calculus.html#cb11-22"></a>plt.show()</span></code></pre></div>
 <ol start="4" style="list-style-type: lower-alpha">
 <li>Implement your completed code and then test it in several ways:
 <ol style="list-style-type: lower-roman">
@@ -945,7 +950,7 @@ derivative and the numerical derivative. You should use a
 logarithmic <span class="math inline">\(y\)</span> axis for this plot.</li>
 </ol>
 <div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="ch-calculus.html#cb15-1"></a>exact <span class="op">=</span> <span class="kw">lambda</span> x: <span class="co"># write a function for the exact derivative</span></span>
-<span id="cb15-2"><a href="ch-calculus.html#cb15-2"></a><span class="co"># There is a lot going on the next line of code ... explain it all.</span></span>
+<span id="cb15-2"><a href="ch-calculus.html#cb15-2"></a><span class="co"># There is a lot going on the next line of code ... explain it.</span></span>
 <span id="cb15-3"><a href="ch-calculus.html#cb15-3"></a>ax[<span class="dv">1</span>].semilogy(x[<span class="dv">0</span>:<span class="op">-</span><span class="dv">1</span>],<span class="bu">abs</span>(exact(x[<span class="dv">0</span>:<span class="op">-</span><span class="dv">1</span>]) <span class="op">-</span> df))</span>
 <span id="cb15-4"><a href="ch-calculus.html#cb15-4"></a>ax[<span class="dv">1</span>].grid()</span></code></pre></div>
 <ol start="3" style="list-style-type: lower-alpha">
@@ -2326,8 +2331,9 @@ Figure 3.11: Initial attempt at matching data with a quadratic.
 <div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="ch-calculus.html#cb49-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb49-2"><a href="ch-calculus.html#cb49-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb49-3"><a href="ch-calculus.html#cb49-3"></a>data <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_datafit1.csv&#39;</span>) )</span>
-<span id="cb49-4"><a href="ch-calculus.html#cb49-4"></a>xdata <span class="op">=</span> data[:,<span class="dv">0</span>]</span>
-<span id="cb49-5"><a href="ch-calculus.html#cb49-5"></a>ydata <span class="op">=</span> data[:,<span class="dv">1</span>]</span></code></pre></div>
+<span id="cb49-4"><a href="ch-calculus.html#cb49-4"></a><span class="co"># Exercise3_datafit1.csv</span></span>
+<span id="cb49-5"><a href="ch-calculus.html#cb49-5"></a>xdata <span class="op">=</span> data[:,<span class="dv">0</span>]</span>
+<span id="cb49-6"><a href="ch-calculus.html#cb49-6"></a>ydata <span class="op">=</span> data[:,<span class="dv">1</span>]</span></code></pre></div>
 <hr />
 
 <div class="exercise">
@@ -2351,11 +2357,11 @@ Figure 3.11: Initial attempt at matching data with a quadratic.
 <span id="cb50-5"><a href="ch-calculus.html#cb50-5"></a>b <span class="op">=</span> <span class="dv">2</span></span>
 <span id="cb50-6"><a href="ch-calculus.html#cb50-6"></a>c <span class="op">=</span> <span class="fl">0.75</span></span>
 <span id="cb50-7"><a href="ch-calculus.html#cb50-7"></a>A <span class="op">=</span> <span class="co"># give a numpy array of values for a</span></span>
-<span id="cb50-8"><a href="ch-calculus.html#cb50-8"></a>SumSqRes <span class="op">=</span> [] <span class="co"># this is blank storage for the sum of the squared residuals</span></span>
+<span id="cb50-8"><a href="ch-calculus.html#cb50-8"></a>SumSqRes <span class="op">=</span> [] <span class="co"># this is storage for the sum of the sq. residuals</span></span>
 <span id="cb50-9"><a href="ch-calculus.html#cb50-9"></a><span class="cf">for</span> a <span class="kw">in</span> A:</span>
 <span id="cb50-10"><a href="ch-calculus.html#cb50-10"></a>  guess <span class="op">=</span> a<span class="op">*</span>xdata<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> b<span class="op">*</span>xdata <span class="op">+</span> c</span>
 <span id="cb50-11"><a href="ch-calculus.html#cb50-11"></a>  residuals <span class="op">=</span> <span class="co"># write code to calculate the residuals</span></span>
-<span id="cb50-12"><a href="ch-calculus.html#cb50-12"></a>  SumSqRes.append( ??? ) <span class="co"># calculate the sum of the squared residuals</span></span>
+<span id="cb50-12"><a href="ch-calculus.html#cb50-12"></a>  SumSqRes.append( ??? ) <span class="co"># calculate the sum of the squ. residuals</span></span>
 <span id="cb50-13"><a href="ch-calculus.html#cb50-13"></a>plt.plot(A,SumSqRes,<span class="st">&#39;r*&#39;</span>)</span>
 <span id="cb50-14"><a href="ch-calculus.html#cb50-14"></a>plt.grid()</span>
 <span id="cb50-15"><a href="ch-calculus.html#cb50-15"></a>plt.xlabel(<span class="st">&#39;Value of a&#39;</span>)</span>
@@ -2403,8 +2409,8 @@ of the square errors.</p></li>
 <span id="cb51-5"><a href="ch-calculus.html#cb51-5"></a>ydata <span class="op">=</span> np.array([<span class="fl">1.07</span>, <span class="fl">3.9</span>, <span class="fl">14.8</span>, <span class="fl">26.8</span>])</span>
 <span id="cb51-6"><a href="ch-calculus.html#cb51-6"></a></span>
 <span id="cb51-7"><a href="ch-calculus.html#cb51-7"></a><span class="kw">def</span> SSRes(parameters):</span>
-<span id="cb51-8"><a href="ch-calculus.html#cb51-8"></a>  <span class="co"># In the next line of code we want to build our quadratic approximation.</span></span>
-<span id="cb51-9"><a href="ch-calculus.html#cb51-9"></a>  <span class="co"># y = ax^2 + bx + c</span></span>
+<span id="cb51-8"><a href="ch-calculus.html#cb51-8"></a>  <span class="co"># In the next line of code we want to build our </span></span>
+<span id="cb51-9"><a href="ch-calculus.html#cb51-9"></a>  <span class="co"># quadratic approximation y = ax^2 + bx + c</span></span>
 <span id="cb51-10"><a href="ch-calculus.html#cb51-10"></a>  <span class="co"># We are sending in a list of parameters so </span></span>
 <span id="cb51-11"><a href="ch-calculus.html#cb51-11"></a>  <span class="co"># a = parameters[0], b = parameters[1], and c = parameters[2]</span></span>
 <span id="cb51-12"><a href="ch-calculus.html#cb51-12"></a>  yapprox <span class="op">=</span> parameters[<span class="dv">0</span>]<span class="op">*</span>xdata<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> parameters[<span class="dv">1</span>]<span class="op">*</span>xdata <span class="op">+</span> parameters[<span class="dv">2</span>]</span>
@@ -2432,7 +2438,7 @@ of the square errors.</p></li>
 ##         x: array([2.29249989, 1.93150033, 0.72149989])</code></pre>
 <div class="sourceCode" id="cb55"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb55-1"><a href="ch-calculus.html#cb55-1"></a>plt.plot(xdata,ydata,<span class="st">&#39;bo&#39;</span>,markersize<span class="op">=</span><span class="dv">5</span>)</span>
 <span id="cb55-2"><a href="ch-calculus.html#cb55-2"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">4</span>,<span class="dv">100</span>)</span>
-<span id="cb55-3"><a href="ch-calculus.html#cb55-3"></a>y <span class="op">=</span> BestParameters.x[<span class="dv">0</span>]<span class="op">*</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> BestParameters.x[<span class="dv">1</span>]<span class="op">*</span>x <span class="op">+</span> BestParameters.x[<span class="dv">2</span>]</span>
+<span id="cb55-3"><a href="ch-calculus.html#cb55-3"></a>y <span class="op">=</span> BestParameters.x[<span class="dv">0</span>]<span class="op">*</span>x<span class="op">**</span><span class="dv">2</span><span class="op">+</span>BestParameters.x[<span class="dv">1</span>]<span class="op">*</span>x<span class="op">+</span>BestParameters.x[<span class="dv">2</span>]</span>
 <span id="cb55-4"><a href="ch-calculus.html#cb55-4"></a>plt.plot(x,y,<span class="st">&#39;r--&#39;</span>)</span>
 <span id="cb55-5"><a href="ch-calculus.html#cb55-5"></a>plt.grid()</span>
 <span id="cb55-6"><a href="ch-calculus.html#cb55-6"></a>plt.xlabel(<span class="st">&#39;x&#39;</span>)</span>
@@ -2469,7 +2475,10 @@ You can load the data with the following script.
 <span id="cb56-2"><a href="ch-calculus.html#cb56-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb56-3"><a href="ch-calculus.html#cb56-3"></a>datasetA <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_datafit2.csv&#39;</span>) )</span>
 <span id="cb56-4"><a href="ch-calculus.html#cb56-4"></a>datasetB <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_datafit3.csv&#39;</span>) )</span>
-<span id="cb56-5"><a href="ch-calculus.html#cb56-5"></a>datasetC <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_datafit4.csv&#39;</span>) )</span></code></pre></div>
+<span id="cb56-5"><a href="ch-calculus.html#cb56-5"></a>datasetC <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_datafit4.csv&#39;</span>) )</span>
+<span id="cb56-6"><a href="ch-calculus.html#cb56-6"></a><span class="co"># Exercise3_datafit1.csv, </span></span>
+<span id="cb56-7"><a href="ch-calculus.html#cb56-7"></a><span class="co"># Exercise3_datafit2.csv, </span></span>
+<span id="cb56-8"><a href="ch-calculus.html#cb56-8"></a><span class="co"># Exercise3_datafit3.csv</span></span></code></pre></div>
 <p>As a nudge in the right direction, in the left-hand pane of Figure <a href="ch-calculus.html#fig:datamatching3">3.13</a> the function appears to be exponential. Hence we should choose a function of the form <span class="math inline">\(f(x) = ae^{b(x-c)}+d\)</span>. Moreover, we need to pick good approximations of the parameters to start the optimization process. In the left-hand pane of Figure <a href="ch-calculus.html#fig:datamatching3">3.13</a> the data appears to start near <span class="math inline">\(x=1970\)</span> so our initial guess for <span class="math inline">\(c\)</span> might be <span class="math inline">\(c \approx 1970\)</span>. To get initial guesses for <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, and <span class="math inline">\(d\)</span> we can observe that the expected best fit curve will approximately go through the points <span class="math inline">\((1970,15000)\)</span>, <span class="math inline">\((1990,40000)\)</span>, and <span class="math inline">\((2000,75000)\)</span>. With this information we get the equations <span class="math inline">\(a+d \approx 15000\)</span>, <span class="math inline">\(ae^{20b}+d \approx 40000\)</span> and <span class="math inline">\(ae^{30b}+d \approx 75000\)</span> and work to get reasonable approximations for <span class="math inline">\(a,b,\)</span> and <span class="math inline">\(d\)</span> to feed into the <code>scipy.optimize.minimize()</code> command.</p>
 <div class="figure" style="text-align: center"><span id="fig:datamatching3"></span>
 <img src="images/Ch03_datamatching.png" alt="Raw data for least squares function matching problems." width="95%" />
@@ -2640,7 +2649,8 @@ You can download the data directly from the textbook’s github page with the co
 </div>
 <div class="sourceCode" id="cb57"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb57-1"><a href="ch-calculus.html#cb57-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb57-2"><a href="ch-calculus.html#cb57-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb57-3"><a href="ch-calculus.html#cb57-3"></a>data <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_waterflow.csv&#39;</span>) )</span></code></pre></div>
+<span id="cb57-3"><a href="ch-calculus.html#cb57-3"></a>data <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_waterflow.csv&#39;</span>) )</span>
+<span id="cb57-4"><a href="ch-calculus.html#cb57-4"></a><span class="co"># Exercise3_waterflow.csv</span></span></code></pre></div>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>The department of transportation finds that the rate at which cars
 cross a bridge can be approximated by the function
@@ -2730,7 +2740,8 @@ You can download the data with the following code.
 </div>
 <div class="sourceCode" id="cb58"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb58-1"><a href="ch-calculus.html#cb58-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb58-2"><a href="ch-calculus.html#cb58-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb58-3"><a href="ch-calculus.html#cb58-3"></a>data <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_bikespeed.csv&#39;</span>) )</span></code></pre></div>
+<span id="cb58-3"><a href="ch-calculus.html#cb58-3"></a>data <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_bikespeed.csv&#39;</span>) )</span>
+<span id="cb58-4"><a href="ch-calculus.html#cb58-4"></a><span class="co"># Exercise3_bikespeed.csv</span></span></code></pre></div>
 <hr />
 
 <div class="exercise">
@@ -2767,7 +2778,8 @@ get an approximate solution to the problem.
 <span id="cb59-7"><a href="ch-calculus.html#cb59-7"></a>datasetE <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_datafit9.csv&#39;</span>) )</span>
 <span id="cb59-8"><a href="ch-calculus.html#cb59-8"></a>datasetF <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_datafit10.csv&#39;</span>) )</span>
 <span id="cb59-9"><a href="ch-calculus.html#cb59-9"></a>datasetG <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_datafit11.csv&#39;</span>) )</span>
-<span id="cb59-10"><a href="ch-calculus.html#cb59-10"></a>datasetH <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_datafit12.csv&#39;</span>) )</span></code></pre></div>
+<span id="cb59-10"><a href="ch-calculus.html#cb59-10"></a>datasetH <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise3_datafit12.csv&#39;</span>) )</span>
+<span id="cb59-11"><a href="ch-calculus.html#cb59-11"></a><span class="co"># Exercise3_datafit5.csv - Exercise3_datafit12.csv</span></span></code></pre></div>
 <hr />
 </div>
 </div>
@@ -2803,7 +2815,8 @@ of spaghetti-like gas filaments around it”. You can download the data file
 associated with this project with the following Python code.</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb60-1"><a href="ch-calculus.html#cb60-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb60-2"><a href="ch-calculus.html#cb60-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb60-3"><a href="ch-calculus.html#cb60-3"></a>ngc1275 <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/ngc1275.csv&#39;</span>) )</span></code></pre></div>
+<span id="cb60-3"><a href="ch-calculus.html#cb60-3"></a>ngc1275 <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/ngc1275.csv&#39;</span>) )</span>
+<span id="cb60-4"><a href="ch-calculus.html#cb60-4"></a><span class="co"># ngc1275.csv</span></span></code></pre></div>
 <p>In the data you will see the spectral data measuring
 the light intensity from ncg 1275 at several different wavelengths
 (measured in Angstroms ). You will notice in this data set that there

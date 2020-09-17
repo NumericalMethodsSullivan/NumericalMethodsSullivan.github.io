@@ -562,23 +562,24 @@ template below to complete your pseudo-code.
 <span id="cb3-5"><a href="ch-algebra.html#cb3-5"></a><span class="co"># b is the upper guess</span></span>
 <span id="cb3-6"><a href="ch-algebra.html#cb3-6"></a><span class="co"># tol is an optional tolerance for the accuracy of the root</span></span>
 <span id="cb3-7"><a href="ch-algebra.html#cb3-7"></a></span>
-<span id="cb3-8"><a href="ch-algebra.html#cb3-8"></a><span class="co"># if the user doesn&#39;t define a tolerance we need code to create a default</span></span>
-<span id="cb3-9"><a href="ch-algebra.html#cb3-9"></a></span>
-<span id="cb3-10"><a href="ch-algebra.html#cb3-10"></a><span class="co"># check that there is a root between a and b</span></span>
-<span id="cb3-11"><a href="ch-algebra.html#cb3-11"></a><span class="co"># if not we should return an error and break the code</span></span>
-<span id="cb3-12"><a href="ch-algebra.html#cb3-12"></a></span>
-<span id="cb3-13"><a href="ch-algebra.html#cb3-13"></a><span class="co"># next calculate the midpoint m = (a+b)/2</span></span>
-<span id="cb3-14"><a href="ch-algebra.html#cb3-14"></a></span>
-<span id="cb3-15"><a href="ch-algebra.html#cb3-15"></a><span class="co"># start a while loop</span></span>
-<span id="cb3-16"><a href="ch-algebra.html#cb3-16"></a><span class="co">#   # in the while loop we need an if statement</span></span>
-<span id="cb3-17"><a href="ch-algebra.html#cb3-17"></a><span class="co">#   # if ...</span></span>
-<span id="cb3-18"><a href="ch-algebra.html#cb3-18"></a><span class="co">#   # elif ...</span></span>
+<span id="cb3-8"><a href="ch-algebra.html#cb3-8"></a><span class="co"># if the user doesn&#39;t define a tolerance we need </span></span>
+<span id="cb3-9"><a href="ch-algebra.html#cb3-9"></a><span class="co"># code to create a default</span></span>
+<span id="cb3-10"><a href="ch-algebra.html#cb3-10"></a></span>
+<span id="cb3-11"><a href="ch-algebra.html#cb3-11"></a><span class="co"># check that there is a root between a and b</span></span>
+<span id="cb3-12"><a href="ch-algebra.html#cb3-12"></a><span class="co"># if not we should return an error and break the code</span></span>
+<span id="cb3-13"><a href="ch-algebra.html#cb3-13"></a></span>
+<span id="cb3-14"><a href="ch-algebra.html#cb3-14"></a><span class="co"># next calculate the midpoint m = (a+b)/2</span></span>
+<span id="cb3-15"><a href="ch-algebra.html#cb3-15"></a></span>
+<span id="cb3-16"><a href="ch-algebra.html#cb3-16"></a><span class="co"># start a while loop</span></span>
+<span id="cb3-17"><a href="ch-algebra.html#cb3-17"></a><span class="co">#   # in the while loop we need an if statement</span></span>
+<span id="cb3-18"><a href="ch-algebra.html#cb3-18"></a><span class="co">#   # if ...</span></span>
 <span id="cb3-19"><a href="ch-algebra.html#cb3-19"></a><span class="co">#   # elif ...</span></span>
-<span id="cb3-20"><a href="ch-algebra.html#cb3-20"></a></span>
-<span id="cb3-21"><a href="ch-algebra.html#cb3-21"></a><span class="co">#   # we should check that the while loop isn&#39;t running away</span></span>
-<span id="cb3-22"><a href="ch-algebra.html#cb3-22"></a></span>
-<span id="cb3-23"><a href="ch-algebra.html#cb3-23"></a><span class="co"># end the while loop</span></span>
-<span id="cb3-24"><a href="ch-algebra.html#cb3-24"></a><span class="co"># define and return the root</span></span></code></pre></div>
+<span id="cb3-20"><a href="ch-algebra.html#cb3-20"></a><span class="co">#   # elif ...</span></span>
+<span id="cb3-21"><a href="ch-algebra.html#cb3-21"></a></span>
+<span id="cb3-22"><a href="ch-algebra.html#cb3-22"></a><span class="co">#   # we should check that the while loop isn&#39;t running away</span></span>
+<span id="cb3-23"><a href="ch-algebra.html#cb3-23"></a></span>
+<span id="cb3-24"><a href="ch-algebra.html#cb3-24"></a><span class="co"># end the while loop</span></span>
+<span id="cb3-25"><a href="ch-algebra.html#cb3-25"></a><span class="co"># define and return the root</span></span></code></pre></div>
 <hr />
 
 <div class="exercise">
@@ -1518,10 +1519,11 @@ The following Python code allows you to use <code>scipy.optimize.fsolve()</code>
 <span id="cb4-6"><a href="ch-algebra.html#cb4-6"></a>  Output.append( x[<span class="dv">0</span>]<span class="op">*</span>x[<span class="dv">1</span>] <span class="op">-</span> x[<span class="dv">1</span>] <span class="op">-</span> <span class="dv">5</span> )</span>
 <span id="cb4-7"><a href="ch-algebra.html#cb4-7"></a>  <span class="cf">return</span> Output</span>
 <span id="cb4-8"><a href="ch-algebra.html#cb4-8"></a></span>
-<span id="cb4-9"><a href="ch-algebra.html#cb4-9"></a><span class="co"># Or alternately we could define the system as a lambda function with</span></span>
-<span id="cb4-10"><a href="ch-algebra.html#cb4-10"></a><span class="co"># F = lambda x: [ x[0]*np.cos(x[1])-4 , x[0]*x[1]-x[1]-5 ]</span></span>
+<span id="cb4-9"><a href="ch-algebra.html#cb4-9"></a><span class="co"># Or alternately we could define the system as a lambda function </span></span>
+<span id="cb4-10"><a href="ch-algebra.html#cb4-10"></a><span class="co"># with F = lambda x: [ x[0]*np.cos(x[1])-4 , x[0]*x[1]-x[1]-5 ]</span></span>
 <span id="cb4-11"><a href="ch-algebra.html#cb4-11"></a></span>
-<span id="cb4-12"><a href="ch-algebra.html#cb4-12"></a>fsolve(F,[<span class="dv">6</span>,<span class="dv">1</span>],full_output<span class="op">=</span><span class="dv">1</span>) <span class="co"># Note: full_output gives the solver diagnostics</span></span></code></pre></div>
+<span id="cb4-12"><a href="ch-algebra.html#cb4-12"></a>fsolve(F,[<span class="dv">6</span>,<span class="dv">1</span>],full_output<span class="op">=</span><span class="dv">1</span>) </span>
+<span id="cb4-13"><a href="ch-algebra.html#cb4-13"></a><span class="co"># Note: full_output gives the solver diagnostics</span></span></code></pre></div>
 <hr />
 </div>
 </div>

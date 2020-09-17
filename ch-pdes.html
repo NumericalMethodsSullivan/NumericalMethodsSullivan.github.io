@@ -682,10 +682,10 @@ Figure 6.3: 3D plot showing the time evolution of the solution to the PDE.
 <span id="cb162-22"><a href="ch-pdes.html#cb162-22"></a>  <span class="cf">return</span> (frame,)</span>
 <span id="cb162-23"><a href="ch-pdes.html#cb162-23"></a></span>
 <span id="cb162-24"><a href="ch-pdes.html#cb162-24"></a>PlotFrames <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(t),<span class="dv">1</span>) </span>
-<span id="cb162-25"><a href="ch-pdes.html#cb162-25"></a>anim <span class="op">=</span> animation.FuncAnimation(fig, <span class="co"># call on the figure</span></span>
-<span id="cb162-26"><a href="ch-pdes.html#cb162-26"></a>                               animator, <span class="co"># call the function that builds the animation frame</span></span>
-<span id="cb162-27"><a href="ch-pdes.html#cb162-27"></a>                               frames<span class="op">=</span>PlotFrames, <span class="co"># tell which frames to pass to animator</span></span>
-<span id="cb162-28"><a href="ch-pdes.html#cb162-28"></a>                               interval<span class="op">=</span><span class="dv">100</span>, <span class="co"># delay between frame</span></span>
+<span id="cb162-25"><a href="ch-pdes.html#cb162-25"></a>anim <span class="op">=</span> animation.FuncAnimation(fig, </span>
+<span id="cb162-26"><a href="ch-pdes.html#cb162-26"></a>                               animator, </span>
+<span id="cb162-27"><a href="ch-pdes.html#cb162-27"></a>                               frames<span class="op">=</span>PlotFrames, </span>
+<span id="cb162-28"><a href="ch-pdes.html#cb162-28"></a>                               interval<span class="op">=</span><span class="dv">100</span>, </span>
 <span id="cb162-29"><a href="ch-pdes.html#cb162-29"></a>                              )</span>
 <span id="cb162-30"><a href="ch-pdes.html#cb162-30"></a>rc(<span class="st">&#39;animation&#39;</span>, html<span class="op">=</span><span class="st">&#39;jshtml&#39;</span>) <span class="co"># embed in the HTML for Google Colab</span></span>
 <span id="cb162-31"><a href="ch-pdes.html#cb162-31"></a>anim</span></code></pre></div>
@@ -1005,7 +1005,7 @@ Some partial code is given below to get you started.
 <div class="sourceCode" id="cb165"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb165-1"><a href="ch-pdes.html#cb165-1"></a>U <span class="op">=</span> np.zeros( (<span class="bu">len</span>(t),<span class="bu">len</span>(x)) )</span>
 <span id="cb165-2"><a href="ch-pdes.html#cb165-2"></a>U[:,<span class="dv">0</span>] <span class="op">=</span> <span class="co"># left boundary condition</span></span>
 <span id="cb165-3"><a href="ch-pdes.html#cb165-3"></a>U[:,<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="co"># right boundary condition</span></span>
-<span id="cb165-4"><a href="ch-pdes.html#cb165-4"></a>U[<span class="dv">0</span>,:] <span class="op">=</span> <span class="co"># the function for the initial condition (should depend on x)</span></span></code></pre></div>
+<span id="cb165-4"><a href="ch-pdes.html#cb165-4"></a>U[<span class="dv">0</span>,:] <span class="op">=</span> <span class="co"># the function for the init. condition (should depend on x)</span></span></code></pre></div>
 <ul>
 <li>Now we step through a loop that fills the <span class="math inline">\(U\)</span> array one row at a time. Keep in mind that we want to leave the boundary conditions fixed so we will only fill indices <code>1</code> through <code>-2</code> (stop and explain this). Be careful to get the indexing correct. For example, if we want <span class="math inline">\(U_i^n\)</span> we use <code>U[n,1:-1]</code>, if we want <span class="math inline">\(U_{i+1}^n\)</span> we use <code>U[n,2:]</code>, if we want <span class="math inline">\(U_i^{n+1}\)</span> we use <code>U[n+1,1:-1]</code>, etc.</li>
 </ul>
@@ -1022,7 +1022,7 @@ Some partial code is given below to get you started.
 <span id="cb167-6"><a href="ch-pdes.html#cb167-6"></a>interactive_plot <span class="op">=</span> interactive(plotter, Frame<span class="op">=</span>(<span class="dv">0</span>,<span class="bu">len</span>(t)<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>))</span>
 <span id="cb167-7"><a href="ch-pdes.html#cb167-7"></a>interactive_plot</span></code></pre></div>
 <p>Note: If you don’t want to do an interactive plot then you can produce several snapshots of the solutions with the following code.</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb168-1"><a href="ch-pdes.html#cb168-1"></a><span class="cf">for</span> Frame <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(t),<span class="dv">20</span>): <span class="co"># built every 20th frame, for example</span></span>
+<div class="sourceCode" id="cb168"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb168-1"><a href="ch-pdes.html#cb168-1"></a><span class="cf">for</span> Frame <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(t),<span class="dv">20</span>): <span class="co"># ex: build every 20th frame</span></span>
 <span id="cb168-2"><a href="ch-pdes.html#cb168-2"></a>    plotter(Frame)</span></code></pre></div>
 <hr />
 
@@ -1109,30 +1109,31 @@ Figure 6.9: The finite difference stencil for the 2D heat equation.
 </ul>
 <div class="sourceCode" id="cb169"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb169-1"><a href="ch-pdes.html#cb169-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb169-2"><a href="ch-pdes.html#cb169-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb169-3"><a href="ch-pdes.html#cb169-3"></a><span class="im">from</span> matplotlib <span class="im">import</span> cm <span class="co"># this allows for color maps of a surface plot</span></span>
+<span id="cb169-3"><a href="ch-pdes.html#cb169-3"></a><span class="im">from</span> matplotlib <span class="im">import</span> cm <span class="co"># this allows for color maps </span></span>
 <span id="cb169-4"><a href="ch-pdes.html#cb169-4"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interactive</span>
 <span id="cb169-5"><a href="ch-pdes.html#cb169-5"></a></span>
-<span id="cb169-6"><a href="ch-pdes.html#cb169-6"></a><span class="co"># Write code to build a linearly spaced array of x values starting at 0 </span></span>
-<span id="cb169-7"><a href="ch-pdes.html#cb169-7"></a><span class="co"># and ending at exactly 1</span></span>
+<span id="cb169-6"><a href="ch-pdes.html#cb169-6"></a><span class="co"># Write code to build a linearly spaced array of x values </span></span>
+<span id="cb169-7"><a href="ch-pdes.html#cb169-7"></a><span class="co"># starting at 0 and ending at exactly 1</span></span>
 <span id="cb169-8"><a href="ch-pdes.html#cb169-8"></a>x <span class="op">=</span> <span class="co"># your code here</span></span>
-<span id="cb169-9"><a href="ch-pdes.html#cb169-9"></a>y <span class="op">=</span> x <span class="co"># This is a step that allows for us to have y = x and hence dy = dx.</span></span>
-<span id="cb169-10"><a href="ch-pdes.html#cb169-10"></a>dx <span class="op">=</span> <span class="co"># Extract dx from your array of x values.</span></span>
-<span id="cb169-11"><a href="ch-pdes.html#cb169-11"></a><span class="co"># Now write code to build a linearly spaced array of time values </span></span>
-<span id="cb169-12"><a href="ch-pdes.html#cb169-12"></a><span class="co"># starting at 0 and ending at 0.25.</span></span>
-<span id="cb169-13"><a href="ch-pdes.html#cb169-13"></a><span class="co"># You will want to use many more values for time than for space </span></span>
-<span id="cb169-14"><a href="ch-pdes.html#cb169-14"></a><span class="co"># (think about the stability conditions from the 1D heat equation).</span></span>
-<span id="cb169-15"><a href="ch-pdes.html#cb169-15"></a>t <span class="op">=</span> <span class="co"># your code here</span></span>
-<span id="cb169-16"><a href="ch-pdes.html#cb169-16"></a>dt <span class="op">=</span> <span class="co"># Extract dt from your array of t values</span></span>
-<span id="cb169-17"><a href="ch-pdes.html#cb169-17"></a></span>
-<span id="cb169-18"><a href="ch-pdes.html#cb169-18"></a><span class="co"># Next we will use the np.meshgrid() command to turn the arrays of </span></span>
-<span id="cb169-19"><a href="ch-pdes.html#cb169-19"></a><span class="co"># x and y values into 2D grids of x and y values.  </span></span>
-<span id="cb169-20"><a href="ch-pdes.html#cb169-20"></a><span class="co"># If you match the corresponding entries of X and Y then you get every</span></span>
-<span id="cb169-21"><a href="ch-pdes.html#cb169-21"></a><span class="co"># ordered pair in the domain.</span></span>
-<span id="cb169-22"><a href="ch-pdes.html#cb169-22"></a>X, Y <span class="op">=</span> np.meshgrid(x,y)</span>
-<span id="cb169-23"><a href="ch-pdes.html#cb169-23"></a></span>
-<span id="cb169-24"><a href="ch-pdes.html#cb169-24"></a><span class="co"># Next we set up a 3 dimensional array of zeros to store all of </span></span>
-<span id="cb169-25"><a href="ch-pdes.html#cb169-25"></a><span class="co"># the time steps of the solutions.</span></span>
-<span id="cb169-26"><a href="ch-pdes.html#cb169-26"></a>U <span class="op">=</span> np.zeros( (<span class="bu">len</span>(t), <span class="bu">len</span>(x), <span class="bu">len</span>(y)))</span></code></pre></div>
+<span id="cb169-9"><a href="ch-pdes.html#cb169-9"></a>y <span class="op">=</span> x <span class="co"># This is a step that allows for us to have y = x </span></span>
+<span id="cb169-10"><a href="ch-pdes.html#cb169-10"></a><span class="co"># The consequence of the previous line is that dy = dx.</span></span>
+<span id="cb169-11"><a href="ch-pdes.html#cb169-11"></a>dx <span class="op">=</span> <span class="co"># Extract dx from your array of x values.</span></span>
+<span id="cb169-12"><a href="ch-pdes.html#cb169-12"></a><span class="co"># Now write code to build a linearly spaced array of time values </span></span>
+<span id="cb169-13"><a href="ch-pdes.html#cb169-13"></a><span class="co"># starting at 0 and ending at 0.25.</span></span>
+<span id="cb169-14"><a href="ch-pdes.html#cb169-14"></a><span class="co"># You will want to use many more values for time than for space </span></span>
+<span id="cb169-15"><a href="ch-pdes.html#cb169-15"></a><span class="co"># (think about the stability conditions from the 1D heat equation).</span></span>
+<span id="cb169-16"><a href="ch-pdes.html#cb169-16"></a>t <span class="op">=</span> <span class="co"># your code here</span></span>
+<span id="cb169-17"><a href="ch-pdes.html#cb169-17"></a>dt <span class="op">=</span> <span class="co"># Extract dt from your array of t values</span></span>
+<span id="cb169-18"><a href="ch-pdes.html#cb169-18"></a></span>
+<span id="cb169-19"><a href="ch-pdes.html#cb169-19"></a><span class="co"># Next we will use the np.meshgrid() command to turn the arrays of </span></span>
+<span id="cb169-20"><a href="ch-pdes.html#cb169-20"></a><span class="co"># x and y values into 2D grids of x and y values.  </span></span>
+<span id="cb169-21"><a href="ch-pdes.html#cb169-21"></a><span class="co"># If you match the corresponding entries of X and Y then you get </span></span>
+<span id="cb169-22"><a href="ch-pdes.html#cb169-22"></a><span class="co"># every ordered pair in the domain.</span></span>
+<span id="cb169-23"><a href="ch-pdes.html#cb169-23"></a>X, Y <span class="op">=</span> np.meshgrid(x,y)</span>
+<span id="cb169-24"><a href="ch-pdes.html#cb169-24"></a></span>
+<span id="cb169-25"><a href="ch-pdes.html#cb169-25"></a><span class="co"># Next we set up a 3 dimensional array of zeros to store all of </span></span>
+<span id="cb169-26"><a href="ch-pdes.html#cb169-26"></a><span class="co"># the time steps of the solutions.</span></span>
+<span id="cb169-27"><a href="ch-pdes.html#cb169-27"></a>U <span class="op">=</span> np.zeros( (<span class="bu">len</span>(t), <span class="bu">len</span>(x), <span class="bu">len</span>(y)))</span></code></pre></div>
 <ul>
 <li>Next we have to set up the boundary and initial conditions for the given problem.</li>
 </ul>
@@ -1151,8 +1152,12 @@ Figure 6.9: The finite difference stencil for the 2D heat equation.
 <li>Next for the part of the code that actually calculates all of the time steps. Be sure to keep the indexing straight. Also be sure that we are calculating all of the spatial indices <em>inside</em> the domain since the boundary conditions dictate what happens on the boundary.</li>
 </ul>
 <div class="sourceCode" id="cb172"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb172-1"><a href="ch-pdes.html#cb172-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(t)<span class="op">-</span><span class="dv">1</span>):</span>
-<span id="cb172-2"><a href="ch-pdes.html#cb172-2"></a>  U[n<span class="op">+</span><span class="dv">1</span>,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> U[n,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> </span>
-<span id="cb172-3"><a href="ch-pdes.html#cb172-3"></a>    a<span class="op">*</span>(U[n, ?:? , ?:?] <span class="op">+</span> U[n, ?:?, ?:?] <span class="op">-</span> <span class="dv">4</span><span class="op">*</span>U[n, ?:?, ?:?] <span class="op">+</span> U[n, ?:?, ?:?] <span class="op">+</span> U[n, ?:?, ?:?])</span></code></pre></div>
+<span id="cb172-2"><a href="ch-pdes.html#cb172-2"></a>  U[n<span class="op">+</span><span class="dv">1</span>,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> U[n,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> <span class="op">\</span></span>
+<span id="cb172-3"><a href="ch-pdes.html#cb172-3"></a>    a<span class="op">*</span>(U[n, ?:? , ?:?] <span class="op">+</span> <span class="op">\</span></span>
+<span id="cb172-4"><a href="ch-pdes.html#cb172-4"></a>       U[n, ?:?, ?:?] <span class="op">-</span> <span class="op">\</span></span>
+<span id="cb172-5"><a href="ch-pdes.html#cb172-5"></a>       <span class="dv">4</span><span class="op">*</span>U[n, ?:?, ?:?] <span class="op">+</span> <span class="op">\</span></span>
+<span id="cb172-6"><a href="ch-pdes.html#cb172-6"></a>       U[n, ?:?, ?:?] <span class="op">+</span> <span class="op">\</span></span>
+<span id="cb172-7"><a href="ch-pdes.html#cb172-7"></a>       U[n, ?:?, ?:?])</span></code></pre></div>
 <ul>
 <li>Finally, we just need to visualize the solution. Again we use the <code>ipywidgets.interactive</code> tool to build an interactive plot with time as the slider.</li>
 </ul>
@@ -1267,43 +1272,51 @@ This may seem completely ridiculous since we don’t yet know the information at
 <span id="cb174-8"><a href="ch-pdes.html#cb174-8"></a>dt <span class="op">=</span> t[<span class="dv">1</span>]<span class="op">-</span>t[<span class="dv">0</span>]</span>
 <span id="cb174-9"><a href="ch-pdes.html#cb174-9"></a>a <span class="op">=</span> D<span class="op">*</span>dt<span class="op">/</span>dx<span class="op">**</span><span class="dv">2</span></span>
 <span id="cb174-10"><a href="ch-pdes.html#cb174-10"></a>IC <span class="op">=</span> <span class="kw">lambda</span> x: <span class="co"># write a function for the initial condition</span></span>
-<span id="cb174-11"><a href="ch-pdes.html#cb174-11"></a>BCleft <span class="op">=</span> <span class="kw">lambda</span> t: <span class="dv">0</span><span class="op">*</span>t <span class="co"># left boundary condition (we&#39;ve used 0*t here for a homog. bc)</span></span>
-<span id="cb174-12"><a href="ch-pdes.html#cb174-12"></a>BCright <span class="op">=</span> <span class="kw">lambda</span> t: <span class="dv">0</span><span class="op">*</span>t <span class="co"># right boundary condition (we&#39;ve used 0*t here for a homog. bc)</span></span>
-<span id="cb174-13"><a href="ch-pdes.html#cb174-13"></a></span>
-<span id="cb174-14"><a href="ch-pdes.html#cb174-14"></a>U <span class="op">=</span> np.zeros( ( <span class="bu">len</span>(t), <span class="bu">len</span>(x) ) ) <span class="co"># set up a blank array for U</span></span>
-<span id="cb174-15"><a href="ch-pdes.html#cb174-15"></a>U[<span class="dv">0</span>,:] <span class="op">=</span> IC(x) <span class="co"># set up the initial condition</span></span>
-<span id="cb174-16"><a href="ch-pdes.html#cb174-16"></a>U[:,<span class="dv">0</span>] <span class="op">=</span> BCleft(t) <span class="co"># set up the left boundary condition</span></span>
-<span id="cb174-17"><a href="ch-pdes.html#cb174-17"></a>U[:,<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> BCright(t) <span class="co"># set up the right boundary condition</span></span></code></pre></div>
+<span id="cb174-11"><a href="ch-pdes.html#cb174-11"></a>BCleft <span class="op">=</span> <span class="kw">lambda</span> t: <span class="dv">0</span><span class="op">*</span>t <span class="co"># left boundary condition </span></span>
+<span id="cb174-12"><a href="ch-pdes.html#cb174-12"></a><span class="co"># (we&#39;ve used 0*t here for a homog. bc)</span></span>
+<span id="cb174-13"><a href="ch-pdes.html#cb174-13"></a>BCright <span class="op">=</span> <span class="kw">lambda</span> t: <span class="dv">0</span><span class="op">*</span>t <span class="co"># right boundary condition </span></span>
+<span id="cb174-14"><a href="ch-pdes.html#cb174-14"></a><span class="co"># (we&#39;ve used 0*t here for a homog. bc)</span></span>
+<span id="cb174-15"><a href="ch-pdes.html#cb174-15"></a></span>
+<span id="cb174-16"><a href="ch-pdes.html#cb174-16"></a>U <span class="op">=</span> np.zeros( ( <span class="bu">len</span>(t), <span class="bu">len</span>(x) ) ) <span class="co"># set up a blank array for U</span></span>
+<span id="cb174-17"><a href="ch-pdes.html#cb174-17"></a>U[<span class="dv">0</span>,:] <span class="op">=</span> IC(x) <span class="co"># set up the initial condition</span></span>
+<span id="cb174-18"><a href="ch-pdes.html#cb174-18"></a>U[:,<span class="dv">0</span>] <span class="op">=</span> BCleft(t) <span class="co"># set up the left boundary condition</span></span>
+<span id="cb174-19"><a href="ch-pdes.html#cb174-19"></a>U[:,<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> BCright(t) <span class="co"># set up the right boundary condition</span></span></code></pre></div>
 <ol start="4" style="list-style-type: lower-alpha">
 <li>Next we write a function that takes in the number of spatial points and returns the coefficient matrix for the linear system. Take note that the first and last rows take a little more care than the rest.</li>
 </ol>
 <div class="sourceCode" id="cb175"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb175-1"><a href="ch-pdes.html#cb175-1"></a><span class="kw">def</span> coeffMatrix(M,a): <span class="co"># we are using M=len(x) as the first input</span></span>
-<span id="cb175-2"><a href="ch-pdes.html#cb175-2"></a>  A <span class="op">=</span> np.matrix( np.zeros( (M<span class="op">-</span><span class="dv">2</span>,M<span class="op">-</span><span class="dv">2</span>) ) ) <span class="co"># why are we using M-2 X M-2 for the size?</span></span>
-<span id="cb175-3"><a href="ch-pdes.html#cb175-3"></a>  A[<span class="dv">0</span>,<span class="dv">0</span>] <span class="op">=</span> <span class="co"># top left entry</span></span>
-<span id="cb175-4"><a href="ch-pdes.html#cb175-4"></a>  A[<span class="dv">0</span>,<span class="dv">1</span>] <span class="op">=</span> <span class="co"># entry in the first row second column</span></span>
-<span id="cb175-5"><a href="ch-pdes.html#cb175-5"></a>  A[<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="co"># bottom right entry</span></span>
-<span id="cb175-6"><a href="ch-pdes.html#cb175-6"></a>  A[<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">2</span>] <span class="op">=</span> <span class="co"># entry in the last row second to last column</span></span>
-<span id="cb175-7"><a href="ch-pdes.html#cb175-7"></a>  <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,M<span class="op">-</span><span class="dv">3</span>): <span class="co"># now loop through all of the other rows</span></span>
-<span id="cb175-8"><a href="ch-pdes.html#cb175-8"></a>    A[i,i] <span class="op">=</span> <span class="co"># entry on the main diagonal</span></span>
-<span id="cb175-9"><a href="ch-pdes.html#cb175-9"></a>    A[i,i<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="co"># entry on the lower diagonal</span></span>
-<span id="cb175-10"><a href="ch-pdes.html#cb175-10"></a>    A[i,i<span class="op">+</span><span class="dv">1</span>] <span class="op">=</span> <span class="co"># entry on the upper diagonal</span></span>
-<span id="cb175-11"><a href="ch-pdes.html#cb175-11"></a>  <span class="cf">return</span> A</span>
-<span id="cb175-12"><a href="ch-pdes.html#cb175-12"></a></span>
-<span id="cb175-13"><a href="ch-pdes.html#cb175-13"></a>A <span class="op">=</span> coeffMatrix(<span class="bu">len</span>(x),a)</span>
-<span id="cb175-14"><a href="ch-pdes.html#cb175-14"></a><span class="bu">print</span>(A)</span>
-<span id="cb175-15"><a href="ch-pdes.html#cb175-15"></a>plt.spy(A) <span class="co"># this is a handy plotting tool that shows the structure of a matrix (optional)</span></span>
-<span id="cb175-16"><a href="ch-pdes.html#cb175-16"></a>plt.show()</span></code></pre></div>
+<span id="cb175-2"><a href="ch-pdes.html#cb175-2"></a>  A <span class="op">=</span> np.matrix( np.zeros( (M<span class="op">-</span><span class="dv">2</span>,M<span class="op">-</span><span class="dv">2</span>) ) ) </span>
+<span id="cb175-3"><a href="ch-pdes.html#cb175-3"></a>  <span class="co"># why are we using M-2 X M-2 for the size?</span></span>
+<span id="cb175-4"><a href="ch-pdes.html#cb175-4"></a>  A[<span class="dv">0</span>,<span class="dv">0</span>] <span class="op">=</span> <span class="co"># top left entry</span></span>
+<span id="cb175-5"><a href="ch-pdes.html#cb175-5"></a>  A[<span class="dv">0</span>,<span class="dv">1</span>] <span class="op">=</span> <span class="co"># entry in the first row second column</span></span>
+<span id="cb175-6"><a href="ch-pdes.html#cb175-6"></a>  A[<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="co"># bottom right entry</span></span>
+<span id="cb175-7"><a href="ch-pdes.html#cb175-7"></a>  A[<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">2</span>] <span class="op">=</span> <span class="co"># entry in the last row second to last column</span></span>
+<span id="cb175-8"><a href="ch-pdes.html#cb175-8"></a>  <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,M<span class="op">-</span><span class="dv">3</span>): <span class="co"># now loop through all of the other rows</span></span>
+<span id="cb175-9"><a href="ch-pdes.html#cb175-9"></a>    A[i,i] <span class="op">=</span> <span class="co"># entry on the main diagonal</span></span>
+<span id="cb175-10"><a href="ch-pdes.html#cb175-10"></a>    A[i,i<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="co"># entry on the lower diagonal</span></span>
+<span id="cb175-11"><a href="ch-pdes.html#cb175-11"></a>    A[i,i<span class="op">+</span><span class="dv">1</span>] <span class="op">=</span> <span class="co"># entry on the upper diagonal</span></span>
+<span id="cb175-12"><a href="ch-pdes.html#cb175-12"></a>  <span class="cf">return</span> A</span>
+<span id="cb175-13"><a href="ch-pdes.html#cb175-13"></a></span>
+<span id="cb175-14"><a href="ch-pdes.html#cb175-14"></a>A <span class="op">=</span> coeffMatrix(<span class="bu">len</span>(x),a)</span>
+<span id="cb175-15"><a href="ch-pdes.html#cb175-15"></a><span class="bu">print</span>(A)</span>
+<span id="cb175-16"><a href="ch-pdes.html#cb175-16"></a>plt.spy(A) </span>
+<span id="cb175-17"><a href="ch-pdes.html#cb175-17"></a><span class="co"># spy is a handy plotting tool that shows the structure </span></span>
+<span id="cb175-18"><a href="ch-pdes.html#cb175-18"></a><span class="co"># of a matrix (optional)</span></span>
+<span id="cb175-19"><a href="ch-pdes.html#cb175-19"></a>plt.show()</span></code></pre></div>
 <ol start="5" style="list-style-type: lower-alpha">
 <li>Next we write a loop that iteratively solves the system of equations for each new time step.</li>
 </ol>
 <div class="sourceCode" id="cb176"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb176-1"><a href="ch-pdes.html#cb176-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(t)<span class="op">-</span><span class="dv">1</span>):</span>
-<span id="cb176-2"><a href="ch-pdes.html#cb176-2"></a>  b1 <span class="op">=</span> U[n,???] <span class="co"># this is a vector of U at step n for the the inner spatial nodes</span></span>
-<span id="cb176-3"><a href="ch-pdes.html#cb176-3"></a>  b2 <span class="op">=</span> np.zeros_like(b1) <span class="co"># set up the second right-hand vector</span></span>
-<span id="cb176-4"><a href="ch-pdes.html#cb176-4"></a>  b2[<span class="dv">0</span>] <span class="op">=</span> ???<span class="op">*</span>BCleft(t[n<span class="op">+</span><span class="dv">1</span>]) <span class="co"># fill in the correct first entry</span></span>
-<span id="cb176-5"><a href="ch-pdes.html#cb176-5"></a>  b2[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> ???<span class="op">*</span>BCright(t[n<span class="op">+</span><span class="dv">1</span>]) <span class="co"># fill in the correct last entry</span></span>
-<span id="cb176-6"><a href="ch-pdes.html#cb176-6"></a>  b <span class="op">=</span> b1 <span class="op">+</span> b2 <span class="co"># The vector &quot;b&quot; is the right-hand side of the matrix equation</span></span>
-<span id="cb176-7"><a href="ch-pdes.html#cb176-7"></a>  <span class="co"># finally use a linear algebra solver to fill in the inner spatial nodes at step n+1</span></span>
-<span id="cb176-8"><a href="ch-pdes.html#cb176-8"></a>  U[n<span class="op">+</span><span class="dv">1</span>,???] <span class="op">=</span> ???</span></code></pre></div>
+<span id="cb176-2"><a href="ch-pdes.html#cb176-2"></a>  b1 <span class="op">=</span> U[n,???] </span>
+<span id="cb176-3"><a href="ch-pdes.html#cb176-3"></a>  <span class="co"># b1 is a vector of U at step n for the inner spatial nodes</span></span>
+<span id="cb176-4"><a href="ch-pdes.html#cb176-4"></a>  b2 <span class="op">=</span> np.zeros_like(b1) <span class="co"># set up the second right-hand vector</span></span>
+<span id="cb176-5"><a href="ch-pdes.html#cb176-5"></a>  b2[<span class="dv">0</span>] <span class="op">=</span> ???<span class="op">*</span>BCleft(t[n<span class="op">+</span><span class="dv">1</span>]) <span class="co"># fill in the correct first entry</span></span>
+<span id="cb176-6"><a href="ch-pdes.html#cb176-6"></a>  b2[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> ???<span class="op">*</span>BCright(t[n<span class="op">+</span><span class="dv">1</span>]) <span class="co"># fill in the correct last entry</span></span>
+<span id="cb176-7"><a href="ch-pdes.html#cb176-7"></a>  b <span class="op">=</span> b1 <span class="op">+</span> b2 <span class="co"># The vector &quot;b&quot; is the right side of the equation</span></span>
+<span id="cb176-8"><a href="ch-pdes.html#cb176-8"></a>  <span class="co"># </span></span>
+<span id="cb176-9"><a href="ch-pdes.html#cb176-9"></a>  <span class="co"># finally use a linear algebra solver to fill in the </span></span>
+<span id="cb176-10"><a href="ch-pdes.html#cb176-10"></a>  <span class="co"># inner spatial nodes at step n+1</span></span>
+<span id="cb176-11"><a href="ch-pdes.html#cb176-11"></a>  U[n<span class="op">+</span><span class="dv">1</span>,???] <span class="op">=</span> ???</span></code></pre></div>
 <ol start="6" style="list-style-type: lower-alpha">
 <li><p>All of the hard work is now done. It remains to plot the solution. Try this method on several sets of initial and boundary conditions for the 1D heat equation. Be sure to demonstrate that the method is stable no matter the values of <span class="math inline">\(\Delta t\)</span> and <span class="math inline">\(\Delta x\)</span>.</p></li>
 <li><p>What are the primary advantages and disadvantages to the implicit method descirbed in this problem?</p></li>
@@ -1530,10 +1543,10 @@ is the analytic solution to the PDE. Let’s prove this.</p>
 <span id="cb177-23"><a href="ch-pdes.html#cb177-23"></a>  <span class="cf">return</span> (frame,)</span>
 <span id="cb177-24"><a href="ch-pdes.html#cb177-24"></a></span>
 <span id="cb177-25"><a href="ch-pdes.html#cb177-25"></a>PlotFrames <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(t),<span class="dv">1</span>) </span>
-<span id="cb177-26"><a href="ch-pdes.html#cb177-26"></a>anim <span class="op">=</span> animation.FuncAnimation(fig, <span class="co"># call on the figure</span></span>
-<span id="cb177-27"><a href="ch-pdes.html#cb177-27"></a>                               animator, <span class="co"># call the function that builds the animation frame</span></span>
-<span id="cb177-28"><a href="ch-pdes.html#cb177-28"></a>                               frames<span class="op">=</span>PlotFrames, <span class="co"># tell which frames to pass to animator</span></span>
-<span id="cb177-29"><a href="ch-pdes.html#cb177-29"></a>                               interval<span class="op">=</span><span class="dv">100</span>, <span class="co"># delay between frame</span></span>
+<span id="cb177-26"><a href="ch-pdes.html#cb177-26"></a>anim <span class="op">=</span> animation.FuncAnimation(fig, </span>
+<span id="cb177-27"><a href="ch-pdes.html#cb177-27"></a>                               animator, </span>
+<span id="cb177-28"><a href="ch-pdes.html#cb177-28"></a>                               frames<span class="op">=</span>PlotFrames, </span>
+<span id="cb177-29"><a href="ch-pdes.html#cb177-29"></a>                               interval<span class="op">=</span><span class="dv">100</span>, </span>
 <span id="cb177-30"><a href="ch-pdes.html#cb177-30"></a>                              )</span>
 <span id="cb177-31"><a href="ch-pdes.html#cb177-31"></a></span>
 <span id="cb177-32"><a href="ch-pdes.html#cb177-32"></a>rc(<span class="st">&#39;animation&#39;</span>, html<span class="op">=</span><span class="st">&#39;jshtml&#39;</span>) <span class="co"># embed in the HTML for Google Colab</span></span>
@@ -1757,8 +1770,56 @@ There are 5 equations this time.</p>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-636" class="exercise"><strong>Exercise 6.72  </strong></span>We conclude this section by increasing from one dimension to two. Solve the Poisson equation <span class="math inline">\(u_{xx} + u_{yy} = f(x,y)\)</span> on the domain <span class="math inline">\((x,y) \in (0,1)\times (0,1)\)</span> with homogenous Dirichlet boundary conditions and focing function <span class="math inline">\(f(x,y) = 20\text{exp}\left( -\frac{(x-0.5)^2 + (y-0.5)^2}{0.05} \right)\)</span> numerically. Start with a <span class="math inline">\(6 \times 6\)</span> grid of points and explicitly write down all of the equations. There should only be 16 total equations since in a <span class="math inline">\(6 \times 6\)</span> grid there are 20 points on the boundary and 16 points in the interior of the domain. Then generalize your code to solve the Poisson equation with a much smaller value of <span class="math inline">\(\Delta x = \Delta y\)</span>.</p>
-<p>Hint: You will want to number the nodes in your 2D domain and then carefully construct the coefficient matrix based on your numbering scheme. You should observe a nice pattern in your coefficient matrix that will allow you to more easily generalize your code.</p>
+<p><span id="exr:poisson2dhomog" class="exercise"><strong>Exercise 6.72  (The 2D Poisson Equation)  </strong></span>We conclude this section, and chapter, by examining the two dimensional Poisson equations. As a sample problem, we want to solve the Poisson equation <span class="math inline">\(u_{xx} + u_{yy} = f(x,y)\)</span> on the domain <span class="math inline">\((x,y) \in (0,1)\times (0,1)\)</span> with homogenous Dirichlet boundary conditions and focing function <span class="math inline">\(f(x,y) = -20\text{exp}\left( -\frac{(x-0.5)^2 + (y-0.5)^2}{0.05} \right)\)</span> numerically. We are going to start with a <span class="math inline">\(6 \times 6\)</span> grid of points and explicitly write down all of the equations. In Figure <a href="ch-pdes.html#fig:poisson2d">6.14</a> the red stars represent boundary points where the value of <span class="math inline">\(u(x,y)\)</span> is known and the blue interior points are the ones where <span class="math inline">\(u(x,y)\)</span> is yet unknown. It should be clear that we should have two indices for each point (one for the <span class="math inline">\(x\)</span> position and one for the <span class="math inline">\(y\)</span> position), but it should also be clear that this will cause problems when writing down the resulting system of equations as a matrix equation (stop and think carefully about this). Therefore, in Figure <a href="ch-pdes.html#fig:poisson2d">6.14</a> we propose an index, <span class="math inline">\(k\)</span>, starting at the top left of the uninown nodes and reading left to right (just like we do with Python arrays).</p>
+<ol style="list-style-type: lower-alpha">
+<li>Start by discretizing the 2D Poisson equation <span class="math inline">\(u_{xx} + u_{yy} = f(x,y)\)</span>. For simplicity we assume that <span class="math inline">\(\Delta x = \Delta y\)</span> so that we can combine like terms from the <span class="math inline">\(x\)</span> derivative and the <span class="math inline">\(y\)</span> derivative. Fill in the missing coefficients and indices below.
+<span class="math display">\[U_{i+1,j} + U_{i,j-1} - (\underline{\hspace{0.2in}}) U_{\underline{\hspace{0.2in}},\underline{\hspace{0.2in}}} + U_{\underline{\hspace{0.2in}},\underline{\hspace{0.2in}}} + U_{\underline{\hspace{0.2in}},\underline{\hspace{0.2in}}} = \Delta x^2 f(x_i,y_i)\]</span></li>
+<li>In Figure <a href="ch-pdes.html#fig:poisson2d">6.14</a> we see that there are 16 total equations resulting from the discretization of the Poisson equation. Your first task is to write all 16 of these equations. We’ll get you started:
+<span class="math display">\[\begin{aligned}
+\text{$k=0$: } &amp;\quad U_{k=1} + {\color{red} U_{i=1,j=0} } - 4U_{k=0} + {\color{red} U_{i=0,j=1} } + U_{k=4} = \Delta x^2 f(x_1,y_1) \\
+\text{$k=1$: } &amp;\quad U_{k=2} + U_{k=0} - 4U_{k=1} + {\color{red} U_{i=0,j=2} } + U_{k=5} = \Delta x^2 f(x_1,y_2) \\
+\text{$k=2$: } &amp;\quad \underline{\hspace{2in}} \\
+\text{$k=3$: } &amp;\quad \underline{\hspace{2in}} \\
+\text{$k=4$: } &amp;\quad U_{k=5} + {\color{red} U_{i=2,j=0}} - 4U_{k=4} + U_{k=0} + U_{k=8} = \Delta x^2 f(x_2,y_1) \\
+\text{$k=5$: } &amp;\quad \underline{\hspace{2in}} \\
+\text{$k=6$: } &amp;\quad \underline{\hspace{2in}} \\
+\text{$k=7$: } &amp;\quad \underline{\hspace{2in}} \\
+\text{$k=8$: } &amp;\quad \underline{\hspace{2in}} \\
+\text{$k=9$: } &amp;\quad \underline{\hspace{2in}} \\
+\text{$k=10$: } &amp;\quad \underline{\hspace{2in}} \\
+\text{$k=11$: } &amp;\quad \underline{\hspace{2in}} \\
+\text{$k=12$: } &amp;\quad U_{k=13} + {\color{red} U_{i=4,j=0}} - 4 U_{k=12} + U_{k=8} + {\color{red} U_{i=5,j=1}} = \Delta x^2 f(x_4,y_1) \\
+\text{$k=13$: } &amp;\quad \underline{\hspace{2in}} \\
+\text{$k=14$: } &amp;\quad \underline{\hspace{2in}} \\
+\text{$k=15$: } &amp;\quad {\color{red} U_{i=4,j=5}} + U_{k=14} - 4 U_{k=15} + U_{k=11} + {\color{red} U_{i=5,j=4}} = \Delta x^2 f(x_4,y_4) \\
+\end{aligned}\]</span>
+In this particular example we have homogeneous Dirichlet boundary conditions so all of the boundary values are zero. If this was not the case then every boundary value would need to be moved to the right-hand sides of the equations.</li>
+<li>We now have a <span class="math inline">\(16 \times 16\)</span> matrix equation to write based on the equations from part (b). Each row and column of the matrix equation is indexed by <span class="math inline">\(k\)</span>. The coefficient matrix <span class="math inline">\(A\)</span> is started for you below. Write the whole thing out and fill in the blanks. Notice that this matrix has a much more complicated structure than the coefficient matrix in the 1D Poisson and Laplace equations.</li>
+</ol>
+<p><span class="math display">\[A = \begin{pmatrix} -4 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\ 1 &amp; -4 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\ 0 &amp; 1 &amp; -4 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; \cdots &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; -4 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; &amp;  \\ 1 &amp; 0 &amp; 0 &amp; 0 &amp; -4 &amp; 1 &amp; 0 &amp; 0 &amp; \ddots &amp; \\ 0 &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; \\ \vdots &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; \\ &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; \\ &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; -4 \\ \end{pmatrix}\]</span></p>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>In the coefficient matrix from part (c) notice that the small matrix
+<span class="math display">\[\begin{pmatrix} -4 &amp; 1 &amp; 0 &amp; 0 \\ 1 &amp; -4 &amp; 1 &amp; 0 \\ 0 &amp; 1 &amp; -4 &amp; 1 \\ 0 &amp; 0 &amp; 1 &amp; -4 \end{pmatrix}\]</span>
+shows up in blocks along the main diagonal. If you have a hard copy of the matrix go back and draw a box around these blocks in the coefficient matrix. Also notice that there are diagonal bands of <span class="math inline">\(1^s\)</span>. Discuss the following:
+<ol style="list-style-type: lower-roman">
+<li>Why are the blocks <span class="math inline">\(4 \times 4\)</span>?</li>
+<li>How could you have predicted the location of the diagonal bands of <span class="math inline">\(1^s\)</span>?</li>
+<li>What would the structure of the matrix look like if we partitioned the domain into a <span class="math inline">\(10 \times 10\)</span> grid of points instead of a <span class="math inline">\(6 \times 6\)</span> grid (including the boundary points)?</li>
+<li>Why is it helpful to notice this structure?</li>
+</ol></li>
+<li>The right-hand side of the matrix equation resulting the your system of equations from part (b) is
+<span class="math display">\[\boldsymbol{b} = \Delta x^2 \begin{pmatrix} f(x_1,y_1) \\ f(x_1,y_2) \\ f(x_1,y_3) \\ f(x_1,y_4) \\ f(x_2,y_1) \\ f(x_2,y_2) \\ \vdots \\ \\ f(x_4,y_y) \end{pmatrix}.\]</span>
+Notice the structure of this vector. Why is it structured this way? Why is it useful to notice this?</li>
+<li>Write Python code to solve the problem at hand. Recall that <span class="math inline">\(f(x,y) = -20\exp\left(-\frac{-(x-0.5)^2+(y-0.5)^2}{0.05}\right)\)</span>. Show a contour plot of your solution. This will take a little work changing the indices back from <span class="math inline">\(k\)</span> to <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span>. Think carefully about how you want to code this before you put fingers to keyboard. You might want to use the <code>np.block()</code> command to build the coefficient matrix efficiently or you can use loops with carefully chosen indices.</li>
+<li>(Challenge) Generalize your code to solve the Poisson equation with a much smaller value of <span class="math inline">\(\Delta x = \Delta y\)</span>.</li>
+<li>One more significant observation should be made about the 2D Poisson equation on this square domain. Notice that the corner points of the domain (e.g. <span class="math inline">\(i=0, j=0\)</span> or <span class="math inline">\(i=5, j=0\)</span>) are never included in the system of equations. What does this mean about trying to enforce boundary conditions that only apply at the corners?</li>
+</ol>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:poisson2d"></span>
+<img src="images/Ch06_2DPoisson.png" alt="A finite difference grid for the Poisson equation with 6 grid points in each direction." width="95%" />
+<p class="caption">
+Figure 6.14: A finite difference grid for the Poisson equation with 6 grid points in each direction.
+</p>
 </div>
 <hr />
 </div>
@@ -1768,71 +1829,71 @@ There are 5 equations this time.</p>
 <h3><span class="header-section-number">6.8.1</span> Algorithm Summaries</h3>
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-637" class="exercise"><strong>Exercise 6.73  </strong></span>Explain in clear language what it means to check an analytic solution to
+<p><span id="exr:unnamed-chunk-636" class="exercise"><strong>Exercise 6.73  </strong></span>Explain in clear language what it means to check an analytic solution to
 a differential equation.</p>
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-638" class="exercise"><strong>Exercise 6.74  </strong></span>Explain in clear language what Dirichlet boundary conditions are.</p>
+<p><span id="exr:unnamed-chunk-637" class="exercise"><strong>Exercise 6.74  </strong></span>Explain in clear language what Dirichlet boundary conditions are.</p>
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-639" class="exercise"><strong>Exercise 6.75  </strong></span>Explain in clear language what Neumann boundary conditions are.</p>
+<p><span id="exr:unnamed-chunk-638" class="exercise"><strong>Exercise 6.75  </strong></span>Explain in clear language what Neumann boundary conditions are.</p>
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-640" class="exercise"><strong>Exercise 6.76  </strong></span>Show the full mathematical details for building a first-order in time
+<p><span id="exr:unnamed-chunk-639" class="exercise"><strong>Exercise 6.76  </strong></span>Show the full mathematical details for building a first-order in time
 and second-order in space approximation method for the one-dimensional
 heat equation. Explain what the order of the error means in this context</p>
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-641" class="exercise"><strong>Exercise 6.77  </strong></span>Show the full mathematical details for building a second-order in time
+<p><span id="exr:unnamed-chunk-640" class="exercise"><strong>Exercise 6.77  </strong></span>Show the full mathematical details for building a second-order in time
 and second-order in space approximation method for the one-dimensional
 wave equation. Explain what the order of the error means in this context</p>
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-642" class="exercise"><strong>Exercise 6.78  </strong></span>Show the full mathematical details for building a first-order in time
+<p><span id="exr:unnamed-chunk-641" class="exercise"><strong>Exercise 6.78  </strong></span>Show the full mathematical details for building a first-order in time
 and second-order in space approximation method for the two-dimensional
 heat equation. Explain what the order of the error means in this context</p>
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-643" class="exercise"><strong>Exercise 6.79  </strong></span>Show the full mathematical details for building a second-order in time
+<p><span id="exr:unnamed-chunk-642" class="exercise"><strong>Exercise 6.79  </strong></span>Show the full mathematical details for building a second-order in time
 and second-order in space approximation method for the two-dimensional
 wave equation. Explain what the order of the error means in this context</p>
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-644" class="exercise"><strong>Exercise 6.80  </strong></span>Explain in clear language what it means for a finite difference method to be stable vs unstable.</p>
+<p><span id="exr:unnamed-chunk-643" class="exercise"><strong>Exercise 6.80  </strong></span>Explain in clear language what it means for a finite difference method to be stable vs unstable.</p>
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-645" class="exercise"><strong>Exercise 6.81  </strong></span>Show the full mathematical details for solving the 1D heat equation using the implicit and Crank-Nicolson methods.
+<span id="exr:unnamed-chunk-644" class="exercise"><strong>Exercise 6.81  </strong></span>Show the full mathematical details for solving the 1D heat equation using the implicit and Crank-Nicolson methods.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-646" class="exercise"><strong>Exercise 6.82  </strong></span>Show the full mathematical details for building a downwind finite difference scheme for the traveling wave equation. Discuss the primary disadvantages of the downwind scheme.
+<span id="exr:unnamed-chunk-645" class="exercise"><strong>Exercise 6.82  </strong></span>Show the full mathematical details for building a downwind finite difference scheme for the traveling wave equation. Discuss the primary disadvantages of the downwind scheme.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-647" class="exercise"><strong>Exercise 6.83  </strong></span>Show the full mathematical details for building an upwind finite difference scheme for the traveling wave equation. Discuss the primary disadvantages of the upwind scheme.
+<span id="exr:unnamed-chunk-646" class="exercise"><strong>Exercise 6.83  </strong></span>Show the full mathematical details for building an upwind finite difference scheme for the traveling wave equation. Discuss the primary disadvantages of the upwind scheme.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-648" class="exercise"><strong>Exercise 6.84  </strong></span>Show the full mathematical details for numerically solving the 1D Laplace and Poisson equations.
+<span id="exr:unnamed-chunk-647" class="exercise"><strong>Exercise 6.84  </strong></span>Show the full mathematical details for numerically solving the 1D Laplace and Poisson equations.
 </div>
 <hr />
 </div>
@@ -1840,7 +1901,7 @@ wave equation. Explain what the order of the error means in this context</p>
 <h3><span class="header-section-number">6.8.2</span> Applying What You’ve Learned</h3>
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-649" class="exercise"><strong>Exercise 6.85  </strong></span>In this problem we will solve a more realistic 1D heat equation. We will
+<p><span id="exr:unnamed-chunk-648" class="exercise"><strong>Exercise 6.85  </strong></span>In this problem we will solve a more realistic 1D heat equation. We will
 allow the diffusivity to change spatially, so <span class="math inline">\(D = D(x)\)</span> and we want to
 solve <span class="math display">\[u_t = \left( D(x) u_x \right)_x\]</span> on <span class="math inline">\(x \in (0,1)\)</span> with
 Dirichlet boundary conditions <span class="math inline">\(u(t,0) = u(t,1) = 0\)</span> and initial
@@ -1872,7 +1933,7 @@ changing diffusivity change the shape of the solution?</p></li>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-650" class="exercise"><strong>Exercise 6.86  </strong></span>In a square domain create a function <span class="math inline">\(u(0,x,y)\)</span> that looks like your
+<span id="exr:unnamed-chunk-649" class="exercise"><strong>Exercise 6.86  </strong></span>In a square domain create a function <span class="math inline">\(u(0,x,y)\)</span> that looks like your
 college logo. The simplest way to do this might be to take a photo of
 the logo, crop it to a square, and use the <code>scipy.ndimage.imread</code> command to read in the image.
 Use this function as the initial condition for the heat equation on a
@@ -1883,27 +1944,27 @@ happens to the logo as time evolves.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-651" class="exercise"><strong>Exercise 6.87  </strong></span>Repeat the previous exercise but this time solve the wave equation with
+<span id="exr:unnamed-chunk-650" class="exercise"><strong>Exercise 6.87  </strong></span>Repeat the previous exercise but this time solve the wave equation with
 the logo as the initial condition.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-652" class="exercise"><strong>Exercise 6.88  </strong></span>The explicit finite difference scheme that we built for the 1D heat equation in this chapter has error on the order of <span class="math inline">\(\mathcal{O}(\Delta t) + \mathcal{O}(\Delta x^2)\)</span>. Explain clearly what this means. Then devise a numerical experiment to empirically test this fact. Clearly explain your thought process and show sufficient plots and mathematics to support your work.
+<span id="exr:unnamed-chunk-651" class="exercise"><strong>Exercise 6.88  </strong></span>The explicit finite difference scheme that we built for the 1D heat equation in this chapter has error on the order of <span class="math inline">\(\mathcal{O}(\Delta t) + \mathcal{O}(\Delta x^2)\)</span>. Explain clearly what this means. Then devise a numerical experiment to empirically test this fact. Clearly explain your thought process and show sufficient plots and mathematics to support your work.
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-653" class="exercise"><strong>Exercise 6.89  </strong></span>Suppose that we have a concrete slab that is 10 meters in length, with
+<p><span id="exr:unnamed-chunk-652" class="exercise"><strong>Exercise 6.89  </strong></span>Suppose that we have a concrete slab that is 10 meters in length, with
 the left boundary held at a temperature of <span class="math inline">\(75^\circ\)</span> and the right
 boundary held at a temperature of <span class="math inline">\(90^\circ\)</span>. Assume that the thermal
 diffusivity of concrete is about <span class="math inline">\(k = 10^{-5}\)</span> m<span class="math inline">\(^2\)</span>/s. Assume that the
 initial temperature of the slab is given by the function
 <span class="math inline">\(T(x) = 75 + 1.5x - 20 \sin( \pi x / 10)\)</span>. In this case, the temperature
 can be analytically solved by the function
-<span class="math inline">\(T(x,t) = 75 + 1.5x - 20 \sin(\pi x / 10)  e^{-ct}\)</span> for some value of <span class="math inline">\(c\)</span>.</p>
+<span class="math inline">\(T(t,x) = 75 + 1.5x - 20 \sin(\pi x / 10)  e^{-ct}\)</span> for some value of <span class="math inline">\(c\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
-<li><p>Working by hand (no computers!) test this function by substituting
+<li><p>Working by hand (no computers!) test the proposed analytic solution by substituting
 it into the 1D heat equation and verifying that it is indeed a
 solution. In doing so you will be able to find the correct value of
 <span class="math inline">\(c\)</span>.</p></li>
@@ -1915,7 +1976,7 @@ numerical solution and the analytic solution evolve in time.</p></li>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-654" class="exercise"><strong>Exercise 6.90  </strong></span>(This problem is modified from <span class="citation">[<a href="#ref-simiodeheat" role="doc-biblioref">11</a>]</span>. The data given below is real experimental data provided courtesy of the authors.)</p>
+<p><span id="exr:unnamed-chunk-653" class="exercise"><strong>Exercise 6.90  </strong></span>(This problem is modified from <span class="citation">[<a href="#ref-simiodeheat" role="doc-biblioref">11</a>]</span>. The data given below is real experimental data provided courtesy of the authors.)</p>
 <p>Harry and Sally set up an experiment to gather data specifically for the heat diffusion through a long thin metal rod. Their experimental setup was as follows.</p>
 <ul>
 <li>The ends of the rod are submerged in water baths at different temperatures and the heat from the hot water bath (on the right hand side) travels through the metal to the cooler end (on the left hand side).</li>
@@ -2069,14 +2130,22 @@ You can load the data directly with the following code.
 </div>
 <div class="sourceCode" id="cb178"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb178-1"><a href="ch-pdes.html#cb178-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb178-2"><a href="ch-pdes.html#cb178-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb178-3"><a href="ch-pdes.html#cb178-3"></a>data <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise6_1dheatdata.csv&#39;</span>) )</span></code></pre></div>
+<span id="cb178-3"><a href="ch-pdes.html#cb178-3"></a>data <span class="op">=</span> np.array( pd.read_csv(<span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan/NumericalMethodsSullivan.github.io/master/data/Exercise6_1dheatdata.csv&#39;</span>) )</span>
+<span id="cb178-4"><a href="ch-pdes.html#cb178-4"></a><span class="co"># Exercise6_1dheatdata.csv</span></span></code></pre></div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-656" class="exercise"><strong>Exercise 6.91  </strong></span>You may recall from your differential equations class that population growth under limited resources is goverened by the logistic equation <span class="math inline">\(x&#39; = k_1x(1-x/k_2)\)</span> where <span class="math inline">\(x=x(t)\)</span> is the population, <span class="math inline">\(k_1\)</span> is the intrinsic growth rate of the population, and <span class="math inline">\(k_2\)</span> is the carrying capacity of the population. The carrying capacity is the maximum population that can be supported by the environment. The trouble with this model is that the species is presumed to be fixed to a spatial location. Let’s make a modification to this model that allows the species to spread out over time while they reproduce. We have seen throughout this chapter that the heat equation <span class="math inline">\(u_t = D(u_{xx} + u_{yy})\)</span> models the diffusion of a substance (like heat or concentration). We therefore propose the model<br />
+<span id="exr:unnamed-chunk-655" class="exercise"><strong>Exercise 6.91  </strong></span>You may recall from your differential equations class that population growth under limited resources is goverened by the logistic equation <span class="math inline">\(x&#39; = k_1x(1-x/k_2)\)</span> where <span class="math inline">\(x=x(t)\)</span> is the population, <span class="math inline">\(k_1\)</span> is the intrinsic growth rate of the population, and <span class="math inline">\(k_2\)</span> is the carrying capacity of the population. The carrying capacity is the maximum population that can be supported by the environment. The trouble with this model is that the species is presumed to be fixed to a spatial location. Let’s make a modification to this model that allows the species to spread out over time while they reproduce. We have seen throughout this chapter that the heat equation <span class="math inline">\(u_t = D(u_{xx} + u_{yy})\)</span> models the diffusion of a substance (like heat or concentration). We therefore propose the model<br />
 <span class="math display">\[ \frac{\partial u}{\partial t} = k_1 u \left( 1 - \frac{u}{k_2} \right) + D \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)  \]</span>
 where <span class="math inline">\(u(t,x,y)\)</span> is the population density of the species at time <span class="math inline">\(t\)</span> and spatial point <span class="math inline">\((x,y)\)</span>, <span class="math inline">\((x,y)\)</span> is a point in some square spatial domain, <span class="math inline">\(k_1\)</span> is the growth rate of the population, <span class="math inline">\(k_2\)</span> is the carrying capacity of the population, and <span class="math inline">\(D\)</span> is the rate of diffusion. Develop a finite difference scheme to solve this PDE. Experiment with this model showing the interplay between the parameters <span class="math inline">\(D\)</span>, <span class="math inline">\(k_1\)</span>, and <span class="math inline">\(k_2\)</span>. Take an initial condition of
 <span class="math display">\[ u(0,x,y) = e^{-( (x-0.5)^2 + (y-0.5)^2)/0.05}. \]</span>
+</div>
+<hr />
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-656" class="exercise"><strong>Exercise 6.92  </strong></span>In Exercise <a href="ch-pdes.html#exr:poisson2dhomog">6.72</a> you solved the Poisson equation, <span class="math inline">\(u_{xx} + u_{yy} = f(x,y)\)</span>, on the unit square with homogenous Dirichlet boundary conditions and a forcing function <span class="math inline">\(f(x,y) = -20 \exp\left(-\frac{(x-0.5)^2 + (y-0.5)^2}{0.05} \right)\)</span>. Use a <span class="math inline">\(10 \times 10\)</span> grid of points to solve the Poisson equation on the same domain with the same forcing function but with boundary conditions
+<span class="math display">\[u(0,y)=0, \quad u(1,y) = 0, \quad u(x,0) = -\sin(\pi x), \quad u(x,1) = 0.\]</span>
+Show a contour plot of your solution.</p>
 </div>
 <hr />
 </div>
