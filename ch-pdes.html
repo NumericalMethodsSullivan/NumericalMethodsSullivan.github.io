@@ -1257,7 +1257,7 @@ This may seem completely ridiculous since we don’t yet know the information at
 (\text{for $x_4$: }) &amp;\quad \underline{\hspace{0.25in}} U_3^{n+1} + \underline{\hspace{0.5in}} U_4^{n+1} =  \underline{\hspace{0.25in}} U_4^{n} + \underline{\hspace{0.25in}} U_5^{n+1} \\
 \end{aligned}\]</span></li>
 <li>Now we can leverage linear algebra and write this as a matrix equation.
-<span class="math display">\[\begin{pmatrix} \underline{\hspace{0.25in}} &amp; \underline{\hspace{0.25in}} &amp; 0 &amp; 0 \\ \underline{\hspace{0.25in}} &amp; \underline{\hspace{0.25in}} &amp; \underline{\hspace{0.25in}} &amp; 0 \\ 0 &amp; \underline{\hspace{0.25in}} &amp; \underline{\hspace{0.25in}} &amp; \underline{\hspace{0.25in}} \\ 0 &amp; 0 &amp; \underline{\hspace{0.25in}} &amp; \underline{\hspace{0.5in}} \end{pmatrix}\begin{pmatrix} U_1^{n+1} \\ U_2^{n+1} \\ U_3^{n+1} \\ U_4^{n+1} \end{pmatrix} = \begin{pmatrix} U_1^{n} \\ U_2^{n} \\ U_3^{n} \\ U_4^{n} \end{pmatrix} + \begin{pmatrix} \underline{\hspace{0.25in}} U_0^{n+1} \\ 0 \\ 0 \\ \underline{\hspace{0.25in}} U_5^{n+1} \end{pmatrix}\]</span></li>
+<span class="math display">\[\begin{pmatrix} \underline{\hspace{0.25in}} &amp; \underline{\hspace{0.25in}} &amp; 0 &amp; 0 \\ \underline{\hspace{0.25in}} &amp; \underline{\hspace{0.25in}} &amp; \underline{\hspace{0.25in}} &amp; 0 \\ 0 &amp; \underline{\hspace{0.25in}} &amp; \underline{\hspace{0.25in}} &amp; \underline{\hspace{0.25in}} \\ 0 &amp; 0 &amp; \underline{\hspace{0.25in}} &amp; \underline{\hspace{0.25in}} \end{pmatrix}\begin{pmatrix} U_1^{n+1} \\ U_2^{n+1} \\ U_3^{n+1} \\ U_4^{n+1} \end{pmatrix} = \begin{pmatrix} U_1^{n} \\ U_2^{n} \\ U_3^{n} \\ U_4^{n} \end{pmatrix} + \begin{pmatrix} \underline{\hspace{0.25in}} U_0^{n+1} \\ 0 \\ 0 \\ \underline{\hspace{0.25in}} U_5^{n+1} \end{pmatrix}\]</span></li>
 </ol></li>
 <li>At this point the structure of the coefficient matrix on the left and the vector sum on the right should be clear (even for more spatial points). It is time for us to start writing some code. We’ll start with the basic setup of the problem.</li>
 </ol>
@@ -1330,19 +1330,19 @@ This may seem completely ridiculous since we don’t yet know the information at
     U_{i+1}^{n+1}}{\Delta x^2} \right) \right].\]</span>
 Letting
 <span class="math inline">\(r = D \Delta t / (2\Delta x^2)\)</span> we can rearrange to get
-<span class="math display">\[\underline{\hspace{0.25in}} U_{i-1}^{n+1} + \underline{\hspace{0.5in}} U_{i}^{n+1} + \underline{\hspace{0.25in}} U_{i+1}^{n+1} = \underline{\hspace{0.25in}} U_{i-1}^{n} + \underline{\hspace{0.5in}} U_{i}^{n} + \underline{\hspace{0.25in}} U_{i+1}^{n}.\]</span>
+<span class="math display">\[\underline{\hspace{0.25in}} U_{i-1}^{n+1} + \underline{\hspace{0.25in}} U_{i}^{n+1} + \underline{\hspace{0.25in}} U_{i+1}^{n+1} = \underline{\hspace{0.25in}} U_{i-1}^{n} + \underline{\hspace{0.25in}} U_{i}^{n} + \underline{\hspace{0.25in}} U_{i+1}^{n}.\]</span>
 This can now be viewed as a system of equations. Let’s build this system carefully and then write code to solve the heat equation from the previous problems with the Crank-Nicolson method. For this problem we will assume fixed Dirichlet boundary conditions on both the left- and right-hand sides of the domain.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>First let’s write the equations for several values of <span class="math inline">\(i\)</span>.
 <span class="math display">\[\begin{aligned}
-                (\text{for $x_1$ }): \qquad \underline{\hspace{0.25in}} U_0^{n+1} + \underline{\hspace{0.25in}} U^{n+1}_1  + \underline{\hspace{0.25in}} U^{n+1}_2 &amp;=  \underline{\hspace{0.25in}}U^n_0 +
-                \underline{\hspace{0.25in}} U^n_1 + \underline{\hspace{0.25in}}U^n_2 \\
-                (\text{for $x_2$ }): \qquad \underline{\hspace{0.25in}} U_1^{n+1} + \underline{\hspace{0.25in}} U^{n+1}_2 + \underline{\hspace{0.25in}}U^{n+1}_3 &amp;= \underline{\hspace{0.25in}}U^n_1 +
-                \underline{\hspace{0.25in}} U^n_2 + \underline{\hspace{0.25in}}U^n_3 \\
-                (\text{for $x_3$ }): \qquad \underline{\hspace{0.25in}} U_2^{n+1} + \underline{\hspace{0.25in}} U^{n+1}_3 + \underline{\hspace{0.25in}}U^{n+1}_4 &amp;= \underline{\hspace{0.25in}}U^n_2 +
-                \underline{\hspace{0.25in}} U^n_3 + \underline{\hspace{0.25in}}U^n_4 \\
+                (\text{$x_1$ }): \quad \underline{\hspace{0.15in}} U_0^{n+1} + \underline{\hspace{0.15in}} U^{n+1}_1  + \underline{\hspace{0.15in}} U^{n+1}_2 &amp;=  \underline{\hspace{0.15in}}U^n_0 +
+                \underline{\hspace{0.15in}} U^n_1 + \underline{\hspace{0.15in}}U^n_2 \\
+                (\text{$x_2$ }): \quad \underline{\hspace{0.15in}} U_1^{n+1} + \underline{\hspace{0.15in}} U^{n+1}_2 + \underline{\hspace{0.15in}}U^{n+1}_3 &amp;= \underline{\hspace{0.15in}}U^n_1 +
+                \underline{\hspace{0.15in}} U^n_2 + \underline{\hspace{0.15in}}U^n_3 \\
+                (\text{$x_3$ }): \quad \underline{\hspace{0.15in}} U_2^{n+1} + \underline{\hspace{0.15in}} U^{n+1}_3 + \underline{\hspace{0.15in}}U^{n+1}_4 &amp;= \underline{\hspace{0.15in}}U^n_2 +
+                \underline{\hspace{0.15in}} U^n_3 + \underline{\hspace{0.15in}}U^n_4 \\
                 \qquad \vdots &amp; \qquad \vdots \\
-                (\text{for $x_{M-2}$ }): \qquad \underline{\hspace{0.25in}} U_{M-3}^{n+1} + \underline{\hspace{0.25in}} U^{n+1}_{M-2} + \underline{\hspace{0.25in}}U^{n+1}_{M-1} &amp;= \underline{\hspace{0.25in}}U^n_{M-3} + \underline{\hspace{0.25in}} U^n_{M-2} + \underline{\hspace{0.25in}}U^n_{M-1} 
+                (\text{$x_{M-2}$ }): \quad \underline{\hspace{0.1in}} U_{M-3}^{n+1} + \underline{\hspace{0.1in}} U^{n+1}_{M-2} + \underline{\hspace{0.1in}}U^{n+1}_{M-1} &amp;= \underline{\hspace{0.1in}}U^n_{M-3} + \underline{\hspace{0.1in}} U^n_{M-2} + \underline{\hspace{0.1in}}U^n_{M-1} 
             \end{aligned}\]</span> where <span class="math inline">\(M\)</span> is the number of spatial
 points (enumerated <span class="math inline">\(x_0, x_1, x_2, \ldots, x_{M-1}\)</span>).</p></li>
 <li><p>The first and last equations can be simplified since we are assuming that we have
@@ -1357,7 +1357,7 @@ product: <span class="math display">\[\begin{aligned}
                     (1+2r) &amp; -r &amp; 0 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\
                     -r &amp; (1+2r) &amp; -r &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\
                     0 &amp; -r &amp; (1+2r) &amp; -r &amp; 0 &amp; \cdots &amp; 0 \\
-                    \vdots &amp; &amp;  &amp; \ddots &amp;  &amp; &amp; 0 \\
+                    \vdots &amp; &amp;  &amp;  &amp;  &amp; &amp; 0 \\
                     0 &amp; \cdots &amp; &amp; &amp; 0 &amp; -r &amp; (1+2r)
                 \end{pmatrix} 
                 \begin{pmatrix} 
@@ -1371,11 +1371,11 @@ parts (a) and (b) can be written as <span class="math display">\[\begin{aligned}
                     (1-2r) &amp; r &amp; 0 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\
                     r &amp; (1-2r) &amp; r &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\
                     0 &amp; r &amp; (1-2r) &amp; r &amp; 0 &amp; \cdots &amp; 0 \\
-                    \vdots &amp; &amp;  &amp; \ddots &amp;  &amp; &amp; 0 \\
-                    0 &amp; \cdots &amp; &amp; &amp; 0 &amp; r &amp; (1-2r)
+                    \vdots &amp;  &amp;  &amp; &amp; &amp; &amp;  \\
+                     &amp;  &amp;  &amp;  &amp; &amp; r &amp; (1-2r)
                 \end{pmatrix} 
                 \begin{pmatrix} 
-                    U^{n}_1 \\ U^{n}_2 \\ U^{n}_3 \\ \vdots
+                    U^{n}_1 \\ U^{n}_2 \\ \vdots
                     \\U^{n}_{M-2}   
                 \end{pmatrix} + 
                 \begin{pmatrix}
@@ -1774,28 +1774,16 @@ There are 5 equations this time.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Start by discretizing the 2D Poisson equation <span class="math inline">\(u_{xx} + u_{yy} = f(x,y)\)</span>. For simplicity we assume that <span class="math inline">\(\Delta x = \Delta y\)</span> so that we can combine like terms from the <span class="math inline">\(x\)</span> derivative and the <span class="math inline">\(y\)</span> derivative. Fill in the missing coefficients and indices below.
 <span class="math display">\[U_{i+1,j} + U_{i,j-1} - (\underline{\hspace{0.2in}}) U_{\underline{\hspace{0.2in}},\underline{\hspace{0.2in}}} + U_{\underline{\hspace{0.2in}},\underline{\hspace{0.2in}}} + U_{\underline{\hspace{0.2in}},\underline{\hspace{0.2in}}} = \Delta x^2 f(x_i,y_i)\]</span></li>
-<li>In Figure <a href="ch-pdes.html#fig:poisson2d">6.14</a> we see that there are 16 total equations resulting from the discretization of the Poisson equation. Your first task is to write all 16 of these equations. We’ll get you started:
-<span class="math display">\[\begin{aligned}
+<li>In Figure <a href="ch-pdes.html#fig:poisson2d">6.14</a> we see that there are 16 total equations resulting from the discretization of the Poisson equation. Your first task is to write all 16 of these equations. We’ll get you started:</li>
+</ol>
+<p><span class="math display">\[\begin{aligned}
 \text{$k=0$: } &amp;\quad U_{k=1} + {\color{red} U_{i=1,j=0} } - 4U_{k=0} + {\color{red} U_{i=0,j=1} } + U_{k=4} = \Delta x^2 f(x_1,y_1) \\
 \text{$k=1$: } &amp;\quad U_{k=2} + U_{k=0} - 4U_{k=1} + {\color{red} U_{i=0,j=2} } + U_{k=5} = \Delta x^2 f(x_1,y_2) \\
-\text{$k=2$: } &amp;\quad \underline{\hspace{2in}} \\
-\text{$k=3$: } &amp;\quad \underline{\hspace{2in}} \\
-\text{$k=4$: } &amp;\quad U_{k=5} + {\color{red} U_{i=2,j=0}} - 4U_{k=4} + U_{k=0} + U_{k=8} = \Delta x^2 f(x_2,y_1) \\
-\text{$k=5$: } &amp;\quad \underline{\hspace{2in}} \\
-\text{$k=6$: } &amp;\quad \underline{\hspace{2in}} \\
-\text{$k=7$: } &amp;\quad \underline{\hspace{2in}} \\
-\text{$k=8$: } &amp;\quad \underline{\hspace{2in}} \\
-\text{$k=9$: } &amp;\quad \underline{\hspace{2in}} \\
-\text{$k=10$: } &amp;\quad \underline{\hspace{2in}} \\
-\text{$k=11$: } &amp;\quad \underline{\hspace{2in}} \\
-\text{$k=12$: } &amp;\quad U_{k=13} + {\color{red} U_{i=4,j=0}} - 4 U_{k=12} + U_{k=8} + {\color{red} U_{i=5,j=1}} = \Delta x^2 f(x_4,y_1) \\
-\text{$k=13$: } &amp;\quad \underline{\hspace{2in}} \\
-\text{$k=14$: } &amp;\quad \underline{\hspace{2in}} \\
-\text{$k=15$: } &amp;\quad {\color{red} U_{i=4,j=5}} + U_{k=14} - 4 U_{k=15} + U_{k=11} + {\color{red} U_{i=5,j=4}} = \Delta x^2 f(x_4,y_4) \\
-\end{aligned}\]</span>
-In this particular example we have homogeneous Dirichlet boundary conditions so all of the boundary values are zero. If this was not the case then every boundary value would need to be moved to the right-hand sides of the equations.</li>
-<li>We now have a <span class="math inline">\(16 \times 16\)</span> matrix equation to write based on the equations from part (b). Each row and column of the matrix equation is indexed by <span class="math inline">\(k\)</span>. The coefficient matrix <span class="math inline">\(A\)</span> is started for you below. Write the whole thing out and fill in the blanks. Notice that this matrix has a much more complicated structure than the coefficient matrix in the 1D Poisson and Laplace equations.</li>
-</ol>
+&amp; \qquad \vdots \\
+\text{$k=15$: } &amp;\quad {\color{red} U_{i=4,j=5}} + U_{k=14} - 4 U_{k=15} + U_{k=11} + {\color{red} U_{i=5,j=4}} = \Delta x^2 f(x_4,y_4)
+\end{aligned}\]</span></p>
+<p>In this particular example we have homogeneous Dirichlet boundary conditions so all of the boundary values are zero. If this was not the case then every boundary value would need to be moved to the right-hand sides of the equations.
+c. We now have a <span class="math inline">\(16 \times 16\)</span> matrix equation to write based on the equations from part (b). Each row and column of the matrix equation is indexed by <span class="math inline">\(k\)</span>. The coefficient matrix <span class="math inline">\(A\)</span> is started for you below. Write the whole thing out and fill in the blanks. Notice that this matrix has a much more complicated structure than the coefficient matrix in the 1D Poisson and Laplace equations.</p>
 <p><span class="math display">\[A = \begin{pmatrix} -4 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\ 1 &amp; -4 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\ 0 &amp; 1 &amp; -4 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; \cdots &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; -4 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; &amp;  \\ 1 &amp; 0 &amp; 0 &amp; 0 &amp; -4 &amp; 1 &amp; 0 &amp; 0 &amp; \ddots &amp; \\ 0 &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; \\ \vdots &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; \\ &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; \\ &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; -4 \\ \end{pmatrix}\]</span></p>
 <ol start="4" style="list-style-type: lower-alpha">
 <li>In the coefficient matrix from part (c) notice that the small matrix
