@@ -989,7 +989,7 @@ where <span class="math inline">\(\alpha, \beta, \gamma,\)</span> and
 <hr />
 
 <div class="definition">
-<p><span id="def:midpoint" class="definition"><strong>Definition 5.5  (The Midpoint Method)  </strong></span>The midpoint method is defined by first taking a half step with Euler’s method to approximate a solution at time <span class="math inline">\(t_{n+1/2}\)</span> There is not grid point at <span class="math inline">\(t_{n+1/2}\)</span> so we define this as $ t_{n+1/2} = (t_n + t_{n+1})/2$. We then take a full step using the value of <span class="math inline">\(f\)</span> at <span class="math inline">\(t_{n+1/2}\)</span> and the approximate <span class="math inline">\(x_{n+1/2}\)</span>.
+<p><span id="def:midpoint" class="definition"><strong>Definition 5.5  (The Midpoint Method)  </strong></span>The midpoint method is defined by first taking a half step with Euler’s method to approximate a solution at time <span class="math inline">\(t_{n+1/2}\)</span> There is not grid point at <span class="math inline">\(t_{n+1/2}\)</span> so we define this as <span class="math inline">\(t_{n+1/2} = (t_n + t_{n+1})/2\)</span>. We then take a full step using the value of <span class="math inline">\(f\)</span> at <span class="math inline">\(t_{n+1/2}\)</span> and the approximate <span class="math inline">\(x_{n+1/2}\)</span>.
 <span class="math display">\[\begin{aligned}
         x_{n+1/2} &amp;= x_n + \frac{h}{2} f(t_n,x_n) \\
         x_{n+1} &amp;= x_n + h f(t_{n+1/2},x_{n+1/2})

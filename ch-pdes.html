@@ -932,10 +932,21 @@ Figure 6.7: 3D plot of the time evolution of a solution to the wave equation.
 </div>
 <div id="the-heat-equation" class="section level2" number="6.4">
 <h2><span class="header-section-number">6.4</span> The Heat Equation</h2>
-<p>In this section we’ll use a technique called <strong>the finite difference method</strong> to build numerical approximations to the heat equation
-<span class="math display">\[u_t = D \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2} \right) + f(x).\]</span>
-This equation governs the process of heat diffusion in a three dimensional object make of one material (e.g. a block of aluminum).</p>
-<p>In one spatial dimension the heat equation can be written as <span class="math inline">\(u_t = Du_{xx} + f(x)\)</span> and in two spatial dimensions it can be written as <span class="math inline">\(u_t = D \left( u_{xx} + u_{yy} \right) + f(x,y)\)</span>. The function <span class="math inline">\(f\)</span> is called a forcing term and in the case of thermal diffusion it is an external source of heat in the system. We’ll let <span class="math inline">\(f(x) = 0\)</span> for the majority of this section for simplicity, but you can modify any of the code that you write in this section to include a forcing term.</p>
+<p>Thus far in this chapter we have supplied you with the PDEs and then we have built solutions, plots, initial conditions, and boundary conditions based on intuition and some knowledge of Calculus. Before going any further, however, we should give a clear derivation for where the heat equation comes from. For the sake of brevity (and simpler algebra) we will just give a derivation for the 1D heat equation. The 2D and 3D derivations are all quite similar.</p>
+<p>The heat equation is also often called the <em>diffusion equation</em> since it models the diffusion (spreading out) of all sorts of things – e.g. heat, the density of molecules in a gos, the concentration of solute in a solvent. Let’s say that the density of some gas is distributed somehow along a line segment. If we divide the line segment into discrete adjacent intervals then random molecular motion would dictate that in a small discrete time steps half of the density in interval <span class="math inline">\(n\)</span> would move to the interval to the right, and half of the density would move to the interval to the left. Of course this assumption is only valid if the intervals are small enough so as to capture the distance that a bumped molecule will move in the time step. Mathematically we can express this simple assumptions of random molecular motion as
+<span class="math display">\[\underbrace{u(t_{k+1},x_n) - u(t_k,x_n)}_{\text{change in density in interval n}} = \underbrace{\frac{1}{2} u(t_k,x_{n+1})}_{\text{in from the right}} - \underbrace{\frac{1}{2} u(t_k,x_n)}_{\text{out to the right}} + \underbrace{\frac{1}{2}u(t_k,x_{n-1})}_{\text{in from the left}} - \underbrace{\frac{1}{2}u(t_k,x_n)}_{\text{out to the left}} .\]</span></p>
+<p>Rearranging we can write the previous equation as
+<span class="math display">\[u(t_{k+1},x_n) - u(t_k,x_n) = \frac{1}{2} \left( u(t_k,x_{n+1}) - 2 u(t_k,x_n) + u(t_k,x_{n-1}) \right).\]</span>
+We have seen enough discrete approximations of derivatives now that the next step should seem obvious (hopefully)! If we divide the left-hand side by <span class="math inline">\(\Delta t\)</span> then it appears to be a discrete approximation of a time derivative. If we divide the right-hand side by <span class="math inline">\(\Delta x^2\)</span> then it appears to be the discrete approximation of a second derivative in space. Of course we need to do our algebra correctly so we end up with the equation
+<span class="math display">\[\frac{u(t_{k+1},x_n) - u(t_k,x_n)}{\Delta t} = \frac{\Delta x^2}{2\Delta t} \left( \frac{u(t_k,x_{n+1}) - 2 u(t_k,x_n) + u(t_k,x_{n-1})}{\Delta x^2} \right).\]</span></p>
+<p>Finally, if we take the limits as the time step, <span class="math inline">\(\Delta t\)</span>, and the length of the spatial intervals, <span class="math inline">\(\Delta x\)</span>, get arbirarily small we get
+<span class="math display">\[\frac{\partial u}{\partial t} = D \frac{\partial^2 u}{\partial x^2}\]</span>
+where we have combined the coefficients on the right-hand side into the diffusion coefficient <span class="math inline">\(D\)</span>.</p>
+<p>If there was a mechanism forcing density into each of the small intervals then we would end up with the forced heat equation
+<span class="math display">\[\frac{\partial u}{\partial t} = D \frac{\partial^2 u}{\partial x^2} + f(x).\]</span>
+where the function <span class="math inline">\(f(x)\)</span> would model exactly how the density is being forced into each spatial point <span class="math inline">\(x\)</span>. We’ll let <span class="math inline">\(f(x) = 0\)</span> for the majority of this section for simplicity, but you can modify any of the code that you write in this section to include a forcing term.</p>
+<p>Derivations of the 2D and 3D diffusion equations are very similar. You should stop now and at least work out the details of the 2D heat equation.</p>
+<p>In the remainder of this section we’ll use a technique called <strong>the finite difference method</strong> to build numerical approximations to solutions of the heat equation in 1D, 2D, and 3D.</p>
 <p>For the sake of simplicity we will start by considering the time dependent heat equation in 1 spatial dimension with no external forcing function
 <span class="math display">\[ \frac{\partial u}{\partial t} = D \frac{\partial^2 u}{\partial x^2}. \]</span>
 The constant <span class="math inline">\(D\)</span> is the called the diffusivity (the rate of diffusion) so in terms of physical problems, if <span class="math inline">\(D\)</span> is small then the diffusion occurs slowly and if <span class="math inline">\(D\)</span> is large then the diffusion occurs quickly. Just as we did in Chapter <a href="ch-calculus.html#ch:calculus">3</a> to approximate derivatives and integrals numerically, and also in Chapter <a href="ch-odes.html#ch:odes">5</a> to approximate solutions to ODEs, we will start by partitioning the domain into finitely many pieces and we will partition time into finitely many pieces.</p>
@@ -1420,11 +1431,38 @@ Figure 6.10: The finite difference stencil for the Crank Nicolson method.
 </div>
 <div id="the-wave-equation" class="section level2" number="6.6">
 <h2><span class="header-section-number">6.6</span> The Wave Equation</h2>
-<p>The problems that we’ve dealt with thus far all model natural diffusion processes: heat transport, molecular diffusion, etc. Another interesting physical phenomenon is that of wave propagation. In 1 spatial dimension the <em>wave equation</em> is <span class="math display">\[\begin{aligned}
+<p>The problems that we’ve dealt with thus far all model natural diffusion processes: heat transport, molecular diffusion, etc. Another interesting physical phenomenon is that of wave propagation. Previously it was given that the 1D <em>wave equation</em> is <span class="math display">\[\begin{aligned}
        u_{tt} = c u_{xx}
        \label{eqn:wave1D}
    \end{aligned}\]</span>
 where <span class="math inline">\(c\)</span> is a parameter modeling the stiffness of the medium the wave is traveling through. With homogeneous Dirichlet boundary conditions we can think of this as the behavior of a guitar string after it has been plucked. If the boundaries are in motion then the model might be of someone wiggling a taught string from one end.</p>
+<p>So far we have just accepted that this is the wave equation, but we should pause now and look at where the equation comes from. We will stick with 1 spatial dimension and imagine that we are modeling the displacement of a plucked guitar string. Let <span class="math inline">\(u(t,x)\)</span> be the displacement of the string from equilibrium. From Newton’s second law we know that <span class="math inline">\(F = ma\)</span> where the force here is the tension in the string. From Calculus, the acceleration is the second time derivative of the displacement. Hence, for a string of density <span class="math inline">\(\rho\)</span> over length <span class="math inline">\(\Delta x\)</span> we have
+<span class="math display">\[ma = \rho \Delta x \frac{\partial^2 u}{\partial t^2}\]</span>
+and we now have the equation
+<span class="math display">\[\text{tension in the string} = \rho \Delta x \frac{\partial^2 u}{\partial t^2}.\]</span></p>
+<p>If we assume that there is no bending or side-to-side motion of the spring, the tension vector must be tangential to the string. It would be good to draw a picture now:</p>
+<ul>
+<li>Draw a curve representing the string.</li>
+<li>Pick two points on the curve representing the left and right side of an interval of length <span class="math inline">\(\Delta x\)</span>.</li>
+<li>Draw a vector tangent to the string at the left point. The angle from horizontal will be called <span class="math inline">\(\theta_{\text{left}}\)</span></li>
+<li>Draw a vector tangent to the string at the right point. The angle from horizontal will be called <span class="math inline">\(\theta_{\text{right}}\)</span></li>
+</ul>
+<p>If we are interested in a segment of string of length <span class="math inline">\(\Delta x\)</span> then the vertical motion will be dictated by the difference between the vertical components of the tensions at the two endpoints
+<span class="math display">\[\text{tension in the spring} = T_{\text{right}} \sin \theta_{\text{right}} - T_{\text{left}} \sin \theta_{\text{left}}\]</span>
+Since the motion is only vertical we must have that the horizontal tensions are equal and constant
+<span class="math display">\[T_{\text{right}} \cos \theta_{\text{right}} = T_{\text{left}} \cos \theta_{\text{left}} = T.\]</span></p>
+<p>If we divide both sides of the equation
+<span class="math display">\[T_{\text{right}} \sin \theta_{\text{right}} - T_{\text{left}} \sin \theta_{\text{left}} = \rho \Delta x \frac{\partial^2 u}{\partial t^2}\]</span>
+by the constant tension <span class="math inline">\(T\)</span> we get
+<span class="math display">\[\tan\theta_{\text{right}} - \tan\theta_{\text{left}} = \frac{\rho \Delta x}{T} \frac{\partial^2 u}{\partial t^2}.\]</span>
+Recognizing that the tangent of the angle will just be the slopes at the right and left points we now have
+<span class="math display">\[u_x(t,x+\Delta x) - u_x(t,x) = \frac{\rho \Delta x}{T} \frac{\partial^2 u}{\partial t^2}\]</span>
+which can be rearranged to
+<span class="math display">\[\frac{T}{\rho} \frac{u_x(t,x+\Delta x) - u_x(t,x)}{\Delta x} = \frac{\partial^2 u}{\partial t^2}.\]</span></p>
+<p>Allowing <span class="math inline">\(\Delta x\)</span> to get arbitarily small the difference quotient on the left-hand side becomes the second spatial derivative and we arrive at the 1D wave equation
+<span class="math display">\[\frac{\partial^2 u}{\partial t^2} = c \frac{\partial^2 u}{\partial x^2}\]</span>
+where we have defined <span class="math inline">\(c = T/\rho\)</span> as a parameter describing the stiffness of the string. The 2D and 3D derivations are similar but a bit trickier with the trig and geometry.</p>
+<p>For the remainder of this section we will focus on approximating solutions to the wave equation in 1D, 2D, and 3D numerically.</p>
 <hr />
 
 <div class="exercise">
