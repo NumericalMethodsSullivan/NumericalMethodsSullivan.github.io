@@ -472,7 +472,7 @@ and the vertical axis is the ratio of the maximum eigenvalue to the minimum eige
 <div id="lagrange-interpolation" class="section level3" number="9.1.2">
 <h3><span class="header-section-number">C.1.2</span> Lagrange Interpolation</h3>
 <p>Lagrange interpolation is a rather clever interpolation scheme where we build up the interpolating polynomial from simpler polynomials. For interpolation we
-want to build a polynomial <span class="math inline">\(p(x)\)</span> such that <span class="math inline">\(p(x_j) = y_j\)</span> for every datapoint in the set <span class="math inline">\(\{(x_1,y_1), (x_2, y_2), \ldots, (x_n,y_n)\}\)</span>. If we can find a polynomial <span class="math inline">\(\phi_j(x)\)</span> such that
+want to build a polynomial <span class="math inline">\(p(x)\)</span> such that <span class="math inline">\(p(x_j) = y_j\)</span> for every data point in the set <span class="math inline">\(\{(x_1,y_1), (x_2, y_2), \ldots, (x_n,y_n)\}\)</span>. If we can find a polynomial <span class="math inline">\(\phi_j(x)\)</span> such that
 <span class="math display">\[\phi_j(x) = \left\{ \begin{array}{ll} 0, &amp; \text{ if } x = x_i \text{ and } i \ne j \\ 1, &amp; \text{ if
     } x=x_j \end{array} \right.\]</span>
 then for Lagrange interpolation we build <span class="math inline">\(p(x)\)</span> as a linear combination of the <span class="math inline">\(\phi_j\)</span> functions. Let’s look at an example.</p>
@@ -799,38 +799,41 @@ or local minimums.
 </div>
 <div id="the-method-of-lines" class="section level2" number="9.3">
 <h2><span class="header-section-number">C.3</span> The Method Of Lines</h2>
-<p>Building a numerical solution to a time-dependent PDE is a challenging and finicky business. In our study of the heat and traveling wave equations we have seen that an Euler-type time stepping scheme can lead to instabilities in the numerical solution to the PDE. In our study of the traveling wave equation we saw that there are some techniques that partially mitigate these problems, but as of yet we do not have a unified way to combat this issue – until now. Don’t get too excited, however. We will never be able to completely beat time stepping instabilities when using the finite differencee method to numerically solve PDEs. That said, what we will study in this section is a method that works extremely well.</p>
+<p>Building a numerical solution to a time-dependent PDE is a challenging and finicky business. In our study of the heat and traveling wave equations we have seen that an Euler-type time stepping scheme can lead to instabilities in the numerical solution to the PDE. In our study of the traveling wave equation we saw that there are some techniques that partially mitigate these problems, but as of yet we do not have a good way to combat this issue – until now. Don’t get too excited, however. We will never be able to completely beat time stepping instabilities. That said, what we will study in this section is a method that works extremely well.</p>
 <p>We’ll start by considering the one dimensional heat equation
 <span class="math display">\[u_t = D u_{xx}\]</span>
-on the unit interval with homogeneous dirichlet boundary conditions <span class="math inline">\(u(0,t) = u(1,t)=0\)</span> and the initial condition shown in Figure <a href="ch-extras.html#fig:heat-ic-1">C.1</a>.</p>
+on the unit interval with homogeneous Dirichlet boundary conditions <span class="math inline">\(u(t,0) = u(t,1)=0\)</span> and the initial condition shown in Figure <a href="ch-extras.html#fig:heat-ic-1">C.1</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:heat-ic-1"></span>
 <img src="images/Ch06_MOL_HeatIC_1.png" alt="An initial condition for the heat equation." width="85%" />
 <p class="caption">
 Figure C.1: An initial condition for the heat equation.
 </p>
 </div>
-<p>When solving this PDE numerically we typically have discretizes both the spatial derivative and the time derivative. However, there is an alternative way to proceed. Let’s say that we partition the interval <span class="math inline">\([0,1]\)</span> into 10 equal subintervals using 11 points, <span class="math inline">\(x_0 = 0, x_1 = 0.1, x_2 = 0.2, \ldots, x_{11} = 1\)</span>. If we <em>only</em> discretize the spatial derivative <span class="math inline">\(u_{xx}\)</span> and, for the time being, leave the time derivatives alone we get the system of approximations
+<p>When solving this PDE numerically in the past we typically discretized both the spatial and the time derivative and then looped over time to build the solutions. However, there is an alternative way to proceed. If we first discretize the spatial derivative and <em>not</em> the time derivative then we will end up with a system of ordinary differential equations – one for each point in the spatial discretization.</p>
+<p>Let’s make this more clear with a concrete example. Say we partition the interval <span class="math inline">\([0,1]\)</span> into 10 equal sub intervals using 11 points, <span class="math inline">\(x_0 = 0, x_1 = 0.1, x_2 = 0.2, \ldots, x_{11} = 1\)</span>. If we only discretize the spatial derivative <span class="math inline">\(u_{xx}\)</span> and, for the time being, leave the time derivatives alone we get the system of approximations
 <span class="math display">\[\begin{eqnarray}
 u(x_0,t) &amp;=&amp; 0 \quad \text{(left boundary condition)} \\
-\frac{\partial u(t,x_1)}{\partial t} &amp;\approx&amp; D\frac{u(x_0,t) - 2u(x_1,t) + u(x_2,t)}{\Delta x^2} \\
-\frac{\partial u(t,x_2)}{\partial t} &amp;\approx&amp; D\frac{u(x_1,t) - 2u(x_2,t) + u(x_3,t)}{\Delta x^2} \\
+\frac{\partial u(t,x_1)}{\partial t} &amp;\approx&amp; D\frac{u(t,x_0) - 2u(t,x_1) + u(t,x_2)}{\Delta x^2} \\
+\frac{\partial u(t,x_2)}{\partial t} &amp;\approx&amp; D\frac{u(t,x_1) - 2u(t,x_2) + u(t,x_3)}{\Delta x^2} \\
 \vdots \qquad &amp;&amp; \qquad \qquad \qquad \vdots \\
-\frac{\partial u(t,x_{10})}{\partial t} &amp;\approx&amp; D\frac{u(x_9,t) - 2u(x_{10},t) + u(x_{11},t)}{\Delta x^2} \\
-u(x_{11},t) &amp;=&amp; 0 \quad \text{(right boundary condition)}
+\frac{\partial u(t,x_{9})}{\partial t} &amp;\approx&amp; D\frac{u(t,x_8) - 2u(t,x_{9}) + u(t,x_{10})}{\Delta x^2} \\
+u(x_{10},t) &amp;=&amp; 0 \quad \text{(right boundary condition)}
 \end{eqnarray}\]</span>
-where <span class="math inline">\(\Delta x = 0.1\)</span>. The first and last equations (for the boundary conditions) are relatively uninteresting, but the middle equations actually form a system of ordinary differential equations – and we know how to solve systems of ODEs!! The functions in the system of ODEs are <span class="math inline">\(u_1 = u(x_1,t)\)</span>, <span class="math inline">\(u_2 = u(x_2,t)\)</span>, <span class="math inline">\(\ldots\)</span>, <span class="math inline">\(u(x_{10},t) = u_{10}(t)\)</span> so the coupled system of differential equations is
+where <span class="math inline">\(\Delta x = 0.1\)</span> in this specific close. The value of <span class="math inline">\(x\)</span> in each of the equations is fixed so we can view <span class="math inline">\(u(t,x_1)\)</span> as a different function from <span class="math inline">\(u(t,x_2)\)</span> which is different from <span class="math inline">\(u(t,x_3)\)</span> and so on. In other words, if we let <span class="math inline">\(u_1 = u(t,x_1)\)</span>, <span class="math inline">\(u_2 = u(t,x_2)\)</span>, <span class="math inline">\(\ldots\)</span>, <span class="math inline">\(u(t,x_{10}) = u_{10}(t)\)</span> we get the coupled system of <em>ordinary</em> differential equations
 <span class="math display">\[\begin{eqnarray}
 \frac{\partial u_1}{\partial t} &amp;=&amp; D\frac{0 - 2u_1(t) + u_2(t)}{\Delta x^2} \\
 \frac{\partial u_2}{\partial t} &amp;=&amp; D\frac{u_1(t) - 2u_2(t) + u_3(t)}{\Delta x^2} \\
 \vdots \quad &amp;&amp; \qquad \qquad \vdots \\
-\frac{\partial u_{10}}{\partial t} &amp;=&amp; D\frac{u_9(t) - 2u_{10}(t) + 0}{\Delta x^2} \\
+\frac{\partial u_{9}}{\partial t} &amp;=&amp; D\frac{u_8(t) - 2u_{9}(t) + 0}{\Delta x^2}
 \end{eqnarray}\]</span>
-and the initial conditions for these equations are given by the initial condition for the PDE (shown as the black points in Figure <a href="ch-extras.html#fig:heat-ic-1">C.1</a>). The 10 equations given actually track the lengths of the black dashed lines in Figure <a href="ch-extras.html#fig:heat-ic-1">C.1</a> as they evolve in time. By discretizing the spatial derivatives and then using an ODE time stepper we have turned the PDE into a system of ordinary differential equations. This method is called <strong>the method of lines</strong> (where the “lines” in question are the lengths of the vertical lines in Figure <a href="ch-extras.html#fig:heat-ic-1">C.1</a>).</p>
-<p>Now we have reframed the problem of approximating the solution to the PDE as a problem of numerically solving a (potentially very large) system of ODEs. Thankfully we already know several tools for solving systems of ODEs! We just need to choose a method for stepping through time. Our choices, from Chapter <a href="ch-odes.html#ch:odes">5</a>, are Euler’s method, the Midpoint method, and the RK4 method. However, practicioners of numerical analysis typically lean on pre-built tools to do the job in this instance. In the case of Python, there is a nice tool in the <code>scipy</code> library to do the time stepping. You should stop now and check out Exercise <a href="ch-odes.html#exr:odeint">5.80</a> if you haven’t already.</p>
+in the functions <span class="math inline">\(u_1, u_2, \ldots, u_{10}\)</span>.</p>
+<p>The initial conditions for these ODEs are given by the initial condition function for the PDE shown as the black points in Figure <a href="ch-extras.html#fig:heat-ic-1">C.1</a>. One way to think of our new system is that the coupled ODEs track the lengths of the black dashed lines in Figure <a href="ch-extras.html#fig:heat-ic-1">C.1</a> as they evolve in time. This technique is called the <strong>method of lines.</strong></p>
+<p>Now we have re-framed the problem of approximating the solution to the PDE as a problem of numerically solving a (potentially very large) system of ODEs. Thankfully we already know several tools for solving systems of ODEs. We just need to choose a method for stepping through time. Our choices, from Chapter <a href="ch-odes.html#ch:odes">5</a>, are Euler’s method, the Midpoint method, and the RK4 method. However, practitioners of numerical analysis typically lean on pre-built tools to do the job when using the method of lines. In the case of Python, there is a nice tool in the <code>scipy</code> library to do the time stepping which leverages a very powerful (RK4-like) method for doing the time stepping. You should stop now and check out Exercise <a href="ch-odes.html#exr:odeint">5.80</a>, if you haven’t already, since it gives several of the details about how to use <code>scipy.integrate.odeint()</code>.</p>
+<p>Let’s put this into practice.</p>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-896" class="exercise"><strong>Exercise C.22  </strong></span>The code below gives an outline for implementing the method of lines on the heat equation as described above. Complete and implement the code. Once you have a full implementation test the ratio <span class="math inline">\(D\Delta t/\Delta x^2\)</span> to demonstrate that this method does not suffer from the stability issues that we have seen througout the PDE chapter. (Recall that the ratio <span class="math inline">\(D \Delta t/ \Delta x^2\)</span> must be less than a particular value for our typical finite difference discretization to be stable. Show that you can beat it here!)
+<span id="exr:unnamed-chunk-896" class="exercise"><strong>Exercise C.22  </strong></span>The code below gives an outline for implementing the method of lines on the heat equation as described above. Complete and implement the code. Once you have a full implementation test different ratios <span class="math inline">\(D\Delta t/\Delta x^2\)</span> to demonstrate that this method does not suffer from the stability issues that we have seen througout the PDE chapter. (Recall that the ratio <span class="math inline">\(D \Delta t/ \Delta x^2\)</span> must be less than a particular value for our typical finite difference discretization to be stable. Show that you can beat it here!)
 </div>
 <div class="sourceCode" id="cb459"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb459-1"><a href="ch-extras.html#cb459-1"></a><span class="co"># import the proper libraries</span></span>
 <span id="cb459-2"><a href="ch-extras.html#cb459-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -856,7 +859,7 @@ and the initial conditions for these equations are given by the initial conditio
 <span id="cb459-22"><a href="ch-extras.html#cb459-22"></a></span>
 <span id="cb459-23"><a href="ch-extras.html#cb459-23"></a><span class="co"># Now build an array to store the time steps of the numerical solution</span></span>
 <span id="cb459-24"><a href="ch-extras.html#cb459-24"></a>U <span class="op">=</span> np.zeros( (<span class="bu">len</span>(t), <span class="bu">len</span>(x)) )</span>
-<span id="cb459-25"><a href="ch-extras.html#cb459-25"></a>U[<span class="dv">0</span>,:] <span class="op">=</span> u0(x)</span></code></pre></div>
+<span id="cb459-25"><a href="ch-extras.html#cb459-25"></a>U[<span class="dv">0</span>,:] <span class="op">=</span> u0(x) <span class="co"># put the initial condition in the correct row</span></span></code></pre></div>
 <p>The next small block of code will do all of the hard work of time stepping for us. Your first task is to explain completely what this small block of code does. You may want to refer to Exercise <a href="ch-odes.html#exr:odeint">5.80</a> and/or the help documentation for <code>scipy.integrate.odeint</code>.</p>
 <div class="sourceCode" id="cb460"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb460-1"><a href="ch-extras.html#cb460-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(t)<span class="op">-</span><span class="dv">1</span>):</span>
 <span id="cb460-2"><a href="ch-extras.html#cb460-2"></a>  U[n<span class="op">+</span><span class="dv">1</span>,:] <span class="op">=</span> odeint(F, U[n,:], [<span class="dv">0</span>,dt])[<span class="dv">1</span>,:]</span></code></pre></div>
@@ -877,15 +880,15 @@ Figure C.3: A smoother method of lines solution to the heat equation.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-899" class="exercise"><strong>Exercise C.23  </strong></span>Modify your heat equation method of lines code from the previous exercise so that you can have a homogeneous Neumann boundary condition on the right-hand side of the boundary. Be sure that your initial condition satisfies this same boundary condition. Show several snapshots of the time evolution of the solution.
+<span id="exr:unnamed-chunk-899" class="exercise"><strong>Exercise C.23  </strong></span>Modify your heat equation method of lines code from the previous exercise to demonstrate how the method works with several different types of boundary conditions and initial conditions. Show several snapshots of the time evolution of the solution.
 </div>
 <hr />
 
 <div class="exercise">
 <p><span id="exr:unnamed-chunk-900" class="exercise"><strong>Exercise C.24  </strong></span>We can use the method of lines approach to solving PDEs for the more than just the heat equation. Recall the traveling wave equation
 <span class="math display">\[u_t + v u_x = 0\]</span>
-where the parameter <span class="math inline">\(v\)</span> is the speed of propogation of the traveling wave. Recall further that we had all sorts of trouble getting a stable numerical solution to this equation. Now would be a good time to refer back to the section on the traveling wave equation.</p>
-Choose an appropriate initial condition and build a method of lines numerical solution to the traveling wave equation. Experiment with your solution and see if you get the same stability issues that we had with the traveling wave equation before. (Remember to choose between an upwind or a downwind spatial derivative.)
+where the parameter <span class="math inline">\(v\)</span> is the speed of propogation of the traveling wave. Recall further that we had all sorts of trouble getting a stable numerical solution to this equation. Now would be a good time to refer back to the section and your work on the traveling wave equation.</p>
+Choose an appropriate initial condition and build a method of lines numerical solution to the traveling wave equation. Experiment with your solution and see if you get the same stability issues that we had with the traveling wave equation before. (Remember to choose your spatial derivative method wisely.)
 </div>
 <hr />
 <p>We haven’t yet mentioned using the method of lines for the wave equation, and that’s for a good reason. Recall that the 1D wave equation is <span class="math inline">\(u_{tt} = c u_{xx}\)</span>, and the fact that the time derivative is second order requires us to pay a bit closer attention – we can’t just naturally apply an ODE time stepper to a second order time derivative. In your ODE training you likely ran into second order ordinary differential equations in the context of harmonic oscillators. One technique for solving these types of ODEs was to introduce a new variable for the velocity of the oscillator and then to solve the resulting system of equations. We can do the same thing with PDEs.</p>
@@ -894,7 +897,7 @@ Choose an appropriate initial condition and build a method of lines numerical so
 u_t &amp;=&amp; v \\
 v_t &amp;=&amp; c u_{xx}.
 \end{eqnarray}\]</span></p>
-<p>If we discretize the domain then at each point in the domain we have a value of the position, <span class="math inline">\(u\)</span>, and the velocity, <span class="math inline">\(v\)</span>. That is to say that we have twice as many differential equations to keep track of at each point in the spatial discretization. One way to manage this doubling of data in our Python implementation of the method of lines is to take the even indexed entries of our solution vector to be <span class="math inline">\(u\)</span> and to take the odd indexed entries to be <span class="math inline">\(v\)</span>. Thus, for each time step the numerical solution vector will be of the form
+<p>If we discretize the domain then at each point in the domain we have a value of the position, <span class="math inline">\(u\)</span>, and the velocity, <span class="math inline">\(v\)</span>. That is to say that we have twice as many differential equations to keep track of at each point in the spatial discretization, and this potentially causes some housekeeping headaches in your code. One way to manage this doubling of data is to take the even indexed entries of our solution vector to be <span class="math inline">\(u\)</span> and to take the odd indexed entries to be <span class="math inline">\(v\)</span>. Thus, for each time step the numerical solution vector will be of the form
 <span class="math display">\[[u_0, v_0, u_1, v_1, u_2, v_2, ...]\]</span>
 where the subscripts correspond to the indices of the <span class="math inline">\(x\)</span> coordinates. Hence, if we just want to extract the values of <span class="math inline">\(u\)</span> we would take every other value starting at index 0. If we want to extract the values of <span class="math inline">\(v\)</span> we would take every other value starting at index 1.</p>
 <hr />
@@ -948,13 +951,53 @@ where the subscripts correspond to the indices of the <span class="math inline">
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-903" class="exercise"><strong>Exercise C.26  </strong></span>Using the method of lines and splitting the wave equation into a system of PDEs actually allows for a simpler implementation of non-trivial initial velocity functions. Pause and ponder here for a moment: we almost always took our initial velocity to be zero in all prior implementations. Why? Why is it easier now?</p>
+<p><span id="exr:unnamed-chunk-903" class="exercise"><strong>Exercise C.26  </strong></span>Using the method of lines and splitting the wave equation into a system of PDEs actually allows for a simpler implementation of non-trivial initial velocity functions. Pause and ponder here for a moment: we almost always took our initial velocity to be zero in all prior implementations. Why? Why are things easier now?</p>
 Experiment with numerically solving the 1D wave equation using several different initial positions and velocities. Moreover, modify your code to allow for different types of boundary conditions. Produce several snapshots of your more interesting simulations.
 </div>
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-904" class="exercise"><strong>Exercise C.27  </strong></span>Hopefully by now you agree that the method of lines is a very powerful tool for numerically solving time dependent PDEs. But, it isn’t without its faults. Discuss the pros and cons of using the method of lines to get numerical solutions to time dependent PDEs.
+</div>
+<hr />
+<p>Let’s return to the heat equation for a moment. In our implementations of the method of lines for the heat equation we made a second-order discretization in space of the form
+<span class="math display">\[u_{xx} \approx \frac{u_{n+1} - 2u_n + u_{n-1}}{\Delta x^2}.\]</span>
+In our implementation we coded this directly using carefully chosen indices. However, this is another way to build this discretization efficiently. Observe that at any time step we can produce the spatial discretization as a matrix-vector product as follows:
+<span class="math display">\[\begin{pmatrix} -2 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; \cdots \\ 1 &amp; -2 &amp; 1 &amp; 0 &amp; 0 &amp; \cdots \\ 0 &amp; 1 &amp; -2 &amp; 1 &amp; 0 &amp; \cdots \\ \vdots &amp; &amp; &amp; \ddots &amp; &amp;  \end{pmatrix}\begin{pmatrix} u_1 \\ u_2 \\ u_3 \\ \vdots \end{pmatrix}\]</span>
+Stop now and verify that the matrix-vector product will indeed produce the correct spatial discretization.</p>
+<p>Using this new form of the spatial discretization we now can rewrite the PDE as a system of ODEs in the form
+<span class="math display">\[\frac{\partial \boldsymbol{u}}{\partial t} = A \boldsymbol{u}\]</span>
+where <span class="math inline">\(\boldsymbol{u} = \begin{pmatrix} u_1 &amp; u_2 &amp; u_3 &amp; \cdots &amp; u_{n-1} \end{pmatrix}^T\)</span>.</p>
+<p>OK. This is all well and good, but there was nothing really wrong with the way that we implemented the spatial derivative in the past. Let’s recall a theorem from differential equations.</p>
+<hr />
+
+<div class="theorem">
+<span id="thm:unnamed-chunk-905" class="theorem"><strong>Theorem C.1  </strong></span>If <span class="math inline">\(A\)</span> is a square matrix with a compete set of linearly independent eigenvectors then the analytic solution to the differential equation <span class="math inline">\(\boldsymbol{u}&#39; = A \boldsymbol{u}\)</span> is given as
+<span class="math display">\[u(t) = C_1 e^{\lambda_1 t} \boldsymbol{v}_1 + C_2 e^{\lambda_2 t} \boldsymbol{v}_2 + \cdots + C_n e^{\lambda_n t} \boldsymbol{v}_n\]</span>
+where <span class="math inline">\(\lambda_1, \lambda_2, \ldots, \lambda_n\)</span> and <span class="math inline">\(\boldsymbol{v}_1, \boldsymbol{v}_2, \ldots, \boldsymbol{v}_n\)</span> are the eigenvalues and eigenvectors of <span class="math inline">\(A\)</span> respectively and the constants are determined uniquely from the initial condition.
+</div>
+<hr />
+<p>Using this theorem we now have a way to solve the associated time-dependent system of ODEs <em>exactly</em>! That’s right! We can avoid the use of any time stepping routine all together by just remembering some linear algebra (… ahhh linear algebra).</p>
+<hr />
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-906" class="exercise"><strong>Exercise C.28  </strong></span>Write code to solve the 1D heat equation with a second order spatial discretization and an exact solution to the resulting system of ODEs. There is no time stepping needed, but instead your code will need to leverage some linear algebra.</p>
+Hint: Use <code>np.linalg.eig</code> to find the eigenvalues and eigenvectors for you.
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-907" class="exercise"><strong>Exercise C.29  </strong></span>The traveling wave equation can be formulated as a matrix-vector system of ODEs just like we just did with the heat equation. Write code to solve the traveling wave equation without doing any time stepping.
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-908" class="exercise"><strong>Exercise C.30  </strong></span>Is it possible to frame the 1D wave equation as a system of ODEs using a matrix-vector product? If so, give an explicit form of the matrix and give an Python implementation where we use the exact time solution. If not then give an explicit reason why not.
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-909" class="exercise"><strong>Exercise C.31  </strong></span>What are the pros and cons for solving PDEs with an exact solution to the coupled system of ODEs resulting from the method of lines approach? When would you want to use this approach vs an ODE time stepper?
 </div>
 <hr />
 
