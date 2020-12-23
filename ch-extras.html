@@ -922,10 +922,10 @@ where the subscripts correspond to the indices of the <span class="math inline">
 <span id="cb461-18"><a href="ch-extras.html#cb461-18"></a><span class="co"># entries and v in the odd indexed entries.</span></span>
 <span id="cb461-19"><a href="ch-extras.html#cb461-19"></a><span class="kw">def</span> F(uv,t):</span>
 <span id="cb461-20"><a href="ch-extras.html#cb461-20"></a>  duvdt <span class="op">=</span> np.zeros_like(uv)</span>
-<span id="cb461-21"><a href="ch-extras.html#cb461-21"></a>  duvdt[<span class="dv">0</span>] <span class="op">=</span> ??? <span class="co"># left initial position</span></span>
-<span id="cb461-22"><a href="ch-extras.html#cb461-22"></a>  duvdt[<span class="dv">1</span>] <span class="op">=</span> ??? <span class="co"># left initial velocity</span></span>
-<span id="cb461-23"><a href="ch-extras.html#cb461-23"></a>  duvdt[<span class="op">-</span><span class="dv">2</span>] <span class="op">=</span> ??? <span class="co"># right initial position</span></span>
-<span id="cb461-24"><a href="ch-extras.html#cb461-24"></a>  duvdt[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> ??? <span class="co"># right initial velocity</span></span>
+<span id="cb461-21"><a href="ch-extras.html#cb461-21"></a>  duvdt[<span class="dv">0</span>] <span class="op">=</span> ??? <span class="co"># left boundary position</span></span>
+<span id="cb461-22"><a href="ch-extras.html#cb461-22"></a>  duvdt[<span class="dv">1</span>] <span class="op">=</span> ??? <span class="co"># left boundary velocity</span></span>
+<span id="cb461-23"><a href="ch-extras.html#cb461-23"></a>  duvdt[<span class="op">-</span><span class="dv">2</span>] <span class="op">=</span> ??? <span class="co"># right boundary position</span></span>
+<span id="cb461-24"><a href="ch-extras.html#cb461-24"></a>  duvdt[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> ??? <span class="co"># right boundary velocity</span></span>
 <span id="cb461-25"><a href="ch-extras.html#cb461-25"></a>  <span class="co"># Next we need to build the equation u_t = v for </span></span>
 <span id="cb461-26"><a href="ch-extras.html#cb461-26"></a>  <span class="co"># the interior points in the domain.</span></span>
 <span id="cb461-27"><a href="ch-extras.html#cb461-27"></a>  duvdt[???:???:<span class="dv">2</span>] <span class="op">=</span> uv[???:???:<span class="dv">2</span>]</span>
