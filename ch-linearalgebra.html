@@ -453,7 +453,7 @@ linear algebra:</p>
 <hr />
 
 <div class="example">
-<span id="exm:unnamed-chunk-277" class="example"><strong>Example 4.1  (<code>numpy</code> Arrays)  </strong></span>In Python you can build a list using square brackets such as <code>[1,2,3]</code>. This is called a “Python list” and is NOT a vector in the way that we think about it mathematically. It is simply an ordered collection of objects. To build mathematical vectors in Python we need to use <code>numpy</code> arrays with <code>np.array()</code>. For example, the vector
+<span id="exm:unnamed-chunk-278" class="example"><strong>Example 4.1  (<code>numpy</code> Arrays)  </strong></span>In Python you can build a list using square brackets such as <code>[1,2,3]</code>. This is called a “Python list” and is NOT a vector in the way that we think about it mathematically. It is simply an ordered collection of objects. To build mathematical vectors in Python we need to use <code>numpy</code> arrays with <code>np.array()</code>. For example, the vector
 <span class="math display">\[ \boldsymbol{u} = \begin{pmatrix} 1\\2\\3\end{pmatrix} \]</span>
 would be built with the following code.
 </div>
@@ -473,7 +473,7 @@ would be built with the following code.
 <hr />
 
 <div class="example">
-<span id="exm:unnamed-chunk-280" class="example"><strong>Example 4.2  (<code>numpy</code> Matrices)  </strong></span>In <code>numpy</code>, a matrix is a list of lists. For example, the matrix
+<span id="exm:unnamed-chunk-281" class="example"><strong>Example 4.2  (<code>numpy</code> Matrices)  </strong></span>In <code>numpy</code>, a matrix is a list of lists. For example, the matrix
 <span class="math display">\[ A = \begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \\ 7 &amp; 8 &amp; 9 \end{pmatrix} \]</span>
 is defined using <code>np.matrix()</code> where each row is an individual list, and the matrix is a collection of these lists.
 </div>
@@ -499,7 +499,7 @@ is defined using <code>np.matrix()</code> where each row is an individual list, 
 <hr />
 
 <div class="example">
-<span id="exm:unnamed-chunk-283" class="example"><strong>Example 4.3  (Row and Column Vectors in Python)  </strong></span>You can more specifically build row or column vectors in Python using the <code>np.matrix()</code> command and then only specifying one row or column. For example, if you want the vectors
+<span id="exm:unnamed-chunk-284" class="example"><strong>Example 4.3  (Row and Column Vectors in Python)  </strong></span>You can more specifically build row or column vectors in Python using the <code>np.matrix()</code> command and then only specifying one row or column. For example, if you want the vectors
 <span class="math display">\[ \boldsymbol{u} = \begin{pmatrix} 1\\2\\3\end{pmatrix} \quad \text{and} \quad \boldsymbol{v} = \begin{pmatrix} 4 &amp; 5 &amp; 6 \end{pmatrix} \]</span>
 then we would use the following Python code.
 </div>
@@ -526,7 +526,7 @@ then we would use the following Python code.
 <hr />
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-286" class="example"><strong>Example 4.4  (Matrix Indexing)  </strong></span>Python indexes all arrays, vectors, lists, and matrices starting from index 0. Let’s get used to this fact.</p>
+<p><span id="exm:unnamed-chunk-287" class="example"><strong>Example 4.4  (Matrix Indexing)  </strong></span>Python indexes all arrays, vectors, lists, and matrices starting from index 0. Let’s get used to this fact.</p>
 <p>Consider the matrix <span class="math inline">\(A\)</span> defined in the previous problem. Mathematically we know that the entry in row 1 column 1 is a 1, the entry in row 1 column 2 is a 2, and so on. However, with Python we need to shift the way that we enumerate the rows and columns of a matrix. Hence we would say that the entry in row 0 column 0 is a 1, the entry in row 0 column 1 is a 2, and so on.</p>
 <p>Mathematically we can view all Python matrices as follows. If <span class="math inline">\(A\)</span> is an <span class="math inline">\(n \times n\)</span> matrix then
 <span class="math display">\[ A = \begin{pmatrix} A_{0,0} &amp; A_{0,1} &amp; A_{0,2} &amp; \cdots &amp; A_{0,n-1} \\
@@ -548,12 +548,12 @@ A_{n-1,0} &amp; A_{n-1,1} &amp; A_{n-1,2} &amp; \cdots &amp; A_{n-1,n-1} \end{pm
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-288" class="exercise"><strong>Exercise 4.1  </strong></span>Build your own matrix in Python and practice choosing individual entries from the matrix.
+<span id="exr:unnamed-chunk-289" class="exercise"><strong>Exercise 4.1  </strong></span>Build your own matrix in Python and practice choosing individual entries from the matrix.
 </div>
 <hr />
 
 <div class="example">
-<span id="exm:unnamed-chunk-289" class="example"><strong>Example 4.5  (Matrix Slicing)  </strong></span>The last thing that we need to be familiar with is <em>slicing</em> a matrix. The term “slicing” gernally refers to pulling out individual rows, columns, entries, or blocks from a list, array, or matrix in Python. Examine the code below to see how to slice parts out of a <code>numpy</code> matrix.
+<span id="exm:unnamed-chunk-290" class="example"><strong>Example 4.5  (Matrix Slicing)  </strong></span>The last thing that we need to be familiar with is <em>slicing</em> a matrix. The term “slicing” gernally refers to pulling out individual rows, columns, entries, or blocks from a list, array, or matrix in Python. Examine the code below to see how to slice parts out of a <code>numpy</code> matrix.
 </div>
 <div class="sourceCode" id="cb83"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb83-1"><a href="ch-linearalgebra.html#cb83-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb83-2"><a href="ch-linearalgebra.html#cb83-2"></a>A <span class="op">=</span> np.matrix([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>],[<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]])</span>
@@ -590,7 +590,7 @@ A_{n-1,0} &amp; A_{n-1,1} &amp; A_{n-1,2} &amp; \cdots &amp; A_{n-1,n-1} \end{pm
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-291" class="exercise"><strong>Exercise 4.2  </strong></span>Define the matrix <span class="math inline">\(A\)</span> and the vector <span class="math inline">\(u\)</span> in Python. Then perform all of the tasks below.
+<p><span id="exr:unnamed-chunk-292" class="exercise"><strong>Exercise 4.2  </strong></span>Define the matrix <span class="math inline">\(A\)</span> and the vector <span class="math inline">\(u\)</span> in Python. Then perform all of the tasks below.
 <span class="math display">\[ A = \begin{pmatrix} 1 &amp; 3 &amp; 5 &amp; 7 \\ 2 &amp; 4 &amp; 6 &amp; 8 \\ -3 &amp; -2 &amp; -1 &amp; 0 \end{pmatrix} \quad \text{and} \quad \boldsymbol{u} = \begin{pmatrix} 10\\20\\30 \end{pmatrix} \]</span></p>
 <ol style="list-style-type: lower-alpha">
 <li>Print the matrix <span class="math inline">\(A\)</span>, the vector <span class="math inline">\(\boldsymbol{u}\)</span>, the shape of <span class="math inline">\(A\)</span>, and the shape of <span class="math inline">\(\boldsymbol{u}\)</span>.</li>
@@ -612,7 +612,7 @@ A_{n-1,0} &amp; A_{n-1,1} &amp; A_{n-1,2} &amp; \cdots &amp; A_{n-1,n-1} \end{pm
 <h3><span class="header-section-number">4.3.1</span> The Dot Product</h3>
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-292" class="exercise"><strong>Exercise 4.3  </strong></span>This problem is meant to jog your memory about dot products, how to compute them, and what you might use them for. If your linear algebra is a bit rusty then read ahead a bit and then come back to this problem.</p>
+<p><span id="exr:unnamed-chunk-293" class="exercise"><strong>Exercise 4.3  </strong></span>This problem is meant to jog your memory about dot products, how to compute them, and what you might use them for. If your linear algebra is a bit rusty then read ahead a bit and then come back to this problem.</p>
 <p>Consider two vectors <span class="math inline">\(\boldsymbol{u}\)</span> and <span class="math inline">\(\boldsymbol{v}\)</span> defined as
 <span class="math display">\[ \boldsymbol{u} = \begin{pmatrix} 1 \\ 2 \end{pmatrix} \quad \text{and} \quad \boldsymbol{v} = \begin{pmatrix} 3\\4 \end{pmatrix}. \]</span></p>
 <ol style="list-style-type: lower-alpha">
@@ -630,7 +630,7 @@ A_{n-1,0} &amp; A_{n-1,1} &amp; A_{n-1,2} &amp; \cdots &amp; A_{n-1,n-1} \end{pm
 <p>Now let’s get the formal definitions of the dot product on the table.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-293" class="definition"><strong>Definition 4.1  (The Dot Product)  </strong></span>The <strong>dot product</strong> of two vectors <span class="math inline">\(\boldsymbol{u}, \boldsymbol{v} \in \mathbb{R}^n\)</span> is
+<span id="def:unnamed-chunk-294" class="definition"><strong>Definition 4.1  (The Dot Product)  </strong></span>The <strong>dot product</strong> of two vectors <span class="math inline">\(\boldsymbol{u}, \boldsymbol{v} \in \mathbb{R}^n\)</span> is
 <span class="math display">\[\boldsymbol{u} \cdot \boldsymbol{v} = \sum_{j=1}^n u_j v_j.\]</span>
 Without summation notation the dot product of two vectors is ,
 <span class="math display">\[\boldsymbol{u} \cdot \boldsymbol{v} = u_1 v_1 + u_2 v_2 + \cdots + u_n v_n.\]</span>
@@ -642,19 +642,19 @@ where <span class="math inline">\(\|\boldsymbol{u}\|\)</span> and <span class="m
 <hr />
 
 <div class="definition">
-<span id="def:unnamed-chunk-294" class="definition"><strong>Definition 4.2  (Magnitude of a Vector)  </strong></span>The <strong>magnitude</strong> of a vector <span class="math inline">\(\boldsymbol{u} \in \mathbb{R}^n\)</span> is defined as
+<span id="def:unnamed-chunk-295" class="definition"><strong>Definition 4.2  (Magnitude of a Vector)  </strong></span>The <strong>magnitude</strong> of a vector <span class="math inline">\(\boldsymbol{u} \in \mathbb{R}^n\)</span> is defined as
 <span class="math display">\[ \| \boldsymbol{u} \| = \sqrt{\boldsymbol{u} \cdot \boldsymbol{u}}. \]</span>
 You should note that in two dimensions this collapses to the Pythagorean Theorem, and in higher dimensions this is just a natural extension of the Pythagorean Theorm.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-295" class="exercise"><strong>Exercise 4.4  </strong></span>Verify that <span class="math inline">\(\sqrt{\boldsymbol{u} \cdot \boldsymbol{u}}\)</span> indeed gives the Pythagorean Theorem for <span class="math inline">\(\boldsymbol{u} \in \mathbb{R}^2\)</span>.
+<span id="exr:unnamed-chunk-296" class="exercise"><strong>Exercise 4.4  </strong></span>Verify that <span class="math inline">\(\sqrt{\boldsymbol{u} \cdot \boldsymbol{u}}\)</span> indeed gives the Pythagorean Theorem for <span class="math inline">\(\boldsymbol{u} \in \mathbb{R}^2\)</span>.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-296" class="exercise"><strong>Exercise 4.5  </strong></span>Our task now is to write a Python function that accepts two vectors (defined as <code>numpy</code> arrays) and returns the dot product. Write this code without the use any loops.
+<span id="exr:unnamed-chunk-297" class="exercise"><strong>Exercise 4.5  </strong></span>Our task now is to write a Python function that accepts two vectors (defined as <code>numpy</code> arrays) and returns the dot product. Write this code without the use any loops.
 </div>
 <div class="sourceCode" id="cb99"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb99-1"><a href="ch-linearalgebra.html#cb99-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb99-2"><a href="ch-linearalgebra.html#cb99-2"></a><span class="kw">def</span> myDotProduct(u,v):</span>
@@ -662,7 +662,7 @@ You should note that in two dimensions this collapses to the Pythagorean Theorem
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-298" class="exercise"><strong>Exercise 4.6  </strong></span>Test your <code>myDotProduct()</code> function on several dot products to make sure that it works. Example code to find the dot product between
+<span id="exr:unnamed-chunk-299" class="exercise"><strong>Exercise 4.6  </strong></span>Test your <code>myDotProduct()</code> function on several dot products to make sure that it works. Example code to find the dot product between
 <span class="math display">\[ \boldsymbol{u} = \begin{pmatrix} 1 \\ 2\\ 3\end{pmatrix} \quad \text{and} \quad \boldsymbol{v} = \begin{pmatrix} 4\\5\\6\end{pmatrix} \]</span>
 is given below. Test your code on other vectors. Then implement an error catch into your code to catch the case where the two input vectors are not the same size. You will want to use the <code>len()</code> command to find the length of the vectors.
 </div>
@@ -672,7 +672,7 @@ is given below. Test your code on other vectors. Then implement an error catch i
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-300" class="exercise"><strong>Exercise 4.7  </strong></span>Try sending Python lists instead of <code>numpy</code> arrays into your <code>myDotProduct</code> function. What happens? Why does it happen? What is the cautionary tale here? Modify your <code>myDotProduct()</code> function one more time so that it starts by converting the input vectors into <code>numpy</code> arrays.
+<span id="exr:unnamed-chunk-301" class="exercise"><strong>Exercise 4.7  </strong></span>Try sending Python lists instead of <code>numpy</code> arrays into your <code>myDotProduct</code> function. What happens? Why does it happen? What is the cautionary tale here? Modify your <code>myDotProduct()</code> function one more time so that it starts by converting the input vectors into <code>numpy</code> arrays.
 </div>
 <div class="sourceCode" id="cb101"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb101-1"><a href="ch-linearalgebra.html#cb101-1"></a>u <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
 <span id="cb101-2"><a href="ch-linearalgebra.html#cb101-2"></a>v <span class="op">=</span> [<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]</span>
@@ -680,7 +680,7 @@ is given below. Test your code on other vectors. Then implement an error catch i
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-302" class="exercise"><strong>Exercise 4.8  </strong></span>The <code>numpy</code> library in Python has a built-in command for doing the dot product: <code>np.dot()</code>. Test the <code>np.dot()</code> command and be sure that it does the same thing as your <code>myDotProduct()</code> function.
+<span id="exr:unnamed-chunk-303" class="exercise"><strong>Exercise 4.8  </strong></span>The <code>numpy</code> library in Python has a built-in command for doing the dot product: <code>np.dot()</code>. Test the <code>np.dot()</code> command and be sure that it does the same thing as your <code>myDotProduct()</code> function.
 </div>
 <hr />
 </div>
@@ -688,7 +688,7 @@ is given below. Test your code on other vectors. Then implement an error catch i
 <h3><span class="header-section-number">4.3.2</span> Matrix Multiplication</h3>
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-303" class="exercise"><strong>Exercise 4.9  </strong></span>Next we will blow the dust off of your matrix multiplication skills. Verify that the product of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is indeed what we show below. Work out all of the details by hand.
+<p><span id="exr:unnamed-chunk-304" class="exercise"><strong>Exercise 4.9  </strong></span>Next we will blow the dust off of your matrix multiplication skills. Verify that the product of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is indeed what we show below. Work out all of the details by hand.
 <span class="math display">\[ A = \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \\ 5 &amp; 6 \end{pmatrix} \qquad B = \begin{pmatrix} 7 &amp; 8 &amp; 9 \\ 10 &amp; 11 &amp; 12 \end{pmatrix} \]</span>
 <span class="math display">\[ AB = \begin{pmatrix} 27 &amp; 30 &amp; 33 \\ 61 &amp; 68 &amp; 75 \\ 95 &amp; 106 &amp; 117 \end{pmatrix} \]</span></p>
 </div>
@@ -697,7 +697,7 @@ is given below. Test your code on other vectors. Then implement an error catch i
 <hr />
 
 <div class="definition">
-<span id="def:unnamed-chunk-304" class="definition"><strong>Definition 4.3  (Matrix Multiplicaiton)  </strong></span>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are matrices with <span class="math inline">\(A \in \mathbb{R}^{n \times p}\)</span> and <span class="math inline">\(B \in \mathbb{R}^{p \times m}\)</span> then the product <span class="math inline">\(AB\)</span> is defined as
+<span id="def:unnamed-chunk-305" class="definition"><strong>Definition 4.3  (Matrix Multiplicaiton)  </strong></span>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are matrices with <span class="math inline">\(A \in \mathbb{R}^{n \times p}\)</span> and <span class="math inline">\(B \in \mathbb{R}^{p \times m}\)</span> then the product <span class="math inline">\(AB\)</span> is defined as
 <span class="math display">\[ \left( AB \right)_{ij} = \sum_{k=1}^p A_{ik} B_{kj}.\]</span>
 A moment’s reflection reveals that each entry in the matrix product is actually a dot product,
 <span class="math display">\[ \left( \text{Entry in row $i$ column $j$ of $AB$} \right) = \left( \text{Row $i$ of matrix $A$} \right) \cdot \left( \text{Column $j$ of matrix $B$} \right).\]</span>
@@ -705,7 +705,7 @@ A moment’s reflection reveals that each entry in the matrix product is actuall
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-305" class="exercise"><strong>Exercise 4.10  </strong></span>The definition of matrix multiplication above contains the cryptic phrase <em>a moment’s reflection reveals that each entry in the matrix product is actually a dot product.</em> Let’s go back to the matrices <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> defined above and re-evaluate the matrix multiplication algorithm to make sure that you see each entry as the end result of a dot product.</p>
+<p><span id="exr:unnamed-chunk-306" class="exercise"><strong>Exercise 4.10  </strong></span>The definition of matrix multiplication above contains the cryptic phrase <em>a moment’s reflection reveals that each entry in the matrix product is actually a dot product.</em> Let’s go back to the matrices <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> defined above and re-evaluate the matrix multiplication algorithm to make sure that you see each entry as the end result of a dot product.</p>
 <p>We want to find the product of matrices <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> using dot products.
 <span class="math display">\[A = \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \\ 5 &amp; 6 \end{pmatrix} \qquad B =
     \begin{pmatrix} 7 &amp; 8 &amp; 9 \\ 10 &amp; 11 &amp; 12 \end{pmatrix}\]</span></p>
@@ -733,7 +733,7 @@ when you perform all of the dot products from part (c).</li>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-306" class="exercise"><strong>Exercise 4.11  </strong></span>The observation that matrix multiplication is just a bunch of dot products is what makes the code for doing matrix multiplication very fast and very streamlined. We want to write a Python function that accepts two <code>numpy</code> matrices and returns the product of the two matrices. Inside the code we will leverage the <code>np.dot()</code> command to do the appropriate dot products.</p>
+<p><span id="exr:unnamed-chunk-307" class="exercise"><strong>Exercise 4.11  </strong></span>The observation that matrix multiplication is just a bunch of dot products is what makes the code for doing matrix multiplication very fast and very streamlined. We want to write a Python function that accepts two <code>numpy</code> matrices and returns the product of the two matrices. Inside the code we will leverage the <code>np.dot()</code> command to do the appropriate dot products.</p>
 Partial code is given below. Fill in all of the details and give ample comments showing what each line does.
 </div>
 <div class="sourceCode" id="cb102"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb102-1"><a href="ch-linearalgebra.html#cb102-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -761,19 +761,19 @@ Partial code is given below. Fill in all of the details and give ample comments 
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-309" class="exercise"><strong>Exercise 4.12  </strong></span>Try your <code>myMatrixMult()</code> function on several other matrix multiplication problems.
+<span id="exr:unnamed-chunk-310" class="exercise"><strong>Exercise 4.12  </strong></span>Try your <code>myMatrixMult()</code> function on several other matrix multiplication problems.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-310" class="exercise"><strong>Exercise 4.13  </strong></span>Build in an error catch so that your <code>myMatrixMul()</code> function catches when the input matrices do not have compatible sizes for multiplication. Write your code so that it returns an appropriate error message in this special case.
+<span id="exr:unnamed-chunk-311" class="exercise"><strong>Exercise 4.13  </strong></span>Build in an error catch so that your <code>myMatrixMul()</code> function catches when the input matrices do not have compatible sizes for multiplication. Write your code so that it returns an appropriate error message in this special case.
 </div>
 <hr />
 <p>Now that you’ve been through the exercise of building a matrix multiplication function we will admit that using it inside larger coding problems would be a bit cumbersome (and perhaps annoying). It would be nice to just type <code>*</code> and have Python just <em>know</em> that you mean to do matrix multiplication. The trouble is that there are many different versions of multiplication and any programming language needs to be told explicitly which type they’re dealing with. This is where <code>numpy</code> and <code>np.matrix()</code> come in quite handy.</p>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-311" class="exercise"><strong>Exercise 4.14  (Matrix Multiplication with Python)  </strong></span>Python will handle matrix multiplication easily so long as the matrices are defined as <code>numpy</code> matrices with <code>np.matrix()</code>. For example, with the matrices <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> from above if you can just type <code>A*B</code> in Python and you will get the correct result. Pretty nice!! Let’s take another moment to notice, though, that regular Python arrays do not behave in the same way. What happens if you run the following Python code?
+<span id="exr:unnamed-chunk-312" class="exercise"><strong>Exercise 4.14  (Matrix Multiplication with Python)  </strong></span>Python will handle matrix multiplication easily so long as the matrices are defined as <code>numpy</code> matrices with <code>np.matrix()</code>. For example, with the matrices <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> from above if you can just type <code>A*B</code> in Python and you will get the correct result. Pretty nice!! Let’s take another moment to notice, though, that regular Python arrays do not behave in the same way. What happens if you run the following Python code?
 </div>
 <div class="sourceCode" id="cb104"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb104-1"><a href="ch-linearalgebra.html#cb104-1"></a>A <span class="op">=</span> [[<span class="dv">1</span>,<span class="dv">2</span>],[<span class="dv">3</span>,<span class="dv">4</span>],[<span class="dv">5</span>,<span class="dv">6</span>]] <span class="co"># a Python list of lists</span></span>
 <span id="cb104-2"><a href="ch-linearalgebra.html#cb104-2"></a>B <span class="op">=</span> [[<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>],[<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>]] <span class="co"># a Python list of lists</span></span>
@@ -781,7 +781,7 @@ Partial code is given below. Fill in all of the details and give ample comments 
 <hr />
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-313" class="example"><strong>Example 4.6  (Element-by-Element Multiplication)  </strong></span>Sometimes it is convenient to do naive multiplication of matrices when you code. That is, if you have two matrices that are the same size, “naive multiplication” would just line up the matrices on top of each other and multiply the corresponding entries.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> In Python the tool to do this is <code>np.multiply()</code>. The code below demonstrates this tool with the matrices
+<p><span id="exm:unnamed-chunk-314" class="example"><strong>Example 4.6  (Element-by-Element Multiplication)  </strong></span>Sometimes it is convenient to do naive multiplication of matrices when you code. That is, if you have two matrices that are the same size, “naive multiplication” would just line up the matrices on top of each other and multiply the corresponding entries.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> In Python the tool to do this is <code>np.multiply()</code>. The code below demonstrates this tool with the matrices
 <span class="math display">\[ A = \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \\ 5 &amp; 6 \end{pmatrix} \quad \text{and} \quad B = \begin{pmatrix} 7 &amp; 8 \\ 9 &amp; 10 \\ 11 &amp; 12 \end{pmatrix}. \]</span></p>
 (Note that the product <span class="math inline">\(AB\)</span> does not make sense under the mathematical definition of matrix multiplication, but it does make sense in terms of element-by-element (“naive”) multiplication.)
 </div>
@@ -812,7 +812,7 @@ linear system <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</s
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-315" class="exercise"><strong>Exercise 4.15  </strong></span>Solve the following system of equations by hand.
+<p><span id="exr:unnamed-chunk-316" class="exercise"><strong>Exercise 4.15  </strong></span>Solve the following system of equations by hand.
 <span class="math display">\[ \begin{array}{rl} x_0 + 2x_1 + 3x_2 &amp;= 1 \\ 
                     4x_0 + 5x_1 + 6x_2 &amp;= 0 \\
                     7x_0 + 8x_1 &amp;= 2 \end{array} \]</span>
@@ -823,7 +823,7 @@ If you need a nudge to get started then jump ahead to the next problem.
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-316" class="exercise"><strong>Exercise 4.16  </strong></span>We want to solve the system of equations
+<p><span id="exr:unnamed-chunk-317" class="exercise"><strong>Exercise 4.16  </strong></span>We want to solve the system of equations
 <span class="math display">\[ \begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \\ 7 &amp; 8 &amp; 0 \end{pmatrix} \begin{pmatrix} x_0 \\ x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \\ 2\end{pmatrix} \]</span></p>
 <p><strong>Row Reduction Process:</strong></p>
 <p><strong>Note:</strong> Throughout this discussion we use Python-type indexing so the rows and columns are enumerated starting at 0. That is to say, we will talk about row 0, row 1, and row 2 of a matrix instead of rows 1, 2, and 3.</p>
@@ -876,7 +876,7 @@ and you should be able to read off the solution to the system.</li>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-317" class="exercise"><strong>Exercise 4.17  </strong></span>Summarize the process for doing Gaussian Elimination to solve a square system of linear equations.
+<span id="exr:unnamed-chunk-318" class="exercise"><strong>Exercise 4.17  </strong></span>Summarize the process for doing Gaussian Elimination to solve a square system of linear equations.
 </div>
 <hr />
 </div>
@@ -893,7 +893,7 @@ and instead say:</p>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-318" class="exercise"><strong>Exercise 4.18  </strong></span>Let <span class="math inline">\(A\)</span> be defined as
+<p><span id="exr:unnamed-chunk-319" class="exercise"><strong>Exercise 4.18  </strong></span>Let <span class="math inline">\(A\)</span> be defined as
 <span class="math display">\[ A = \begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \\ 7 &amp; 8 &amp; 0 \end{pmatrix}. \]</span></p>
 <ol style="list-style-type: lower-alpha">
 <li>The first step in row reducing <span class="math inline">\(A\)</span> would be to multiply row 0 by <span class="math inline">\(-4\)</span> and add it to row 1. Do this operation by hand so that you know what the result is supposed to be. Check out the following amazing observation. Define the matrix <span class="math inline">\(L_1\)</span> as follows:
@@ -915,13 +915,13 @@ Pure insanity!!<br />
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-319" class="exercise"><strong>Exercise 4.19  </strong></span>Apply the same idea from the previous problem to do the first three steps of row reduction to the matrix
+<span id="exr:unnamed-chunk-320" class="exercise"><strong>Exercise 4.19  </strong></span>Apply the same idea from the previous problem to do the first three steps of row reduction to the matrix
 <span class="math display">\[ A = \begin{pmatrix} 2 &amp; 6 &amp; 9 \\ -6 &amp; 8 &amp; 1 \\ 2 &amp; 2 &amp; 10 \end{pmatrix} \]</span>
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-320" class="exercise"><strong>Exercise 4.20  </strong></span>Now let’s make a few observations about the two previous problems.</p>
+<p><span id="exr:unnamed-chunk-321" class="exercise"><strong>Exercise 4.20  </strong></span>Now let’s make a few observations about the two previous problems.</p>
 <ol style="list-style-type: lower-alpha">
 <li>What will multiplying <span class="math inline">\(A\)</span> by a matrix of the form
 <span class="math display">\[ \begin{pmatrix} 1 &amp; 0 &amp; 0 \\ c &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix} \]</span>
@@ -938,7 +938,7 @@ do?</li>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-321" class="exercise"><strong>Exercise 4.21  </strong></span>After doing all of the matrix products, <span class="math inline">\(L_3 L_2 L_1 A\)</span>, the resulting matrix will have zeros in the entire lower triangle. That is, all of the nonzero entries of the resulting matrix will be on the main diagonal or above. We call this matrix <span class="math inline">\(U\)</span>, for upper triangular. Hence, we have formed a matrix
+<span id="exr:unnamed-chunk-322" class="exercise"><strong>Exercise 4.21  </strong></span>After doing all of the matrix products, <span class="math inline">\(L_3 L_2 L_1 A\)</span>, the resulting matrix will have zeros in the entire lower triangle. That is, all of the nonzero entries of the resulting matrix will be on the main diagonal or above. We call this matrix <span class="math inline">\(U\)</span>, for upper triangular. Hence, we have formed a matrix
 <span class="math display">\[ L_3 L_2 L_1 A = U \]</span>
 and if we want to solve for <span class="math inline">\(A\)</span> we would get
 <span class="math display">\[ A = (\underline{\hspace{0.5in}})^{-1} (\underline{\hspace{0.5in}})^{-1} (\underline{\hspace{0.5in}})^{-1} U \]</span>
@@ -947,13 +947,13 @@ and if we want to solve for <span class="math inline">\(A\)</span> we would get
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-322" class="exercise"><strong>Exercise 4.22  </strong></span>It would be nice, now, if the inverses of the <span class="math inline">\(L\)</span> matrices were easy to find. Use <code>np.linalg.inv()</code> to directly compute the inverse of <span class="math inline">\(L_1\)</span>, <span class="math inline">\(L_2\)</span>, and <span class="math inline">\(L_3\)</span> for each of the example matrices. Then complete the statement:
+<span id="exr:unnamed-chunk-323" class="exercise"><strong>Exercise 4.22  </strong></span>It would be nice, now, if the inverses of the <span class="math inline">\(L\)</span> matrices were easy to find. Use <code>np.linalg.inv()</code> to directly compute the inverse of <span class="math inline">\(L_1\)</span>, <span class="math inline">\(L_2\)</span>, and <span class="math inline">\(L_3\)</span> for each of the example matrices. Then complete the statement:
 If <span class="math inline">\(L_k\)</span> is an identity matrix with some nonzero <span class="math inline">\(c\)</span> in row <span class="math inline">\(i\)</span> and column <span class="math inline">\(j\)</span> then <span class="math inline">\(L_k^{-1}\)</span> is what matrix?
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-323" class="exercise"><strong>Exercise 4.23  </strong></span>We started this discussion with <span class="math inline">\(A\)</span> as
+<p><span id="exr:unnamed-chunk-324" class="exercise"><strong>Exercise 4.23  </strong></span>We started this discussion with <span class="math inline">\(A\)</span> as
 <span class="math display">\[ A = \begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \\ 7 &amp; 8 &amp; 0 \end{pmatrix} \]</span>
 and we defined
 <span class="math display">\[ L_1 = \begin{pmatrix} 1 &amp; 0 &amp; 0 \\ -4 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}, \quad L_2 = \begin{pmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ -7 &amp; 0 &amp; 1 \end{pmatrix}, \quad \text{and} \quad L_3 = \begin{pmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; -2 &amp; 1 \end{pmatrix}.  \]</span>
@@ -986,7 +986,7 @@ Now explicitly find the product <span class="math inline">\(L_1^{-1} L_2^{-1} L_
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-325" class="exercise"><strong>Exercise 4.24  </strong></span>Go to Definition <a href="ch-linearalgebra.html#def:lu">4.4</a> and go through every iteration of every loop <strong>by hand</strong> starting with the matrix
+<p><span id="exr:unnamed-chunk-326" class="exercise"><strong>Exercise 4.24  </strong></span>Go to Definition <a href="ch-linearalgebra.html#def:lu">4.4</a> and go through every iteration of every loop <strong>by hand</strong> starting with the matrix
 <span class="math display">\[ A = \begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \\ 7 &amp; 8 &amp; 0 \end{pmatrix}. \]</span>
 Give details of what happens at every step of the algorithm. I’ll get you started.</p>
 <ul>
@@ -1011,7 +1011,7 @@ Give details of what happens at every step of the algorithm. I’ll get you star
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-326" class="exercise"><strong>Exercise 4.25  </strong></span>Apply your new <code>myLU</code> code to other square matrices and verify that indeed <span class="math inline">\(A\)</span> is the product of the resulting <span class="math inline">\(L\)</span> and <span class="math inline">\(U\)</span> matrices. You can produce a random matrix with <code>np.random.randn(n,n)</code> where <code>n</code> is the number of rows and columns of the matrix. For example, <code>np.random.randn(10,10)</code> will produce a random <span class="math inline">\(10 \times 10\)</span> matrix with entries chosen from the normal distribution with center 0 and standard deviation 1. Random matrices are just as good as any other when testing your algorithm.
+<span id="exr:unnamed-chunk-327" class="exercise"><strong>Exercise 4.25  </strong></span>Apply your new <code>myLU</code> code to other square matrices and verify that indeed <span class="math inline">\(A\)</span> is the product of the resulting <span class="math inline">\(L\)</span> and <span class="math inline">\(U\)</span> matrices. You can produce a random matrix with <code>np.random.randn(n,n)</code> where <code>n</code> is the number of rows and columns of the matrix. For example, <code>np.random.randn(10,10)</code> will produce a random <span class="math inline">\(10 \times 10\)</span> matrix with entries chosen from the normal distribution with center 0 and standard deviation 1. Random matrices are just as good as any other when testing your algorithm.
 </div>
 <hr />
 </div>
@@ -1026,14 +1026,14 @@ and
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-327" class="exercise"><strong>Exercise 4.26  </strong></span>Outline a fast algorithm (without formal row reduction) for solving the lower triangular system
+<span id="exr:unnamed-chunk-328" class="exercise"><strong>Exercise 4.26  </strong></span>Outline a fast algorithm (without formal row reduction) for solving the lower triangular system
 <span class="math display">\[\begin{pmatrix} 1 &amp; 0 &amp; 0 \\ 4 &amp; 1 &amp; 0 \\ 7 &amp; 2 &amp; 1 \end{pmatrix} \begin{pmatrix}
         y_0 \\ y_1 \\ y_2 \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \\ 2\end{pmatrix}.\]</span>
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-328" class="exercise"><strong>Exercise 4.27  </strong></span>As a convention we will always write our lower triangular matrices with ones on the main diagonal. Generalize your steps from the previous exercise so that you have an algorithm for solving any lower triangular system. The most natural algorithm that most people devise here is called <strong>forward substitution</strong>.
+<span id="exr:unnamed-chunk-329" class="exercise"><strong>Exercise 4.27  </strong></span>As a convention we will always write our lower triangular matrices with ones on the main diagonal. Generalize your steps from the previous exercise so that you have an algorithm for solving any lower triangular system. The most natural algorithm that most people devise here is called <strong>forward substitution</strong>.
 </div>
 <hr />
 
@@ -1055,7 +1055,7 @@ The code below gives a full implementation of the <strong>Forward Substitution</
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-330" class="exercise"><strong>Exercise 4.28  </strong></span>Work with your partner(s) to apply the <code>lsolve()</code> code to the lower triangular system<br />
+<p><span id="exr:unnamed-chunk-331" class="exercise"><strong>Exercise 4.28  </strong></span>Work with your partner(s) to apply the <code>lsolve()</code> code to the lower triangular system<br />
 <span class="math display">\[\begin{pmatrix} 1 &amp; 0 &amp; 0 \\ 4 &amp; 1 &amp; 0 \\ 7 &amp; 2 &amp; 1 \end{pmatrix} \begin{pmatrix} y_0 \\ y_1 \\ y_2 \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \\ 2\end{pmatrix}\]</span>
 <strong>by hand</strong>. It is incredibly important to impelement numerical linear algebra routines by hand a few times so that you truly understand how everything is being tracked and calculated.</p>
 <p>I’ll get you started.</p>
@@ -1092,14 +1092,14 @@ The code below gives a full implementation of the <strong>Forward Substitution</
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-331" class="exercise"><strong>Exercise 4.29  </strong></span>Copy the code from Definition <a href="ch-linearalgebra.html#def:lsolve">4.5</a> into a Python function but in your code write a comment on every line stating what it is doing. Write a test script that creates a lower triangular matrix of the correct form and a right-hand side <span class="math inline">\(\boldsymbol{b}\)</span> and solve for <span class="math inline">\({\bf y}\)</span>. Test your code by giving it a large lower triangular system.
+<span id="exr:unnamed-chunk-332" class="exercise"><strong>Exercise 4.29  </strong></span>Copy the code from Definition <a href="ch-linearalgebra.html#def:lsolve">4.5</a> into a Python function but in your code write a comment on every line stating what it is doing. Write a test script that creates a lower triangular matrix of the correct form and a right-hand side <span class="math inline">\(\boldsymbol{b}\)</span> and solve for <span class="math inline">\({\bf y}\)</span>. Test your code by giving it a large lower triangular system.
 </div>
 <hr />
 <p>Now that we have a method for solving lower triangular systems, let’s build a similar method for solving upper triangular systems. The merging of lower and upper triangular systems will play an important role in solving systems of equations.</p>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-332" class="exercise"><strong>Exercise 4.30  </strong></span>Outline a fast algorithm (without formal row reduction) for solving the upper triangular system
+<span id="exr:unnamed-chunk-333" class="exercise"><strong>Exercise 4.30  </strong></span>Outline a fast algorithm (without formal row reduction) for solving the upper triangular system
 <span class="math display">\[\begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 0 &amp; -3 &amp; -6 \\ 0 &amp; 0 &amp; -9 \end{pmatrix} \begin{pmatrix} x_0 \\ x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} 1 \\ -4 \\ 3\end{pmatrix}\]</span>
 The most natural algorithm that most people devise here is called <strong>backward substitution</strong>. Notice that in our upper
 triangular matrix we do not have a diagonal containing all ones.
@@ -1107,7 +1107,7 @@ triangular matrix we do not have a diagonal containing all ones.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-333" class="exercise"><strong>Exercise 4.31  </strong></span>Generalize your backward substitution algorithm from the previous problem so that it could be applied to any upper triangular system.
+<span id="exr:unnamed-chunk-334" class="exercise"><strong>Exercise 4.31  </strong></span>Generalize your backward substitution algorithm from the previous problem so that it could be applied to any upper triangular system.
 </div>
 <hr />
 
@@ -1127,7 +1127,7 @@ triangular matrix we do not have a diagonal containing all ones.
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-335" class="exercise"><strong>Exercise 4.32  </strong></span>Now we will work through the backward substitution algorithm to help fill in the blanks in the code. Consider the upper triangular system
+<p><span id="exr:unnamed-chunk-336" class="exercise"><strong>Exercise 4.32  </strong></span>Now we will work through the backward substitution algorithm to help fill in the blanks in the code. Consider the upper triangular system
 <span class="math display">\[ \begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 0 &amp; -3 &amp; -6 \\ 0 &amp; 0 &amp; -9 \end{pmatrix} \begin{pmatrix} x_0 \\ x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} 1 \\ -4 \\ 3\end{pmatrix} \]</span></p>
 <p>Work the code from Definition <a href="ch-linearalgebra.html#def:usolve">4.6</a> to solve the system. Keep track of all of the indices as you work through the code. You may want to work this problem in conjunction with the previous two problems to unpack all of the parts of the <em>backward substitution</em> algorithm.</p>
 <p>I’ll get you started.</p>
@@ -1172,7 +1172,7 @@ So we can initialize <span class="math inline">\(x_1\)</span> with <span class="
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-336" class="exercise"><strong>Exercise 4.33  </strong></span>Copy the code from Definition <a href="ch-linearalgebra.html#def:usolve">4.6</a> into a Python function but in your code write a comment on every line stating what it is doing. Write a test script that creates an upper triangular matrix of the correct form and a right-hand side <span class="math inline">\(\boldsymbol{y}\)</span> and solve for <span class="math inline">\(\boldsymbol{x}\)</span>. Your code needs to work on
+<span id="exr:unnamed-chunk-337" class="exercise"><strong>Exercise 4.33  </strong></span>Copy the code from Definition <a href="ch-linearalgebra.html#def:usolve">4.6</a> into a Python function but in your code write a comment on every line stating what it is doing. Write a test script that creates an upper triangular matrix of the correct form and a right-hand side <span class="math inline">\(\boldsymbol{y}\)</span> and solve for <span class="math inline">\(\boldsymbol{x}\)</span>. Your code needs to work on
 systems of arbitrarily large size.
 </div>
 <hr />
@@ -1183,7 +1183,7 @@ systems of arbitrarily large size.
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-337" class="exercise"><strong>Exercise 4.34  </strong></span>If we want to solve <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span> then</p>
+<p><span id="exr:unnamed-chunk-338" class="exercise"><strong>Exercise 4.34  </strong></span>If we want to solve <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span> then</p>
 <ol style="list-style-type: lower-alpha">
 <li>If we can, write the system of equations as <span class="math inline">\(LU \boldsymbol{x} = \boldsymbol{b}\)</span>.</li>
 <li>Solve <span class="math inline">\(L \boldsymbol{y} = \boldsymbol{b}\)</span> for <span class="math inline">\(\boldsymbol{y}\)</span> using forward substitution.</li>
@@ -1194,7 +1194,7 @@ systems of arbitrarily large size.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-338" class="exercise"><strong>Exercise 4.35  </strong></span>Try the process again on the <span class="math inline">\(3\times 3\)</span> system of equations
+<span id="exr:unnamed-chunk-339" class="exercise"><strong>Exercise 4.35  </strong></span>Try the process again on the <span class="math inline">\(3\times 3\)</span> system of equations
 <span class="math display">\[\begin{pmatrix}
         3 &amp; 6 &amp; 8\\
         2 &amp; 7 &amp; -1 \\
@@ -1219,7 +1219,7 @@ matrices <span class="math inline">\(L\)</span> and <span class="math inline">\(
 <hr />
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-339" class="definition"><strong>Definition 4.7  (Solving Linear Systems with the LU Decomposition)  </strong></span>Let <span class="math inline">\(A\)</span> be a square matrix in <span class="math inline">\(\mathbb{R}^{n \times n}\)</span> and let
+<p><span id="def:unnamed-chunk-340" class="definition"><strong>Definition 4.7  (Solving Linear Systems with the LU Decomposition)  </strong></span>Let <span class="math inline">\(A\)</span> be a square matrix in <span class="math inline">\(\mathbb{R}^{n \times n}\)</span> and let
 <span class="math inline">\(\boldsymbol{x}, \boldsymbol{b} \in \mathbb{R}^n\)</span>. To solve the problem <span class="math inline">\(A \boldsymbol{x} =\boldsymbol{b}\)</span>,</p>
 <ol style="list-style-type: decimal">
 <li><p>Factor <span class="math inline">\(A\)</span> into lower and upper triangular matrices <span class="math inline">\(A = LU\)</span>.<br />
@@ -1233,7 +1233,7 @@ matrices <span class="math inline">\(L\)</span> and <span class="math inline">\(
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-340" class="exercise"><strong>Exercise 4.36  </strong></span>Test your <code>lsolve</code>, <code>usolve</code>, and <code>myLU</code> functions on a linear system for which you know the answer. Then test your problem on a system that you don’t know the solution to. As a way to compare your solutions you should:</p>
+<p><span id="exr:unnamed-chunk-341" class="exercise"><strong>Exercise 4.36  </strong></span>Test your <code>lsolve</code>, <code>usolve</code>, and <code>myLU</code> functions on a linear system for which you know the answer. Then test your problem on a system that you don’t know the solution to. As a way to compare your solutions you should:</p>
 <ul>
 <li>Find Python’s solution using <code>np.linalg.solve()</code> and compare your answer to that one using <code>np.linalg.norm()</code> to give the error between the two.</li>
 <li>Time your code using the <code>time</code> library as follows
@@ -1279,12 +1279,12 @@ matrices <span class="math inline">\(L\)</span> and <span class="math inline">\(
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-342" class="exercise"><strong>Exercise 4.37  </strong></span>The <span class="math inline">\(LU\)</span> decomposition is not perfect. Discuss where the algorithm will fail.
+<span id="exr:unnamed-chunk-343" class="exercise"><strong>Exercise 4.37  </strong></span>The <span class="math inline">\(LU\)</span> decomposition is not perfect. Discuss where the algorithm will fail.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-343" class="exercise"><strong>Exercise 4.38  </strong></span>What happens when you try to solve the system of equations
+<span id="exr:unnamed-chunk-344" class="exercise"><strong>Exercise 4.38  </strong></span>What happens when you try to solve the system of equations
 <span class="math display">\[ \begin{pmatrix} 0 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 0 \\ 1 &amp; 0 &amp; 0 \end{pmatrix} \begin{pmatrix} x_0 \\ x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} 7 \\ 9\\-3\end{pmatrix} \]</span>
 with the <span class="math inline">\(LU\)</span> decomposition algorithm? Discuss.
 </div>
@@ -1298,7 +1298,7 @@ with the <span class="math inline">\(LU\)</span> decomposition algorithm? Discus
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-344" class="exercise"><strong>Exercise 4.39  </strong></span>We want to solve the system of equations
+<p><span id="exr:unnamed-chunk-345" class="exercise"><strong>Exercise 4.39  </strong></span>We want to solve the system of equations
 <span class="math display">\[ \begin{pmatrix} 1/3 &amp; 2/3 &amp; 2/3 \\ 2/3 &amp; 1/3 &amp; -2/3 \\ -2/3 &amp; 2/3 &amp; -1/3 \end{pmatrix} \begin{pmatrix} x_0 \\ x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} 6 \\ 12\\ -9 \end{pmatrix}. \]</span></p>
 <ol style="list-style-type: lower-alpha">
 <li>We could do row reduction by hand … yuck … don’t do this.</li>
@@ -1325,7 +1325,7 @@ with the <span class="math inline">\(LU\)</span> decomposition algorithm? Discus
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-345" class="exercise"><strong>Exercise 4.40  </strong></span>Let’s say that we have a matrix <span class="math inline">\(A\)</span> and we know that it can be factored into <span class="math inline">\(A = QR\)</span> where <span class="math inline">\(Q\)</span> is an orthonormal matrix and <span class="math inline">\(R\)</span> is an upper triangular matrix. How would we then leverage this factorization to solve the system of equation <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span> for <span class="math inline">\(\boldsymbol{x}\)</span>?
+<span id="exr:unnamed-chunk-346" class="exercise"><strong>Exercise 4.40  </strong></span>Let’s say that we have a matrix <span class="math inline">\(A\)</span> and we know that it can be factored into <span class="math inline">\(A = QR\)</span> where <span class="math inline">\(Q\)</span> is an orthonormal matrix and <span class="math inline">\(R\)</span> is an upper triangular matrix. How would we then leverage this factorization to solve the system of equation <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span> for <span class="math inline">\(\boldsymbol{x}\)</span>?
 </div>
 <hr />
 <p>Before proceeding to the algorithm for the <span class="math inline">\(QR\)</span> factorization let’s pause for a moment and review scalar and vector projections from Linear Algebra. In Figure <a href="ch-linearalgebra.html#fig:projection2dimage">4.1</a> we see a graphical depiction of the vector <span class="math inline">\(\boldsymbol{u}\)</span> projected onto vector <span class="math inline">\(\boldsymbol{v}\)</span>. Notice that the projection is indeed the perpendicular projection as this is what seems natural geometrically.</p>
@@ -1358,7 +1358,7 @@ it should be clear from the picture that the columns of this matrix are not perp
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-346" class="exercise"><strong>Exercise 4.41  </strong></span>We want to build a <span class="math inline">\(QR\)</span> factorization of the matrix <span class="math inline">\(A\)</span> in the matrix equation <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span> so that we can leverage the fact that solving the equation <span class="math inline">\(QR\boldsymbol{x} = \boldsymbol{b}\)</span> is easy. Consider the matrix <span class="math inline">\(A\)</span> defined as
+<p><span id="exr:unnamed-chunk-347" class="exercise"><strong>Exercise 4.41  </strong></span>We want to build a <span class="math inline">\(QR\)</span> factorization of the matrix <span class="math inline">\(A\)</span> in the matrix equation <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span> so that we can leverage the fact that solving the equation <span class="math inline">\(QR\boldsymbol{x} = \boldsymbol{b}\)</span> is easy. Consider the matrix <span class="math inline">\(A\)</span> defined as
 <span class="math display">\[ A = \begin{pmatrix} 3 &amp; 1 \\ 4 &amp; 1 \end{pmatrix}. \]</span>
 Notice that the columns of <span class="math inline">\(A\)</span> are NOT othonormal (they are not unit vectors and they are not perpendicular to each other).</p>
 <ol style="list-style-type: lower-alpha">
@@ -1385,7 +1385,7 @@ Show that this is indeed true for the matrix <span class="math inline">\(A\)</sp
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-347" class="exercise"><strong>Exercise 4.42  </strong></span>Keeping track of all of the arithmetic in the <span class="math inline">\(QR\)</span> factorization process is quite challenging, so let’s leverage Python to do some of the work for us. The following block of code walks through the previous exercise without any looping (that way we can see every step transparently). Some of the code is missing so you’ll need to fill it in.
+<span id="exr:unnamed-chunk-348" class="exercise"><strong>Exercise 4.42  </strong></span>Keeping track of all of the arithmetic in the <span class="math inline">\(QR\)</span> factorization process is quite challenging, so let’s leverage Python to do some of the work for us. The following block of code walks through the previous exercise without any looping (that way we can see every step transparently). Some of the code is missing so you’ll need to fill it in.
 </div>
 <div class="sourceCode" id="cb111"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb111-1"><a href="ch-linearalgebra.html#cb111-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb111-2"><a href="ch-linearalgebra.html#cb111-2"></a><span class="co"># Define the matrix $A$</span></span>
@@ -1415,17 +1415,17 @@ Show that this is indeed true for the matrix <span class="math inline">\(A\)</sp
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-349" class="exercise"><strong>Exercise 4.43  </strong></span>You should notice that the code in the previous exercise does not depend on the specific matrix <span class="math inline">\(A\)</span> that we used? Put in a different <span class="math inline">\(2 \times 2\)</span> matrix and verify that the process still works. That is, verify that <span class="math inline">\(Q\)</span> is orthonormal, <span class="math inline">\(R\)</span> is upper triangular, and <span class="math inline">\(A = QR\)</span>. Be sure, however, that your matrix <span class="math inline">\(A\)</span> is full rank.
+<span id="exr:unnamed-chunk-350" class="exercise"><strong>Exercise 4.43  </strong></span>You should notice that the code in the previous exercise does not depend on the specific matrix <span class="math inline">\(A\)</span> that we used? Put in a different <span class="math inline">\(2 \times 2\)</span> matrix and verify that the process still works. That is, verify that <span class="math inline">\(Q\)</span> is orthonormal, <span class="math inline">\(R\)</span> is upper triangular, and <span class="math inline">\(A = QR\)</span>. Be sure, however, that your matrix <span class="math inline">\(A\)</span> is full rank.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-350" class="exercise"><strong>Exercise 4.44  </strong></span>Draw two generic vectors in <span class="math inline">\(\mathbb{R}^2\)</span> and demonstrate the process outlined in the previous problem to build the vectors for the <span class="math inline">\(Q\)</span> matrix starting from your generic vectors.
+<span id="exr:unnamed-chunk-351" class="exercise"><strong>Exercise 4.44  </strong></span>Draw two generic vectors in <span class="math inline">\(\mathbb{R}^2\)</span> and demonstrate the process outlined in the previous problem to build the vectors for the <span class="math inline">\(Q\)</span> matrix starting from your generic vectors.
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-351" class="exercise"><strong>Exercise 4.45  </strong></span>Now we’ll extend the process from the previous exercises to three dimensions. This time we will seek a matrix <span class="math inline">\(Q\)</span> that has three othonormal vectors starting from the three original columns of a <span class="math inline">\(3 \times 3\)</span> matrix <span class="math inline">\(A\)</span>. Perform each of the following steps <strong>by hand</strong> on the matrix
+<p><span id="exr:unnamed-chunk-352" class="exercise"><strong>Exercise 4.45  </strong></span>Now we’ll extend the process from the previous exercises to three dimensions. This time we will seek a matrix <span class="math inline">\(Q\)</span> that has three othonormal vectors starting from the three original columns of a <span class="math inline">\(3 \times 3\)</span> matrix <span class="math inline">\(A\)</span>. Perform each of the following steps <strong>by hand</strong> on the matrix
 <span class="math display">\[ A = \begin{pmatrix} 1 &amp; 1 &amp; 0 \\ 1 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 1 \end{pmatrix}. \]</span>
 In the end you should end up with an orthonormal matrix <span class="math inline">\(Q\)</span> and an upper triangular matrix <span class="math inline">\(R\)</span>.</p>
 <ul>
@@ -1443,13 +1443,13 @@ In the end you should end up with an orthonormal matrix <span class="math inline
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-352" class="exercise"><strong>Exercise 4.46  </strong></span>Repeat the previous exercise but write code for each step so that Python can handle all of the computations. Again use the matrix
+<p><span id="exr:unnamed-chunk-353" class="exercise"><strong>Exercise 4.46  </strong></span>Repeat the previous exercise but write code for each step so that Python can handle all of the computations. Again use the matrix
 <span class="math display">\[ A = \begin{pmatrix} 1 &amp; 1 &amp; 0 \\ 1 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 1 \end{pmatrix}. \]</span></p>
 </div>
 <hr />
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-353" class="example"><strong>Example 4.7  (QR for <span class="math inline">\(n=3\)</span>)  </strong></span>For the sake of clarity let’s now write down the full <span class="math inline">\(QR\)</span> factorization for a <span class="math inline">\(3 \times 3\)</span> matrix.</p>
+<p><span id="exm:unnamed-chunk-354" class="example"><strong>Example 4.7  (QR for <span class="math inline">\(n=3\)</span>)  </strong></span>For the sake of clarity let’s now write down the full <span class="math inline">\(QR\)</span> factorization for a <span class="math inline">\(3 \times 3\)</span> matrix.</p>
 <p>If the columns of <span class="math inline">\(A\)</span> are <span class="math inline">\(\boldsymbol{a}_0\)</span>, <span class="math inline">\(\boldsymbol{a}_1\)</span>, and <span class="math inline">\(\boldsymbol{a}_2\)</span> then
 <span class="math display">\[ \boldsymbol{q}_0 = \frac{\boldsymbol{a}_0}{\|\boldsymbol{a}_0\|} \]</span>
 <span class="math display">\[ \boldsymbol{q}_1 = \frac{ \boldsymbol{a}_1 - \left( \boldsymbol{a}_1 \cdot \boldsymbol{q}_0 \right) \boldsymbol{q}_0 }{\| \boldsymbol{a}_1 - \left( \boldsymbol{a}_1 \cdot \boldsymbol{q}_0 \right) \boldsymbol{q}_0 \|} \]</span>
@@ -1489,19 +1489,19 @@ In the end you should end up with an orthonormal matrix <span class="math inline
 <p>We now have a robust algorithm for doing <span class="math inline">\(QR\)</span> factorization of square matrices we can finally return to solving systems of equations.</p>
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-356" class="theorem"><strong>Theorem 4.2  (Solving Systems with <span class="math inline">\(QR\)</span>)  </strong></span>Remember that we want to solve <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span> and since <span class="math inline">\(A = QR\)</span> we can rewrite it with <span class="math inline">\(QR \boldsymbol{x} = \boldsymbol{b}\)</span>. Since we know that <span class="math inline">\(Q\)</span> is orthonormal by design we can multiply both sides of the equation by <span class="math inline">\(Q^T\)</span> to get <span class="math inline">\(R \boldsymbol{x} = Q^T \boldsymbol{b}\)</span>. Finally, since <span class="math inline">\(R\)</span> is upper triangular we can use our <code>usolve</code> code from the previous section to solve the resulting triangular system.
+<span id="thm:unnamed-chunk-357" class="theorem"><strong>Theorem 4.2  (Solving Systems with <span class="math inline">\(QR\)</span>)  </strong></span>Remember that we want to solve <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span> and since <span class="math inline">\(A = QR\)</span> we can rewrite it with <span class="math inline">\(QR \boldsymbol{x} = \boldsymbol{b}\)</span>. Since we know that <span class="math inline">\(Q\)</span> is orthonormal by design we can multiply both sides of the equation by <span class="math inline">\(Q^T\)</span> to get <span class="math inline">\(R \boldsymbol{x} = Q^T \boldsymbol{b}\)</span>. Finally, since <span class="math inline">\(R\)</span> is upper triangular we can use our <code>usolve</code> code from the previous section to solve the resulting triangular system.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-357" class="exercise"><strong>Exercise 4.48  </strong></span>Solve the system of equations
+<span id="exr:unnamed-chunk-358" class="exercise"><strong>Exercise 4.48  </strong></span>Solve the system of equations
 <span class="math display">\[ \begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \\ 7 &amp; 8 &amp; 0 \end{pmatrix} \begin{pmatrix} x_0 \\ x_1 \\ x_2 \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \\ 2 \end{pmatrix} \]</span>
 by first computing the <span class="math inline">\(QR\)</span> factorization of <span class="math inline">\(A\)</span> and then solving the resulting upper triangular system.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-358" class="exercise"><strong>Exercise 4.49  </strong></span>Write code that builds a random <span class="math inline">\(n \times n\)</span> matrix and a random <span class="math inline">\(n \times 1\)</span> vector. Solve the equation <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span> using the <span class="math inline">\(QR\)</span> factorization and compare the answer to what we find from <code>np.linalg.solve()</code>. Do this many times for various values of <span class="math inline">\(n\)</span> and create a plot with <span class="math inline">\(n\)</span> on the horizontal axis and the normed error between Python’s answer and your answer from the <span class="math inline">\(QR\)</span> algorithm on the vertical axis. It would be wise to use a <code>plt.semilogy()</code> plot. To find the normed difference you should use <code>np.linalg.norm()</code>. What do you notice?
+<span id="exr:unnamed-chunk-359" class="exercise"><strong>Exercise 4.49  </strong></span>Write code that builds a random <span class="math inline">\(n \times n\)</span> matrix and a random <span class="math inline">\(n \times 1\)</span> vector. Solve the equation <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span> using the <span class="math inline">\(QR\)</span> factorization and compare the answer to what we find from <code>np.linalg.solve()</code>. Do this many times for various values of <span class="math inline">\(n\)</span> and create a plot with <span class="math inline">\(n\)</span> on the horizontal axis and the normed error between Python’s answer and your answer from the <span class="math inline">\(QR\)</span> algorithm on the vertical axis. It would be wise to use a <code>plt.semilogy()</code> plot. To find the normed difference you should use <code>np.linalg.norm()</code>. What do you notice?
 </div>
 <hr />
 <div style="page-break-after: always;"></div>
@@ -1510,7 +1510,7 @@ by first computing the <span class="math inline">\(QR\)</span> factorization of 
 <h2><span class="header-section-number">4.6</span> Over Determined Systems and Curve Fitting</h2>
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-359" class="exercise"><strong>Exercise 4.50  </strong></span>In Exercise <a href="ch-calculus.html#exr:first-least-squares">3.81</a> we considered finding the quadratic function <span class="math inline">\(f(x) = ax^2 + bx + c\)</span> that <em>best fits</em> the points
+<p><span id="exr:unnamed-chunk-360" class="exercise"><strong>Exercise 4.50  </strong></span>In Exercise <a href="ch-calculus.html#exr:first-least-squares">3.81</a> we considered finding the quadratic function <span class="math inline">\(f(x) = ax^2 + bx + c\)</span> that <em>best fits</em> the points
 <span class="math display">\[ (0, 1.07), (1, 3.9), (2, 14.8), (3, 26.8). \]</span>
 Back in Exercise <a href="ch-calculus.html#exr:first-least-squares">3.81</a> and the subsequent problems we approached this problem using an optimization tool in Python. You might be surprised to learn that there is a way to do this same optimization with linear algebra!!</p>
 <p>We don’t know the values of <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, or <span class="math inline">\(c\)</span> but we do have four different <span class="math inline">\((x,y)\)</span> ordered pairs. Hence, we have four equations:
@@ -1543,7 +1543,7 @@ The equation <span class="math inline">\((A^T A) \boldsymbol{x} = A^T \boldsymbo
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-360" class="exercise"><strong>Exercise 4.51  </strong></span>Fit a linear function to the following data. Solve for the slope and intercept using the technique outlined in Theorem <a href="ch-linearalgebra.html#thm:overdetermined">4.3</a>. Make a plot of the points along with your best fit curve.</p>
+<p><span id="exr:unnamed-chunk-361" class="exercise"><strong>Exercise 4.51  </strong></span>Fit a linear function to the following data. Solve for the slope and intercept using the technique outlined in Theorem <a href="ch-linearalgebra.html#thm:overdetermined">4.3</a>. Make a plot of the points along with your best fit curve.</p>
 <table>
 <thead>
 <tr class="header">
@@ -1610,7 +1610,7 @@ Code to download the data directly is given below.
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-362" class="exercise"><strong>Exercise 4.52  </strong></span>Fit a quadratic function to the following data using the technique outlined in Theorem <a href="ch-linearalgebra.html#thm:overdetermined">4.3</a>. Make a plot of the points along with your best fit curve.</p>
+<p><span id="exr:unnamed-chunk-363" class="exercise"><strong>Exercise 4.52  </strong></span>Fit a quadratic function to the following data using the technique outlined in Theorem <a href="ch-linearalgebra.html#thm:overdetermined">4.3</a>. Make a plot of the points along with your best fit curve.</p>
 <table>
 <thead>
 <tr class="header">
@@ -1677,7 +1677,7 @@ Code to download the data directly is given below.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-364" class="exercise"><strong>Exercise 4.53  </strong></span>The Statistical technique of curve fitting is often called “linear regression”. This even holds when we are fitting quadratic functions, cubic functions, etc to the data … we still call that linear regression! Why?
+<span id="exr:unnamed-chunk-365" class="exercise"><strong>Exercise 4.53  </strong></span>The Statistical technique of curve fitting is often called “linear regression”. This even holds when we are fitting quadratic functions, cubic functions, etc to the data … we still call that linear regression! Why?
 </div>
 <hr />
 <p>This section of the text on solving over determined systems is just a bit of a teaser for a bit of higher-level statistics, data science, and machine learning. The normal equations and solving systems via projections is the starting point of many modern machine learning algorithms. For more information on this sort of problem look into taking some statistics, data science, and/or machine learning courses. You’ll love it!</p>
@@ -1701,7 +1701,7 @@ multiplication. For a graphical exploration of this idea see:<br />
 <hr />
 
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-365" class="theorem"><strong>Theorem 4.4  </strong></span>Recall that to solve the eigen-problem for a square matrix <span class="math inline">\(A\)</span> we complete the following steps:</p>
+<p><span id="thm:unnamed-chunk-366" class="theorem"><strong>Theorem 4.4  </strong></span>Recall that to solve the eigen-problem for a square matrix <span class="math inline">\(A\)</span> we complete the following steps:</p>
 <ol style="list-style-type: lower-alpha">
 <li>First rearrange the definition of the eigenvalue-eigenvector pair to
 <span class="math display">\[(A\boldsymbol{x}-\lambda \boldsymbol{x})=\boldsymbol{0}.\]</span></li>
@@ -1716,13 +1716,13 @@ multiplication. For a graphical exploration of this idea see:<br />
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-366" class="exercise"><strong>Exercise 4.54  </strong></span>Find the eigenvalues and eigenvectors of
+<span id="exr:unnamed-chunk-367" class="exercise"><strong>Exercise 4.54  </strong></span>Find the eigenvalues and eigenvectors of
 <span class="math display">\[ A = \begin{pmatrix} 1 &amp; 2 \\ 4 &amp; 3 \end{pmatrix}. \]</span>
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-367" class="exercise"><strong>Exercise 4.55  </strong></span>In the matrix
+<p><span id="exr:unnamed-chunk-368" class="exercise"><strong>Exercise 4.55  </strong></span>In the matrix
 <span class="math display">\[ A = \begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \\ 7 &amp; 8 &amp; 9 \end{pmatrix} \]</span>
 one of the eigenvalues is <span class="math inline">\(\lambda_1 = 0\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
@@ -1736,7 +1736,7 @@ one of the eigenvalues is <span class="math inline">\(\lambda_1 = 0\)</span>.</p
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-368" class="exercise"><strong>Exercise 4.56  </strong></span>Consider the matrix
+<p><span id="exr:unnamed-chunk-369" class="exercise"><strong>Exercise 4.56  </strong></span>Consider the matrix
 <span class="math display">\[ A = \begin{pmatrix} 8 &amp; 5 &amp; -6 \\ -12 &amp; -9 &amp; 12 \\ -3 &amp; -3 &amp; 5 \end{pmatrix}. \]</span>
 This matrix has the following eigen-structure:
 <span class="math display">\[ \boldsymbol{v}_1 = \begin{pmatrix} 1\\-1\\0\end{pmatrix} \quad \text{with} \quad \lambda_1 = 3 \]</span>
@@ -1768,18 +1768,18 @@ Note: be careful, computers don’t do infinity, so for powers that are too larg
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-370" class="exercise"><strong>Exercise 4.57  </strong></span>If a matrix <span class="math inline">\(A\)</span> has eigenvectors <span class="math inline">\(\boldsymbol{v}_1\)</span>, <span class="math inline">\(\boldsymbol{v}_2\)</span>, <span class="math inline">\(\boldsymbol{v}_3\)</span>, <span class="math inline">\(\cdots,\)</span> <span class="math inline">\(\boldsymbol{v}_n\)</span> with eigenvalues <span class="math inline">\(\lambda_1, \lambda_2, \lambda_3, \ldots, \lambda_n\)</span> and <span class="math inline">\(\boldsymbol{x}\)</span> is in the column space of <span class="math inline">\(A\)</span> then what will we get, approximately, if we evaluate <span class="math inline">\(A^k \boldsymbol{x} / \max_{j}(\lambda_j)^k\)</span> for very large values of <span class="math inline">\(k\)</span>?</p>
+<p><span id="exr:unnamed-chunk-371" class="exercise"><strong>Exercise 4.57  </strong></span>If a matrix <span class="math inline">\(A\)</span> has eigenvectors <span class="math inline">\(\boldsymbol{v}_1\)</span>, <span class="math inline">\(\boldsymbol{v}_2\)</span>, <span class="math inline">\(\boldsymbol{v}_3\)</span>, <span class="math inline">\(\cdots,\)</span> <span class="math inline">\(\boldsymbol{v}_n\)</span> with eigenvalues <span class="math inline">\(\lambda_1, \lambda_2, \lambda_3, \ldots, \lambda_n\)</span> and <span class="math inline">\(\boldsymbol{x}\)</span> is in the column space of <span class="math inline">\(A\)</span> then what will we get, approximately, if we evaluate <span class="math inline">\(A^k \boldsymbol{x} / \max_{j}(\lambda_j)^k\)</span> for very large values of <span class="math inline">\(k\)</span>?</p>
 Discuss your conjecture with your peers. Then try to verify it with several numerical examples.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-371" class="exercise"><strong>Exercise 4.58  </strong></span>Explain your result from the previous exercise geometrically.
+<span id="exr:unnamed-chunk-372" class="exercise"><strong>Exercise 4.58  </strong></span>Explain your result from the previous exercise geometrically.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-372" class="exercise"><strong>Exercise 4.59  </strong></span>The algorithm that we’ve been toying with will find the dominant eigenvector of a matrix fairly quickly. Why might you be only interested in the dominant eigenvector of a matrix? Discuss.
+<span id="exr:unnamed-chunk-373" class="exercise"><strong>Exercise 4.59  </strong></span>The algorithm that we’ve been toying with will find the dominant eigenvector of a matrix fairly quickly. Why might you be only interested in the dominant eigenvector of a matrix? Discuss.
 </div>
 <hr />
 
@@ -1839,7 +1839,7 @@ next iteration of the loop)</p>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-373" class="exercise"><strong>Exercise 4.61  </strong></span>Go through Theorem <a href="ch-linearalgebra.html#thm:power">4.5</a> carefully and describe what we need to do in each step and why we’re doing it. Then complete all of the missing pieces of the following Python function.
+<span id="exr:unnamed-chunk-374" class="exercise"><strong>Exercise 4.61  </strong></span>Go through Theorem <a href="ch-linearalgebra.html#thm:power">4.5</a> carefully and describe what we need to do in each step and why we’re doing it. Then complete all of the missing pieces of the following Python function.
 </div>
 <div class="sourceCode" id="cb117"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb117-1"><a href="ch-linearalgebra.html#cb117-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb117-2"><a href="ch-linearalgebra.html#cb117-2"></a><span class="kw">def</span> myPower(A, tol <span class="op">=</span> <span class="fl">1e-8</span>):</span>
@@ -1866,22 +1866,22 @@ next iteration of the loop)</p>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-375" class="exercise"><strong>Exercise 4.62  </strong></span>Test your <code>myPower()</code> function on several matrices where you know the eigenstructure. Then try the <code>myPower()</code> function on larger random matrices. You can check that it is working using <code>np.linalg.eig()</code> (be sure to normalize the vectors in the same way so you can compare them.)
+<span id="exr:unnamed-chunk-376" class="exercise"><strong>Exercise 4.62  </strong></span>Test your <code>myPower()</code> function on several matrices where you know the eigenstructure. Then try the <code>myPower()</code> function on larger random matrices. You can check that it is working using <code>np.linalg.eig()</code> (be sure to normalize the vectors in the same way so you can compare them.)
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-376" class="exercise"><strong>Exercise 4.63  </strong></span>The check that we built into our code to stop the <code>while</code> loop in our <code>myPower()</code> function will fail if <span class="math inline">\(\lambda_1 &lt; 0\)</span>. Why? What happens to the approximation of the dominant eigenvector throughout the iterations when <span class="math inline">\(\lambda_1 &lt; 1\)</span>. Modify your code to account for this issue so that it will still stop appropriately.
+<span id="exr:unnamed-chunk-377" class="exercise"><strong>Exercise 4.63  </strong></span>The check that we built into our code to stop the <code>while</code> loop in our <code>myPower()</code> function will fail if <span class="math inline">\(\lambda_1 &lt; 0\)</span>. Why? What happens to the approximation of the dominant eigenvector throughout the iterations when <span class="math inline">\(\lambda_1 &lt; 1\)</span>. Modify your code to account for this issue so that it will still stop appropriately.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-377" class="exercise"><strong>Exercise 4.64  </strong></span>What happens in the power method iterations when <span class="math inline">\(\lambda_1\)</span> is complex. The maximum eigenvalue can certainly be complex if <span class="math inline">\(|\lambda_1|\)</span> (the modulus of the complex number) is larger than all of the other eigenvalues. It may be helpful to build a matrix specifically with complex eigenvalues.<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>
+<span id="exr:unnamed-chunk-378" class="exercise"><strong>Exercise 4.64  </strong></span>What happens in the power method iterations when <span class="math inline">\(\lambda_1\)</span> is complex. The maximum eigenvalue can certainly be complex if <span class="math inline">\(|\lambda_1|\)</span> (the modulus of the complex number) is larger than all of the other eigenvalues. It may be helpful to build a matrix specifically with complex eigenvalues.<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-378" class="exercise"><strong>Exercise 4.65  (Convergence Rate of the Power Method)  </strong></span>The proof that the power method will work hinges on the fact that <span class="math inline">\(|\lambda_1| &gt; |\lambda_2| \geq |\lambda_3| \geq \cdots \geq |\lambda_n|\)</span>. In Exercise <a href="ch-linearalgebra.html#exr:power-proof">4.60</a> we proved that the limit
+<p><span id="exr:unnamed-chunk-379" class="exercise"><strong>Exercise 4.65  (Convergence Rate of the Power Method)  </strong></span>The proof that the power method will work hinges on the fact that <span class="math inline">\(|\lambda_1| &gt; |\lambda_2| \geq |\lambda_3| \geq \cdots \geq |\lambda_n|\)</span>. In Exercise <a href="ch-linearalgebra.html#exr:power-proof">4.60</a> we proved that the limit
 <span class="math display">\[ \lim_{k \to \infty} \frac{A^k \boldsymbol{x}}{\lambda_1^k} \]</span>
 converges to the dominant eigenvector, but how fast is the convergence? What does the speed of the convergence depend on?</p>
 <p>Take note that since we’re assuming that the eigenvalues are ordered, the ratio <span class="math inline">\(\lambda_2 / \lambda_1\)</span> will be larger than <span class="math inline">\(\lambda_j / \lambda_1\)</span> for all <span class="math inline">\(j&gt;2\)</span>. Hence, the speed at which the power method converges depends mostly on the ratio <span class="math inline">\(\lambda_2 / \lambda_1\)</span>. Let’s build a numerical experiment to see how sensitive the power method is to this ratio.</p>
@@ -1897,44 +1897,44 @@ converges to the dominant eigenvector, but how fast is the convergence? What doe
 <h3><span class="header-section-number">4.8.1</span> Algorithm Summaries</h3>
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-379" class="exercise"><strong>Exercise 4.66  </strong></span>Explain in clear language how to efficiently solve an upper triangular
+<span id="exr:unnamed-chunk-380" class="exercise"><strong>Exercise 4.66  </strong></span>Explain in clear language how to efficiently solve an upper triangular
 system of linear equations.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-380" class="exercise"><strong>Exercise 4.67  </strong></span>Explain in clear language how to efficiently solve a lower triangular
+<span id="exr:unnamed-chunk-381" class="exercise"><strong>Exercise 4.67  </strong></span>Explain in clear language how to efficiently solve a lower triangular
 system of linear equations.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-381" class="exercise"><strong>Exercise 4.68  </strong></span>Explain in clear language how to solve the equation <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span> using an <span class="math inline">\(LU\)</span> decomposition.
+<span id="exr:unnamed-chunk-382" class="exercise"><strong>Exercise 4.68  </strong></span>Explain in clear language how to solve the equation <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span> using an <span class="math inline">\(LU\)</span> decomposition.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-382" class="exercise"><strong>Exercise 4.69  </strong></span>Explain in clear language how to solve an overdetermined system of linear equations (more equations than unknowns) numerically.
+<span id="exr:unnamed-chunk-383" class="exercise"><strong>Exercise 4.69  </strong></span>Explain in clear language how to solve an overdetermined system of linear equations (more equations than unknowns) numerically.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-383" class="exercise"><strong>Exercise 4.70  </strong></span>Explain in clear language the algorithm for finding the columns of the <span class="math inline">\(Q\)</span> matrix in the <span class="math inline">\(QR\)</span> factorization. Give all of the mathematical details.
+<span id="exr:unnamed-chunk-384" class="exercise"><strong>Exercise 4.70  </strong></span>Explain in clear language the algorithm for finding the columns of the <span class="math inline">\(Q\)</span> matrix in the <span class="math inline">\(QR\)</span> factorization. Give all of the mathematical details.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-384" class="exercise"><strong>Exercise 4.71  </strong></span>Explain in clear language how to find the upper triangular matrix <span class="math inline">\(R\)</span> in the <span class="math inline">\(QR\)</span> factorization. Give all of the mathematical details.
+<span id="exr:unnamed-chunk-385" class="exercise"><strong>Exercise 4.71  </strong></span>Explain in clear language how to find the upper triangular matrix <span class="math inline">\(R\)</span> in the <span class="math inline">\(QR\)</span> factorization. Give all of the mathematical details.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-385" class="exercise"><strong>Exercise 4.72  </strong></span>Explain in clear language how to solve the equation <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span> using a <span class="math inline">\(QR\)</span> decomposition.
+<span id="exr:unnamed-chunk-386" class="exercise"><strong>Exercise 4.72  </strong></span>Explain in clear language how to solve the equation <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span> using a <span class="math inline">\(QR\)</span> decomposition.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-386" class="exercise"><strong>Exercise 4.73  </strong></span>Explain in clear language how the power method works to find the dominant eigenvalue and eigenvector of a square matrix. Give all of the mathematical details.
+<span id="exr:unnamed-chunk-387" class="exercise"><strong>Exercise 4.73  </strong></span>Explain in clear language how the power method works to find the dominant eigenvalue and eigenvector of a square matrix. Give all of the mathematical details.
 </div>
 <hr />
 </div>
@@ -1942,7 +1942,7 @@ system of linear equations.
 <h3><span class="header-section-number">4.8.2</span> Applying What You’ve Learned</h3>
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-387" class="exercise"><strong>Exercise 4.74  </strong></span>As mentioned much earlier in this chapter, there is an <code>rref()</code> command in Python, but it is in the <code>sympy</code> library instead of the <code>numpy</code> library – it is implemented as a symbolic computation instead of a numerical computation. OK. So what? In this problem we want to compare the time to solve a system of equations <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span> with each of the following techniques:</p>
+<p><span id="exr:unnamed-chunk-388" class="exercise"><strong>Exercise 4.74  </strong></span>As mentioned much earlier in this chapter, there is an <code>rref()</code> command in Python, but it is in the <code>sympy</code> library instead of the <code>numpy</code> library – it is implemented as a symbolic computation instead of a numerical computation. OK. So what? In this problem we want to compare the time to solve a system of equations <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span> with each of the following techniques:</p>
 <ul>
 <li>row reduction of an augmented matrix <span class="math inline">\(\begin{pmatrix} A &amp; | &amp; b\end{pmatrix}\)</span> with <code>sympy</code>,</li>
 <li>our implementation of the <span class="math inline">\(LU\)</span> decomposition,</li>
@@ -1992,7 +1992,7 @@ Figure 4.2: A rod to be heated broken into 10 equal-length segments.
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-390" class="exercise"><strong>Exercise 4.76  </strong></span>Write code to solve the following systems of equations via both LU and QR decompositions. If the algorithm fails then be sure to explain exactly why.</p>
+<p><span id="exr:unnamed-chunk-391" class="exercise"><strong>Exercise 4.76  </strong></span>Write code to solve the following systems of equations via both LU and QR decompositions. If the algorithm fails then be sure to explain exactly why.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p><span class="math display">\[\begin{array}{rl} x + 2y + 3z &amp;= 4 \\ 2x + 4y + 3z &amp;= 5 \\ x + y &amp;= 4 \end{array}\]</span></p></li>
 <li><p><span class="math display">\[\begin{array}{rl} 2y + 3z &amp;= 4 \\ 2x + 3z &amp;= 5 \\ y &amp;= 4 \end{array}\]</span></p></li>
@@ -2002,17 +2002,17 @@ Figure 4.2: A rod to be heated broken into 10 equal-length segments.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-391" class="exercise"><strong>Exercise 4.77  </strong></span>Give a specific example of a nonzero matrix which will NOT have an <span class="math inline">\(LU\)</span> decomposition. Give specific reasons why <span class="math inline">\(LU\)</span> will fail on your matrix.
+<span id="exr:unnamed-chunk-392" class="exercise"><strong>Exercise 4.77  </strong></span>Give a specific example of a nonzero matrix which will NOT have an <span class="math inline">\(LU\)</span> decomposition. Give specific reasons why <span class="math inline">\(LU\)</span> will fail on your matrix.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-392" class="exercise"><strong>Exercise 4.78  </strong></span>Give a specific example of a nonzero matrix which will NOT have an <span class="math inline">\(QR\)</span> decomposition. Give specific reasons why <span class="math inline">\(QR\)</span> will fail on your matrix.
+<span id="exr:unnamed-chunk-393" class="exercise"><strong>Exercise 4.78  </strong></span>Give a specific example of a nonzero matrix which will NOT have an <span class="math inline">\(QR\)</span> decomposition. Give specific reasons why <span class="math inline">\(QR\)</span> will fail on your matrix.
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-393" class="exercise"><strong>Exercise 4.79  </strong></span>Have you ever wondered how scientific software computes a determinant? The formula that you learned for <a href="https://en.wikipedia.org/wiki/Determinant">calculating determinants by hand</a> is horribly cumbersome and computationally intractible for large matrices. This problem is meant to give you glimpse of what is <em>actually</em> going on under the hood.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a></p>
+<p><span id="exr:unnamed-chunk-394" class="exercise"><strong>Exercise 4.79  </strong></span>Have you ever wondered how scientific software computes a determinant? The formula that you learned for <a href="https://en.wikipedia.org/wiki/Determinant">calculating determinants by hand</a> is horribly cumbersome and computationally intractible for large matrices. This problem is meant to give you glimpse of what is <em>actually</em> going on under the hood.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a></p>
 <p>If <span class="math inline">\(A\)</span> has an <span class="math inline">\(LU\)</span> decomposition then <span class="math inline">\(A = LU\)</span>. Use properties that you know about determinants to come up with a simple way to find the determinant for matrices that have an <span class="math inline">\(LU\)</span> decomposition. Show all of your work in developing your formula.</p>
 Once you have your formula for calculating <span class="math inline">\(\det(A)\)</span>, write a Python function that accepts a matrix, produces the <span class="math inline">\(LU\)</span> decomposition, and returns the determinant of <span class="math inline">\(A\)</span>. Check your work against Python’s <code>np.linalg.det()</code> function.
 </div>
@@ -2036,12 +2036,12 @@ Once you have your formula for calculating <span class="math inline">\(\det(A)\)
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-394" class="exercise"><strong>Exercise 4.81  </strong></span>Repeat Exercise <a href="ch-linearalgebra.html#exr:lu-error">4.80</a> for the <span class="math inline">\(QR\)</span> decomposition. Your final plot should show both the behavior of <span class="math inline">\(QR\)</span> and of <span class="math inline">\(LU\)</span> throughout the experiement. What do you notice?
+<span id="exr:unnamed-chunk-395" class="exercise"><strong>Exercise 4.81  </strong></span>Repeat Exercise <a href="ch-linearalgebra.html#exr:lu-error">4.80</a> for the <span class="math inline">\(QR\)</span> decomposition. Your final plot should show both the behavior of <span class="math inline">\(QR\)</span> and of <span class="math inline">\(LU\)</span> throughout the experiement. What do you notice?
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-395" class="exercise"><strong>Exercise 4.82  </strong></span>Find a least squares solution to the equation <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span> in two
+<span id="exr:unnamed-chunk-396" class="exercise"><strong>Exercise 4.82  </strong></span>Find a least squares solution to the equation <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span> in two
 different ways with
 <span class="math display">\[A = \begin{pmatrix} 1 &amp; 3 &amp; 5 \\ 4 &amp; -2 &amp; 6 \\ 4 &amp; 7 &amp; 8 \\ 3 &amp; 7 &amp; 19
         \end{pmatrix} \quad \text{and} \quad \boldsymbol{b} = \begin{pmatrix} 5 \\ 2 \\ -2 \\
@@ -2050,7 +2050,7 @@ different ways with
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-396" class="exercise"><strong>Exercise 4.83  </strong></span>Let <span class="math inline">\(A\)</span> be defined as
+<p><span id="exr:unnamed-chunk-397" class="exercise"><strong>Exercise 4.83  </strong></span>Let <span class="math inline">\(A\)</span> be defined as
 <span class="math display">\[ A = \begin{pmatrix} 10^{-15} &amp; 1 \\ 1 &amp; 1 \end{pmatrix} \]</span>
 and let <span class="math inline">\(\boldsymbol{b}\)</span> be the vector
 <span class="math display">\[ \boldsymbol{b}=\begin{pmatrix} 2 \\ 3\end{pmatrix}. \]</span><br />
@@ -2066,7 +2066,7 @@ Notice that <span class="math inline">\(A\)</span> has a tiny, but nonzero, valu
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-397" class="exercise"><strong>Exercise 4.84  (Hilbert Matrices)  </strong></span>A Hilbert Matrix is a matrix of the form <span class="math inline">\(H_{ij} = 1 / (i+j+1)\)</span> where both <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> both start indexed at <span class="math inline">\(0\)</span>. For example, a <span class="math inline">\(4 \times 4\)</span> Hilbert Matrix is
+<p><span id="exr:unnamed-chunk-398" class="exercise"><strong>Exercise 4.84  (Hilbert Matrices)  </strong></span>A Hilbert Matrix is a matrix of the form <span class="math inline">\(H_{ij} = 1 / (i+j+1)\)</span> where both <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> both start indexed at <span class="math inline">\(0\)</span>. For example, a <span class="math inline">\(4 \times 4\)</span> Hilbert Matrix is
 <span class="math display">\[ H = \begin{pmatrix} 1 &amp; \frac{1}{2} &amp; \frac{1}{3} &amp; \frac{1}{4} \\
                        \frac{1}{2} &amp; \frac{1}{3} &amp; \frac{1}{4} &amp; \frac{1}{5} \\ 
                        \frac{1}{3} &amp; \frac{1}{4} &amp; \frac{1}{5} &amp; \frac{1}{6} \\ 
@@ -2085,7 +2085,7 @@ This type of matrix is often used to test numerical linear algebra algorithms si
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-398" class="exercise"><strong>Exercise 4.85  </strong></span>Now that you have <span class="math inline">\(QR\)</span> and <span class="math inline">\(LU\)</span> code we’re going to use both of them! The problem is as follows:<br />
+<p><span id="exr:unnamed-chunk-399" class="exercise"><strong>Exercise 4.85  </strong></span>Now that you have <span class="math inline">\(QR\)</span> and <span class="math inline">\(LU\)</span> code we’re going to use both of them! The problem is as follows:<br />
 We are going to find the polynomial of degree 4 that best fits the function
 $<span class="math display">\[ y = \cos(4t) + 0.1 \varepsilon(t) \]</span>
 at 50 equally spaced points <span class="math inline">\(t\)</span> between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. Here we are using <span class="math inline">\(\varepsilon(t)\)</span> as a function that outputs normally distributed random white noise. In Python you will build <span class="math inline">\(y\)</span> as <code>y = np.cos(4*t) + 0.1*np.random.randn(t.shape[0])</code></p>
@@ -2094,24 +2094,24 @@ at 50 equally spaced points <span class="math inline">\(t\)</span> between <span
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-399" class="exercise"><strong>Exercise 4.86  </strong></span>Find the largest eigenvalue of the matrix <span class="math inline">\(A\)</span> WITHOUT using any built-in Python command for finding eigenstructure.
+<span id="exr:unnamed-chunk-400" class="exercise"><strong>Exercise 4.86  </strong></span>Find the largest eigenvalue of the matrix <span class="math inline">\(A\)</span> WITHOUT using any built-in Python command for finding eigenstructure.
 <span class="math display">\[A = \begin{pmatrix} 1 &amp; 2 &amp; 3 &amp; 4 \\ 5 &amp; 6 &amp; 7 &amp; 8 \\ 9 &amp; 0 &amp; 1 &amp; 2 \\ 3 &amp; 4 &amp; 5 &amp;
         6 \end{pmatrix}\]</span>
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-400" class="exercise"><strong>Exercise 4.87  </strong></span>It is possible in a matrix that the eigenvalues <span class="math inline">\(\lambda_1\)</span> and <span class="math inline">\(\lambda_2\)</span> are equal but with the corresponding eigenvectors not equal. Before you experiment with matrices of this sort, write a conjecture about what will happen to the power method in this case (look back to our proof in Exercise <a href="ch-linearalgebra.html#exr:power-proof">4.60</a> of how the power method works). Now build several specific matrices where this is the case and see what happens to the power method.
+<span id="exr:unnamed-chunk-401" class="exercise"><strong>Exercise 4.87  </strong></span>It is possible in a matrix that the eigenvalues <span class="math inline">\(\lambda_1\)</span> and <span class="math inline">\(\lambda_2\)</span> are equal but with the corresponding eigenvectors not equal. Before you experiment with matrices of this sort, write a conjecture about what will happen to the power method in this case (look back to our proof in Exercise <a href="ch-linearalgebra.html#exr:power-proof">4.60</a> of how the power method works). Now build several specific matrices where this is the case and see what happens to the power method.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-401" class="exercise"><strong>Exercise 4.88  </strong></span>Will the power method fail, slow down, or be uneffected if one (or more) of the non-dominant eigenvalues is zero? Give sufficient mathematical evidence or show several numerical experiments to support your answer.
+<span id="exr:unnamed-chunk-402" class="exercise"><strong>Exercise 4.88  </strong></span>Will the power method fail, slow down, or be uneffected if one (or more) of the non-dominant eigenvalues is zero? Give sufficient mathematical evidence or show several numerical experiments to support your answer.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-402" class="exercise"><strong>Exercise 4.89  </strong></span>Find a cubic function that best fits the following data. you can download the data directly with the code below.
+<span id="exr:unnamed-chunk-403" class="exercise"><strong>Exercise 4.89  </strong></span>Find a cubic function that best fits the following data. you can download the data directly with the code below.
 </div>
 <table>
 <thead>
@@ -2221,7 +2221,7 @@ at 50 equally spaced points <span class="math inline">\(t\)</span> between <span
 </div>
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-404" class="exercise"><strong>Exercise 4.90  (The Deflation Method)  </strong></span>
+<p><span id="exr:unnamed-chunk-405" class="exercise"><strong>Exercise 4.90  (The Deflation Method)  </strong></span>
 For symmetric matrices we can build an extension to the power method in order to find the second most dominant eigen-pair for a matrix <span class="math inline">\(A\)</span>. Theorem <a href="ch-linearalgebra.html#thm:symmetric-eigenvalues">4.6</a> suggests the following method for finding the second dominant eigen-pair for a symmetric matrix. This method is called the <strong>deflation method</strong>.</p>
 <ul>
 <li>Use the power method to find the dominant eigenvalue and eigenvector.</li>
@@ -2242,7 +2242,7 @@ following code.
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-406" class="exercise"><strong>Exercise 4.91  </strong></span>(This concept for this problem is modified from <span class="citation">[<a href="#ref-meerschaert" role="doc-biblioref">6</a>]</span>. The data is taken from <a href="https://www.weather.gov/arx/mississippi_river">NOAA and the National Weather Service</a> with the specific values associated with La Crosse, WI.)</p>
+<p><span id="exr:unnamed-chunk-407" class="exercise"><strong>Exercise 4.91  </strong></span>(This concept for this problem is modified from <span class="citation">[<a href="#ref-meerschaert" role="doc-biblioref">6</a>]</span>. The data is taken from <a href="https://www.weather.gov/arx/mississippi_river">NOAA and the National Weather Service</a> with the specific values associated with La Crosse, WI.)</p>
 <p>Floods in the Mississippi River Valleys of the upper midwest have somewhat predictable day-to-day behavior in that the flood stage today has high predictive power for the flood stage tomorrow. Assume that the flood stages are:</p>
 <ul>
 <li>Stage 0 (Normal): Average daily flow is below 90,000 <span class="math inline">\(ft^3/sec\)</span> (cubic feet per second = cfs). This is the <em>normal</em> river level.</li>
@@ -2486,7 +2486,7 @@ Note: We can assume that the eigenvalues are ordered such that
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-407" class="exercise"><strong>Exercise 4.92  </strong></span>Prove the preceding theorem.
+<span id="exr:unnamed-chunk-408" class="exercise"><strong>Exercise 4.92  </strong></span>Prove the preceding theorem.
 </div>
 <hr />
 <p>A <strong>probability vector</strong> is a vector with entries on the interval
@@ -2511,24 +2511,24 @@ you .</p>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-408" class="exercise"><strong>Exercise 4.93  </strong></span>Finish writing the hyperlink matrix <span class="math inline">\(H\)</span> from Figure <a href="ch-linearalgebra.html#fig:example-graph">4.3</a>.
+<span id="exr:unnamed-chunk-409" class="exercise"><strong>Exercise 4.93  </strong></span>Finish writing the hyperlink matrix <span class="math inline">\(H\)</span> from Figure <a href="ch-linearalgebra.html#fig:example-graph">4.3</a>.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-409" class="exercise"><strong>Exercise 4.94  </strong></span>Write code to implement the iterative process defined previously. Make a
+<span id="exr:unnamed-chunk-410" class="exercise"><strong>Exercise 4.94  </strong></span>Write code to implement the iterative process defined previously. Make a
 plot that shows how the rank evolves over the iterations.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-410" class="exercise"><strong>Exercise 4.95  </strong></span>What must be true about a collection of <span class="math inline">\(n\)</span> pages such that an
+<span id="exr:unnamed-chunk-411" class="exercise"><strong>Exercise 4.95  </strong></span>What must be true about a collection of <span class="math inline">\(n\)</span> pages such that an
 <span class="math inline">\(n\times n\)</span> hyperlink matrix <span class="math inline">\(H\)</span> is a stochastic matrix.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-411" class="exercise"><strong>Exercise 4.96  </strong></span>The statement of the next theorem is incomplete, but the proof is given
+<span id="exr:unnamed-chunk-412" class="exercise"><strong>Exercise 4.96  </strong></span>The statement of the next theorem is incomplete, but the proof is given
 to you. Fill in the blank in the statement of the theorem and provide a
 few sentences supporting your answer.
 </div>
@@ -2549,14 +2549,14 @@ eigenvalues from Theorem <a href="ch-linearalgebra.html#thm:largest-ev-stochasti
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-412" class="exercise"><strong>Exercise 4.97  </strong></span>Discuss how Theorem <a href="ch-linearalgebra.html#thm:steady">4.9</a> greatly simplifies the PageRank iterative
+<span id="exr:unnamed-chunk-413" class="exercise"><strong>Exercise 4.97  </strong></span>Discuss how Theorem <a href="ch-linearalgebra.html#thm:steady">4.9</a> greatly simplifies the PageRank iterative
 process described previously. In other words: there is no reason to
 iterate at all. Instead, just find … what?
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-413" class="exercise"><strong>Exercise 4.98  </strong></span>Now use the previous two problems to find the resulting PageRank vector
+<span id="exr:unnamed-chunk-414" class="exercise"><strong>Exercise 4.98  </strong></span>Now use the previous two problems to find the resulting PageRank vector
 from the web in Figure <a href="ch-linearalgebra.html#fig:example-graph">4.3</a>? Be sure to rank the pages in order of
 importance. Compare your answer to the one that you got in problem 2.
 </div>
@@ -2569,7 +2569,7 @@ Figure 4.4: A second example web graph.
 </div>
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-414" class="exercise"><strong>Exercise 4.99  </strong></span>Consider the web in Figure <a href="ch-linearalgebra.html#fig:graph2">4.4</a>.</p>
+<p><span id="exr:unnamed-chunk-415" class="exercise"><strong>Exercise 4.99  </strong></span>Consider the web in Figure <a href="ch-linearalgebra.html#fig:graph2">4.4</a>.</p>
 <ol style="list-style-type: decimal">
 <li><p>Write the <span class="math inline">\(H\)</span> matrix and find the initial state <span class="math inline">\(\boldsymbol{x}_0\)</span>,</p></li>
 <li><p>Find steady state PageRank vector using the two different methods
@@ -2581,7 +2581,7 @@ using Theorem <a href="ch-linearalgebra.html#thm:steady">4.9</a> and the dominan
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-415" class="exercise"><strong>Exercise 4.100  </strong></span>One thing that we didn’t consider in this version of the Google Page
+<p><span id="exr:unnamed-chunk-416" class="exercise"><strong>Exercise 4.100  </strong></span>One thing that we didn’t consider in this version of the Google Page
 Rank algorithm is the random behavior of humans. One, admittedly
 slightly naive, modification that we can make to the present algorithm
 is to assume that the person surfing the web will randomly jump to any

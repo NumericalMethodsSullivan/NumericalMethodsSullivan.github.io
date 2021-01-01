@@ -410,7 +410,7 @@ in expanding upon what is here for their classes.</p>
 <h3><span class="header-section-number">C.1.1</span> Vandermonde Interpolation</h3>
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-871" class="exercise"><strong>Exercise C.1  </strong></span>Consider the data set
+<span id="exr:unnamed-chunk-872" class="exercise"><strong>Exercise C.1  </strong></span>Consider the data set
 <span class="math display">\[S = \{ (0,1) \, , \, (1,2) \, , \, (2,5) \, , \, (3,10) \}.\]</span>
 If we want to fit a polynomial to this data then we can use a cubic function (which has 4
 parameters) to match the data perfectly. Why is a cubic polynomial the best choice?
@@ -418,7 +418,7 @@ parameters) to match the data perfectly. Why is a cubic polynomial the best choi
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-872" class="exercise"><strong>Exercise C.2  </strong></span>Using the data from the previous problem, if we choose <span class="math inline">\(p(x) = \beta_0 + \beta_1 x + \beta_2 x^2 + \beta_3 x^3\)</span> then the resulting system of equations is
+<p><span id="exr:unnamed-chunk-873" class="exercise"><strong>Exercise C.2  </strong></span>Using the data from the previous problem, if we choose <span class="math inline">\(p(x) = \beta_0 + \beta_1 x + \beta_2 x^2 + \beta_3 x^3\)</span> then the resulting system of equations is
 <span class="math display">\[\begin{pmatrix}  1 &amp; 0 &amp; 0 &amp; 0 \\
                     1 &amp; 1 &amp; 1 &amp; 1 \\
                     1 &amp; 2 &amp; 4 &amp; 8 \\
@@ -436,7 +436,7 @@ parameters) to match the data perfectly. Why is a cubic polynomial the best choi
 <hr />
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-873" class="definition"><strong>Definition C.1  (Vandemonde Interpolation)  </strong></span>Let
+<p><span id="def:unnamed-chunk-874" class="definition"><strong>Definition C.1  (Vandemonde Interpolation)  </strong></span>Let
 <span class="math display">\[S = \{(x_0,y_0) \,,\, (x_1,y_1) \,,\, \ldots, (x_n,y_n)\}\]</span>
 be a set of ordered pairs where the <span class="math inline">\(x\)</span> values are all unique. The goal of interpolation is to find a function <span class="math inline">\(f(x)\)</span> that matches the data exactly. Vandermonde interpolation uses a polynomial of degree <span class="math inline">\(n-1\)</span> since with such a polynomial we have <span class="math inline">\(n\)</span> unknowns and we can solve the least squares problem exactly. Doing so, we arrive at the system of equations
 <span class="math display">\[\begin{aligned}
@@ -454,17 +454,17 @@ The matrix on the left-hand side of is called the <strong>Vandermonde Matrix</st
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-874" class="exercise"><strong>Exercise C.3  </strong></span>Write a python function that accepts an array of ordered pairs (where each <span class="math inline">\(x\)</span> value is unique) and builds a Vandermonde interpolation polynomial. Test your function on the simple example given above and then on several larger problems. It may be simplest to initially test on data generated from functions that we know.
+<span id="exr:unnamed-chunk-875" class="exercise"><strong>Exercise C.3  </strong></span>Write a python function that accepts an array of ordered pairs (where each <span class="math inline">\(x\)</span> value is unique) and builds a Vandermonde interpolation polynomial. Test your function on the simple example given above and then on several larger problems. It may be simplest to initially test on data generated from functions that we know.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-875" class="exercise"><strong>Exercise C.4  </strong></span>Build a Vandermonde interpolation polynomial to interpolate the function <span class="math inline">\(f(x) = \cos(2 \pi x)\)</span> with <span class="math inline">\(n\)</span> points that are linearly spaced on the interval <span class="math inline">\(x \in [0,2]\)</span>. Repeat this experiment with <span class="math inline">\(n=5\)</span>, <span class="math inline">\(n=10\)</span>, <span class="math inline">\(n=15\)</span>, <span class="math inline">\(\ldots\)</span>, <span class="math inline">\(n=100\)</span>. Make a plot for each value of <span class="math inline">\(n\)</span>. What do you observe?
+<span id="exr:unnamed-chunk-876" class="exercise"><strong>Exercise C.4  </strong></span>Build a Vandermonde interpolation polynomial to interpolate the function <span class="math inline">\(f(x) = \cos(2 \pi x)\)</span> with <span class="math inline">\(n\)</span> points that are linearly spaced on the interval <span class="math inline">\(x \in [0,2]\)</span>. Repeat this experiment with <span class="math inline">\(n=5\)</span>, <span class="math inline">\(n=10\)</span>, <span class="math inline">\(n=15\)</span>, <span class="math inline">\(\ldots\)</span>, <span class="math inline">\(n=100\)</span>. Make a plot for each value of <span class="math inline">\(n\)</span>. What do you observe?
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-876" class="exercise"><strong>Exercise C.5  </strong></span>Vandermonde interpolation is relatively easy to conceptualize and code, but there is an inherent problem. Use your Vandemonde interploation code to create a plot where the horizontal axis is the order of the interpolating polynomial
+<span id="exr:unnamed-chunk-877" class="exercise"><strong>Exercise C.5  </strong></span>Vandermonde interpolation is relatively easy to conceptualize and code, but there is an inherent problem. Use your Vandemonde interploation code to create a plot where the horizontal axis is the order of the interpolating polynomial
 and the vertical axis is the ratio of the maximum eigenvalue to the minimum eigenvalue of the Vandemonde matrix <span class="math inline">\(|\lambda_{max}|/|\lambda_{min}|\)</span>. What does this plot tell you about Vandermonde interpolation for high-order polynomials? You can use the same model function as from the previous exercise.
 </div>
 <hr />
@@ -479,7 +479,7 @@ then for Lagrange interpolation we build <span class="math inline">\(p(x)\)</spa
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-877" class="exercise"><strong>Exercise C.6  </strong></span>Consider the data set
+<p><span id="exr:unnamed-chunk-878" class="exercise"><strong>Exercise C.6  </strong></span>Consider the data set
 <span class="math inline">\(S = \{(0,1) \, , \, (1,2) \, , \, (2,5) \, , \, (3,10) \}\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Based on the descriptions of the <span class="math inline">\(p(x)\)</span> and <span class="math inline">\(\phi_j(x)\)</span> functions,
@@ -499,12 +499,12 @@ that this polynomial indeed interpolates the points in the set <span class="math
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-878" class="exercise"><strong>Exercise C.7  </strong></span>Is the Lagrange interpolation polynomial built form the previous problem the same as the Vandermonde interpolation polynomial for the same data?
+<span id="exr:unnamed-chunk-879" class="exercise"><strong>Exercise C.7  </strong></span>Is the Lagrange interpolation polynomial built form the previous problem the same as the Vandermonde interpolation polynomial for the same data?
 </div>
 <hr />
 
 <div class="definition">
-<span id="def:unnamed-chunk-879" class="definition"><strong>Definition C.2  (Lagrange Interpolation)  </strong></span>To build an <strong>Lagrange polynomial</strong> <span class="math inline">\(p(x)\)</span> for the set of points
+<span id="def:unnamed-chunk-880" class="definition"><strong>Definition C.2  (Lagrange Interpolation)  </strong></span>To build an <strong>Lagrange polynomial</strong> <span class="math inline">\(p(x)\)</span> for the set of points
 <span class="math inline">\(\{(x_0,y_0)\,,\,(x_1,y_1)\,,\,(x_2,y_2)\,,\ldots,\,(x_n,y_n)\}\)</span> we
 first build the polynomials <span class="math inline">\(\phi_j(x)\)</span> for each
 <span class="math inline">\(j = 0, 1, 2, \ldots, n\)</span> and then construct the polynomial <span class="math inline">\(p(x)\)</span> as
@@ -514,7 +514,7 @@ defined as <span class="math display">\[\phi_j(x) = \prod_{i \ne j} \frac{x-x_i}
 <hr />
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-880" class="example"><strong>Example C.1  </strong></span>Build a Lagrange interpolation polynomial for the set of points
+<p><span id="exm:unnamed-chunk-881" class="example"><strong>Example C.1  </strong></span>Build a Lagrange interpolation polynomial for the set of points
 <span class="math display">\[S  = \{(1,5)\,,\,(2,9)\,,\,(3,11)\}.\]</span></p>
 <strong>Solution:</strong> We first build the three <span class="math inline">\(\phi_j\)</span> functions.
 <span class="math display">\[\begin{aligned}
@@ -531,7 +531,7 @@ The remainder of the simplification is left to the reader.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-881" class="exercise"><strong>Exercise C.8  </strong></span>Write a python function that accepts a list of list of ordered pairs (where each <span class="math inline">\(x\)</span> value is unique) and builds a Lagrange interpolation polynomial. Test your function on several examples.
+<span id="exr:unnamed-chunk-882" class="exercise"><strong>Exercise C.8  </strong></span>Write a python function that accepts a list of list of ordered pairs (where each <span class="math inline">\(x\)</span> value is unique) and builds a Lagrange interpolation polynomial. Test your function on several examples.
 </div>
 <hr />
 </div>
@@ -539,7 +539,7 @@ The remainder of the simplification is left to the reader.
 <h3><span class="header-section-number">C.1.3</span> Chebyshev Points</h3>
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-882" class="exercise"><strong>Exercise C.9  </strong></span>Using either Vandermonde or Lagrange interpolation build a polynomial
+<span id="exr:unnamed-chunk-883" class="exercise"><strong>Exercise C.9  </strong></span>Using either Vandermonde or Lagrange interpolation build a polynomial
 that interpolates the function <span class="math display">\[f(x) = \frac{1}{1+x^2}\]</span> for
 <span class="math inline">\(x \in [-5,5]\)</span> with polynomials of order <span class="math inline">\(n=2, 3, \ldots\)</span> and linearly
 spaced interpolation points. What do you notice about the quality of the
@@ -548,7 +548,7 @@ interpolating polynomial near the endpoints?
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-883" class="exercise"><strong>Exercise C.10  </strong></span>As you should have noticed the quality of the interpolation gets rather
+<p><span id="exr:unnamed-chunk-884" class="exercise"><strong>Exercise C.10  </strong></span>As you should have noticed the quality of the interpolation gets rather
 terrible near the endpoints when you use linearly spaced points for the
 interpolation. A fix to this was first proposed by the Russian
 mathematician Pafnuty Chebyshev (1821-1894). The idea is as follows:</p>
@@ -568,7 +568,7 @@ projected points for the interpolation.</p></li>
 <hr />
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-884" class="definition"><strong>Definition C.3  (Chebyshev Interpolation Points)  </strong></span>It should be clear that since we are projecting down to the <span class="math inline">\(x\)</span>-axis from a circle then all we need are the cosine values from the circle. Hence we can form the Chebyshev interpolation points for the interval <span class="math inline">\(x \in [-1,1]\)</span> from the formula
+<p><span id="def:unnamed-chunk-885" class="definition"><strong>Definition C.3  (Chebyshev Interpolation Points)  </strong></span>It should be clear that since we are projecting down to the <span class="math inline">\(x\)</span>-axis from a circle then all we need are the cosine values from the circle. Hence we can form the Chebyshev interpolation points for the interval <span class="math inline">\(x \in [-1,1]\)</span> from the formula
 <span class="math display">\[\begin{aligned}
     x_j = \cos\left( \frac{\pi j}{n} \right), \quad \text{for} \quad j=0, 1, \ldots, n
     \label{eqn:chebyshev_cosine}\end{aligned}.\]</span></p>
@@ -580,12 +580,12 @@ on the right is on the interval <span class="math inline">\([-1,1]\)</span>.</p>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-885" class="exercise"><strong>Exercise C.11  </strong></span>Consider the function <span class="math inline">\(f(x) = \frac{1}{1+x^2}\)</span> just as we did for the first problem in this subsection. Write code that overlays an interpolation with linearly spaced points and interpolation with Chebyshev points. Give plots for polynomial of order <span class="math inline">\(n=2,3, 4, \ldots\)</span>. Be sure to show the original function on your plots as well. What do you notice?
+<span id="exr:unnamed-chunk-886" class="exercise"><strong>Exercise C.11  </strong></span>Consider the function <span class="math inline">\(f(x) = \frac{1}{1+x^2}\)</span> just as we did for the first problem in this subsection. Write code that overlays an interpolation with linearly spaced points and interpolation with Chebyshev points. Give plots for polynomial of order <span class="math inline">\(n=2,3, 4, \ldots\)</span>. Be sure to show the original function on your plots as well. What do you notice?
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-886" class="exercise"><strong>Exercise C.12  </strong></span>Demonstrate that the Chebyshev interpolation nodes will improve the stability of the Vandermonde matrix over using linearly spaced nodes.
+<span id="exr:unnamed-chunk-887" class="exercise"><strong>Exercise C.12  </strong></span>Demonstrate that the Chebyshev interpolation nodes will improve the stability of the Vandermonde matrix over using linearly spaced nodes.
 </div>
 <hr />
 </div>
@@ -611,7 +611,7 @@ In this case it should be clear that we are implicitly defining <span class="mat
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-887" class="exercise"><strong>Exercise C.13  </strong></span>To build a numerical solver for a nonlinear system of equations, let’s just recall Newton’s Method in one dimension and then mimic that for systems of higher dimensions. We’ll stick to two dimensions in this problem for relative simplicity.</p>
+<p><span id="exr:unnamed-chunk-888" class="exercise"><strong>Exercise C.13  </strong></span>To build a numerical solver for a nonlinear system of equations, let’s just recall Newton’s Method in one dimension and then mimic that for systems of higher dimensions. We’ll stick to two dimensions in this problem for relative simplicity.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>In Newton’s Method we first found the derivative of our function. In
 a nonlinear system such as this one, talking about “the” derivative
@@ -686,7 +686,7 @@ technique from Chapter <a href="ch-linearalgebra.html#ch:linearalgebra">4</a>) t
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-888" class="exercise"><strong>Exercise C.14  </strong></span>Write code to solve the present nonlinear system of equations.
+<span id="exr:unnamed-chunk-889" class="exercise"><strong>Exercise C.14  </strong></span>Write code to solve the present nonlinear system of equations.
 Implement some sort of linear solver within your code and be able to
 defend your technique. Try to pick a starting point so that you
 find the solution <span class="math inline">\((\pi/2,\pi)\)</span> on your first attempt at solving
@@ -696,7 +696,7 @@ can get the other solutions.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-889" class="exercise"><strong>Exercise C.15  </strong></span>Test your code from the previous problem on the system of nonlinear
+<span id="exr:unnamed-chunk-890" class="exercise"><strong>Exercise C.15  </strong></span>Test your code from the previous problem on the system of nonlinear
 equations <span class="math display">\[\begin{aligned}
         1+x^2 - y^2 + e^x\cos(y) &amp;= 0 \\
         2xy + e^x\sin(y) &amp;=0.
@@ -732,12 +732,12 @@ point <span class="math inline">\(\boldsymbol{x}_n\)</span>. Take note that you 
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-890" class="exercise"><strong>Exercise C.16  </strong></span>Write code that accepts any number of functions and an initial vector guess and returns an approximation to the root for the problem <span class="math inline">\(F(\boldsymbol{x}) = \boldsymbol{0}\)</span>.
+<span id="exr:unnamed-chunk-891" class="exercise"><strong>Exercise C.16  </strong></span>Write code that accepts any number of functions and an initial vector guess and returns an approximation to the root for the problem <span class="math inline">\(F(\boldsymbol{x}) = \boldsymbol{0}\)</span>.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-891" class="exercise"><strong>Exercise C.17  </strong></span>Use Newton’s method to find an approximate solution to the system of equations
+<span id="exr:unnamed-chunk-892" class="exercise"><strong>Exercise C.17  </strong></span>Use Newton’s method to find an approximate solution to the system of equations
 <span class="math display">\[\begin{aligned}
     x^2 + y^2 + z^2 &amp;= 100 \\
     xyz &amp;= 1 \\
@@ -747,12 +747,12 @@ point <span class="math inline">\(\boldsymbol{x}_n\)</span>. Take note that you 
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-892" class="exercise"><strong>Exercise C.18  </strong></span>When will the multi-dimensional version of Newton’s Method fail? Compare and contrast this with what you found about the one-dimensional version of Newton’s Method in Chapter <a href="ch-algebra.html#ch:algebra">2</a>. Extend your discussion to talk about the eigenvalues of the Jacobian matrix for a nonlinear system.
+<span id="exr:unnamed-chunk-893" class="exercise"><strong>Exercise C.18  </strong></span>When will the multi-dimensional version of Newton’s Method fail? Compare and contrast this with what you found about the one-dimensional version of Newton’s Method in Chapter <a href="ch-algebra.html#ch:algebra">2</a>. Extend your discussion to talk about the eigenvalues of the Jacobian matrix for a nonlinear system.
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-893" class="exercise"><strong>Exercise C.19  </strong></span>One place that solving nonlinear systems arises naturally is when we
+<p><span id="exr:unnamed-chunk-894" class="exercise"><strong>Exercise C.19  </strong></span>One place that solving nonlinear systems arises naturally is when we
 need to find equilibrium points for systems of differential equations.
 Remember that to find the equilibrium points for a first order
 differential equation we set the derivative term to zero and solve the
@@ -767,7 +767,7 @@ Find the equilibrium point(s) for the system of differential equations
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-894" class="exercise"><strong>Exercise C.20  </strong></span>Find the equilibrium point(s) for the system of differential equations
+<span id="exr:unnamed-chunk-895" class="exercise"><strong>Exercise C.20  </strong></span>Find the equilibrium point(s) for the system of differential equations
 <span class="math display">\[\begin{aligned}
         x&#39; &amp;= -0.1 xy - x \\
         y&#39; &amp;= -x + 0.9y \\
@@ -777,7 +777,7 @@ Find the equilibrium point(s) for the system of differential equations
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-895" class="exercise"><strong>Exercise C.21  </strong></span>(This problem is modified from <span class="citation">[<a href="#ref-meerschaert" role="doc-biblioref">6</a>]</span>)<br />
+<span id="exr:unnamed-chunk-896" class="exercise"><strong>Exercise C.21  </strong></span>(This problem is modified from <span class="citation">[<a href="#ref-meerschaert" role="doc-biblioref">6</a>]</span>)<br />
 A manufacturer of lawn furniture makes two types of lawn chairs, one
 with a wood frame and one with a tubular aluminum frame. The wood-frame
 model costs $18 per unit to manufacture, and the aluminum-frame model
@@ -833,7 +833,7 @@ in the functions <span class="math inline">\(u_1, u_2, \ldots, u_{9}\)</span>.</
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-896" class="exercise"><strong>Exercise C.22  </strong></span>The code below gives an outline for implementing the method of lines on the heat equation as described above. Complete and implement the code. Once you have a full implementation test different ratios <span class="math inline">\(D\Delta t/\Delta x^2\)</span> to demonstrate that this method does not suffer from the stability issues that we have seen througout the PDE chapter. (Recall that the ratio <span class="math inline">\(D \Delta t/ \Delta x^2\)</span> must be less than a particular value for our typical finite difference discretization to be stable. Show that you can beat it here!)
+<span id="exr:unnamed-chunk-897" class="exercise"><strong>Exercise C.22  </strong></span>The code below gives an outline for implementing the method of lines on the heat equation as described above. Complete and implement the code. Once you have a full implementation test different ratios <span class="math inline">\(D\Delta t/\Delta x^2\)</span> to demonstrate that this method does not suffer from the stability issues that we have seen througout the PDE chapter. (Recall that the ratio <span class="math inline">\(D \Delta t/ \Delta x^2\)</span> must be less than a particular value for our typical finite difference discretization to be stable. Show that you can beat it here!)
 </div>
 <div class="sourceCode" id="cb459"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb459-1"><a href="ch-extras.html#cb459-1"></a><span class="co"># import the proper libraries</span></span>
 <span id="cb459-2"><a href="ch-extras.html#cb459-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -880,12 +880,12 @@ Figure C.3: A smoother method of lines solution to the heat equation.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-899" class="exercise"><strong>Exercise C.23  </strong></span>Modify your heat equation method of lines code from the previous exercise to demonstrate how the method works with several different types of boundary conditions and initial conditions. Show several snapshots of the time evolution of the solution.
+<span id="exr:unnamed-chunk-900" class="exercise"><strong>Exercise C.23  </strong></span>Modify your heat equation method of lines code from the previous exercise to demonstrate how the method works with several different types of boundary conditions and initial conditions. Show several snapshots of the time evolution of the solution.
 </div>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-900" class="exercise"><strong>Exercise C.24  </strong></span>We can use the method of lines approach to solving PDEs for the more than just the heat equation. Recall the traveling wave equation
+<p><span id="exr:unnamed-chunk-901" class="exercise"><strong>Exercise C.24  </strong></span>We can use the method of lines approach to solving PDEs for the more than just the heat equation. Recall the traveling wave equation
 <span class="math display">\[u_t + v u_x = 0\]</span>
 where the parameter <span class="math inline">\(v\)</span> is the speed of propogation of the traveling wave. Recall further that we had all sorts of trouble getting a stable numerical solution to this equation. Now would be a good time to refer back to the section and your work on the traveling wave equation.</p>
 Choose an appropriate initial condition and build a method of lines numerical solution to the traveling wave equation. Experiment with your solution and see if you get the same stability issues that we had with the traveling wave equation before. (Remember to choose your spatial derivative method wisely.)
@@ -903,7 +903,7 @@ where the subscripts correspond to the indices of the <span class="math inline">
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-901" class="exercise"><strong>Exercise C.25  </strong></span>The code below contains a partial implementation for the method of lines for the 1D wave equation. Pick an appropriate intial position and velocity as well as appropriate boundary conditions on the domain <span class="math inline">\(x \in [0,1]\)</span> (hint: start simple!). Then complete the code and produce several plots showing the time evolution of the solution to the wave equation.
+<span id="exr:unnamed-chunk-902" class="exercise"><strong>Exercise C.25  </strong></span>The code below contains a partial implementation for the method of lines for the 1D wave equation. Pick an appropriate intial position and velocity as well as appropriate boundary conditions on the domain <span class="math inline">\(x \in [0,1]\)</span> (hint: start simple!). Then complete the code and produce several plots showing the time evolution of the solution to the wave equation.
 </div>
 <div class="sourceCode" id="cb461"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb461-1"><a href="ch-extras.html#cb461-1"></a><span class="co"># start by importing the proper libraries</span></span>
 <span id="cb461-2"><a href="ch-extras.html#cb461-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -951,19 +951,19 @@ where the subscripts correspond to the indices of the <span class="math inline">
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-903" class="exercise"><strong>Exercise C.26  </strong></span>Using the method of lines and splitting the wave equation into a system of PDEs actually allows for a simpler implementation of non-trivial initial velocity functions. Pause and ponder here for a moment: we almost always took our initial velocity to be zero in all prior implementations. Why? Why are things easier now?</p>
+<p><span id="exr:unnamed-chunk-904" class="exercise"><strong>Exercise C.26  </strong></span>Using the method of lines and splitting the wave equation into a system of PDEs actually allows for a simpler implementation of non-trivial initial velocity functions. Pause and ponder here for a moment: we almost always took our initial velocity to be zero in all prior implementations. Why? Why are things easier now?</p>
 Experiment with numerically solving the 1D wave equation using several different initial positions and velocities. Moreover, modify your code to allow for different types of boundary conditions. Produce several snapshots of your more interesting simulations.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-904" class="exercise"><strong>Exercise C.27  </strong></span>Hopefully by now you agree that the method of lines is a very powerful tool for numerically solving time dependent PDEs. But, it isn’t without its faults. Discuss the pros and cons of using the method of lines to get numerical solutions to time dependent PDEs.
+<span id="exr:unnamed-chunk-905" class="exercise"><strong>Exercise C.27  </strong></span>Hopefully by now you agree that the method of lines is a very powerful tool for numerically solving time dependent PDEs. But, it isn’t without its faults. Discuss the pros and cons of using the method of lines to get numerical solutions to time dependent PDEs.
 </div>
 <hr />
 <p>Let’s return to the heat equation for a moment. In our implementations of the method of lines for the heat equation we made a second-order discretization in space of the form
 <span class="math display">\[u_{xx} \approx \frac{u_{n+1} - 2u_n + u_{n-1}}{\Delta x^2}.\]</span>
 In our implementation we coded this directly using carefully chosen indices. However, this is another way to build this discretization efficiently. Observe that at any time step we can produce the spatial discretization as a matrix-vector product as follows:
-<span class="math display">\[\begin{pmatrix} -2 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; \cdots \\ 1 &amp; -2 &amp; 1 &amp; 0 &amp; 0 &amp; \cdots \\ 0 &amp; 1 &amp; -2 &amp; 1 &amp; 0 &amp; \cdots \\ \vdots &amp; &amp; &amp; \ddots &amp; &amp;  \end{pmatrix}\begin{pmatrix} u_1 \\ u_2 \\ u_3 \\ \vdots \end{pmatrix}\]</span>
+<span class="math display">\[\frac{D}{\Delta x^2}\begin{pmatrix} -2 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; \cdots \\ 1 &amp; -2 &amp; 1 &amp; 0 &amp; 0 &amp; \cdots \\ 0 &amp; 1 &amp; -2 &amp; 1 &amp; 0 &amp; \cdots \\ \vdots &amp; &amp; &amp; \ddots &amp; &amp;  \end{pmatrix}\begin{pmatrix} u_1 \\ u_2 \\ u_3 \\ \vdots \end{pmatrix}\]</span>
 Stop now and verify that the matrix-vector product will indeed produce the correct spatial discretization.</p>
 <p>Using this new form of the spatial discretization we now can rewrite the PDE as a system of ODEs in the form
 <span class="math display">\[\frac{\partial \boldsymbol{u}}{\partial t} = A \boldsymbol{u}\]</span>
@@ -972,7 +972,7 @@ where <span class="math inline">\(\boldsymbol{u} = \begin{pmatrix} u_1 &amp; u_2
 <hr />
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-905" class="theorem"><strong>Theorem C.1  </strong></span>If <span class="math inline">\(A\)</span> is a square matrix with a compete set of linearly independent eigenvectors then the analytic solution to the differential equation <span class="math inline">\(\boldsymbol{u}&#39; = A \boldsymbol{u}\)</span> is given as
+<span id="thm:unnamed-chunk-906" class="theorem"><strong>Theorem C.1  </strong></span>If <span class="math inline">\(A\)</span> is a square matrix with a compete set of linearly independent eigenvectors then the analytic solution to the differential equation <span class="math inline">\(\boldsymbol{u}&#39; = A \boldsymbol{u}\)</span> is given as
 <span class="math display">\[u(t) = C_1 e^{\lambda_1 t} \boldsymbol{v}_1 + C_2 e^{\lambda_2 t} \boldsymbol{v}_2 + \cdots + C_n e^{\lambda_n t} \boldsymbol{v}_n\]</span>
 where <span class="math inline">\(\lambda_1, \lambda_2, \ldots, \lambda_n\)</span> and <span class="math inline">\(\boldsymbol{v}_1, \boldsymbol{v}_2, \ldots, \boldsymbol{v}_n\)</span> are the eigenvalues and eigenvectors of <span class="math inline">\(A\)</span> respectively and the constants are determined uniquely from the initial condition.
 </div>
@@ -981,23 +981,23 @@ where <span class="math inline">\(\lambda_1, \lambda_2, \ldots, \lambda_n\)</spa
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-906" class="exercise"><strong>Exercise C.28  </strong></span>Write code to solve the 1D heat equation with a second order spatial discretization and an exact solution to the resulting system of ODEs. There is no time stepping needed, but instead your code will need to leverage some linear algebra.</p>
+<p><span id="exr:unnamed-chunk-907" class="exercise"><strong>Exercise C.28  </strong></span>Write code to solve the 1D heat equation with a second order spatial discretization and an exact solution to the resulting system of ODEs. There is no time stepping needed, but instead your code will need to leverage some linear algebra.</p>
 Hint: Use <code>np.linalg.eig</code> to find the eigenvalues and eigenvectors for you.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-907" class="exercise"><strong>Exercise C.29  </strong></span>The traveling wave equation can be formulated as a matrix-vector system of ODEs just like we just did with the heat equation. Write code to solve the traveling wave equation without doing any time stepping.
+<span id="exr:unnamed-chunk-908" class="exercise"><strong>Exercise C.29  </strong></span>The traveling wave equation can be formulated as a matrix-vector system of ODEs just like we just did with the heat equation. Write code to solve the traveling wave equation without doing any time stepping.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-908" class="exercise"><strong>Exercise C.30  </strong></span>Is it possible to frame the 1D wave equation as a system of ODEs using a matrix-vector product? If so, give an explicit form of the matrix and give an Python implementation where we use the exact time solution. If not then give an explicit reason why not.
+<span id="exr:unnamed-chunk-909" class="exercise"><strong>Exercise C.30  </strong></span>Is it possible to frame the 1D wave equation as a system of ODEs using a matrix-vector product? If so, give an explicit form of the matrix and give an Python implementation where we use the exact time solution. If not then give an explicit reason why not.
 </div>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-909" class="exercise"><strong>Exercise C.31  </strong></span>What are the pros and cons for solving PDEs with an exact solution to the coupled system of ODEs resulting from the method of lines approach? When would you want to use this approach vs an ODE time stepper?
+<span id="exr:unnamed-chunk-910" class="exercise"><strong>Exercise C.31  </strong></span>What are the pros and cons for solving PDEs with an exact solution to the coupled system of ODEs resulting from the method of lines approach? When would you want to use this approach vs an ODE time stepper?
 </div>
 <hr />
 

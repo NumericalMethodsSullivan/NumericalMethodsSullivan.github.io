@@ -2783,6 +2783,35 @@ get an approximate solution to the problem.
 <span id="cb53-13"><a href="ch-calculus.html#cb53-13"></a>datasetH <span class="op">=</span> np.array( pd.read_csv(URL<span class="op">+</span><span class="st">&#39;Exercise3_datafit12.csv&#39;</span>) )</span>
 <span id="cb53-14"><a href="ch-calculus.html#cb53-14"></a><span class="co"># Exercise3_datafit5.csv - Exercise3_datafit12.csv</span></span></code></pre></div>
 <hr />
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-274" class="exercise"><strong>Exercise 3.109  (The Goat Problem)  </strong></span>This is a classic problem in recreational mathematics that has a great approximate solution where we can leverage some of our numerical analysis skills. Grab a pencil and a piece of paper so we can draw a picture.</p>
+<ul>
+<li>Draw a coordinate plane</li>
+<li>Draw a circle with radius 1 unit centered at the point <span class="math inline">\((0,1)\)</span>. This circle will obviously be tangent to the <span class="math inline">\(x\)</span> axis.</li>
+<li>Draw a circle with radius <span class="math inline">\(r\)</span> centered at the point <span class="math inline">\((0,0)\)</span>. We will take <span class="math inline">\(0 &lt; r &lt; 2\)</span> so there are two intersections of the two circles.
+<ul>
+<li>Label the left-hand intersection of the two circles as point <span class="math inline">\(A\)</span>. (Point <span class="math inline">\(A\)</span> should be in the second quadrant of your coordinate plane.)</li>
+<li>Label the right-hand intersection of the circles as point <span class="math inline">\(B\)</span>. (Point <span class="math inline">\(B\)</span> shoudl be in the first quadrant of your coordinate plan.)</li>
+</ul></li>
+<li>Label the point <span class="math inline">\((0,0)\)</span> as the point <span class="math inline">\(P\)</span>.</li>
+</ul>
+<p>A rancher has built a circular fence of radius 1 unit centered at the point <span class="math inline">\((0,1)\)</span> for his goat to graze. He tethers his goat at point <span class="math inline">\(P\)</span> on the far south end of the circular fence. He wants to make the length of the goat’s chain, <span class="math inline">\(r\)</span>, just long enough so that it can graze half of the area of the fenced region. How long should he make the chain?</p>
+<p>Hints:</p>
+<ul>
+<li><p>It would be helpful to write equations for both circles. Then you can use the equations to find the coordinates of the intersection points <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>.</p>
+<ul>
+<li>You can either solve for the intersection points algebraically or you can use a numerical root finding technique to find the intersection points.</li>
+<li>In any case, the intersection points will (obviously) depend on the value of <span class="math inline">\(r\)</span></li>
+</ul></li>
+<li><p>Set up an integral to find the area grazed by the goat.</p>
+<ul>
+<li>You will likely need to use a numerical integration technique to evaluate the integral.</li>
+</ul></li>
+<li><p>Write code to narrow down on the best value of <span class="math inline">\(r\)</span> where the integral evaluates to half the area of the fenced region.</p>
+</div></li>
+</ul>
+<hr />
 <div style="page-break-after: always;"></div>
 </div>
 </div>
