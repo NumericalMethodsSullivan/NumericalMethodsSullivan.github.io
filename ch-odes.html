@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 Ordinary Differential Equations | Numerical Methods</title>
   <meta name="description" content="Inquiry Based Numerical Methods" />
-  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 Ordinary Differential Equations | Numerical Methods" />
   <meta property="og:type" content="book" />
@@ -33,7 +33,6 @@
 <link rel="prev" href="ch-linearalgebra.html"/>
 <link rel="next" href="ch-pdes.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<script src="libs/elevate-section-attrs-2.0/elevate-section-attrs.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,20 +49,22 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -83,7 +84,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -128,18 +129,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Front Matter</a>
-<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Front Matter</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#resources"><i class="fa fa-check"></i>Resources</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#preface"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#creative-commons"><i class="fa fa-check"></i>Creative Commons</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#to-the-student"><i class="fa fa-check"></i>To The Student</a>
-<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#to-the-student"><i class="fa fa-check"></i>To The Student</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#the-inquiry-based-approach"><i class="fa fa-check"></i>The Inquiry-Based Approach</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#to-the-instructor"><i class="fa fa-check"></i>To the Instructor</a>
-<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#to-the-instructor"><i class="fa fa-check"></i>To the Instructor</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#the-inquiry-based-approach-1"><i class="fa fa-check"></i>The Inquiry-Based Approach</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#the-projects"><i class="fa fa-check"></i>The Projects</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#coding"><i class="fa fa-check"></i>Coding</a></li>
@@ -147,106 +145,87 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#other-considerations"><i class="fa fa-check"></i>Other Considerations:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>1</b> Preliminary Topics</a>
-<ul>
+<li class="chapter" data-level="1" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>1</b> Preliminary Topics</a><ul>
 <li class="chapter" data-level="1.1" data-path="ch-intro.html"><a href="ch-intro.html#what-is-numerical-analysis"><i class="fa fa-check"></i><b>1.1</b> What Is Numerical Analysis?</a></li>
 <li class="chapter" data-level="1.2" data-path="ch-intro.html"><a href="ch-intro.html#arithmetic-in-base-2"><i class="fa fa-check"></i><b>1.2</b> Arithmetic in Base 2</a></li>
 <li class="chapter" data-level="1.3" data-path="ch-intro.html"><a href="ch-intro.html#floating-point-arithmetic"><i class="fa fa-check"></i><b>1.3</b> Floating Point Arithmetic</a></li>
 <li class="chapter" data-level="1.4" data-path="ch-intro.html"><a href="ch-intro.html#sec:Taylor"><i class="fa fa-check"></i><b>1.4</b> Approximating Functions</a></li>
 <li class="chapter" data-level="1.5" data-path="ch-intro.html"><a href="ch-intro.html#approximation-error-with-taylor-series"><i class="fa fa-check"></i><b>1.5</b> Approximation Error with Taylor Series</a></li>
-<li class="chapter" data-level="1.6" data-path="ch-intro.html"><a href="ch-intro.html#exercises"><i class="fa fa-check"></i><b>1.6</b> Exercises</a>
-<ul>
+<li class="chapter" data-level="1.6" data-path="ch-intro.html"><a href="ch-intro.html#exercises"><i class="fa fa-check"></i><b>1.6</b> Exercises</a><ul>
 <li class="chapter" data-level="1.6.1" data-path="ch-intro.html"><a href="ch-intro.html#coding-exercises"><i class="fa fa-check"></i><b>1.6.1</b> Coding Exercises</a></li>
 <li class="chapter" data-level="1.6.2" data-path="ch-intro.html"><a href="ch-intro.html#applying-what-youve-learned"><i class="fa fa-check"></i><b>1.6.2</b> Applying What You’ve Learned</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="ch-algebra.html"><a href="ch-algebra.html"><i class="fa fa-check"></i><b>2</b> Algebra</a>
-<ul>
+<li class="chapter" data-level="2" data-path="ch-algebra.html"><a href="ch-algebra.html"><i class="fa fa-check"></i><b>2</b> Algebra</a><ul>
 <li class="chapter" data-level="2.1" data-path="ch-algebra.html"><a href="ch-algebra.html#intro-to-numerical-root-finding"><i class="fa fa-check"></i><b>2.1</b> Intro to Numerical Root Finding</a></li>
-<li class="chapter" data-level="2.2" data-path="ch-algebra.html"><a href="ch-algebra.html#the-bisection-method"><i class="fa fa-check"></i><b>2.2</b> The Bisection Method</a>
-<ul>
+<li class="chapter" data-level="2.2" data-path="ch-algebra.html"><a href="ch-algebra.html#the-bisection-method"><i class="fa fa-check"></i><b>2.2</b> The Bisection Method</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="ch-algebra.html"><a href="ch-algebra.html#intuition-and-implementation"><i class="fa fa-check"></i><b>2.2.1</b> Intuition and Implementation</a></li>
 <li class="chapter" data-level="2.2.2" data-path="ch-algebra.html"><a href="ch-algebra.html#analysis"><i class="fa fa-check"></i><b>2.2.2</b> Analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="ch-algebra.html"><a href="ch-algebra.html#the-regula-falsi-method"><i class="fa fa-check"></i><b>2.3</b> The Regula Falsi Method</a>
-<ul>
+<li class="chapter" data-level="2.3" data-path="ch-algebra.html"><a href="ch-algebra.html#the-regula-falsi-method"><i class="fa fa-check"></i><b>2.3</b> The Regula Falsi Method</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="ch-algebra.html"><a href="ch-algebra.html#intuition-and-implementation-1"><i class="fa fa-check"></i><b>2.3.1</b> Intuition and Implementation</a></li>
 <li class="chapter" data-level="2.3.2" data-path="ch-algebra.html"><a href="ch-algebra.html#analysis-1"><i class="fa fa-check"></i><b>2.3.2</b> Analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="ch-algebra.html"><a href="ch-algebra.html#newtons-method"><i class="fa fa-check"></i><b>2.4</b> Newton’s Method</a>
-<ul>
+<li class="chapter" data-level="2.4" data-path="ch-algebra.html"><a href="ch-algebra.html#newtons-method"><i class="fa fa-check"></i><b>2.4</b> Newton’s Method</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="ch-algebra.html"><a href="ch-algebra.html#intuition-and-implementation-2"><i class="fa fa-check"></i><b>2.4.1</b> Intuition and Implementation</a></li>
 <li class="chapter" data-level="2.4.2" data-path="ch-algebra.html"><a href="ch-algebra.html#analysis-2"><i class="fa fa-check"></i><b>2.4.2</b> Analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="ch-algebra.html"><a href="ch-algebra.html#the-secant-method"><i class="fa fa-check"></i><b>2.5</b> The Secant Method</a>
-<ul>
+<li class="chapter" data-level="2.5" data-path="ch-algebra.html"><a href="ch-algebra.html#the-secant-method"><i class="fa fa-check"></i><b>2.5</b> The Secant Method</a><ul>
 <li class="chapter" data-level="2.5.1" data-path="ch-algebra.html"><a href="ch-algebra.html#intuition-and-implementation-3"><i class="fa fa-check"></i><b>2.5.1</b> Intuition and Implementation</a></li>
 <li class="chapter" data-level="2.5.2" data-path="ch-algebra.html"><a href="ch-algebra.html#analysis-3"><i class="fa fa-check"></i><b>2.5.2</b> Analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="ch-algebra.html"><a href="ch-algebra.html#exercises-1"><i class="fa fa-check"></i><b>2.6</b> Exercises</a>
-<ul>
+<li class="chapter" data-level="2.6" data-path="ch-algebra.html"><a href="ch-algebra.html#exercises-1"><i class="fa fa-check"></i><b>2.6</b> Exercises</a><ul>
 <li class="chapter" data-level="2.6.1" data-path="ch-algebra.html"><a href="ch-algebra.html#algorithm-summaries"><i class="fa fa-check"></i><b>2.6.1</b> Algorithm Summaries</a></li>
 <li class="chapter" data-level="2.6.2" data-path="ch-algebra.html"><a href="ch-algebra.html#applying-what-youve-learned-1"><i class="fa fa-check"></i><b>2.6.2</b> Applying What You’ve Learned</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="ch-algebra.html"><a href="ch-algebra.html#projects"><i class="fa fa-check"></i><b>2.7</b> Projects</a>
-<ul>
+<li class="chapter" data-level="2.7" data-path="ch-algebra.html"><a href="ch-algebra.html#projects"><i class="fa fa-check"></i><b>2.7</b> Projects</a><ul>
 <li class="chapter" data-level="2.7.1" data-path="ch-algebra.html"><a href="ch-algebra.html#basins-of-attraction"><i class="fa fa-check"></i><b>2.7.1</b> Basins of Attraction</a></li>
 <li class="chapter" data-level="2.7.2" data-path="ch-algebra.html"><a href="ch-algebra.html#artillery"><i class="fa fa-check"></i><b>2.7.2</b> Artillery</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="ch-calculus.html"><a href="ch-calculus.html"><i class="fa fa-check"></i><b>3</b> Calculus</a>
-<ul>
+<li class="chapter" data-level="3" data-path="ch-calculus.html"><a href="ch-calculus.html"><i class="fa fa-check"></i><b>3</b> Calculus</a><ul>
 <li class="chapter" data-level="3.1" data-path="ch-calculus.html"><a href="ch-calculus.html#intro-to-numerical-calculus"><i class="fa fa-check"></i><b>3.1</b> Intro to Numerical Calculus</a></li>
-<li class="chapter" data-level="3.2" data-path="ch-calculus.html"><a href="ch-calculus.html#differentiation"><i class="fa fa-check"></i><b>3.2</b> Differentiation</a>
-<ul>
+<li class="chapter" data-level="3.2" data-path="ch-calculus.html"><a href="ch-calculus.html#differentiation"><i class="fa fa-check"></i><b>3.2</b> Differentiation</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="ch-calculus.html"><a href="ch-calculus.html#the-first-derivative"><i class="fa fa-check"></i><b>3.2.1</b> The First Derivative</a></li>
 <li class="chapter" data-level="3.2.2" data-path="ch-calculus.html"><a href="ch-calculus.html#error-analysis"><i class="fa fa-check"></i><b>3.2.2</b> Error Analysis</a></li>
 <li class="chapter" data-level="3.2.3" data-path="ch-calculus.html"><a href="ch-calculus.html#efficient-coding"><i class="fa fa-check"></i><b>3.2.3</b> Efficient Coding</a></li>
 <li class="chapter" data-level="3.2.4" data-path="ch-calculus.html"><a href="ch-calculus.html#a-better-first-derivative"><i class="fa fa-check"></i><b>3.2.4</b> A Better First Derivative</a></li>
 <li class="chapter" data-level="3.2.5" data-path="ch-calculus.html"><a href="ch-calculus.html#the-second-derivative"><i class="fa fa-check"></i><b>3.2.5</b> The Second Derivative</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="ch-calculus.html"><a href="ch-calculus.html#integration"><i class="fa fa-check"></i><b>3.3</b> Integration</a>
-<ul>
+<li class="chapter" data-level="3.3" data-path="ch-calculus.html"><a href="ch-calculus.html#integration"><i class="fa fa-check"></i><b>3.3</b> Integration</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="ch-calculus.html"><a href="ch-calculus.html#riemann-sums"><i class="fa fa-check"></i><b>3.3.1</b> Riemann Sums</a></li>
 <li class="chapter" data-level="3.3.2" data-path="ch-calculus.html"><a href="ch-calculus.html#trapezoidal-rule"><i class="fa fa-check"></i><b>3.3.2</b> Trapezoidal Rule</a></li>
 <li class="chapter" data-level="3.3.3" data-path="ch-calculus.html"><a href="ch-calculus.html#simpsons-rule"><i class="fa fa-check"></i><b>3.3.3</b> Simpsons Rule</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="ch-calculus.html"><a href="ch-calculus.html#optimization"><i class="fa fa-check"></i><b>3.4</b> Optimization</a>
-<ul>
+<li class="chapter" data-level="3.4" data-path="ch-calculus.html"><a href="ch-calculus.html#optimization"><i class="fa fa-check"></i><b>3.4</b> Optimization</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="ch-calculus.html"><a href="ch-calculus.html#single-variable-optimization"><i class="fa fa-check"></i><b>3.4.1</b> Single Variable Optimization</a></li>
 <li class="chapter" data-level="3.4.2" data-path="ch-calculus.html"><a href="ch-calculus.html#multivariable-optimization"><i class="fa fa-check"></i><b>3.4.2</b> Multivariable Optimization</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="ch-calculus.html"><a href="ch-calculus.html#calculus-with-numpy-and-scipy"><i class="fa fa-check"></i><b>3.5</b> Calculus with <code>numpy</code> and <code>scipy</code></a>
-<ul>
+<li class="chapter" data-level="3.5" data-path="ch-calculus.html"><a href="ch-calculus.html#calculus-with-numpy-and-scipy"><i class="fa fa-check"></i><b>3.5</b> Calculus with <code>numpy</code> and <code>scipy</code></a><ul>
 <li class="chapter" data-level="3.5.1" data-path="ch-calculus.html"><a href="ch-calculus.html#differentiation-1"><i class="fa fa-check"></i><b>3.5.1</b> Differentiation</a></li>
 <li class="chapter" data-level="3.5.2" data-path="ch-calculus.html"><a href="ch-calculus.html#integration-1"><i class="fa fa-check"></i><b>3.5.2</b> Integration</a></li>
 <li class="chapter" data-level="3.5.3" data-path="ch-calculus.html"><a href="ch-calculus.html#optimization-1"><i class="fa fa-check"></i><b>3.5.3</b> Optimization</a></li>
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="ch-calculus.html"><a href="ch-calculus.html#least-squares-curve-fitting"><i class="fa fa-check"></i><b>3.6</b> Least Squares Curve Fitting</a></li>
-<li class="chapter" data-level="3.7" data-path="ch-calculus.html"><a href="ch-calculus.html#exercises-2"><i class="fa fa-check"></i><b>3.7</b> Exercises</a>
-<ul>
+<li class="chapter" data-level="3.7" data-path="ch-calculus.html"><a href="ch-calculus.html#exercises-2"><i class="fa fa-check"></i><b>3.7</b> Exercises</a><ul>
 <li class="chapter" data-level="3.7.1" data-path="ch-calculus.html"><a href="ch-calculus.html#algorithm-summaries-1"><i class="fa fa-check"></i><b>3.7.1</b> Algorithm Summaries</a></li>
 <li class="chapter" data-level="3.7.2" data-path="ch-calculus.html"><a href="ch-calculus.html#applying-what-youve-learned-2"><i class="fa fa-check"></i><b>3.7.2</b> Applying What You’ve Learned</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="ch-calculus.html"><a href="ch-calculus.html#projects-1"><i class="fa fa-check"></i><b>3.8</b> Projects</a>
-<ul>
+<li class="chapter" data-level="3.8" data-path="ch-calculus.html"><a href="ch-calculus.html#projects-1"><i class="fa fa-check"></i><b>3.8</b> Projects</a><ul>
 <li class="chapter" data-level="3.8.1" data-path="ch-calculus.html"><a href="ch-calculus.html#galaxy-integration"><i class="fa fa-check"></i><b>3.8.1</b> Galaxy Integration</a></li>
 <li class="chapter" data-level="3.8.2" data-path="ch-calculus.html"><a href="ch-calculus.html#higher-order-integration"><i class="fa fa-check"></i><b>3.8.2</b> Higher Order Integration</a></li>
 <li class="chapter" data-level="3.8.3" data-path="ch-calculus.html"><a href="ch-calculus.html#dam-integration"><i class="fa fa-check"></i><b>3.8.3</b> Dam Integration</a></li>
 <li class="chapter" data-level="3.8.4" data-path="ch-calculus.html"><a href="ch-calculus.html#edge-detection-in-images"><i class="fa fa-check"></i><b>3.8.4</b> Edge Detection in Images</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html"><i class="fa fa-check"></i><b>4</b> Linear Algebra</a>
-<ul>
+<li class="chapter" data-level="4" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html"><i class="fa fa-check"></i><b>4</b> Linear Algebra</a><ul>
 <li class="chapter" data-level="4.1" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#intro-to-numerical-linear-algebra"><i class="fa fa-check"></i><b>4.1</b> Intro to Numerical Linear Algebra</a></li>
 <li class="chapter" data-level="4.2" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#vectors-and-matrices-in-python"><i class="fa fa-check"></i><b>4.2</b> Vectors and Matrices in Python</a></li>
-<li class="chapter" data-level="4.3" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#matrix-and-vector-operations"><i class="fa fa-check"></i><b>4.3</b> Matrix and Vector Operations</a>
-<ul>
+<li class="chapter" data-level="4.3" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#matrix-and-vector-operations"><i class="fa fa-check"></i><b>4.3</b> Matrix and Vector Operations</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#the-dot-product"><i class="fa fa-check"></i><b>4.3.1</b> The Dot Product</a></li>
 <li class="chapter" data-level="4.3.2" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#matrix-multiplication"><i class="fa fa-check"></i><b>4.3.2</b> Matrix Multiplication</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#the-lu-factorization"><i class="fa fa-check"></i><b>4.4</b> The LU Factorization</a>
-<ul>
+<li class="chapter" data-level="4.4" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#the-lu-factorization"><i class="fa fa-check"></i><b>4.4</b> The LU Factorization</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#a-recap-of-row-reduction"><i class="fa fa-check"></i><b>4.4.1</b> A Recap of Row Reduction</a></li>
 <li class="chapter" data-level="4.4.2" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#the-lu-decomposition"><i class="fa fa-check"></i><b>4.4.2</b> The LU Decomposition</a></li>
 <li class="chapter" data-level="4.4.3" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#solving-triangular-systems"><i class="fa fa-check"></i><b>4.4.3</b> Solving Triangular Systems</a></li>
@@ -255,45 +234,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.5" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#the-qr-factorization"><i class="fa fa-check"></i><b>4.5</b> The QR Factorization</a></li>
 <li class="chapter" data-level="4.6" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#over-determined-systems-and-curve-fitting"><i class="fa fa-check"></i><b>4.6</b> Over Determined Systems and Curve Fitting</a></li>
 <li class="chapter" data-level="4.7" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#the-eigenvalue-eigenvector-problem"><i class="fa fa-check"></i><b>4.7</b> The Eigenvalue-Eigenvector Problem</a></li>
-<li class="chapter" data-level="4.8" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#exercises-3"><i class="fa fa-check"></i><b>4.8</b> Exercises</a>
-<ul>
+<li class="chapter" data-level="4.8" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#exercises-3"><i class="fa fa-check"></i><b>4.8</b> Exercises</a><ul>
 <li class="chapter" data-level="4.8.1" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#algorithm-summaries-2"><i class="fa fa-check"></i><b>4.8.1</b> Algorithm Summaries</a></li>
 <li class="chapter" data-level="4.8.2" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#applying-what-youve-learned-3"><i class="fa fa-check"></i><b>4.8.2</b> Applying What You’ve Learned</a></li>
 </ul></li>
-<li class="chapter" data-level="4.9" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#projects-2"><i class="fa fa-check"></i><b>4.9</b> Projects</a>
-<ul>
+<li class="chapter" data-level="4.9" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#projects-2"><i class="fa fa-check"></i><b>4.9</b> Projects</a><ul>
 <li class="chapter" data-level="4.9.1" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#the-google-page-rank-algorithm"><i class="fa fa-check"></i><b>4.9.1</b> The Google Page Rank Algorithm</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="ch-odes.html"><a href="ch-odes.html"><i class="fa fa-check"></i><b>5</b> Ordinary Differential Equations</a>
-<ul>
+<li class="chapter" data-level="5" data-path="ch-odes.html"><a href="ch-odes.html"><i class="fa fa-check"></i><b>5</b> Ordinary Differential Equations</a><ul>
 <li class="chapter" data-level="5.1" data-path="ch-odes.html"><a href="ch-odes.html#intro-to-numerical-odes"><i class="fa fa-check"></i><b>5.1</b> Intro to Numerical ODEs</a></li>
 <li class="chapter" data-level="5.2" data-path="ch-odes.html"><a href="ch-odes.html#recalling-the-basics-of-odes"><i class="fa fa-check"></i><b>5.2</b> Recalling the Basics of ODEs</a></li>
 <li class="chapter" data-level="5.3" data-path="ch-odes.html"><a href="ch-odes.html#eulers-method"><i class="fa fa-check"></i><b>5.3</b> Euler’s Method</a></li>
 <li class="chapter" data-level="5.4" data-path="ch-odes.html"><a href="ch-odes.html#the-midpoint-method"><i class="fa fa-check"></i><b>5.4</b> The Midpoint Method</a></li>
 <li class="chapter" data-level="5.5" data-path="ch-odes.html"><a href="ch-odes.html#the-runge-kutta-4-method"><i class="fa fa-check"></i><b>5.5</b> The Runge-Kutta 4 Method</a></li>
-<li class="chapter" data-level="5.6" data-path="ch-odes.html"><a href="ch-odes.html#animating-ode-solutions"><i class="fa fa-check"></i><b>5.6</b> Animating ODE Solutions</a>
-<ul>
+<li class="chapter" data-level="5.6" data-path="ch-odes.html"><a href="ch-odes.html#animating-ode-solutions"><i class="fa fa-check"></i><b>5.6</b> Animating ODE Solutions</a><ul>
 <li class="chapter" data-level="5.6.1" data-path="ch-odes.html"><a href="ch-odes.html#ipywidgets.interactive"><i class="fa fa-check"></i><b>5.6.1</b> <code>ipywidgets.interactive</code></a></li>
 <li class="chapter" data-level="5.6.2" data-path="ch-odes.html"><a href="ch-odes.html#matplotlib.animation"><i class="fa fa-check"></i><b>5.6.2</b> <code>matplotlib.animation</code></a></li>
 </ul></li>
 <li class="chapter" data-level="5.7" data-path="ch-odes.html"><a href="ch-odes.html#the-backwards-euler-method"><i class="fa fa-check"></i><b>5.7</b> The Backwards Euler Method</a></li>
 <li class="chapter" data-level="5.8" data-path="ch-odes.html"><a href="ch-odes.html#fitting-ode-models-to-data"><i class="fa fa-check"></i><b>5.8</b> Fitting ODE Models to Data</a></li>
-<li class="chapter" data-level="5.9" data-path="ch-odes.html"><a href="ch-odes.html#exercises-4"><i class="fa fa-check"></i><b>5.9</b> Exercises</a>
-<ul>
+<li class="chapter" data-level="5.9" data-path="ch-odes.html"><a href="ch-odes.html#exercises-4"><i class="fa fa-check"></i><b>5.9</b> Exercises</a><ul>
 <li class="chapter" data-level="5.9.1" data-path="ch-odes.html"><a href="ch-odes.html#algorithm-summaries-3"><i class="fa fa-check"></i><b>5.9.1</b> Algorithm Summaries</a></li>
 <li class="chapter" data-level="5.9.2" data-path="ch-odes.html"><a href="ch-odes.html#applying-what-youve-learned-4"><i class="fa fa-check"></i><b>5.9.2</b> Applying What You’ve Learned</a></li>
 </ul></li>
-<li class="chapter" data-level="5.10" data-path="ch-odes.html"><a href="ch-odes.html#projects-3"><i class="fa fa-check"></i><b>5.10</b> Projects</a>
-<ul>
+<li class="chapter" data-level="5.10" data-path="ch-odes.html"><a href="ch-odes.html#projects-3"><i class="fa fa-check"></i><b>5.10</b> Projects</a><ul>
 <li class="chapter" data-level="5.10.1" data-path="ch-odes.html"><a href="ch-odes.html#the-covid-19-pandemic"><i class="fa fa-check"></i><b>5.10.1</b> The COVID-19 Pandemic</a></li>
 <li class="chapter" data-level="5.10.2" data-path="ch-odes.html"><a href="ch-odes.html#pain-management"><i class="fa fa-check"></i><b>5.10.2</b> Pain Management</a></li>
 <li class="chapter" data-level="5.10.3" data-path="ch-odes.html"><a href="ch-odes.html#the-h1n1-virus"><i class="fa fa-check"></i><b>5.10.3</b> The H1N1 Virus</a></li>
 <li class="chapter" data-level="5.10.4" data-path="ch-odes.html"><a href="ch-odes.html#the-artillery-problem"><i class="fa fa-check"></i><b>5.10.4</b> The Artillery Problem</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="ch-pdes.html"><a href="ch-pdes.html"><i class="fa fa-check"></i><b>6</b> Partial Differential Equations</a>
-<ul>
+<li class="chapter" data-level="6" data-path="ch-pdes.html"><a href="ch-pdes.html"><i class="fa fa-check"></i><b>6</b> Partial Differential Equations</a><ul>
 <li class="chapter" data-level="6.1" data-path="ch-pdes.html"><a href="ch-pdes.html#intro-to-pdes"><i class="fa fa-check"></i><b>6.1</b> Intro to PDEs</a></li>
 <li class="chapter" data-level="6.2" data-path="ch-pdes.html"><a href="ch-pdes.html#solutions-to-pdes"><i class="fa fa-check"></i><b>6.2</b> Solutions to PDEs</a></li>
 <li class="chapter" data-level="6.3" data-path="ch-pdes.html"><a href="ch-pdes.html#boundary-conditions"><i class="fa fa-check"></i><b>6.3</b> Boundary Conditions</a></li>
@@ -302,25 +274,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.6" data-path="ch-pdes.html"><a href="ch-pdes.html#the-wave-equation"><i class="fa fa-check"></i><b>6.6</b> The Wave Equation</a></li>
 <li class="chapter" data-level="6.7" data-path="ch-pdes.html"><a href="ch-pdes.html#traveling-waves"><i class="fa fa-check"></i><b>6.7</b> Traveling Waves</a></li>
 <li class="chapter" data-level="6.8" data-path="ch-pdes.html"><a href="ch-pdes.html#the-laplace-and-poisson-equations"><i class="fa fa-check"></i><b>6.8</b> The Laplace and Poisson Equations</a></li>
-<li class="chapter" data-level="6.9" data-path="ch-pdes.html"><a href="ch-pdes.html#exercises-5"><i class="fa fa-check"></i><b>6.9</b> Exercises</a>
-<ul>
+<li class="chapter" data-level="6.9" data-path="ch-pdes.html"><a href="ch-pdes.html#exercises-5"><i class="fa fa-check"></i><b>6.9</b> Exercises</a><ul>
 <li class="chapter" data-level="6.9.1" data-path="ch-pdes.html"><a href="ch-pdes.html#algorithm-summaries-4"><i class="fa fa-check"></i><b>6.9.1</b> Algorithm Summaries</a></li>
 <li class="chapter" data-level="6.9.2" data-path="ch-pdes.html"><a href="ch-pdes.html#applying-what-youve-learned-5"><i class="fa fa-check"></i><b>6.9.2</b> Applying What You’ve Learned</a></li>
 </ul></li>
-<li class="chapter" data-level="6.10" data-path="ch-pdes.html"><a href="ch-pdes.html#projects-4"><i class="fa fa-check"></i><b>6.10</b> Projects</a>
-<ul>
+<li class="chapter" data-level="6.10" data-path="ch-pdes.html"><a href="ch-pdes.html#projects-4"><i class="fa fa-check"></i><b>6.10</b> Projects</a><ul>
 <li class="chapter" data-level="6.10.1" data-path="ch-pdes.html"><a href="ch-pdes.html#hunting-and-diffusion"><i class="fa fa-check"></i><b>6.10.1</b> Hunting and Diffusion</a></li>
 <li class="chapter" data-level="6.10.2" data-path="ch-pdes.html"><a href="ch-pdes.html#heating-adobe-houses"><i class="fa fa-check"></i><b>6.10.2</b> Heating Adobe Houses</a></li>
 </ul></li>
 </ul></li>
 <li class="appendix"><span><b>Appendices</b></span></li>
-<li class="chapter" data-level="A" data-path="ch-python.html"><a href="ch-python.html"><i class="fa fa-check"></i><b>A</b> Introduction to Python</a>
-<ul>
+<li class="chapter" data-level="A" data-path="ch-python.html"><a href="ch-python.html"><i class="fa fa-check"></i><b>A</b> Introduction to Python</a><ul>
 <li class="chapter" data-level="A.1" data-path="ch-python.html"><a href="ch-python.html#why-python"><i class="fa fa-check"></i><b>A.1</b> Why Python?</a></li>
 <li class="chapter" data-level="A.2" data-path="ch-python.html"><a href="ch-python.html#getting-started"><i class="fa fa-check"></i><b>A.2</b> Getting Started</a></li>
 <li class="chapter" data-level="A.3" data-path="ch-python.html"><a href="ch-python.html#hello-world"><i class="fa fa-check"></i><b>A.3</b> Hello, World!</a></li>
-<li class="chapter" data-level="A.4" data-path="ch-python.html"><a href="ch-python.html#python-programming-basics"><i class="fa fa-check"></i><b>A.4</b> Python Programming Basics</a>
-<ul>
+<li class="chapter" data-level="A.4" data-path="ch-python.html"><a href="ch-python.html#python-programming-basics"><i class="fa fa-check"></i><b>A.4</b> Python Programming Basics</a><ul>
 <li class="chapter" data-level="A.4.1" data-path="ch-python.html"><a href="ch-python.html#variables"><i class="fa fa-check"></i><b>A.4.1</b> Variables</a></li>
 <li class="chapter" data-level="A.4.2" data-path="ch-python.html"><a href="ch-python.html#indexing-and-lists"><i class="fa fa-check"></i><b>A.4.2</b> Indexing and Lists</a></li>
 <li class="chapter" data-level="A.4.3" data-path="ch-python.html"><a href="ch-python.html#list-operations"><i class="fa fa-check"></i><b>A.4.3</b> List Operations</a></li>
@@ -330,19 +298,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="A.4.7" data-path="ch-python.html"><a href="ch-python.html#lambda-functions"><i class="fa fa-check"></i><b>A.4.7</b> Lambda Functions</a></li>
 <li class="chapter" data-level="A.4.8" data-path="ch-python.html"><a href="ch-python.html#packages"><i class="fa fa-check"></i><b>A.4.8</b> Packages</a></li>
 </ul></li>
-<li class="chapter" data-level="A.5" data-path="ch-python.html"><a href="ch-python.html#numerical-python-with-numpy"><i class="fa fa-check"></i><b>A.5</b> Numerical Python with <code>numpy</code></a>
-<ul>
+<li class="chapter" data-level="A.5" data-path="ch-python.html"><a href="ch-python.html#numerical-python-with-numpy"><i class="fa fa-check"></i><b>A.5</b> Numerical Python with <code>numpy</code></a><ul>
 <li class="chapter" data-level="A.5.1" data-path="ch-python.html"><a href="ch-python.html#numpy-arrays-array-operations-and-matrix-operations"><i class="fa fa-check"></i><b>A.5.1</b> Numpy Arrays, Array Operations, and Matrix Operations</a></li>
 <li class="chapter" data-level="A.5.2" data-path="ch-python.html"><a href="ch-python.html#arange-linspace-zeros-ones-and-meshgrid"><i class="fa fa-check"></i><b>A.5.2</b> <code>arange, linspace, zeros, ones</code>, and <code>meshgrid</code></a></li>
 </ul></li>
-<li class="chapter" data-level="A.6" data-path="ch-python.html"><a href="ch-python.html#plotting-with-matplotlib"><i class="fa fa-check"></i><b>A.6</b> Plotting with <code>matplotlib</code></a>
-<ul>
+<li class="chapter" data-level="A.6" data-path="ch-python.html"><a href="ch-python.html#plotting-with-matplotlib"><i class="fa fa-check"></i><b>A.6</b> Plotting with <code>matplotlib</code></a><ul>
 <li class="chapter" data-level="A.6.1" data-path="ch-python.html"><a href="ch-python.html#basics-with-plt.plot"><i class="fa fa-check"></i><b>A.6.1</b> Basics with <code>plt.plot()</code></a></li>
 <li class="chapter" data-level="A.6.2" data-path="ch-python.html"><a href="ch-python.html#subplots"><i class="fa fa-check"></i><b>A.6.2</b> Subplots</a></li>
 <li class="chapter" data-level="A.6.3" data-path="ch-python.html"><a href="ch-python.html#logarithmic-scaling-with-semilogy-semilogx-and-loglog"><i class="fa fa-check"></i><b>A.6.3</b> Logarithmic Scaling with <code>semilogy</code>, <code>semilogx</code>, and <code>loglog</code></a></li>
 </ul></li>
-<li class="chapter" data-level="A.7" data-path="ch-python.html"><a href="ch-python.html#symbolic-python-with-sympy"><i class="fa fa-check"></i><b>A.7</b> Symbolic Python with <code>sympy</code></a>
-<ul>
+<li class="chapter" data-level="A.7" data-path="ch-python.html"><a href="ch-python.html#symbolic-python-with-sympy"><i class="fa fa-check"></i><b>A.7</b> Symbolic Python with <code>sympy</code></a><ul>
 <li class="chapter" data-level="A.7.1" data-path="ch-python.html"><a href="ch-python.html#symbolic-variables-with-symbols"><i class="fa fa-check"></i><b>A.7.1</b> Symbolic Variables with <code>symbols</code></a></li>
 <li class="chapter" data-level="A.7.2" data-path="ch-python.html"><a href="ch-python.html#symbolic-algebra"><i class="fa fa-check"></i><b>A.7.2</b> Symbolic Algebra</a></li>
 <li class="chapter" data-level="A.7.3" data-path="ch-python.html"><a href="ch-python.html#symbolic-function-evaluation"><i class="fa fa-check"></i><b>A.7.3</b> Symbolic Function Evaluation</a></li>
@@ -351,27 +316,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="A.7.6" data-path="ch-python.html"><a href="ch-python.html#symbolic-plotting"><i class="fa fa-check"></i><b>A.7.6</b> Symbolic Plotting</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="ch-writing.html"><a href="ch-writing.html"><i class="fa fa-check"></i><b>B</b> Mathematical Writing</a>
-<ul>
+<li class="chapter" data-level="B" data-path="ch-writing.html"><a href="ch-writing.html"><i class="fa fa-check"></i><b>B</b> Mathematical Writing</a><ul>
 <li class="chapter" data-level="B.1" data-path="ch-writing.html"><a href="ch-writing.html#the-paper"><i class="fa fa-check"></i><b>B.1</b> The Paper</a></li>
 <li class="chapter" data-level="B.2" data-path="ch-writing.html"><a href="ch-writing.html#figures-and-tables"><i class="fa fa-check"></i><b>B.2</b> Figures and Tables</a></li>
 <li class="chapter" data-level="B.3" data-path="ch-writing.html"><a href="ch-writing.html#writing-style"><i class="fa fa-check"></i><b>B.3</b> Writing Style</a></li>
-<li class="chapter" data-level="B.4" data-path="ch-writing.html"><a href="ch-writing.html#tips-for-writing-clear-math"><i class="fa fa-check"></i><b>B.4</b> Tips For Writing Clear Math</a>
-<ul>
+<li class="chapter" data-level="B.4" data-path="ch-writing.html"><a href="ch-writing.html#tips-for-writing-clear-math"><i class="fa fa-check"></i><b>B.4</b> Tips For Writing Clear Math</a><ul>
 <li class="chapter" data-level="B.4.1" data-path="ch-writing.html"><a href="ch-writing.html#audience"><i class="fa fa-check"></i><b>B.4.1</b> Audience</a></li>
 <li class="chapter" data-level="B.4.2" data-path="ch-writing.html"><a href="ch-writing.html#how-to-make-mathematics-readable-10-things-to-do"><i class="fa fa-check"></i><b>B.4.2</b> How To Make Mathematics Readable – 10 Things To Do</a></li>
 <li class="chapter" data-level="B.4.3" data-path="ch-writing.html"><a href="ch-writing.html#some-writing-tips"><i class="fa fa-check"></i><b>B.4.3</b> Some Writing Tips</a></li>
 <li class="chapter" data-level="B.4.4" data-path="ch-writing.html"><a href="ch-writing.html#mathematical-vocabulary"><i class="fa fa-check"></i><b>B.4.4</b> Mathematical Vocabulary</a></li>
 </ul></li>
-<li class="chapter" data-level="B.5" data-path="ch-writing.html"><a href="ch-writing.html#sensitivity-analysis"><i class="fa fa-check"></i><b>B.5</b> Sensitivity Analysis</a>
-<ul>
+<li class="chapter" data-level="B.5" data-path="ch-writing.html"><a href="ch-writing.html#sensitivity-analysis"><i class="fa fa-check"></i><b>B.5</b> Sensitivity Analysis</a><ul>
 <li class="chapter" data-level="B.5.1" data-path="ch-writing.html"><a href="ch-writing.html#example-of-sensitivity-analysis"><i class="fa fa-check"></i><b>B.5.1</b> Example of Sensitivity Analysis</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="C" data-path="ch-extras.html"><a href="ch-extras.html"><i class="fa fa-check"></i><b>C</b> Optional Material</a>
-<ul>
-<li class="chapter" data-level="C.1" data-path="ch-extras.html"><a href="ch-extras.html#interpolation"><i class="fa fa-check"></i><b>C.1</b> Interpolation</a>
-<ul>
+<li class="chapter" data-level="C" data-path="ch-extras.html"><a href="ch-extras.html"><i class="fa fa-check"></i><b>C</b> Optional Material</a><ul>
+<li class="chapter" data-level="C.1" data-path="ch-extras.html"><a href="ch-extras.html#interpolation"><i class="fa fa-check"></i><b>C.1</b> Interpolation</a><ul>
 <li class="chapter" data-level="C.1.1" data-path="ch-extras.html"><a href="ch-extras.html#vandermonde-interpolation"><i class="fa fa-check"></i><b>C.1.1</b> Vandermonde Interpolation</a></li>
 <li class="chapter" data-level="C.1.2" data-path="ch-extras.html"><a href="ch-extras.html#lagrange-interpolation"><i class="fa fa-check"></i><b>C.1.2</b> Lagrange Interpolation</a></li>
 <li class="chapter" data-level="C.1.3" data-path="ch-extras.html"><a href="ch-extras.html#chebyshev-points"><i class="fa fa-check"></i><b>C.1.3</b> Chebyshev Points</a></li>
@@ -397,10 +357,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ch:odes" class="section level1" number="5">
+<div id="ch:odes" class="section level1">
 <h1><span class="header-section-number">5</span> Ordinary Differential Equations</h1>
-<div id="intro-to-numerical-odes" class="section level2" number="5.1">
+<div id="intro-to-numerical-odes" class="section level2">
 <h2><span class="header-section-number">5.1</span> Intro to Numerical ODEs</h2>
+
 <blockquote>
 <p><em>“The mathematical discipline of differential equations furnishes the
 explanation of all those elementary manifestations of nature which
@@ -441,6 +402,7 @@ function modeling the amount of drug in the system look like over
 time?</p></li>
 </ol>
 </div>
+
 <hr />
 <p>Now let’s formalize the conversation about differential equations, analytic solutions, and numerical solutions.</p>
 
@@ -448,11 +410,13 @@ time?</p></li>
 <span id="def:unnamed-chunk-418" class="definition"><strong>Definition 5.1  (Differential Equation)  </strong></span>A <strong>differential equation</strong> is an equation that relates the derivative
 (or derivatives) of an unknown function to itself.
 </div>
+
 <hr />
 
 <div class="definition">
 <span id="def:unnamed-chunk-419" class="definition"><strong>Definition 5.2  (Solution to a Differential Equations)  </strong></span>A <strong>solution to a differential equation</strong> (also called an <strong>analytic solution</strong>) is a function which, when substituted into the differential equation, creates a true statement.
 </div>
+
 <hr />
 
 <div class="example">
@@ -465,16 +429,18 @@ time?</p></li>
 \]</span>
 Furthermore, <span class="math inline">\(x(0) = 3e^{-0.25 \cdot 0} = 3e^0 = 3 \checkmark\)</span>. Hence, the function <span class="math inline">\(x(t) = 3e^{-0.25t}\)</span> is indeed a solution to the differential equation <span class="math inline">\(x&#39;=-0.25x\)</span> with <span class="math inline">\(x(0) = 3\)</span>.</p>
 </div>
+
 <hr />
 
 <div class="definition">
 <span id="def:unnamed-chunk-421" class="definition"><strong>Definition 5.3  (Numerical Solution to a Differential Equation)  </strong></span>A <strong>numerical solution to a differential equation</strong> is a list of ordered pairs that gives a point-wise approximation to the actual solution.
 </div>
+
 <hr />
 <p>In this chapter we will examine some of the more common ways to create approximations of solutions to differential equations. Moreover, we will lean heavily on Taylor Series to give us ways to accurately measure the order of the errors that we make in the process.</p>
 <div style="page-break-after: always;"></div>
 </div>
-<div id="recalling-the-basics-of-odes" class="section level2" number="5.2">
+<div id="recalling-the-basics-of-odes" class="section level2">
 <h2><span class="header-section-number">5.2</span> Recalling the Basics of ODEs</h2>
 <p>You should be familiar with the basics of differential equations from previous classes, but just in case you’re a bit rusty, this section gives a very brief review of some of the basics.</p>
 <p>Solving differential equations analytically is a subject unto itself, but it is worth our time here to revisit some of the basic techniques for solving differential equations. It should be noted that if an analytic solution exits then there is no reason to do any of the numerical techniques that we will discuss in this chapter – if you have an exact analytic solution then why on earth would you then approximate the solution!? The fact of the matter is, however, that the techniques for finding analytic solutions to differential equations are rather limited relative to the wild zoo of possible ODEs, and when the differential equations get complicated we will only have numerical approximations to lean back on. However, when we build approximation methods we will test them on differential equations for which we have the answer. So let’s get started with some review.</p>
@@ -491,6 +457,7 @@ and which are <em>algebraic</em> equations. (Do not try to solve any of these eq
 <li><span class="math inline">\(x^2 \cdot x = 8\)</span></li>
 </ol>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -504,6 +471,7 @@ and which are <em>algebraic</em> equations. (Do not try to solve any of these eq
 <li><span class="math inline">\(x(t) = \sin(3t) + C\)</span></li>
 </ol>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -517,11 +485,13 @@ and which are <em>algebraic</em> equations. (Do not try to solve any of these eq
 <li><span class="math inline">\(x(t) = \sin(3t) + C_1 t + C_2\)</span></li>
 </ol>
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-425" class="exercise"><strong>Exercise 5.5  </strong></span>Prove that the function <span class="math inline">\(x(t) = -\frac{1}{2} \cos(2t) + \frac{7}{2}\)</span> solves the differential equation <span class="math inline">\(x&#39; = \sin(2t)\)</span> with the initial condition <span class="math inline">\(x(0) =3\)</span>.
 </div>
+
 <hr />
 <p>Next we can recall one of the easiest techniques of solving ODEs by hand: separation of variables. We review separation here since we will often choose very easy (i.e. separable) differential equations to check our numerical work.</p>
 
@@ -532,6 +502,7 @@ the problem as <span class="math display">\[\int \frac{dx}{f(x)} = \int g(t) dt.
 sides and solving for <span class="math inline">\(x(t)\)</span> gives the solution.
 </div>
 
+
 <div class="proof">
 <p> <span class="proof"><em>Proof. </em></span> If <span class="math inline">\(\frac{dx}{dt} = f(x) g(t)\)</span> then we can first divide both sides by <span class="math inline">\(f(x)\)</span> (assuming that it is nonzero) and integrate both sides of the equation with respect to <span class="math inline">\(t\)</span> to get<br />
 <span class="math display">\[ \int \frac{1}{f(x)} \frac{dx}{dt} dt = \int g(t) dt. \]</span>
@@ -539,16 +510,19 @@ The expression <span class="math inline">\(\frac{dx}{dt} dt\)</span> in the left
 <span class="math display">\[ \int \frac{1}{f(x)} dx = \int g(t) dt. \]</span></p>
 Note that it may be quite challenging to actually integrate the functions resulting from separation of variables.
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-428" class="exercise"><strong>Exercise 5.6  </strong></span>Use separation of variables to solve the differential equation <span class="math display">\[\frac{dx}{dt} = x\sin(t)\]</span> with the initial condition <span class="math inline">\(x(0) = 1\)</span>.
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-429" class="exercise"><strong>Exercise 5.7  </strong></span>Solve the differential equation <span class="math inline">\(x&#39; = -2x + 12\)</span> with <span class="math inline">\(x(0) = 2\)</span> using separation of variables.
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -559,6 +533,7 @@ Note that it may be quite challenging to actually integrate the functions result
 that you are indeed correct in your work in part (a).</li>
 </ol>
 </div>
+
 <hr />
 <p>There are MANY other techniques for solving differential equations, but a full discussion of all of those techniques is beyond the scope of this book. For the remainder of this chapter we will focus on finding <em>approximate</em> solutions to differential equations. It will be handy, however, to be able to check our work on problems where an analytic solution is available. Techniques you should remind yourself of are:</p>
 <ul>
@@ -569,7 +544,7 @@ that you are indeed correct in your work in part (a).</li>
 <hr />
 <div style="page-break-after: always;"></div>
 </div>
-<div id="eulers-method" class="section level2" number="5.3">
+<div id="eulers-method" class="section level2">
 <h2><span class="header-section-number">5.3</span> Euler’s Method</h2>
 
 <div class="exercise">
@@ -639,6 +614,7 @@ Hint: We know a value, a slope, and the size of the step that we would like to m
 </ol></li>
 </ol>
 </div>
+
 <div class="figure" style="text-align: center"><span id="fig:euler-slope1"></span>
 <img src="images/Ch05_EulerSlope1.png" alt="Plot your approximate solution on top of the slope field and the exact solution." width="75%" />
 <p class="caption">
@@ -655,6 +631,7 @@ Figure 5.1: Plot your approximate solution on top of the slope field and the exa
 <li>If you could take <span class="math inline">\(\Delta t\)</span> to be very very small, what difference would you see graphically between the exact solution and your collection of line segments? Why?</li>
 </ol>
 </div>
+
 <div class="figure" style="text-align: center"><span id="fig:euler-slope2"></span>
 <img src="images/Ch05_EulerSlope2.png" alt="Plot your approximate solution on top of the slope field and the exact solution." width="75%" />
 <p class="caption">
@@ -682,6 +659,7 @@ equation, letting <span class="math inline">\(x_{n+1} = x(t_n+h)\)</span> and <s
         \label{eqn:Eulers_method}
     \end{aligned}\]</span>
 </div>
+
 <hr />
 <p>A way to think about Euler’s method is that at a given point, the slope is approximated by the value of the right-hand side of the differential equation and then we step forward <span class="math inline">\(h\)</span> units in time following that slope. Figure <a href="ch-odes.html#fig:Euler">5.3</a> shows a depiction of the idea. Notice in the figure that in regions of high curvature Euler’s method will overshoot the exact solution to the differential equation. However, taking the limit as <span class="math inline">\(h\)</span> tends to <span class="math inline">\(0\)</span> theoretically gives the exact solution at the trade off of needing infinite computational resources.</p>
 <div class="figure" style="text-align: center"><span id="fig:Euler"></span>
@@ -695,12 +673,14 @@ Figure 5.3: Numerical solutions to a differential equation using Euler’s metho
 <div class="exercise">
 <span id="exr:unnamed-chunk-433" class="exercise"><strong>Exercise 5.11  </strong></span>Why would Euler’s method overshoot the exact solution in regions where the solution exhibits high curvature?
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-434" class="exercise"><strong>Exercise 5.12  </strong></span>Write code to implement Euler’s method for initial value problems. Your
 function should accept as input a Python function <span class="math inline">\(f(t,x)\)</span>, an initial condition, a start time, an end time, and the value of <span class="math inline">\(h = \Delta t\)</span>. The output should be vectors for <span class="math inline">\(t\)</span> and <span class="math inline">\(x\)</span> that you can easily plot to show the numerical solution. The code below will get you started.
 </div>
+
 <div class="sourceCode" id="cb122"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb122-1"><a href="ch-odes.html#cb122-1"></a><span class="kw">def</span> euler1d(f,x0,t0,tmax,dt):</span>
 <span id="cb122-2"><a href="ch-odes.html#cb122-2"></a>    t <span class="op">=</span> <span class="co"># set up the domain based on t0, tmax, and dt</span></span>
 <span id="cb122-3"><a href="ch-odes.html#cb122-3"></a>    <span class="co"># next set up an array for x that is the same size a t</span></span>
@@ -716,6 +696,7 @@ function should accept as input a Python function <span class="math inline">\(f(
 <span class="math display">\[x&#39; = -\frac{1}{3}x+\sin(t) \quad \text{where} \quad x(0) = 1.\]</span>
 The partial code below should get you started.
 </div>
+
 <div class="sourceCode" id="cb123"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb123-1"><a href="ch-odes.html#cb123-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb123-2"><a href="ch-odes.html#cb123-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb123-3"><a href="ch-odes.html#cb123-3"></a><span class="co"># put the f(t,x) function on the next line </span></span>
@@ -751,22 +732,26 @@ what would that do to the value of the error? What about dividing
 <span class="math inline">\(\Delta t\)</span> by 10? 100? 1000?</p></li>
 </ol>
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-438" class="exercise"><strong>Exercise 5.15  </strong></span>Shelby solved a first order ODE <span class="math inline">\(x&#39; = f(t,x)\)</span> using Euler’s method with a step size of <span class="math inline">\(dt = 0.1\)</span> on a domain <span class="math inline">\(t \in [0,3]\)</span>. To test her code she used a differential equation where she new the exact analytic solution and she found the maximum absolute error on the interval to be <span class="math inline">\(0.15\)</span>. Jackson then solves the exact same differential equation, on the same interval, with the same initial condition using Euler’s method and a step size of <span class="math inline">\(dt = 0.01\)</span>. What is Jackson’s expected maximum absolute error?
 </div>
+
 <hr />
 
 <div class="theorem">
 <span id="thm:unnamed-chunk-439" class="theorem"><strong>Theorem 5.2  </strong></span>Euler’s method is a first order method for approximating the solution to the differential equation <span class="math inline">\(x&#39; = f(t,x)\)</span>. Hence, if the step size <span class="math inline">\(h\)</span> of the partition of the domain were to be divided by some positive constant <span class="math inline">\(M\)</span> then the maximum absolute error between the numerical solution and the exact solution would ???<br />
 (Complete the last sentence.)
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-440" class="exercise"><strong>Exercise 5.16  </strong></span>If we want to numerically solve the first order differential equation <span class="math inline">\(x&#39; = f(t,x)\)</span> on the interval <span class="math inline">\(t \in [0,1]\)</span> with Euler’s method so that we realize a maximum absolute error of <span class="math inline">\(10^{-8}\)</span> between the numerical solution and the exact solution, then how many points do we need to subdivide the interval <span class="math inline">\([0,1]\)</span> into?
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -801,6 +786,7 @@ Rearranging and solving for <span class="math inline">\(\boldsymbol{x}_{n+1}\)</
 <li>The following Python function and associated script will implement the vector version of Euler’s method. Complete the code and then use it to solve the system of equations from part (d). Use a mass of <span class="math inline">\(m=2\)</span>kg, a damping force of <span class="math inline">\(b=40\)</span>kg/s, and a spring constant of <span class="math inline">\(k=128\)</span>N/m. Consider an initial position of <span class="math inline">\(x=0\)</span>m (equilibrium) and an initial velocity of <span class="math inline">\(x_1 = 0.6\)</span>m/s. Show two plots: a plot that shows both position and velocity vs time and a second plot, called a phase plot, that shows position vs velocity.</li>
 </ol>
 </div>
+
 <div class="sourceCode" id="cb124"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb124-1"><a href="ch-odes.html#cb124-1"></a><span class="kw">def</span> euler(F,x0,t0,tmax,dt):</span>
 <span id="cb124-2"><a href="ch-odes.html#cb124-2"></a>    t <span class="op">=</span> <span class="co"># same code as before to set up a vector for time</span></span>
 <span id="cb124-3"><a href="ch-odes.html#cb124-3"></a>    <span class="co"># Next we set up x so that it is an array where the columns </span></span>
@@ -848,16 +834,19 @@ Rearranging and solving for <span class="math inline">\(\boldsymbol{x}_{n+1}\)</
 <li>Use your vector-based <code>euler()</code> function to numerically solve the system of equations in several different physical scenarios. There are four variables so you will need to think carefully about which plots are the most explanatory. Also, if may be easiest to take <span class="math inline">\(k_0 = 1\)</span> and then take <span class="math inline">\(k_1\)</span> as the stiffness of spring 1 relative to spring 0 (e.g. if <span class="math inline">\(k_1 = 1\)</span> then the springs are the same stiffness, if <span class="math inline">\(k_1 = 0.5\)</span> then spring 1 is half as stiff, etc). To start with choose <span class="math inline">\(m=m_0 = m_1 = 1\)</span>kg.</li>
 </ol>
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-444" class="exercise"><strong>Exercise 5.19  </strong></span>Extend the previous exercise to that there are three masses hanging in a chain.
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-445" class="exercise"><strong>Exercise 5.20  </strong></span>If the speed of the mass in the mass-spring oscillator is <em>fast enough</em> then the damping force will no longer just be proportional to the velocity. Instead, at higher speeds the drag force is proportional to the square of the velocity. You can think of this as a bungee jumper jumping off of a bridge. Modify the single mass-spring oscillator equation to allow for nonlinear quadratic damping. Solve the system numerically under several different physical conditions (stiff spring, non-stiff spring, high damping, low damping, different initial conditions, etc).
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -881,6 +870,7 @@ where <span class="math inline">\(\alpha, \beta, \gamma,\)</span> and
 <li>If you cut your time step in half, what do you see in the two plots? Why? What is Euler’s method doing here?</li>
 </ol>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -899,10 +889,11 @@ where <span class="math inline">\(\alpha, \beta, \gamma,\)</span> and
 <li>Find a numerical solution to the system of equations using your <code>euler()</code> function. Use the parameters <span class="math inline">\(\alpha = 0.4\)</span> and <span class="math inline">\(\beta = 0.04\)</span> with initial conditions <span class="math inline">\(S(0) = 0.99\)</span>, <span class="math inline">\(I(0) = 0.01\)</span>, and <span class="math inline">\(R(0) = 0\)</span>. Explain all three curves in context.</li>
 </ol>
 </div>
+
 <hr />
 <div style="page-break-after: always;"></div>
 </div>
-<div id="the-midpoint-method" class="section level2" number="5.4">
+<div id="the-midpoint-method" class="section level2">
 <h2><span class="header-section-number">5.4</span> The Midpoint Method</h2>
 <p>Now we get to improve upon Euler’s method. There is a long history of wonderful improvements to the classic Euler’s method – some that work in special cases, some that resolve areas where the error is going to be high, and some that are great for general purpose numerical solutions to ODEs with relatively high accuracy. In this section we’ll make a simple modification to Euler’s method that has a surprisingly great payoff in the error rate.</p>
 <hr />
@@ -910,6 +901,7 @@ where <span class="math inline">\(\alpha, \beta, \gamma,\)</span> and
 <div class="exercise">
 <span id="exr:unnamed-chunk-448" class="exercise"><strong>Exercise 5.23  </strong></span>In Euler’s method, if we are at the point <span class="math inline">\(t_n\)</span> then we approximate the slope <span class="math inline">\(x&#39;(t_n) = f(t_n,x_n)\)</span> and use the slope to propagate forward one time step. As you have seen, this method can lead to an overshooting of the exact solution in regions of high curvature. It would be nice to be able to look into the future and get a better approximation of the slope so that we didn’t miss upcoming curvature. If you could build such a method that looks in to the future, finds a slope in the future, and then uses that slope (instead of the slope from Euler’s method) to advance forward in time, how far into the future would you look? Why?
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -987,6 +979,7 @@ where <span class="math inline">\(\alpha, \beta, \gamma,\)</span> and
 <li><p>How does your approximation compare to the Euler approximation that you found in Exercise <a href="ch-odes.html#exr:euler-motivation">5.9</a>?</p></li>
 </ol>
 </div>
+
 <hr />
 
 <div class="definition">
@@ -1001,11 +994,13 @@ Note: Indexing by <span class="math inline">\(1/2\)</span> in a computer is nons
         x_{n+1} &amp;= x_n + h f\left( t_n + \frac{\Delta t}{2}, x_{temp}\right)
     \end{aligned}\]</span></p>
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-450" class="exercise"><strong>Exercise 5.25  </strong></span>Complete the code below to implement the midpoint method in one dimension.
 </div>
+
 <div class="sourceCode" id="cb126"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb126-1"><a href="ch-odes.html#cb126-1"></a><span class="kw">def</span> midpoint1d(f,x0,t0,tmax,dt):</span>
 <span id="cb126-2"><a href="ch-odes.html#cb126-2"></a>    t <span class="op">=</span> <span class="co"># build the times</span></span>
 <span id="cb126-3"><a href="ch-odes.html#cb126-3"></a>    x <span class="op">=</span> <span class="co"># build an array for the x values</span></span>
@@ -1032,17 +1027,20 @@ Note: Indexing by <span class="math inline">\(1/2\)</span> in a computer is nons
 What do you observe? What do you observe if you make <span class="math inline">\(\Delta t\)</span> a bit larger (like 0.2 or 0.3)? What do you observe if you make <span class="math inline">\(\Delta t\)</span> very very small (like 0.001 or 0.0001)?</p>
 There are several key takeaways from this problem. Discuss.
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-454" class="exercise"><strong>Exercise 5.27  </strong></span>Repeat Exercise <a href="ch-odes.html#exr:ode-error-analysis">5.14</a> with the midpoint method. Compare your results to what you found with Euler’s method.
 </div>
+
 <hr />
 
 <div class="exercise">
 <p><span id="exr:unnamed-chunk-455" class="exercise"><strong>Exercise 5.28  </strong></span>We have studied two methods thus far: Euler’s method and the Midpoint method. In Figure <a href="ch-odes.html#fig:Euler-Midpoint">5.4</a> we see a graphical depiction of how each method works on the differential equation <span class="math inline">\(y&#39; = y\)</span> with <span class="math inline">\(\Delta t = 1\)</span> and <span class="math inline">\(y(0) = 1\)</span>. The exact solution at <span class="math inline">\(t=1\)</span> is <span class="math inline">\(y(1) = e^1 \approx 2.718\)</span> and is shown in red in each figure. The methods can be summarized in the table below.</p>
 Discuss what you observe as the pros and cons of each method based on the table and on the Figure.
 </div>
+
 <table>
 <colgroup>
 <col width="48%" />
@@ -1086,15 +1084,17 @@ Figure 5.4: Graphical depictions of two numerical methods: Euler (left) and Midp
 method? When might you want to use the midpoint method instead of
 Euler’s method?
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-457" class="exercise"><strong>Exercise 5.30  (Midpoint Method in Several Dimensions)  </strong></span>Modify your <code>euler()</code> code from Exercise <a href="ch-odes.html#exr:euler-multi-dimensional">5.17</a> so that you can use the midpoint method in as many dimensions as you like. You should only have to add one line of code and then be careful about the size of the arrays that are in play. Test your code on several problems. Compare and contrast what you see with your Euler solutions and with your Midpoint solutions.
 </div>
+
 <hr />
 <div style="page-break-after: always;"></div>
 </div>
-<div id="the-runge-kutta-4-method" class="section level2" number="5.5">
+<div id="the-runge-kutta-4-method" class="section level2">
 <h2><span class="header-section-number">5.5</span> The Runge-Kutta 4 Method</h2>
 <p>OK. Ready for some experimentation? We are going to build a few experiments that eventually lead us to a very powerful method for finding numerical solutions to first order differential equations.</p>
 
@@ -1112,6 +1112,7 @@ Euler’s method?
 <span class="math display">\[ x_{n+1} = x_n + \Delta t \cdot m_{n+1/2} \]</span></li>
 </ul>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -1132,6 +1133,7 @@ Euler’s method?
 In the code below you will find a function called <code>ode_test()</code> that you can use as a starting point to test our the last three ideas. After the function you will see several lines of code that test your method against the differential equation <span class="math inline">\(x&#39;(t) = -\frac{1}{3}x + \sin(t)\)</span> with <span class="math inline">\(x(0) = 1\)</span>. The plots that come out are our typical error plots with the step size on the horizontal axis and our maximum absolute error between the numerical solution and the exact solution on the vertical axis. Recall that the exact solution to this differential equation is
 <span class="math display">\[ x(t) = \frac{1}{10} \left( 19 e^{-t/3} + 3\sin(t) - 9\cos(t) \right) \]</span>
 </div>
+
 <div class="sourceCode" id="cb128"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb128-1"><a href="ch-odes.html#cb128-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb128-2"><a href="ch-odes.html#cb128-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb128-3"><a href="ch-odes.html#cb128-3"></a></span>
@@ -1199,6 +1201,7 @@ In the code below you will find a function called <code>ode_test()</code> that y
 <span class="math display">\[ \text{estimate of slope} = \frac{m_n + 2m_{n+1/2} + m_{n+1}}{4} \]</span>
 did just a little bit better than just a plain average. Why might this be? (If you haven’t tried this weighted average then go back and try it.) Do other weighted averages of this sort work better or worse? Does it appear that we can improve upon the order of the error (the slope in the loglog plot) using any of these methods?
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -1219,6 +1222,7 @@ Then calculate <span class="math inline">\(m_{n+1}\)</span> using this new slope
 </ol>
 Remember that we are looking to improve the slope in the loglog plot since that indicates an improvement in the order of the error (the accuracy) of the method.
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -1401,11 +1405,13 @@ Remember that we are looking to improve the slope in the loglog plot since that 
 </tbody>
 </table>
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-464" class="exercise"><strong>Exercise 5.36  </strong></span>In the previous exercise you should have found at least one of the many methods to be far superior to the others. State which linear combination of slopes seems to have done the trick, draw a picture of what this method does to numerically approximate the next slope for a numerical solution to an ODE, and clearly state what the order of the error means about this method.
 </div>
+
 <hr />
 
 <div class="theorem">
@@ -1413,6 +1419,7 @@ Remember that we are looking to improve the slope in the loglog plot since that 
 <span class="math display">\[ \text{estimated slope } = \frac{m_n + 2 m_{n+1/2} + 2 m_{n+1/2}^* + m_n}{6}. \]</span>
 The order of the error in the RK4 method is <span class="math inline">\(\mathcal{O}(\Delta t^4)\)</span>.
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -1431,6 +1438,7 @@ The order of the error in the RK4 method is <span class="math inline">\(\mathcal
 <li>How many evaluations of the function <span class="math inline">\(f(t,x)\)</span> do we need to make at every time step of the RK4 method? Compare this Euler’s method and the midpoint method. Why is this important?</li>
 </ol>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -1442,21 +1450,25 @@ The order of the error in the RK4 method is <span class="math inline">\(\mathcal
 <li>Discuss the implications of what you found in parts (a) - (c) of this problem.</li>
 </ol>
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-467" class="exercise"><strong>Exercise 5.39  </strong></span>It would nice, but it would be completely impractical, to have a numerical method compute the approximate solution so that the maximum absolute error is less than machine precision <span class="math inline">\(10^{-16}\)</span>. That is an impracticality since we can’t actually detect errors that small on a computer using double precision arithmetic. However, what if we wanted accuracy of <span class="math inline">\(10^{-15}\)</span> instead? Repeat the previous exercise with <span class="math inline">\(10^{-15}\)</span> as the goal for the maximum absolute error.
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-468" class="exercise"><strong>Exercise 5.40  </strong></span>Let’s step back for a second and just see what the RK4 method does from a nuts-and-bolts point of view. Consider the differential equation <span class="math inline">\(x&#39; = x\)</span> with initial condition <span class="math inline">\(x(0) = 1\)</span>. The solution to this differential equation is clearly <span class="math inline">\(x(t) = e^t\)</span>. For the same of simplicity, take <span class="math inline">\(\Delta t = 1\)</span> and perform 1 step of the RK4 method BY HAND to approximate the value <span class="math inline">\(x(1)\)</span>.
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-469" class="exercise"><strong>Exercise 5.41  </strong></span>Write a Python function that implements the Runge-Kutta 4 method in one dimension. Test the problem on several differential equations where you know the solution.
 </div>
+
 <div class="sourceCode" id="cb129"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb129-1"><a href="ch-odes.html#cb129-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb129-2"><a href="ch-odes.html#cb129-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb129-3"><a href="ch-odes.html#cb129-3"></a></span>
@@ -1482,10 +1494,11 @@ The order of the error in the RK4 method is <span class="math inline">\(\mathcal
 <div class="exercise">
 <span id="exr:unnamed-chunk-471" class="exercise"><strong>Exercise 5.42  (RK4 in Several Dimensions)  </strong></span>Modify your Runge-Kutta 4 code to work for any number of dimensions. You may want to start from your <code>euler()</code> and <code>midpoint()</code> functions that already do this. You’ll only need to make minor modifications from there. Then test your new generalized RK4 method on all of the same problems which you used to test your <code>euler()</code> and <code>midpoint()</code> functions.
 </div>
+
 <hr />
 <div style="page-break-after: always;"></div>
 </div>
-<div id="animating-ode-solutions" class="section level2" number="5.6">
+<div id="animating-ode-solutions" class="section level2">
 <h2><span class="header-section-number">5.6</span> Animating ODE Solutions</h2>
 <p>Differential equations that depend on time are often best visualized when they are animated. This can also be said about any parameterized function, but in this present case we will focus on visualizing differential equations. There are several animation tools with python and we’ll demonstrate only two primary technique here:</p>
 <ul>
@@ -1493,7 +1506,7 @@ The order of the error in the RK4 method is <span class="math inline">\(\mathcal
 <li><code>matplotlib.animation</code> is a tool built directly into <code>matplotlib</code> that gives a playable animation (like a small movie). In this sort of animation we can only animate over one parameter or variable (like time), but this is most like what we would expect when animating a function that changes over time.</li>
 </ul>
 <p>The reader should take careful note that the tools described here are meant to be used in Google Colab. These tools may not work as expected in other instances of Python and you may have to do some playing around (and Googling) to get it to work properly on your Python installation. Moreover, the animations are not built directly into the book since this book is delivered in several formats (HTML, PDF, and print). Instead you will find links to Google Colab documents that have the contain the code and animations.</p>
-<div id="ipywidgets.interactive" class="section level3" number="5.6.1">
+<div id="ipywidgets.interactive" class="section level3">
 <h3><span class="header-section-number">5.6.1</span> <code>ipywidgets.interactive</code></h3>
 <p>Consider the differential equation <span class="math inline">\(x&#39; = f(t,x)\)</span> with <span class="math inline">\(x(0) = x_0\)</span>. We would like to build an animation of the numerical solution to this differential equation over the parameters <span class="math inline">\(t\)</span> but also over <span class="math inline">\(x_0\)</span> and <span class="math inline">\(\Delta t\)</span>. The following blocks of python code walk through this animation.</p>
 <hr />
@@ -1502,6 +1515,7 @@ The order of the error in the RK4 method is <span class="math inline">\(\mathcal
 <p><span id="exm:unnamed-chunk-472" class="example"><strong>Example 5.2  (ipywidgets.interactive)  </strong></span>Let’s say that we want to control the numerical solution to the differential equation <span class="math inline">\(x&#39; = -\frac{1}{3}x + \sin(t)\)</span> by manually altering the values of <span class="math inline">\(x(0) = x_0\)</span>, <span class="math inline">\(t_{max}\)</span>, and <span class="math inline">\(\Delta t\)</span>. In this case we will solve the differential equation using Euler’s method but note that our code could be easily modified to use other solvers.</p>
 First we import all of the appropriate libraries. Of particular interest is the <code>ipywidgets.interactive</code> library. This allows for images to be interactive with the use of sliders. Moving the sliders will provide a nice way to animate a plot manually.
 </div>
+
 <div class="sourceCode" id="cb130"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb130-1"><a href="ch-odes.html#cb130-1"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interactive</span>
 <span id="cb130-2"><a href="ch-odes.html#cb130-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb130-3"><a href="ch-odes.html#cb130-3"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div>
@@ -1544,14 +1558,16 @@ Figure 5.5: Snapshot of the ODE animation applet with ipywidgets.
 <div class="exercise">
 <span id="exr:unnamed-chunk-477" class="exercise"><strong>Exercise 5.43  </strong></span>Modify the previous exercise to use a different numerical solver (e.g. the midpoint method) instead of Euler’s method.
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-478" class="exercise"><strong>Exercise 5.44  </strong></span>Modify the animation routine above to simultaneously show the Euler, Midpoint, and RK4 solutions to a differential equation on top of each other. Animate over different values of <span class="math inline">\(\Delta t\)</span> for fixed values of <span class="math inline">\(x_0\)</span> and <span class="math inline">\(t_{max}\)</span>.
 </div>
+
 <hr />
 </div>
-<div id="matplotlib.animation" class="section level3" number="5.6.2">
+<div id="matplotlib.animation" class="section level3">
 <h3><span class="header-section-number">5.6.2</span> <code>matplotlib.animation</code></h3>
 <p>The next animation package that we discuss is the <code>matplotlib.animation</code> package. This particular package is very similar to <code>ipywidgets.interactive</code>, but results only in a playable movie that is embedded within the Google Colab environment.</p>
 <hr />
@@ -1560,6 +1576,7 @@ Figure 5.5: Snapshot of the ODE animation applet with ipywidgets.
 <p><span id="exr:mplanimation" class="exercise"><strong>Exercise 5.45  </strong></span>Again we will consider the differential equation <span class="math inline">\(x&#39; = -\frac{1}{3}x + \sin(t)\)</span> but this time we will only be interested in an animation over time.</p>
 We start the code by importing all of the necessary libraries. Take note that we import the <code>matplotlib.animation</code> and <code>matplotlib.rc</code> libraries in order to build the animation. We then import the <code>IPython.display.HTML</code> library to take care of embedding the player into the Google Colab environment.
 </div>
+
 <div class="sourceCode" id="cb134"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb134-1"><a href="ch-odes.html#cb134-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb134-2"><a href="ch-odes.html#cb134-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb134-3"><a href="ch-odes.html#cb134-3"></a><span class="im">from</span> matplotlib <span class="im">import</span> animation, rc</span>
@@ -1644,21 +1661,24 @@ Figure 5.6: Snapshot of the ODE animation applet with matplotlib animation.
 <div class="exercise">
 <span id="exr:unnamed-chunk-485" class="exercise"><strong>Exercise 5.46  </strong></span>Modify the code from the previous exercise to show faster and slower animations.
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-486" class="exercise"><strong>Exercise 5.47  </strong></span>Modify the <code>matplotlib.animation</code> code from Exercise <a href="ch-odes.html#exr:mplanimation">5.45</a> to use a different differential equation solver.
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-487" class="exercise"><strong>Exercise 5.48  </strong></span>Modify the <code>matplotlib.animation</code> code from Exericse <a href="ch-odes.html#exr:mplanimation">5.45</a> to show the Euler, Midpoint, and RK4 solutions to a differential equation on top of each other for a fixed value of <span class="math inline">\(\Delta t\)</span>.
 </div>
+
 <hr />
 <div style="page-break-after: always;"></div>
 </div>
 </div>
-<div id="the-backwards-euler-method" class="section level2" number="5.7">
+<div id="the-backwards-euler-method" class="section level2">
 <h2><span class="header-section-number">5.7</span> The Backwards Euler Method</h2>
 <p>We have now built up a fairly large variety of numerical ODE solvers. All of the solvers that we have built thus far are called <strong>explicit</strong> numerical differential equation solvers since they try to advance the solution explicitly forward in time. Wouldn’t it be nice if we could literally just say, <em>what slope is going to work best in the future time steps … let’s use that</em>? Seems like an unrealistic hope, but that is exactly what the last method covered in this section does.</p>
 <hr />
@@ -1674,6 +1694,7 @@ Figure 5.6: Snapshot of the ODE animation applet with matplotlib animation.
 <li>This method is called the <strong>Backward Euler</strong> method and is known as an <strong>implicit method</strong> since you do not explicitly calculate <span class="math inline">\(x_{n+1}\)</span> but instead there is some intermediate calculation that needs to happen to solve for <span class="math inline">\(x_{n+1}\)</span>. The (usual) advantage to an implicit method such as Backward Euler is that you can take far fewer steps with reasonably little loss of accuracy. We’ll see that in the coming problems.</li>
 </ul>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -1753,6 +1774,7 @@ on both sides of the equation. A little bit of rearranging gives
 <li>Compare now to what we found for the midpoint method on this problem as well.</li>
 </ol>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -1768,6 +1790,7 @@ We know that <span class="math inline">\(x(0) = 6\)</span> so in our numerical s
 <li><p>Work our the analytic solution for this differential equation (using separation of variables perhaps). Then compare the values that you found in parts (b) and (c) of this problem to values of the analytic solution and values that you would find form the regular (forward) Euler approximation. What do you notice?</p></li>
 </ol>
 </div>
+
 <hr />
 <p>The complications with the backward Euler’s method are that you have a
 nonlinear equation to solve at every time step
@@ -1780,6 +1803,7 @@ method iteration to solve that equation – at each time step. More simply, we c
 <div class="exercise">
 <span id="exr:unnamed-chunk-491" class="exercise"><strong>Exercise 5.51  </strong></span>Consider the function <code>backwardEuler1d()</code> below. How do you define the function <code>G</code> inside the <code>for</code> loop and what seed do you use to start the <code>fsolve()</code> command?
 </div>
+
 <div class="sourceCode" id="cb140"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb140-1"><a href="ch-odes.html#cb140-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb140-2"><a href="ch-odes.html#cb140-2"></a><span class="im">from</span> scipy <span class="im">import</span> optimize</span>
 <span id="cb140-3"><a href="ch-odes.html#cb140-3"></a><span class="kw">def</span> backwardEuler1d(f,x0,t0,tmax,dt):</span>
@@ -1796,26 +1820,30 @@ method iteration to solve that equation – at each time step. More simply, we c
 <div class="exercise">
 <span id="exr:unnamed-chunk-493" class="exercise"><strong>Exercise 5.52  </strong></span>Test the Backward Euler method from the previous problem on several differential equations where you know the solution.
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-494" class="exercise"><strong>Exercise 5.53  </strong></span>Write a script that outputs a log-log plot with the step size on the horizontal axis and the error in the numerical method on the vertical axis. Plot the errors for Euler, Midpoint, Runge Kutta, and Backward Euler measured against a differential equation with a known analytic solution. Use this plot to conjecture the convergence rates of the four methods. You can use the differential equation <span class="math inline">\(x&#39; = -\frac{1}{3} x + \sin(t)\)</span> with <span class="math inline">\(x(0) = 1\)</span> like we have for many of our past algorithm since we know that the solution is
 <span class="math display">\[ x(t) = \frac{1}{10}\left( 19e^{-t/3} + 3\sin(t) - 9\cos(t) \right) \]</span>
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-495" class="exercise"><strong>Exercise 5.54  </strong></span>What is the order of the error on the Backward Euler method? Given this answer, what are the pros and cons of the Backward Euler method over the regular Euler method? What about compared to the Midpoint or Runge Kutta methods?
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-496" class="exercise"><strong>Exercise 5.55  </strong></span>It may not be obvious at the outset, but the Backward Euler method will actually behave better than our regular Euler’s method in some sense. Let’s take a look. Consider, for example, the really simply differential equation <span class="math inline">\(x&#39; = -x\)</span> with <span class="math inline">\(x(0) = 1\)</span> on the interval <span class="math inline">\(t \in [0,2]\)</span>. The analytic solution is <span class="math inline">\(x(t) = e^{-t}\)</span>. Write Python code that plots the analytic solution, the Euler approximation, and the Backward Euler approximation on top of each other. Use a time step that is larger than you normally would (such as <span class="math inline">\(\Delta t = 0.25\)</span> or <span class="math inline">\(\Delta t = 0.5\)</span> or larger). Try the same experiment on another differential equation where we know the exact solution and the solution has some regions of high curvature. What do you notice? What does Backward Euler do that is an improvement on regular Euler?
 </div>
+
 <hr />
 <div style="page-break-after: always;"></div>
 </div>
-<div id="fitting-ode-models-to-data" class="section level2" number="5.8">
+<div id="fitting-ode-models-to-data" class="section level2">
 <h2><span class="header-section-number">5.8</span> Fitting ODE Models to Data</h2>
 <p>To end this chapter we will examine a very common scientific situation:  We have data from an experiment and a (challenging to solve) differential equation modeling the data that has some parameter that controls the behavior. We want to find the value of the parameter that gives us the best fit between our numerical solution and the data. For example, say we have temperature data for a cooling liquid and we have a differential equation for temperature that depends on a parameter related to the thermal properties of the container. We would like to use the data and the differential equation to determine the parameter for the container. As another example, say we have the number of patients that become ill with a virus each day and we actually want to know the long-term impacts on the population. An SIR differential equation model might describe the dynamics of the situation well, and the data can be used to determine the transmission rate parameters in the model.</p>
 <p>Data fitting has been examined a few times in this book (see the Least Squares section in Chapter <a href="ch-calculus.html#ch:calculus">3</a> and the Over determined Systems section in Chapter <a href="ch-linearalgebra.html#ch:linearalgebra">4</a>). The present situation is really not that much different than regular least squares curve fitting.</p>
@@ -1863,6 +1891,7 @@ where <span class="math inline">\(T\)</span> is the temperature of some object (
 </table>
 Plot the data as a scatter plot.
 </div>
+
 <div class="sourceCode" id="cb141"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb141-1"><a href="ch-odes.html#cb141-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb141-2"><a href="ch-odes.html#cb141-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb141-3"><a href="ch-odes.html#cb141-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1963,6 +1992,7 @@ Plot the data as a scatter plot.
 <li>Plot your solution curve along with the data.</li>
 </ol>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -2029,6 +2059,7 @@ R&#39; &amp;= \beta I.
 <p>Use the least squares fitting technique discussed in this section to find the parameters <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> that minimize the sum of the squared residuals between a numerical solution of the <span class="math inline">\(SIR\)</span> model and the data. You can load the data directly with the code below.</p>
 Note: The total population is fixed.
 </div>
+
 <div class="sourceCode" id="cb147"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb147-1"><a href="ch-odes.html#cb147-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb147-2"><a href="ch-odes.html#cb147-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb147-3"><a href="ch-odes.html#cb147-3"></a>URL1 <span class="op">=</span> <span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan&#39;</span></span>
@@ -2109,6 +2140,7 @@ Note: The total population is fixed.
 </table>
 Propose a differential equation model that includes the number of bedridden (sick) boys. Your model will likely have one or more unknown parameters. Use the technique from this section to find the parameters. Complete the problem by showing a plot of the number of bedridden boys along with the data. You can load the data directly with the code below.
 </div>
+
 <div class="sourceCode" id="cb148"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb148-1"><a href="ch-odes.html#cb148-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb148-2"><a href="ch-odes.html#cb148-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb148-3"><a href="ch-odes.html#cb148-3"></a>URL1 <span class="op">=</span> <span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan&#39;</span></span>
@@ -2119,9 +2151,9 @@ Propose a differential equation model that includes the number of bedridden (sic
 <hr />
 <div style="page-break-after: always;"></div>
 </div>
-<div id="exercises-4" class="section level2" number="5.9">
+<div id="exercises-4" class="section level2">
 <h2><span class="header-section-number">5.9</span> Exercises</h2>
-<div id="algorithm-summaries-3" class="section level3" number="5.9.1">
+<div id="algorithm-summaries-3" class="section level3">
 <h3><span class="header-section-number">5.9.1</span> Algorithm Summaries</h3>
 
 <div class="exercise">
@@ -2131,11 +2163,13 @@ equation? What is the order of accuracy of Euler’s method? Explain the
 meaning of the order of the method in the context of solving a
 differential equation.
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-510" class="exercise"><strong>Exercise 5.61  </strong></span>Explain in clear language what Euler’s method does geometrically.
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -2145,11 +2179,13 @@ equation? What is the order of accuracy of the Midpoint method? Explain
 the meaning of the order of the method in the context of solving a
 differential equation.
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-512" class="exercise"><strong>Exercise 5.63  </strong></span>Explain in clear language what the Midpoint method does geometrically.
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -2159,12 +2195,14 @@ differential equation? What is the order of accuracy of the Runge Kutta 4
 method? Explain the meaning of the order of the method in the context of
 solving a differential equation.
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-514" class="exercise"><strong>Exercise 5.65  </strong></span>Explain in clear language what the Runge Kutta 4 method does
 geometrically.
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -2174,20 +2212,23 @@ differential equation? What is the order of accuracy of the Backward Euler
 method? Explain the meaning of the order of the method in the context of
 solving a differential equation.
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-516" class="exercise"><strong>Exercise 5.67  </strong></span>Explain in clear language what the Backward Euler method does
 geometrically.
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-517" class="exercise"><strong>Exercise 5.68  </strong></span>Explain in clear language how to fit a numerical solution of and ODE model to a dataset.
 </div>
+
 <hr />
 </div>
-<div id="applying-what-youve-learned-4" class="section level3" number="5.9.2">
+<div id="applying-what-youve-learned-4" class="section level3">
 <h3><span class="header-section-number">5.9.2</span> Applying What You’ve Learned</h3>
 <hr />
 
@@ -2198,6 +2239,7 @@ geometrically.
 <li>Write code to demonstrate the first order convergence rate of Euler’s method, the second order convergence rate of the Midpoint method, and the fourth order convergence rate of the Runge-Kutta 4 method. Take note that this is a second order differential equation so you will need to start by converting it to a system of differential equations. Then take care that you are comparing the correct term from the numerical solution to your analytic solution in part (a).</li>
 </ol>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -2212,11 +2254,13 @@ other words, create 7 plots (one for each <span class="math inline">\(\lambda\)<
 the 3 methods performs for that value of <span class="math inline">\(\lambda\)</span> at different values
 for <span class="math inline">\(\Delta t\)</span>.
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-520" class="exercise"><strong>Exercise 5.71  </strong></span>Two versions of Python code for one dimensional Euler’s method are given below. Compare and contrast the two implementations. What are the advantages / disadvantages to one over the other? Once you have made your pro/con list, devise an experiment to see which of the methods will actually perform faster when solving a differential equation with a very small <span class="math inline">\(\Delta t\)</span>. (You may want to look up how to time the execution of code in Python.)
 </div>
+
 <div class="sourceCode" id="cb149"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb149-1"><a href="ch-odes.html#cb149-1"></a><span class="kw">def</span> euler(f,x0,t0,tmax,dt):</span>
 <span id="cb149-2"><a href="ch-odes.html#cb149-2"></a>    t <span class="op">=</span> [t0]</span>
 <span id="cb149-3"><a href="ch-odes.html#cb149-3"></a>    x <span class="op">=</span> [x0]</span>
@@ -2241,6 +2285,7 @@ you do not have the initial position and initial velocity as you
 normally would with a second order differential equation. Devise a
 method for finding a numerical solution to this problem.</p>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -2248,6 +2293,7 @@ method for finding a numerical solution to this problem.</p>
 <span class="math display">\[x&#39;&#39; = \cos(t) x&#39; + \sin(t) x \quad \text{with} \quad x(0) = 0 \quad \text{and}
         \quad x(1) = 1.\]</span>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -2288,6 +2334,7 @@ Write a description for how your code works in your homework
 document.</p></li>
 </ol>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -2318,6 +2365,7 @@ the initial <span class="math inline">\(y\)</span> velocity in the interval <spa
 <li><p>Give an animated plot showing <span class="math inline">\(x(t)\)</span> versus <span class="math inline">\(y(t)\)</span>.</p></li>
 </ol>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -2382,6 +2430,7 @@ appropriately related to the gradient of the surface.</p></li>
 <p>Note: It may be easiest to build this code from scratch instead of using
 one of our pre-written codes.</p>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -2416,6 +2465,7 @@ mathematical choices and provide a thorough exploration of any
 parameters that are introduced.</p></li>
 </ol>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -2433,6 +2483,7 @@ home? What happens if the speeds are different? What if the initial
 distance is different? How much time does the drone’s battery have to
 last to get home? When you make plots of your solution they must be animated.
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -2445,6 +2496,7 @@ m/s, how high will it go, and when will it crash back into the ground?
 Hint: Change this second order differential equation into a system of
 first order differential equations.
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -2457,6 +2509,7 @@ first order differential equations.
 <li>You have to specify the array of time for the <code>scipy.integrate.odeint()</code> function. It is typically easiest to use <code>np.linspace()</code> to build the array of times.</li>
 </ul>
 </div>
+
 <div class="sourceCode" id="cb151"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb151-1"><a href="ch-odes.html#cb151-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb151-2"><a href="ch-odes.html#cb151-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb151-3"><a href="ch-odes.html#cb151-3"></a><span class="im">import</span> scipy.integrate</span>
@@ -2498,14 +2551,14 @@ In this ODE <span class="math inline">\(x(t)\)</span> is the angle from equilibr
 <div style="page-break-after: always;"></div>
 </div>
 </div>
-<div id="projects-3" class="section level2" number="5.10">
+<div id="projects-3" class="section level2">
 <h2><span class="header-section-number">5.10</span> Projects</h2>
 <p>In this section we propose several ideas for projects related to
 numerical ordinary differential equations. These projects are meant to
 be open ended, to encourage creative mathematics, to push your coding
 skills, and to require you to write and communicate your mathematics.
 Take the time to read Appendix <a href="ch-writing.html#ch:writing">B</a> before you write your final solution.</p>
-<div id="the-covid-19-pandemic" class="section level3" number="5.10.1">
+<div id="the-covid-19-pandemic" class="section level3">
 <h3><span class="header-section-number">5.10.1</span> The COVID-19 Pandemic</h3>
 <p>In the paper <a href="https://www.nature.com/articles/s41591-020-0883-7"><em>Modeling the COVID-19 epidemic and implementation of population-wide interventions in Italy</em>, by G. Giordana et al.</a>, the authors propose a robust extension to the SIR model, which they call the “<em>SIDARTHE</em>” model, to model the spread of the COVID-19 virus in Italy. The acronym stands for</p>
 <ul>
@@ -2521,7 +2574,7 @@ Take the time to read Appendix <a href="ch-writing.html#ch:writing">B</a> before
 </ul>
 <p>In the Methods section of the paper (in the paragraph that begins with “<em>In particular, …</em>”) the authors propose initial conditions and values for all of the parameters in the model. Using these values create a numerical solution to the system of differential equations and verify that the basic reproduction number for the model is <span class="math inline">\(R_0 = 2.38\)</span> as the authors say. In the subsequent paragraphs the authors propose ways to modify the parameters to account for social distancing, stay at home orders, and other such measures. Reproduce the authors’ results from these paragraphs and fully explain all of your work. Provide sufficient plots to show the dynamics of the situation.</p>
 </div>
-<div id="pain-management" class="section level3" number="5.10.2">
+<div id="pain-management" class="section level3">
 <h3><span class="header-section-number">5.10.2</span> Pain Management</h3>
 <p>When a patient undergoing surgery is asked about their pain the doctors
 often ask patients to rate their pain on a subjective 0 to 10 scale with
@@ -2584,7 +2637,7 @@ happens to the patient’s pain over the first week. In this model,
 what happens after the first week if the narcotics are ceased?</p></li>
 </ul>
 </div>
-<div id="the-h1n1-virus" class="section level3" number="5.10.3">
+<div id="the-h1n1-virus" class="section level3">
 <h3><span class="header-section-number">5.10.3</span> The H1N1 Virus</h3>
 <p>The H1N1 virus, also known as the “bird flu”, is a particularly virulent
 bug but thankfully is also very predicable. Once a person is infected
@@ -2605,7 +2658,7 @@ unknown parameters using the fact that 1 week after the infection starts
 there are 10 total people infected.</p>
 <div style="page-break-after: always;"></div>
 </div>
-<div id="the-artillery-problem" class="section level3" number="5.10.4">
+<div id="the-artillery-problem" class="section level3">
 <h3><span class="header-section-number">5.10.4</span> The Artillery Problem</h3>
 <p>The goal of artillery is to fire a shell (e.g. a cannon ball) so that it
 lands on a specific target. If we ignore the effects of air resistance

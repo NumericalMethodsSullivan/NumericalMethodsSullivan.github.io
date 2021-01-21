@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>C Optional Material | Numerical Methods</title>
   <meta name="description" content="Inquiry Based Numerical Methods" />
-  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="C Optional Material | Numerical Methods" />
   <meta property="og:type" content="book" />
@@ -33,7 +33,6 @@
 <link rel="prev" href="ch-writing.html"/>
 <link rel="next" href="references.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<script src="libs/elevate-section-attrs-2.0/elevate-section-attrs.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,20 +49,22 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -83,7 +84,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -128,18 +129,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Front Matter</a>
-<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Front Matter</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#resources"><i class="fa fa-check"></i>Resources</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#preface"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#creative-commons"><i class="fa fa-check"></i>Creative Commons</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#to-the-student"><i class="fa fa-check"></i>To The Student</a>
-<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#to-the-student"><i class="fa fa-check"></i>To The Student</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#the-inquiry-based-approach"><i class="fa fa-check"></i>The Inquiry-Based Approach</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#to-the-instructor"><i class="fa fa-check"></i>To the Instructor</a>
-<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#to-the-instructor"><i class="fa fa-check"></i>To the Instructor</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#the-inquiry-based-approach-1"><i class="fa fa-check"></i>The Inquiry-Based Approach</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#the-projects"><i class="fa fa-check"></i>The Projects</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#coding"><i class="fa fa-check"></i>Coding</a></li>
@@ -147,106 +145,87 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#other-considerations"><i class="fa fa-check"></i>Other Considerations:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>1</b> Preliminary Topics</a>
-<ul>
+<li class="chapter" data-level="1" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>1</b> Preliminary Topics</a><ul>
 <li class="chapter" data-level="1.1" data-path="ch-intro.html"><a href="ch-intro.html#what-is-numerical-analysis"><i class="fa fa-check"></i><b>1.1</b> What Is Numerical Analysis?</a></li>
 <li class="chapter" data-level="1.2" data-path="ch-intro.html"><a href="ch-intro.html#arithmetic-in-base-2"><i class="fa fa-check"></i><b>1.2</b> Arithmetic in Base 2</a></li>
 <li class="chapter" data-level="1.3" data-path="ch-intro.html"><a href="ch-intro.html#floating-point-arithmetic"><i class="fa fa-check"></i><b>1.3</b> Floating Point Arithmetic</a></li>
 <li class="chapter" data-level="1.4" data-path="ch-intro.html"><a href="ch-intro.html#sec:Taylor"><i class="fa fa-check"></i><b>1.4</b> Approximating Functions</a></li>
 <li class="chapter" data-level="1.5" data-path="ch-intro.html"><a href="ch-intro.html#approximation-error-with-taylor-series"><i class="fa fa-check"></i><b>1.5</b> Approximation Error with Taylor Series</a></li>
-<li class="chapter" data-level="1.6" data-path="ch-intro.html"><a href="ch-intro.html#exercises"><i class="fa fa-check"></i><b>1.6</b> Exercises</a>
-<ul>
+<li class="chapter" data-level="1.6" data-path="ch-intro.html"><a href="ch-intro.html#exercises"><i class="fa fa-check"></i><b>1.6</b> Exercises</a><ul>
 <li class="chapter" data-level="1.6.1" data-path="ch-intro.html"><a href="ch-intro.html#coding-exercises"><i class="fa fa-check"></i><b>1.6.1</b> Coding Exercises</a></li>
 <li class="chapter" data-level="1.6.2" data-path="ch-intro.html"><a href="ch-intro.html#applying-what-youve-learned"><i class="fa fa-check"></i><b>1.6.2</b> Applying What You’ve Learned</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="ch-algebra.html"><a href="ch-algebra.html"><i class="fa fa-check"></i><b>2</b> Algebra</a>
-<ul>
+<li class="chapter" data-level="2" data-path="ch-algebra.html"><a href="ch-algebra.html"><i class="fa fa-check"></i><b>2</b> Algebra</a><ul>
 <li class="chapter" data-level="2.1" data-path="ch-algebra.html"><a href="ch-algebra.html#intro-to-numerical-root-finding"><i class="fa fa-check"></i><b>2.1</b> Intro to Numerical Root Finding</a></li>
-<li class="chapter" data-level="2.2" data-path="ch-algebra.html"><a href="ch-algebra.html#the-bisection-method"><i class="fa fa-check"></i><b>2.2</b> The Bisection Method</a>
-<ul>
+<li class="chapter" data-level="2.2" data-path="ch-algebra.html"><a href="ch-algebra.html#the-bisection-method"><i class="fa fa-check"></i><b>2.2</b> The Bisection Method</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="ch-algebra.html"><a href="ch-algebra.html#intuition-and-implementation"><i class="fa fa-check"></i><b>2.2.1</b> Intuition and Implementation</a></li>
 <li class="chapter" data-level="2.2.2" data-path="ch-algebra.html"><a href="ch-algebra.html#analysis"><i class="fa fa-check"></i><b>2.2.2</b> Analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="ch-algebra.html"><a href="ch-algebra.html#the-regula-falsi-method"><i class="fa fa-check"></i><b>2.3</b> The Regula Falsi Method</a>
-<ul>
+<li class="chapter" data-level="2.3" data-path="ch-algebra.html"><a href="ch-algebra.html#the-regula-falsi-method"><i class="fa fa-check"></i><b>2.3</b> The Regula Falsi Method</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="ch-algebra.html"><a href="ch-algebra.html#intuition-and-implementation-1"><i class="fa fa-check"></i><b>2.3.1</b> Intuition and Implementation</a></li>
 <li class="chapter" data-level="2.3.2" data-path="ch-algebra.html"><a href="ch-algebra.html#analysis-1"><i class="fa fa-check"></i><b>2.3.2</b> Analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="ch-algebra.html"><a href="ch-algebra.html#newtons-method"><i class="fa fa-check"></i><b>2.4</b> Newton’s Method</a>
-<ul>
+<li class="chapter" data-level="2.4" data-path="ch-algebra.html"><a href="ch-algebra.html#newtons-method"><i class="fa fa-check"></i><b>2.4</b> Newton’s Method</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="ch-algebra.html"><a href="ch-algebra.html#intuition-and-implementation-2"><i class="fa fa-check"></i><b>2.4.1</b> Intuition and Implementation</a></li>
 <li class="chapter" data-level="2.4.2" data-path="ch-algebra.html"><a href="ch-algebra.html#analysis-2"><i class="fa fa-check"></i><b>2.4.2</b> Analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="ch-algebra.html"><a href="ch-algebra.html#the-secant-method"><i class="fa fa-check"></i><b>2.5</b> The Secant Method</a>
-<ul>
+<li class="chapter" data-level="2.5" data-path="ch-algebra.html"><a href="ch-algebra.html#the-secant-method"><i class="fa fa-check"></i><b>2.5</b> The Secant Method</a><ul>
 <li class="chapter" data-level="2.5.1" data-path="ch-algebra.html"><a href="ch-algebra.html#intuition-and-implementation-3"><i class="fa fa-check"></i><b>2.5.1</b> Intuition and Implementation</a></li>
 <li class="chapter" data-level="2.5.2" data-path="ch-algebra.html"><a href="ch-algebra.html#analysis-3"><i class="fa fa-check"></i><b>2.5.2</b> Analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="ch-algebra.html"><a href="ch-algebra.html#exercises-1"><i class="fa fa-check"></i><b>2.6</b> Exercises</a>
-<ul>
+<li class="chapter" data-level="2.6" data-path="ch-algebra.html"><a href="ch-algebra.html#exercises-1"><i class="fa fa-check"></i><b>2.6</b> Exercises</a><ul>
 <li class="chapter" data-level="2.6.1" data-path="ch-algebra.html"><a href="ch-algebra.html#algorithm-summaries"><i class="fa fa-check"></i><b>2.6.1</b> Algorithm Summaries</a></li>
 <li class="chapter" data-level="2.6.2" data-path="ch-algebra.html"><a href="ch-algebra.html#applying-what-youve-learned-1"><i class="fa fa-check"></i><b>2.6.2</b> Applying What You’ve Learned</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="ch-algebra.html"><a href="ch-algebra.html#projects"><i class="fa fa-check"></i><b>2.7</b> Projects</a>
-<ul>
+<li class="chapter" data-level="2.7" data-path="ch-algebra.html"><a href="ch-algebra.html#projects"><i class="fa fa-check"></i><b>2.7</b> Projects</a><ul>
 <li class="chapter" data-level="2.7.1" data-path="ch-algebra.html"><a href="ch-algebra.html#basins-of-attraction"><i class="fa fa-check"></i><b>2.7.1</b> Basins of Attraction</a></li>
 <li class="chapter" data-level="2.7.2" data-path="ch-algebra.html"><a href="ch-algebra.html#artillery"><i class="fa fa-check"></i><b>2.7.2</b> Artillery</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="ch-calculus.html"><a href="ch-calculus.html"><i class="fa fa-check"></i><b>3</b> Calculus</a>
-<ul>
+<li class="chapter" data-level="3" data-path="ch-calculus.html"><a href="ch-calculus.html"><i class="fa fa-check"></i><b>3</b> Calculus</a><ul>
 <li class="chapter" data-level="3.1" data-path="ch-calculus.html"><a href="ch-calculus.html#intro-to-numerical-calculus"><i class="fa fa-check"></i><b>3.1</b> Intro to Numerical Calculus</a></li>
-<li class="chapter" data-level="3.2" data-path="ch-calculus.html"><a href="ch-calculus.html#differentiation"><i class="fa fa-check"></i><b>3.2</b> Differentiation</a>
-<ul>
+<li class="chapter" data-level="3.2" data-path="ch-calculus.html"><a href="ch-calculus.html#differentiation"><i class="fa fa-check"></i><b>3.2</b> Differentiation</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="ch-calculus.html"><a href="ch-calculus.html#the-first-derivative"><i class="fa fa-check"></i><b>3.2.1</b> The First Derivative</a></li>
 <li class="chapter" data-level="3.2.2" data-path="ch-calculus.html"><a href="ch-calculus.html#error-analysis"><i class="fa fa-check"></i><b>3.2.2</b> Error Analysis</a></li>
 <li class="chapter" data-level="3.2.3" data-path="ch-calculus.html"><a href="ch-calculus.html#efficient-coding"><i class="fa fa-check"></i><b>3.2.3</b> Efficient Coding</a></li>
 <li class="chapter" data-level="3.2.4" data-path="ch-calculus.html"><a href="ch-calculus.html#a-better-first-derivative"><i class="fa fa-check"></i><b>3.2.4</b> A Better First Derivative</a></li>
 <li class="chapter" data-level="3.2.5" data-path="ch-calculus.html"><a href="ch-calculus.html#the-second-derivative"><i class="fa fa-check"></i><b>3.2.5</b> The Second Derivative</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="ch-calculus.html"><a href="ch-calculus.html#integration"><i class="fa fa-check"></i><b>3.3</b> Integration</a>
-<ul>
+<li class="chapter" data-level="3.3" data-path="ch-calculus.html"><a href="ch-calculus.html#integration"><i class="fa fa-check"></i><b>3.3</b> Integration</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="ch-calculus.html"><a href="ch-calculus.html#riemann-sums"><i class="fa fa-check"></i><b>3.3.1</b> Riemann Sums</a></li>
 <li class="chapter" data-level="3.3.2" data-path="ch-calculus.html"><a href="ch-calculus.html#trapezoidal-rule"><i class="fa fa-check"></i><b>3.3.2</b> Trapezoidal Rule</a></li>
 <li class="chapter" data-level="3.3.3" data-path="ch-calculus.html"><a href="ch-calculus.html#simpsons-rule"><i class="fa fa-check"></i><b>3.3.3</b> Simpsons Rule</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="ch-calculus.html"><a href="ch-calculus.html#optimization"><i class="fa fa-check"></i><b>3.4</b> Optimization</a>
-<ul>
+<li class="chapter" data-level="3.4" data-path="ch-calculus.html"><a href="ch-calculus.html#optimization"><i class="fa fa-check"></i><b>3.4</b> Optimization</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="ch-calculus.html"><a href="ch-calculus.html#single-variable-optimization"><i class="fa fa-check"></i><b>3.4.1</b> Single Variable Optimization</a></li>
 <li class="chapter" data-level="3.4.2" data-path="ch-calculus.html"><a href="ch-calculus.html#multivariable-optimization"><i class="fa fa-check"></i><b>3.4.2</b> Multivariable Optimization</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="ch-calculus.html"><a href="ch-calculus.html#calculus-with-numpy-and-scipy"><i class="fa fa-check"></i><b>3.5</b> Calculus with <code>numpy</code> and <code>scipy</code></a>
-<ul>
+<li class="chapter" data-level="3.5" data-path="ch-calculus.html"><a href="ch-calculus.html#calculus-with-numpy-and-scipy"><i class="fa fa-check"></i><b>3.5</b> Calculus with <code>numpy</code> and <code>scipy</code></a><ul>
 <li class="chapter" data-level="3.5.1" data-path="ch-calculus.html"><a href="ch-calculus.html#differentiation-1"><i class="fa fa-check"></i><b>3.5.1</b> Differentiation</a></li>
 <li class="chapter" data-level="3.5.2" data-path="ch-calculus.html"><a href="ch-calculus.html#integration-1"><i class="fa fa-check"></i><b>3.5.2</b> Integration</a></li>
 <li class="chapter" data-level="3.5.3" data-path="ch-calculus.html"><a href="ch-calculus.html#optimization-1"><i class="fa fa-check"></i><b>3.5.3</b> Optimization</a></li>
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="ch-calculus.html"><a href="ch-calculus.html#least-squares-curve-fitting"><i class="fa fa-check"></i><b>3.6</b> Least Squares Curve Fitting</a></li>
-<li class="chapter" data-level="3.7" data-path="ch-calculus.html"><a href="ch-calculus.html#exercises-2"><i class="fa fa-check"></i><b>3.7</b> Exercises</a>
-<ul>
+<li class="chapter" data-level="3.7" data-path="ch-calculus.html"><a href="ch-calculus.html#exercises-2"><i class="fa fa-check"></i><b>3.7</b> Exercises</a><ul>
 <li class="chapter" data-level="3.7.1" data-path="ch-calculus.html"><a href="ch-calculus.html#algorithm-summaries-1"><i class="fa fa-check"></i><b>3.7.1</b> Algorithm Summaries</a></li>
 <li class="chapter" data-level="3.7.2" data-path="ch-calculus.html"><a href="ch-calculus.html#applying-what-youve-learned-2"><i class="fa fa-check"></i><b>3.7.2</b> Applying What You’ve Learned</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="ch-calculus.html"><a href="ch-calculus.html#projects-1"><i class="fa fa-check"></i><b>3.8</b> Projects</a>
-<ul>
+<li class="chapter" data-level="3.8" data-path="ch-calculus.html"><a href="ch-calculus.html#projects-1"><i class="fa fa-check"></i><b>3.8</b> Projects</a><ul>
 <li class="chapter" data-level="3.8.1" data-path="ch-calculus.html"><a href="ch-calculus.html#galaxy-integration"><i class="fa fa-check"></i><b>3.8.1</b> Galaxy Integration</a></li>
 <li class="chapter" data-level="3.8.2" data-path="ch-calculus.html"><a href="ch-calculus.html#higher-order-integration"><i class="fa fa-check"></i><b>3.8.2</b> Higher Order Integration</a></li>
 <li class="chapter" data-level="3.8.3" data-path="ch-calculus.html"><a href="ch-calculus.html#dam-integration"><i class="fa fa-check"></i><b>3.8.3</b> Dam Integration</a></li>
 <li class="chapter" data-level="3.8.4" data-path="ch-calculus.html"><a href="ch-calculus.html#edge-detection-in-images"><i class="fa fa-check"></i><b>3.8.4</b> Edge Detection in Images</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html"><i class="fa fa-check"></i><b>4</b> Linear Algebra</a>
-<ul>
+<li class="chapter" data-level="4" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html"><i class="fa fa-check"></i><b>4</b> Linear Algebra</a><ul>
 <li class="chapter" data-level="4.1" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#intro-to-numerical-linear-algebra"><i class="fa fa-check"></i><b>4.1</b> Intro to Numerical Linear Algebra</a></li>
 <li class="chapter" data-level="4.2" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#vectors-and-matrices-in-python"><i class="fa fa-check"></i><b>4.2</b> Vectors and Matrices in Python</a></li>
-<li class="chapter" data-level="4.3" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#matrix-and-vector-operations"><i class="fa fa-check"></i><b>4.3</b> Matrix and Vector Operations</a>
-<ul>
+<li class="chapter" data-level="4.3" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#matrix-and-vector-operations"><i class="fa fa-check"></i><b>4.3</b> Matrix and Vector Operations</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#the-dot-product"><i class="fa fa-check"></i><b>4.3.1</b> The Dot Product</a></li>
 <li class="chapter" data-level="4.3.2" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#matrix-multiplication"><i class="fa fa-check"></i><b>4.3.2</b> Matrix Multiplication</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#the-lu-factorization"><i class="fa fa-check"></i><b>4.4</b> The LU Factorization</a>
-<ul>
+<li class="chapter" data-level="4.4" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#the-lu-factorization"><i class="fa fa-check"></i><b>4.4</b> The LU Factorization</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#a-recap-of-row-reduction"><i class="fa fa-check"></i><b>4.4.1</b> A Recap of Row Reduction</a></li>
 <li class="chapter" data-level="4.4.2" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#the-lu-decomposition"><i class="fa fa-check"></i><b>4.4.2</b> The LU Decomposition</a></li>
 <li class="chapter" data-level="4.4.3" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#solving-triangular-systems"><i class="fa fa-check"></i><b>4.4.3</b> Solving Triangular Systems</a></li>
@@ -255,45 +234,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.5" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#the-qr-factorization"><i class="fa fa-check"></i><b>4.5</b> The QR Factorization</a></li>
 <li class="chapter" data-level="4.6" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#over-determined-systems-and-curve-fitting"><i class="fa fa-check"></i><b>4.6</b> Over Determined Systems and Curve Fitting</a></li>
 <li class="chapter" data-level="4.7" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#the-eigenvalue-eigenvector-problem"><i class="fa fa-check"></i><b>4.7</b> The Eigenvalue-Eigenvector Problem</a></li>
-<li class="chapter" data-level="4.8" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#exercises-3"><i class="fa fa-check"></i><b>4.8</b> Exercises</a>
-<ul>
+<li class="chapter" data-level="4.8" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#exercises-3"><i class="fa fa-check"></i><b>4.8</b> Exercises</a><ul>
 <li class="chapter" data-level="4.8.1" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#algorithm-summaries-2"><i class="fa fa-check"></i><b>4.8.1</b> Algorithm Summaries</a></li>
 <li class="chapter" data-level="4.8.2" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#applying-what-youve-learned-3"><i class="fa fa-check"></i><b>4.8.2</b> Applying What You’ve Learned</a></li>
 </ul></li>
-<li class="chapter" data-level="4.9" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#projects-2"><i class="fa fa-check"></i><b>4.9</b> Projects</a>
-<ul>
+<li class="chapter" data-level="4.9" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#projects-2"><i class="fa fa-check"></i><b>4.9</b> Projects</a><ul>
 <li class="chapter" data-level="4.9.1" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#the-google-page-rank-algorithm"><i class="fa fa-check"></i><b>4.9.1</b> The Google Page Rank Algorithm</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="ch-odes.html"><a href="ch-odes.html"><i class="fa fa-check"></i><b>5</b> Ordinary Differential Equations</a>
-<ul>
+<li class="chapter" data-level="5" data-path="ch-odes.html"><a href="ch-odes.html"><i class="fa fa-check"></i><b>5</b> Ordinary Differential Equations</a><ul>
 <li class="chapter" data-level="5.1" data-path="ch-odes.html"><a href="ch-odes.html#intro-to-numerical-odes"><i class="fa fa-check"></i><b>5.1</b> Intro to Numerical ODEs</a></li>
 <li class="chapter" data-level="5.2" data-path="ch-odes.html"><a href="ch-odes.html#recalling-the-basics-of-odes"><i class="fa fa-check"></i><b>5.2</b> Recalling the Basics of ODEs</a></li>
 <li class="chapter" data-level="5.3" data-path="ch-odes.html"><a href="ch-odes.html#eulers-method"><i class="fa fa-check"></i><b>5.3</b> Euler’s Method</a></li>
 <li class="chapter" data-level="5.4" data-path="ch-odes.html"><a href="ch-odes.html#the-midpoint-method"><i class="fa fa-check"></i><b>5.4</b> The Midpoint Method</a></li>
 <li class="chapter" data-level="5.5" data-path="ch-odes.html"><a href="ch-odes.html#the-runge-kutta-4-method"><i class="fa fa-check"></i><b>5.5</b> The Runge-Kutta 4 Method</a></li>
-<li class="chapter" data-level="5.6" data-path="ch-odes.html"><a href="ch-odes.html#animating-ode-solutions"><i class="fa fa-check"></i><b>5.6</b> Animating ODE Solutions</a>
-<ul>
+<li class="chapter" data-level="5.6" data-path="ch-odes.html"><a href="ch-odes.html#animating-ode-solutions"><i class="fa fa-check"></i><b>5.6</b> Animating ODE Solutions</a><ul>
 <li class="chapter" data-level="5.6.1" data-path="ch-odes.html"><a href="ch-odes.html#ipywidgets.interactive"><i class="fa fa-check"></i><b>5.6.1</b> <code>ipywidgets.interactive</code></a></li>
 <li class="chapter" data-level="5.6.2" data-path="ch-odes.html"><a href="ch-odes.html#matplotlib.animation"><i class="fa fa-check"></i><b>5.6.2</b> <code>matplotlib.animation</code></a></li>
 </ul></li>
 <li class="chapter" data-level="5.7" data-path="ch-odes.html"><a href="ch-odes.html#the-backwards-euler-method"><i class="fa fa-check"></i><b>5.7</b> The Backwards Euler Method</a></li>
 <li class="chapter" data-level="5.8" data-path="ch-odes.html"><a href="ch-odes.html#fitting-ode-models-to-data"><i class="fa fa-check"></i><b>5.8</b> Fitting ODE Models to Data</a></li>
-<li class="chapter" data-level="5.9" data-path="ch-odes.html"><a href="ch-odes.html#exercises-4"><i class="fa fa-check"></i><b>5.9</b> Exercises</a>
-<ul>
+<li class="chapter" data-level="5.9" data-path="ch-odes.html"><a href="ch-odes.html#exercises-4"><i class="fa fa-check"></i><b>5.9</b> Exercises</a><ul>
 <li class="chapter" data-level="5.9.1" data-path="ch-odes.html"><a href="ch-odes.html#algorithm-summaries-3"><i class="fa fa-check"></i><b>5.9.1</b> Algorithm Summaries</a></li>
 <li class="chapter" data-level="5.9.2" data-path="ch-odes.html"><a href="ch-odes.html#applying-what-youve-learned-4"><i class="fa fa-check"></i><b>5.9.2</b> Applying What You’ve Learned</a></li>
 </ul></li>
-<li class="chapter" data-level="5.10" data-path="ch-odes.html"><a href="ch-odes.html#projects-3"><i class="fa fa-check"></i><b>5.10</b> Projects</a>
-<ul>
+<li class="chapter" data-level="5.10" data-path="ch-odes.html"><a href="ch-odes.html#projects-3"><i class="fa fa-check"></i><b>5.10</b> Projects</a><ul>
 <li class="chapter" data-level="5.10.1" data-path="ch-odes.html"><a href="ch-odes.html#the-covid-19-pandemic"><i class="fa fa-check"></i><b>5.10.1</b> The COVID-19 Pandemic</a></li>
 <li class="chapter" data-level="5.10.2" data-path="ch-odes.html"><a href="ch-odes.html#pain-management"><i class="fa fa-check"></i><b>5.10.2</b> Pain Management</a></li>
 <li class="chapter" data-level="5.10.3" data-path="ch-odes.html"><a href="ch-odes.html#the-h1n1-virus"><i class="fa fa-check"></i><b>5.10.3</b> The H1N1 Virus</a></li>
 <li class="chapter" data-level="5.10.4" data-path="ch-odes.html"><a href="ch-odes.html#the-artillery-problem"><i class="fa fa-check"></i><b>5.10.4</b> The Artillery Problem</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="ch-pdes.html"><a href="ch-pdes.html"><i class="fa fa-check"></i><b>6</b> Partial Differential Equations</a>
-<ul>
+<li class="chapter" data-level="6" data-path="ch-pdes.html"><a href="ch-pdes.html"><i class="fa fa-check"></i><b>6</b> Partial Differential Equations</a><ul>
 <li class="chapter" data-level="6.1" data-path="ch-pdes.html"><a href="ch-pdes.html#intro-to-pdes"><i class="fa fa-check"></i><b>6.1</b> Intro to PDEs</a></li>
 <li class="chapter" data-level="6.2" data-path="ch-pdes.html"><a href="ch-pdes.html#solutions-to-pdes"><i class="fa fa-check"></i><b>6.2</b> Solutions to PDEs</a></li>
 <li class="chapter" data-level="6.3" data-path="ch-pdes.html"><a href="ch-pdes.html#boundary-conditions"><i class="fa fa-check"></i><b>6.3</b> Boundary Conditions</a></li>
@@ -302,25 +274,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.6" data-path="ch-pdes.html"><a href="ch-pdes.html#the-wave-equation"><i class="fa fa-check"></i><b>6.6</b> The Wave Equation</a></li>
 <li class="chapter" data-level="6.7" data-path="ch-pdes.html"><a href="ch-pdes.html#traveling-waves"><i class="fa fa-check"></i><b>6.7</b> Traveling Waves</a></li>
 <li class="chapter" data-level="6.8" data-path="ch-pdes.html"><a href="ch-pdes.html#the-laplace-and-poisson-equations"><i class="fa fa-check"></i><b>6.8</b> The Laplace and Poisson Equations</a></li>
-<li class="chapter" data-level="6.9" data-path="ch-pdes.html"><a href="ch-pdes.html#exercises-5"><i class="fa fa-check"></i><b>6.9</b> Exercises</a>
-<ul>
+<li class="chapter" data-level="6.9" data-path="ch-pdes.html"><a href="ch-pdes.html#exercises-5"><i class="fa fa-check"></i><b>6.9</b> Exercises</a><ul>
 <li class="chapter" data-level="6.9.1" data-path="ch-pdes.html"><a href="ch-pdes.html#algorithm-summaries-4"><i class="fa fa-check"></i><b>6.9.1</b> Algorithm Summaries</a></li>
 <li class="chapter" data-level="6.9.2" data-path="ch-pdes.html"><a href="ch-pdes.html#applying-what-youve-learned-5"><i class="fa fa-check"></i><b>6.9.2</b> Applying What You’ve Learned</a></li>
 </ul></li>
-<li class="chapter" data-level="6.10" data-path="ch-pdes.html"><a href="ch-pdes.html#projects-4"><i class="fa fa-check"></i><b>6.10</b> Projects</a>
-<ul>
+<li class="chapter" data-level="6.10" data-path="ch-pdes.html"><a href="ch-pdes.html#projects-4"><i class="fa fa-check"></i><b>6.10</b> Projects</a><ul>
 <li class="chapter" data-level="6.10.1" data-path="ch-pdes.html"><a href="ch-pdes.html#hunting-and-diffusion"><i class="fa fa-check"></i><b>6.10.1</b> Hunting and Diffusion</a></li>
 <li class="chapter" data-level="6.10.2" data-path="ch-pdes.html"><a href="ch-pdes.html#heating-adobe-houses"><i class="fa fa-check"></i><b>6.10.2</b> Heating Adobe Houses</a></li>
 </ul></li>
 </ul></li>
 <li class="appendix"><span><b>Appendices</b></span></li>
-<li class="chapter" data-level="A" data-path="ch-python.html"><a href="ch-python.html"><i class="fa fa-check"></i><b>A</b> Introduction to Python</a>
-<ul>
+<li class="chapter" data-level="A" data-path="ch-python.html"><a href="ch-python.html"><i class="fa fa-check"></i><b>A</b> Introduction to Python</a><ul>
 <li class="chapter" data-level="A.1" data-path="ch-python.html"><a href="ch-python.html#why-python"><i class="fa fa-check"></i><b>A.1</b> Why Python?</a></li>
 <li class="chapter" data-level="A.2" data-path="ch-python.html"><a href="ch-python.html#getting-started"><i class="fa fa-check"></i><b>A.2</b> Getting Started</a></li>
 <li class="chapter" data-level="A.3" data-path="ch-python.html"><a href="ch-python.html#hello-world"><i class="fa fa-check"></i><b>A.3</b> Hello, World!</a></li>
-<li class="chapter" data-level="A.4" data-path="ch-python.html"><a href="ch-python.html#python-programming-basics"><i class="fa fa-check"></i><b>A.4</b> Python Programming Basics</a>
-<ul>
+<li class="chapter" data-level="A.4" data-path="ch-python.html"><a href="ch-python.html#python-programming-basics"><i class="fa fa-check"></i><b>A.4</b> Python Programming Basics</a><ul>
 <li class="chapter" data-level="A.4.1" data-path="ch-python.html"><a href="ch-python.html#variables"><i class="fa fa-check"></i><b>A.4.1</b> Variables</a></li>
 <li class="chapter" data-level="A.4.2" data-path="ch-python.html"><a href="ch-python.html#indexing-and-lists"><i class="fa fa-check"></i><b>A.4.2</b> Indexing and Lists</a></li>
 <li class="chapter" data-level="A.4.3" data-path="ch-python.html"><a href="ch-python.html#list-operations"><i class="fa fa-check"></i><b>A.4.3</b> List Operations</a></li>
@@ -330,19 +298,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="A.4.7" data-path="ch-python.html"><a href="ch-python.html#lambda-functions"><i class="fa fa-check"></i><b>A.4.7</b> Lambda Functions</a></li>
 <li class="chapter" data-level="A.4.8" data-path="ch-python.html"><a href="ch-python.html#packages"><i class="fa fa-check"></i><b>A.4.8</b> Packages</a></li>
 </ul></li>
-<li class="chapter" data-level="A.5" data-path="ch-python.html"><a href="ch-python.html#numerical-python-with-numpy"><i class="fa fa-check"></i><b>A.5</b> Numerical Python with <code>numpy</code></a>
-<ul>
+<li class="chapter" data-level="A.5" data-path="ch-python.html"><a href="ch-python.html#numerical-python-with-numpy"><i class="fa fa-check"></i><b>A.5</b> Numerical Python with <code>numpy</code></a><ul>
 <li class="chapter" data-level="A.5.1" data-path="ch-python.html"><a href="ch-python.html#numpy-arrays-array-operations-and-matrix-operations"><i class="fa fa-check"></i><b>A.5.1</b> Numpy Arrays, Array Operations, and Matrix Operations</a></li>
 <li class="chapter" data-level="A.5.2" data-path="ch-python.html"><a href="ch-python.html#arange-linspace-zeros-ones-and-meshgrid"><i class="fa fa-check"></i><b>A.5.2</b> <code>arange, linspace, zeros, ones</code>, and <code>meshgrid</code></a></li>
 </ul></li>
-<li class="chapter" data-level="A.6" data-path="ch-python.html"><a href="ch-python.html#plotting-with-matplotlib"><i class="fa fa-check"></i><b>A.6</b> Plotting with <code>matplotlib</code></a>
-<ul>
+<li class="chapter" data-level="A.6" data-path="ch-python.html"><a href="ch-python.html#plotting-with-matplotlib"><i class="fa fa-check"></i><b>A.6</b> Plotting with <code>matplotlib</code></a><ul>
 <li class="chapter" data-level="A.6.1" data-path="ch-python.html"><a href="ch-python.html#basics-with-plt.plot"><i class="fa fa-check"></i><b>A.6.1</b> Basics with <code>plt.plot()</code></a></li>
 <li class="chapter" data-level="A.6.2" data-path="ch-python.html"><a href="ch-python.html#subplots"><i class="fa fa-check"></i><b>A.6.2</b> Subplots</a></li>
 <li class="chapter" data-level="A.6.3" data-path="ch-python.html"><a href="ch-python.html#logarithmic-scaling-with-semilogy-semilogx-and-loglog"><i class="fa fa-check"></i><b>A.6.3</b> Logarithmic Scaling with <code>semilogy</code>, <code>semilogx</code>, and <code>loglog</code></a></li>
 </ul></li>
-<li class="chapter" data-level="A.7" data-path="ch-python.html"><a href="ch-python.html#symbolic-python-with-sympy"><i class="fa fa-check"></i><b>A.7</b> Symbolic Python with <code>sympy</code></a>
-<ul>
+<li class="chapter" data-level="A.7" data-path="ch-python.html"><a href="ch-python.html#symbolic-python-with-sympy"><i class="fa fa-check"></i><b>A.7</b> Symbolic Python with <code>sympy</code></a><ul>
 <li class="chapter" data-level="A.7.1" data-path="ch-python.html"><a href="ch-python.html#symbolic-variables-with-symbols"><i class="fa fa-check"></i><b>A.7.1</b> Symbolic Variables with <code>symbols</code></a></li>
 <li class="chapter" data-level="A.7.2" data-path="ch-python.html"><a href="ch-python.html#symbolic-algebra"><i class="fa fa-check"></i><b>A.7.2</b> Symbolic Algebra</a></li>
 <li class="chapter" data-level="A.7.3" data-path="ch-python.html"><a href="ch-python.html#symbolic-function-evaluation"><i class="fa fa-check"></i><b>A.7.3</b> Symbolic Function Evaluation</a></li>
@@ -351,27 +316,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="A.7.6" data-path="ch-python.html"><a href="ch-python.html#symbolic-plotting"><i class="fa fa-check"></i><b>A.7.6</b> Symbolic Plotting</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="ch-writing.html"><a href="ch-writing.html"><i class="fa fa-check"></i><b>B</b> Mathematical Writing</a>
-<ul>
+<li class="chapter" data-level="B" data-path="ch-writing.html"><a href="ch-writing.html"><i class="fa fa-check"></i><b>B</b> Mathematical Writing</a><ul>
 <li class="chapter" data-level="B.1" data-path="ch-writing.html"><a href="ch-writing.html#the-paper"><i class="fa fa-check"></i><b>B.1</b> The Paper</a></li>
 <li class="chapter" data-level="B.2" data-path="ch-writing.html"><a href="ch-writing.html#figures-and-tables"><i class="fa fa-check"></i><b>B.2</b> Figures and Tables</a></li>
 <li class="chapter" data-level="B.3" data-path="ch-writing.html"><a href="ch-writing.html#writing-style"><i class="fa fa-check"></i><b>B.3</b> Writing Style</a></li>
-<li class="chapter" data-level="B.4" data-path="ch-writing.html"><a href="ch-writing.html#tips-for-writing-clear-math"><i class="fa fa-check"></i><b>B.4</b> Tips For Writing Clear Math</a>
-<ul>
+<li class="chapter" data-level="B.4" data-path="ch-writing.html"><a href="ch-writing.html#tips-for-writing-clear-math"><i class="fa fa-check"></i><b>B.4</b> Tips For Writing Clear Math</a><ul>
 <li class="chapter" data-level="B.4.1" data-path="ch-writing.html"><a href="ch-writing.html#audience"><i class="fa fa-check"></i><b>B.4.1</b> Audience</a></li>
 <li class="chapter" data-level="B.4.2" data-path="ch-writing.html"><a href="ch-writing.html#how-to-make-mathematics-readable-10-things-to-do"><i class="fa fa-check"></i><b>B.4.2</b> How To Make Mathematics Readable – 10 Things To Do</a></li>
 <li class="chapter" data-level="B.4.3" data-path="ch-writing.html"><a href="ch-writing.html#some-writing-tips"><i class="fa fa-check"></i><b>B.4.3</b> Some Writing Tips</a></li>
 <li class="chapter" data-level="B.4.4" data-path="ch-writing.html"><a href="ch-writing.html#mathematical-vocabulary"><i class="fa fa-check"></i><b>B.4.4</b> Mathematical Vocabulary</a></li>
 </ul></li>
-<li class="chapter" data-level="B.5" data-path="ch-writing.html"><a href="ch-writing.html#sensitivity-analysis"><i class="fa fa-check"></i><b>B.5</b> Sensitivity Analysis</a>
-<ul>
+<li class="chapter" data-level="B.5" data-path="ch-writing.html"><a href="ch-writing.html#sensitivity-analysis"><i class="fa fa-check"></i><b>B.5</b> Sensitivity Analysis</a><ul>
 <li class="chapter" data-level="B.5.1" data-path="ch-writing.html"><a href="ch-writing.html#example-of-sensitivity-analysis"><i class="fa fa-check"></i><b>B.5.1</b> Example of Sensitivity Analysis</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="C" data-path="ch-extras.html"><a href="ch-extras.html"><i class="fa fa-check"></i><b>C</b> Optional Material</a>
-<ul>
-<li class="chapter" data-level="C.1" data-path="ch-extras.html"><a href="ch-extras.html#interpolation"><i class="fa fa-check"></i><b>C.1</b> Interpolation</a>
-<ul>
+<li class="chapter" data-level="C" data-path="ch-extras.html"><a href="ch-extras.html"><i class="fa fa-check"></i><b>C</b> Optional Material</a><ul>
+<li class="chapter" data-level="C.1" data-path="ch-extras.html"><a href="ch-extras.html#interpolation"><i class="fa fa-check"></i><b>C.1</b> Interpolation</a><ul>
 <li class="chapter" data-level="C.1.1" data-path="ch-extras.html"><a href="ch-extras.html#vandermonde-interpolation"><i class="fa fa-check"></i><b>C.1.1</b> Vandermonde Interpolation</a></li>
 <li class="chapter" data-level="C.1.2" data-path="ch-extras.html"><a href="ch-extras.html#lagrange-interpolation"><i class="fa fa-check"></i><b>C.1.2</b> Lagrange Interpolation</a></li>
 <li class="chapter" data-level="C.1.3" data-path="ch-extras.html"><a href="ch-extras.html#chebyshev-points"><i class="fa fa-check"></i><b>C.1.3</b> Chebyshev Points</a></li>
@@ -397,16 +357,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ch:extras" class="section level1" number="9">
+<div id="ch:extras" class="section level1">
 <h1><span class="header-section-number">C</span> Optional Material</h1>
 <p>This Appendix contains a few sections that are considered optional for
 the course as we teach it. Instructors may be interested
 in expanding upon what is here for their classes.</p>
-<div id="interpolation" class="section level2" number="9.1">
+<div id="interpolation" class="section level2">
 <h2><span class="header-section-number">C.1</span> Interpolation</h2>
+
 <p>The least squares problem that we studied in Chapter <a href="ch-linearalgebra.html#ch:linearalgebra">4</a> seeks to find a best fitting function that is <em>closest</em> (in the Euclidean distance sense) to a set of data. What if, instead, we want to match the data points with a function. This is the realm of interpolation. Take note that there are many many forms of interpolation that are tailored to specific problems. In this brief section we cover only a few of the simplest forms of interpolation involving only polynomial functions. The problem that we’ll focus on can be phrased as:<br />
 <em>Given a set of <span class="math inline">\(n+1\)</span> data points <span class="math inline">\((x_0, y_0), (x_1, y_1), \ldots, (x_n,y_n)\)</span>, find a polynomial of degree at most <span class="math inline">\(n\)</span> that <strong>exactly</strong> matches these points.</em></p>
-<div id="vandermonde-interpolation" class="section level3" number="9.1.1">
+<div id="vandermonde-interpolation" class="section level3">
 <h3><span class="header-section-number">C.1.1</span> Vandermonde Interpolation</h3>
 
 <div class="exercise">
@@ -415,6 +376,7 @@ in expanding upon what is here for their classes.</p>
 If we want to fit a polynomial to this data then we can use a cubic function (which has 4
 parameters) to match the data perfectly. Why is a cubic polynomial the best choice?
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -433,6 +395,7 @@ parameters) to match the data perfectly. Why is a cubic polynomial the best choi
 <li>Make a plot showing the data and your interoplated polynomial.</li>
 </ol>
 </div>
+
 <hr />
 
 <div class="definition">
@@ -451,25 +414,29 @@ be a set of ordered pairs where the <span class="math inline">\(x\)</span> value
     \end{aligned}\]</span>
 The matrix on the left-hand side of is called the <strong>Vandermonde Matrix</strong>.</p>
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-875" class="exercise"><strong>Exercise C.3  </strong></span>Write a python function that accepts an array of ordered pairs (where each <span class="math inline">\(x\)</span> value is unique) and builds a Vandermonde interpolation polynomial. Test your function on the simple example given above and then on several larger problems. It may be simplest to initially test on data generated from functions that we know.
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-876" class="exercise"><strong>Exercise C.4  </strong></span>Build a Vandermonde interpolation polynomial to interpolate the function <span class="math inline">\(f(x) = \cos(2 \pi x)\)</span> with <span class="math inline">\(n\)</span> points that are linearly spaced on the interval <span class="math inline">\(x \in [0,2]\)</span>. Repeat this experiment with <span class="math inline">\(n=5\)</span>, <span class="math inline">\(n=10\)</span>, <span class="math inline">\(n=15\)</span>, <span class="math inline">\(\ldots\)</span>, <span class="math inline">\(n=100\)</span>. Make a plot for each value of <span class="math inline">\(n\)</span>. What do you observe?
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-877" class="exercise"><strong>Exercise C.5  </strong></span>Vandermonde interpolation is relatively easy to conceptualize and code, but there is an inherent problem. Use your Vandemonde interploation code to create a plot where the horizontal axis is the order of the interpolating polynomial
 and the vertical axis is the ratio of the maximum eigenvalue to the minimum eigenvalue of the Vandemonde matrix <span class="math inline">\(|\lambda_{max}|/|\lambda_{min}|\)</span>. What does this plot tell you about Vandermonde interpolation for high-order polynomials? You can use the same model function as from the previous exercise.
 </div>
+
 <hr />
 </div>
-<div id="lagrange-interpolation" class="section level3" number="9.1.2">
+<div id="lagrange-interpolation" class="section level3">
 <h3><span class="header-section-number">C.1.2</span> Lagrange Interpolation</h3>
 <p>Lagrange interpolation is a rather clever interpolation scheme where we build up the interpolating polynomial from simpler polynomials. For interpolation we
 want to build a polynomial <span class="math inline">\(p(x)\)</span> such that <span class="math inline">\(p(x_j) = y_j\)</span> for every data point in the set <span class="math inline">\(\{(x_1,y_1), (x_2, y_2), \ldots, (x_n,y_n)\}\)</span>. If we can find a polynomial <span class="math inline">\(\phi_j(x)\)</span> such that
@@ -496,11 +463,13 @@ That is to say, verify that <span class="math inline">\(\phi_1(1) = 1\)</span> a
 that this polynomial indeed interpolates the points in the set <span class="math inline">\(S\)</span>.</p></li>
 </ol>
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-879" class="exercise"><strong>Exercise C.7  </strong></span>Is the Lagrange interpolation polynomial built form the previous problem the same as the Vandermonde interpolation polynomial for the same data?
 </div>
+
 <hr />
 
 <div class="definition">
@@ -511,6 +480,7 @@ first build the polynomials <span class="math inline">\(\phi_j(x)\)</span> for e
 <span class="math display">\[p(x) = \sum_{j=0}^n y_j \phi_j(x).\]</span> The <span class="math inline">\(\phi_j(x)\)</span> functions are
 defined as <span class="math display">\[\phi_j(x) = \prod_{i \ne j} \frac{x-x_i}{x_j-x_i}.\]</span>
 </div>
+
 <hr />
 
 <div class="example">
@@ -528,14 +498,16 @@ p(x) &amp;= 5 \phi_0(x) + 9 \phi_1(x) + 11 \phi(2(x) \\
      &amp;= 5 \frac{(x-2)(x-3)}{(1-2)(1-3)} + \frac{(x-1)(x-3)}{(2-1)(2-3)} + \frac{(x-1)(x-2)}{(3-1)(3-2)}.\end{aligned}\]</span>
 The remainder of the simplification is left to the reader.
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-882" class="exercise"><strong>Exercise C.8  </strong></span>Write a python function that accepts a list of list of ordered pairs (where each <span class="math inline">\(x\)</span> value is unique) and builds a Lagrange interpolation polynomial. Test your function on several examples.
 </div>
+
 <hr />
 </div>
-<div id="chebyshev-points" class="section level3" number="9.1.3">
+<div id="chebyshev-points" class="section level3">
 <h3><span class="header-section-number">C.1.3</span> Chebyshev Points</h3>
 
 <div class="exercise">
@@ -545,6 +517,7 @@ that interpolates the function <span class="math display">\[f(x) = \frac{1}{1+x^
 spaced interpolation points. What do you notice about the quality of the
 interpolating polynomial near the endpoints?
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -565,6 +538,7 @@ projected points for the interpolation.</p></li>
 <li>What do you notice about the <span class="math inline">\(x\)</span>-values of these projected points? Why might it be desirable to use a collection of points like this for interpolation?</li>
 </ol>
 </div>
+
 <hr />
 
 <div class="definition">
@@ -577,20 +551,23 @@ projected points for the interpolation.</p></li>
 where the “<span class="math inline">\(x_j\)</span>” on the left is on the interval <span class="math inline">\([a,b]\)</span> and the “<span class="math inline">\(x_j\)</span>”
 on the right is on the interval <span class="math inline">\([-1,1]\)</span>.</p>
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-886" class="exercise"><strong>Exercise C.11  </strong></span>Consider the function <span class="math inline">\(f(x) = \frac{1}{1+x^2}\)</span> just as we did for the first problem in this subsection. Write code that overlays an interpolation with linearly spaced points and interpolation with Chebyshev points. Give plots for polynomial of order <span class="math inline">\(n=2,3, 4, \ldots\)</span>. Be sure to show the original function on your plots as well. What do you notice?
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-887" class="exercise"><strong>Exercise C.12  </strong></span>Demonstrate that the Chebyshev interpolation nodes will improve the stability of the Vandermonde matrix over using linearly spaced nodes.
 </div>
+
 <hr />
 </div>
 </div>
-<div id="sec:mv_newton" class="section level2" number="9.2">
+<div id="sec:mv_newton" class="section level2">
 <h2><span class="header-section-number">C.2</span> Multi-Dimensional Newton’s Method</h2>
 <p>Now that we know some linear algebra let’s return to the Newton’s Method root finding technique from earlier in the book. This time we will consider root finding problems where we are not just solving the equation <span class="math inline">\(f(x) = 0\)</span> as we did Chapter <a href="ch-algebra.html#ch:algebra">2</a>. Instead consider the function <span class="math inline">\(F\)</span> that takes a vector of variables in and outputs a vector. An example of such a function is
 <span class="math display">\[F(x,y) = \begin{pmatrix} x\sin(y) \\ \cos(x) + \sin(y^2)
@@ -683,6 +660,7 @@ technique from Chapter <a href="ch-linearalgebra.html#ch:linearalgebra">4</a>) t
 </ul></li>
 </ol>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -693,6 +671,7 @@ find the solution <span class="math inline">\((\pi/2,\pi)\)</span> on your first
 this problem. Then play with the starting point to verify that you
 can get the other solutions.
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -703,6 +682,7 @@ equations <span class="math display">\[\begin{aligned}
     \end{aligned}\]</span> Note here that <span class="math inline">\(f(x,y) = 1+x^2 - y^2 + e^x\cos(y)\)</span>
 and <span class="math inline">\(g(x,y) = 2xy + e^x \sin(y)\)</span>.
 </div>
+
 <hr />
 <p>Let’s
 generalize the process a bit so we can numerically approximate solutions
@@ -734,6 +714,7 @@ point <span class="math inline">\(\boldsymbol{x}_n\)</span>. Take note that you 
 <div class="exercise">
 <span id="exr:unnamed-chunk-891" class="exercise"><strong>Exercise C.16  </strong></span>Write code that accepts any number of functions and an initial vector guess and returns an approximation to the root for the problem <span class="math inline">\(F(\boldsymbol{x}) = \boldsymbol{0}\)</span>.
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -744,11 +725,13 @@ point <span class="math inline">\(\boldsymbol{x}_n\)</span>. Take note that you 
     x - y - \sin(z) &amp;= 0
 \end{aligned}\]</span>
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-893" class="exercise"><strong>Exercise C.18  </strong></span>When will the multi-dimensional version of Newton’s Method fail? Compare and contrast this with what you found about the one-dimensional version of Newton’s Method in Chapter <a href="ch-algebra.html#ch:algebra">2</a>. Extend your discussion to talk about the eigenvalues of the Jacobian matrix for a nonlinear system.
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -764,6 +747,7 @@ Find the equilibrium point(s) for the system of differential equations
     \end{aligned}\]</span> where <span class="math inline">\(\alpha = 1, \beta = 0.05, \gamma = 0.01\)</span> and
 <span class="math inline">\(\delta =1\)</span>.
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -774,6 +758,7 @@ Find the equilibrium point(s) for the system of differential equations
         z&#39; &amp;= \cos(y) - xz
     \end{aligned}\]</span> if they exist.
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -795,9 +780,10 @@ vector, and then use the multi-variable Newton’s method to find the
 critical points. Classify the critical points as either local maximums
 or local minimums.
 </div>
+
 <hr />
 </div>
-<div id="the-method-of-lines" class="section level2" number="9.3">
+<div id="the-method-of-lines" class="section level2">
 <h2><span class="header-section-number">C.3</span> The Method Of Lines</h2>
 <p>Building a numerical solution to a time-dependent PDE is a challenging and finicky business. In our study of the heat and traveling wave equations we have seen that an Euler-type time stepping scheme can lead to instabilities in the numerical solution to the PDE. In our study of the traveling wave equation we saw that there are some techniques that partially mitigate these problems, but as of yet we do not have a good way to combat this issue – until now. Don’t get too excited, however. We will never be able to completely beat time stepping instabilities. That said, what we will study in this section is a method that works extremely well.</p>
 <p>We’ll start by considering the one dimensional heat equation
@@ -835,6 +821,7 @@ in the functions <span class="math inline">\(u_1, u_2, \ldots, u_{9}\)</span>.</
 <div class="exercise">
 <span id="exr:unnamed-chunk-897" class="exercise"><strong>Exercise C.22  </strong></span>The code below gives an outline for implementing the method of lines on the heat equation as described above. Complete and implement the code. Once you have a full implementation test different ratios <span class="math inline">\(D\Delta t/\Delta x^2\)</span> to demonstrate that this method does not suffer from the stability issues that we have seen througout the PDE chapter. (Recall that the ratio <span class="math inline">\(D \Delta t/ \Delta x^2\)</span> must be less than a particular value for our typical finite difference discretization to be stable. Show that you can beat it here!)
 </div>
+
 <div class="sourceCode" id="cb459"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb459-1"><a href="ch-extras.html#cb459-1"></a><span class="co"># import the proper libraries</span></span>
 <span id="cb459-2"><a href="ch-extras.html#cb459-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb459-3"><a href="ch-extras.html#cb459-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -882,6 +869,7 @@ Figure C.3: A smoother method of lines solution to the heat equation.
 <div class="exercise">
 <span id="exr:unnamed-chunk-900" class="exercise"><strong>Exercise C.23  </strong></span>Modify your heat equation method of lines code from the previous exercise to demonstrate how the method works with several different types of boundary conditions and initial conditions. Show several snapshots of the time evolution of the solution.
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -890,6 +878,7 @@ Figure C.3: A smoother method of lines solution to the heat equation.
 where the parameter <span class="math inline">\(v\)</span> is the speed of propogation of the traveling wave. Recall further that we had all sorts of trouble getting a stable numerical solution to this equation. Now would be a good time to refer back to the section and your work on the traveling wave equation.</p>
 Choose an appropriate initial condition and build a method of lines numerical solution to the traveling wave equation. Experiment with your solution and see if you get the same stability issues that we had with the traveling wave equation before. (Remember to choose your spatial derivative method wisely.)
 </div>
+
 <hr />
 <p>We haven’t yet mentioned using the method of lines for the wave equation, and that’s for a good reason. Recall that the 1D wave equation is <span class="math inline">\(u_{tt} = c u_{xx}\)</span>, and the fact that the time derivative is second order requires us to pay a bit closer attention – we can’t just naturally apply an ODE time stepper to a second order time derivative. In your ODE training you likely ran into second order ordinary differential equations in the context of harmonic oscillators. One technique for solving these types of ODEs was to introduce a new variable for the velocity of the oscillator and then to solve the resulting system of equations. We can do the same thing with PDEs.</p>
 <p>Define the velocity function <span class="math inline">\(v = u_t\)</span> and observe that the wave equation <span class="math inline">\(u_{tt} = cu_{xx}\)</span> can now be written as <span class="math inline">\(v_t = cu_{xx}\)</span>. Hence we have the system of PDEs
@@ -905,6 +894,7 @@ where the subscripts correspond to the indices of the <span class="math inline">
 <div class="exercise">
 <span id="exr:unnamed-chunk-902" class="exercise"><strong>Exercise C.25  </strong></span>The code below contains a partial implementation for the method of lines for the 1D wave equation. Pick an appropriate intial position and velocity as well as appropriate boundary conditions on the domain <span class="math inline">\(x \in [0,1]\)</span> (hint: start simple!). Then complete the code and produce several plots showing the time evolution of the solution to the wave equation.
 </div>
+
 <div class="sourceCode" id="cb461"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb461-1"><a href="ch-extras.html#cb461-1"></a><span class="co"># start by importing the proper libraries</span></span>
 <span id="cb461-2"><a href="ch-extras.html#cb461-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb461-3"><a href="ch-extras.html#cb461-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -954,11 +944,13 @@ where the subscripts correspond to the indices of the <span class="math inline">
 <p><span id="exr:unnamed-chunk-904" class="exercise"><strong>Exercise C.26  </strong></span>Using the method of lines and splitting the wave equation into a system of PDEs actually allows for a simpler implementation of non-trivial initial velocity functions. Pause and ponder here for a moment: we almost always took our initial velocity to be zero in all prior implementations. Why? Why are things easier now?</p>
 Experiment with numerically solving the 1D wave equation using several different initial positions and velocities. Moreover, modify your code to allow for different types of boundary conditions. Produce several snapshots of your more interesting simulations.
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-905" class="exercise"><strong>Exercise C.27  </strong></span>Hopefully by now you agree that the method of lines is a very powerful tool for numerically solving time dependent PDEs. But, it isn’t without its faults. Discuss the pros and cons of using the method of lines to get numerical solutions to time dependent PDEs.
 </div>
+
 <hr />
 <p>Let’s return to the heat equation for a moment. In our implementations of the method of lines for the heat equation we made a second-order discretization in space of the form
 <span class="math display">\[u_{xx} \approx \frac{u_{n+1} - 2u_n + u_{n-1}}{\Delta x^2}.\]</span>
@@ -976,6 +968,7 @@ where <span class="math inline">\(\boldsymbol{u} = \begin{pmatrix} u_1 &amp; u_2
 <span class="math display">\[u(t) = C_1 e^{\lambda_1 t} \boldsymbol{v}_1 + C_2 e^{\lambda_2 t} \boldsymbol{v}_2 + \cdots + C_n e^{\lambda_n t} \boldsymbol{v}_n\]</span>
 where <span class="math inline">\(\lambda_1, \lambda_2, \ldots, \lambda_n\)</span> and <span class="math inline">\(\boldsymbol{v}_1, \boldsymbol{v}_2, \ldots, \boldsymbol{v}_n\)</span> are the eigenvalues and eigenvectors of <span class="math inline">\(A\)</span> respectively and the constants are determined uniquely from the initial condition.
 </div>
+
 <hr />
 <p>Using this theorem we now have a way to solve the associated time-dependent system of ODEs <em>exactly</em>! That’s right! We can avoid the use of any time stepping routine all together by just remembering some linear algebra (… ahhh linear algebra).</p>
 <hr />
@@ -984,21 +977,25 @@ where <span class="math inline">\(\lambda_1, \lambda_2, \ldots, \lambda_n\)</spa
 <p><span id="exr:unnamed-chunk-907" class="exercise"><strong>Exercise C.28  </strong></span>Write code to solve the 1D heat equation with a second order spatial discretization and an exact solution to the resulting system of ODEs. There is no time stepping needed, but instead your code will need to leverage some linear algebra.</p>
 Hint: Use <code>np.linalg.eig</code> to find the eigenvalues and eigenvectors for you.
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-908" class="exercise"><strong>Exercise C.29  </strong></span>The traveling wave equation can be formulated as a matrix-vector system of ODEs just like we just did with the heat equation. Write code to solve the traveling wave equation without doing any time stepping.
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-909" class="exercise"><strong>Exercise C.30  </strong></span>Is it possible to frame the 1D wave equation as a system of ODEs using a matrix-vector product? If so, give an explicit form of the matrix and give an Python implementation where we use the exact time solution. If not then give an explicit reason why not.
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-910" class="exercise"><strong>Exercise C.31  </strong></span>What are the pros and cons for solving PDEs with an exact solution to the coupled system of ODEs resulting from the method of lines approach? When would you want to use this approach vs an ODE time stepper?
 </div>
+
 <hr />
 
 </div>

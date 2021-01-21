@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1 Preliminary Topics | Numerical Methods</title>
   <meta name="description" content="Inquiry Based Numerical Methods" />
-  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1 Preliminary Topics | Numerical Methods" />
   <meta property="og:type" content="book" />
@@ -33,7 +33,6 @@
 <link rel="prev" href="index.html"/>
 <link rel="next" href="ch-algebra.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<script src="libs/elevate-section-attrs-2.0/elevate-section-attrs.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,20 +49,22 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -83,7 +84,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -128,18 +129,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Front Matter</a>
-<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Front Matter</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#resources"><i class="fa fa-check"></i>Resources</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#preface"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#creative-commons"><i class="fa fa-check"></i>Creative Commons</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#to-the-student"><i class="fa fa-check"></i>To The Student</a>
-<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#to-the-student"><i class="fa fa-check"></i>To The Student</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#the-inquiry-based-approach"><i class="fa fa-check"></i>The Inquiry-Based Approach</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#to-the-instructor"><i class="fa fa-check"></i>To the Instructor</a>
-<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#to-the-instructor"><i class="fa fa-check"></i>To the Instructor</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#the-inquiry-based-approach-1"><i class="fa fa-check"></i>The Inquiry-Based Approach</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#the-projects"><i class="fa fa-check"></i>The Projects</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#coding"><i class="fa fa-check"></i>Coding</a></li>
@@ -147,106 +145,87 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#other-considerations"><i class="fa fa-check"></i>Other Considerations:</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>1</b> Preliminary Topics</a>
-<ul>
+<li class="chapter" data-level="1" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>1</b> Preliminary Topics</a><ul>
 <li class="chapter" data-level="1.1" data-path="ch-intro.html"><a href="ch-intro.html#what-is-numerical-analysis"><i class="fa fa-check"></i><b>1.1</b> What Is Numerical Analysis?</a></li>
 <li class="chapter" data-level="1.2" data-path="ch-intro.html"><a href="ch-intro.html#arithmetic-in-base-2"><i class="fa fa-check"></i><b>1.2</b> Arithmetic in Base 2</a></li>
 <li class="chapter" data-level="1.3" data-path="ch-intro.html"><a href="ch-intro.html#floating-point-arithmetic"><i class="fa fa-check"></i><b>1.3</b> Floating Point Arithmetic</a></li>
 <li class="chapter" data-level="1.4" data-path="ch-intro.html"><a href="ch-intro.html#sec:Taylor"><i class="fa fa-check"></i><b>1.4</b> Approximating Functions</a></li>
 <li class="chapter" data-level="1.5" data-path="ch-intro.html"><a href="ch-intro.html#approximation-error-with-taylor-series"><i class="fa fa-check"></i><b>1.5</b> Approximation Error with Taylor Series</a></li>
-<li class="chapter" data-level="1.6" data-path="ch-intro.html"><a href="ch-intro.html#exercises"><i class="fa fa-check"></i><b>1.6</b> Exercises</a>
-<ul>
+<li class="chapter" data-level="1.6" data-path="ch-intro.html"><a href="ch-intro.html#exercises"><i class="fa fa-check"></i><b>1.6</b> Exercises</a><ul>
 <li class="chapter" data-level="1.6.1" data-path="ch-intro.html"><a href="ch-intro.html#coding-exercises"><i class="fa fa-check"></i><b>1.6.1</b> Coding Exercises</a></li>
 <li class="chapter" data-level="1.6.2" data-path="ch-intro.html"><a href="ch-intro.html#applying-what-youve-learned"><i class="fa fa-check"></i><b>1.6.2</b> Applying What You’ve Learned</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="ch-algebra.html"><a href="ch-algebra.html"><i class="fa fa-check"></i><b>2</b> Algebra</a>
-<ul>
+<li class="chapter" data-level="2" data-path="ch-algebra.html"><a href="ch-algebra.html"><i class="fa fa-check"></i><b>2</b> Algebra</a><ul>
 <li class="chapter" data-level="2.1" data-path="ch-algebra.html"><a href="ch-algebra.html#intro-to-numerical-root-finding"><i class="fa fa-check"></i><b>2.1</b> Intro to Numerical Root Finding</a></li>
-<li class="chapter" data-level="2.2" data-path="ch-algebra.html"><a href="ch-algebra.html#the-bisection-method"><i class="fa fa-check"></i><b>2.2</b> The Bisection Method</a>
-<ul>
+<li class="chapter" data-level="2.2" data-path="ch-algebra.html"><a href="ch-algebra.html#the-bisection-method"><i class="fa fa-check"></i><b>2.2</b> The Bisection Method</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="ch-algebra.html"><a href="ch-algebra.html#intuition-and-implementation"><i class="fa fa-check"></i><b>2.2.1</b> Intuition and Implementation</a></li>
 <li class="chapter" data-level="2.2.2" data-path="ch-algebra.html"><a href="ch-algebra.html#analysis"><i class="fa fa-check"></i><b>2.2.2</b> Analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="ch-algebra.html"><a href="ch-algebra.html#the-regula-falsi-method"><i class="fa fa-check"></i><b>2.3</b> The Regula Falsi Method</a>
-<ul>
+<li class="chapter" data-level="2.3" data-path="ch-algebra.html"><a href="ch-algebra.html#the-regula-falsi-method"><i class="fa fa-check"></i><b>2.3</b> The Regula Falsi Method</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="ch-algebra.html"><a href="ch-algebra.html#intuition-and-implementation-1"><i class="fa fa-check"></i><b>2.3.1</b> Intuition and Implementation</a></li>
 <li class="chapter" data-level="2.3.2" data-path="ch-algebra.html"><a href="ch-algebra.html#analysis-1"><i class="fa fa-check"></i><b>2.3.2</b> Analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="ch-algebra.html"><a href="ch-algebra.html#newtons-method"><i class="fa fa-check"></i><b>2.4</b> Newton’s Method</a>
-<ul>
+<li class="chapter" data-level="2.4" data-path="ch-algebra.html"><a href="ch-algebra.html#newtons-method"><i class="fa fa-check"></i><b>2.4</b> Newton’s Method</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="ch-algebra.html"><a href="ch-algebra.html#intuition-and-implementation-2"><i class="fa fa-check"></i><b>2.4.1</b> Intuition and Implementation</a></li>
 <li class="chapter" data-level="2.4.2" data-path="ch-algebra.html"><a href="ch-algebra.html#analysis-2"><i class="fa fa-check"></i><b>2.4.2</b> Analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="ch-algebra.html"><a href="ch-algebra.html#the-secant-method"><i class="fa fa-check"></i><b>2.5</b> The Secant Method</a>
-<ul>
+<li class="chapter" data-level="2.5" data-path="ch-algebra.html"><a href="ch-algebra.html#the-secant-method"><i class="fa fa-check"></i><b>2.5</b> The Secant Method</a><ul>
 <li class="chapter" data-level="2.5.1" data-path="ch-algebra.html"><a href="ch-algebra.html#intuition-and-implementation-3"><i class="fa fa-check"></i><b>2.5.1</b> Intuition and Implementation</a></li>
 <li class="chapter" data-level="2.5.2" data-path="ch-algebra.html"><a href="ch-algebra.html#analysis-3"><i class="fa fa-check"></i><b>2.5.2</b> Analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="ch-algebra.html"><a href="ch-algebra.html#exercises-1"><i class="fa fa-check"></i><b>2.6</b> Exercises</a>
-<ul>
+<li class="chapter" data-level="2.6" data-path="ch-algebra.html"><a href="ch-algebra.html#exercises-1"><i class="fa fa-check"></i><b>2.6</b> Exercises</a><ul>
 <li class="chapter" data-level="2.6.1" data-path="ch-algebra.html"><a href="ch-algebra.html#algorithm-summaries"><i class="fa fa-check"></i><b>2.6.1</b> Algorithm Summaries</a></li>
 <li class="chapter" data-level="2.6.2" data-path="ch-algebra.html"><a href="ch-algebra.html#applying-what-youve-learned-1"><i class="fa fa-check"></i><b>2.6.2</b> Applying What You’ve Learned</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="ch-algebra.html"><a href="ch-algebra.html#projects"><i class="fa fa-check"></i><b>2.7</b> Projects</a>
-<ul>
+<li class="chapter" data-level="2.7" data-path="ch-algebra.html"><a href="ch-algebra.html#projects"><i class="fa fa-check"></i><b>2.7</b> Projects</a><ul>
 <li class="chapter" data-level="2.7.1" data-path="ch-algebra.html"><a href="ch-algebra.html#basins-of-attraction"><i class="fa fa-check"></i><b>2.7.1</b> Basins of Attraction</a></li>
 <li class="chapter" data-level="2.7.2" data-path="ch-algebra.html"><a href="ch-algebra.html#artillery"><i class="fa fa-check"></i><b>2.7.2</b> Artillery</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="ch-calculus.html"><a href="ch-calculus.html"><i class="fa fa-check"></i><b>3</b> Calculus</a>
-<ul>
+<li class="chapter" data-level="3" data-path="ch-calculus.html"><a href="ch-calculus.html"><i class="fa fa-check"></i><b>3</b> Calculus</a><ul>
 <li class="chapter" data-level="3.1" data-path="ch-calculus.html"><a href="ch-calculus.html#intro-to-numerical-calculus"><i class="fa fa-check"></i><b>3.1</b> Intro to Numerical Calculus</a></li>
-<li class="chapter" data-level="3.2" data-path="ch-calculus.html"><a href="ch-calculus.html#differentiation"><i class="fa fa-check"></i><b>3.2</b> Differentiation</a>
-<ul>
+<li class="chapter" data-level="3.2" data-path="ch-calculus.html"><a href="ch-calculus.html#differentiation"><i class="fa fa-check"></i><b>3.2</b> Differentiation</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="ch-calculus.html"><a href="ch-calculus.html#the-first-derivative"><i class="fa fa-check"></i><b>3.2.1</b> The First Derivative</a></li>
 <li class="chapter" data-level="3.2.2" data-path="ch-calculus.html"><a href="ch-calculus.html#error-analysis"><i class="fa fa-check"></i><b>3.2.2</b> Error Analysis</a></li>
 <li class="chapter" data-level="3.2.3" data-path="ch-calculus.html"><a href="ch-calculus.html#efficient-coding"><i class="fa fa-check"></i><b>3.2.3</b> Efficient Coding</a></li>
 <li class="chapter" data-level="3.2.4" data-path="ch-calculus.html"><a href="ch-calculus.html#a-better-first-derivative"><i class="fa fa-check"></i><b>3.2.4</b> A Better First Derivative</a></li>
 <li class="chapter" data-level="3.2.5" data-path="ch-calculus.html"><a href="ch-calculus.html#the-second-derivative"><i class="fa fa-check"></i><b>3.2.5</b> The Second Derivative</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="ch-calculus.html"><a href="ch-calculus.html#integration"><i class="fa fa-check"></i><b>3.3</b> Integration</a>
-<ul>
+<li class="chapter" data-level="3.3" data-path="ch-calculus.html"><a href="ch-calculus.html#integration"><i class="fa fa-check"></i><b>3.3</b> Integration</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="ch-calculus.html"><a href="ch-calculus.html#riemann-sums"><i class="fa fa-check"></i><b>3.3.1</b> Riemann Sums</a></li>
 <li class="chapter" data-level="3.3.2" data-path="ch-calculus.html"><a href="ch-calculus.html#trapezoidal-rule"><i class="fa fa-check"></i><b>3.3.2</b> Trapezoidal Rule</a></li>
 <li class="chapter" data-level="3.3.3" data-path="ch-calculus.html"><a href="ch-calculus.html#simpsons-rule"><i class="fa fa-check"></i><b>3.3.3</b> Simpsons Rule</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="ch-calculus.html"><a href="ch-calculus.html#optimization"><i class="fa fa-check"></i><b>3.4</b> Optimization</a>
-<ul>
+<li class="chapter" data-level="3.4" data-path="ch-calculus.html"><a href="ch-calculus.html#optimization"><i class="fa fa-check"></i><b>3.4</b> Optimization</a><ul>
 <li class="chapter" data-level="3.4.1" data-path="ch-calculus.html"><a href="ch-calculus.html#single-variable-optimization"><i class="fa fa-check"></i><b>3.4.1</b> Single Variable Optimization</a></li>
 <li class="chapter" data-level="3.4.2" data-path="ch-calculus.html"><a href="ch-calculus.html#multivariable-optimization"><i class="fa fa-check"></i><b>3.4.2</b> Multivariable Optimization</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="ch-calculus.html"><a href="ch-calculus.html#calculus-with-numpy-and-scipy"><i class="fa fa-check"></i><b>3.5</b> Calculus with <code>numpy</code> and <code>scipy</code></a>
-<ul>
+<li class="chapter" data-level="3.5" data-path="ch-calculus.html"><a href="ch-calculus.html#calculus-with-numpy-and-scipy"><i class="fa fa-check"></i><b>3.5</b> Calculus with <code>numpy</code> and <code>scipy</code></a><ul>
 <li class="chapter" data-level="3.5.1" data-path="ch-calculus.html"><a href="ch-calculus.html#differentiation-1"><i class="fa fa-check"></i><b>3.5.1</b> Differentiation</a></li>
 <li class="chapter" data-level="3.5.2" data-path="ch-calculus.html"><a href="ch-calculus.html#integration-1"><i class="fa fa-check"></i><b>3.5.2</b> Integration</a></li>
 <li class="chapter" data-level="3.5.3" data-path="ch-calculus.html"><a href="ch-calculus.html#optimization-1"><i class="fa fa-check"></i><b>3.5.3</b> Optimization</a></li>
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="ch-calculus.html"><a href="ch-calculus.html#least-squares-curve-fitting"><i class="fa fa-check"></i><b>3.6</b> Least Squares Curve Fitting</a></li>
-<li class="chapter" data-level="3.7" data-path="ch-calculus.html"><a href="ch-calculus.html#exercises-2"><i class="fa fa-check"></i><b>3.7</b> Exercises</a>
-<ul>
+<li class="chapter" data-level="3.7" data-path="ch-calculus.html"><a href="ch-calculus.html#exercises-2"><i class="fa fa-check"></i><b>3.7</b> Exercises</a><ul>
 <li class="chapter" data-level="3.7.1" data-path="ch-calculus.html"><a href="ch-calculus.html#algorithm-summaries-1"><i class="fa fa-check"></i><b>3.7.1</b> Algorithm Summaries</a></li>
 <li class="chapter" data-level="3.7.2" data-path="ch-calculus.html"><a href="ch-calculus.html#applying-what-youve-learned-2"><i class="fa fa-check"></i><b>3.7.2</b> Applying What You’ve Learned</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="ch-calculus.html"><a href="ch-calculus.html#projects-1"><i class="fa fa-check"></i><b>3.8</b> Projects</a>
-<ul>
+<li class="chapter" data-level="3.8" data-path="ch-calculus.html"><a href="ch-calculus.html#projects-1"><i class="fa fa-check"></i><b>3.8</b> Projects</a><ul>
 <li class="chapter" data-level="3.8.1" data-path="ch-calculus.html"><a href="ch-calculus.html#galaxy-integration"><i class="fa fa-check"></i><b>3.8.1</b> Galaxy Integration</a></li>
 <li class="chapter" data-level="3.8.2" data-path="ch-calculus.html"><a href="ch-calculus.html#higher-order-integration"><i class="fa fa-check"></i><b>3.8.2</b> Higher Order Integration</a></li>
 <li class="chapter" data-level="3.8.3" data-path="ch-calculus.html"><a href="ch-calculus.html#dam-integration"><i class="fa fa-check"></i><b>3.8.3</b> Dam Integration</a></li>
 <li class="chapter" data-level="3.8.4" data-path="ch-calculus.html"><a href="ch-calculus.html#edge-detection-in-images"><i class="fa fa-check"></i><b>3.8.4</b> Edge Detection in Images</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html"><i class="fa fa-check"></i><b>4</b> Linear Algebra</a>
-<ul>
+<li class="chapter" data-level="4" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html"><i class="fa fa-check"></i><b>4</b> Linear Algebra</a><ul>
 <li class="chapter" data-level="4.1" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#intro-to-numerical-linear-algebra"><i class="fa fa-check"></i><b>4.1</b> Intro to Numerical Linear Algebra</a></li>
 <li class="chapter" data-level="4.2" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#vectors-and-matrices-in-python"><i class="fa fa-check"></i><b>4.2</b> Vectors and Matrices in Python</a></li>
-<li class="chapter" data-level="4.3" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#matrix-and-vector-operations"><i class="fa fa-check"></i><b>4.3</b> Matrix and Vector Operations</a>
-<ul>
+<li class="chapter" data-level="4.3" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#matrix-and-vector-operations"><i class="fa fa-check"></i><b>4.3</b> Matrix and Vector Operations</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#the-dot-product"><i class="fa fa-check"></i><b>4.3.1</b> The Dot Product</a></li>
 <li class="chapter" data-level="4.3.2" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#matrix-multiplication"><i class="fa fa-check"></i><b>4.3.2</b> Matrix Multiplication</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#the-lu-factorization"><i class="fa fa-check"></i><b>4.4</b> The LU Factorization</a>
-<ul>
+<li class="chapter" data-level="4.4" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#the-lu-factorization"><i class="fa fa-check"></i><b>4.4</b> The LU Factorization</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#a-recap-of-row-reduction"><i class="fa fa-check"></i><b>4.4.1</b> A Recap of Row Reduction</a></li>
 <li class="chapter" data-level="4.4.2" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#the-lu-decomposition"><i class="fa fa-check"></i><b>4.4.2</b> The LU Decomposition</a></li>
 <li class="chapter" data-level="4.4.3" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#solving-triangular-systems"><i class="fa fa-check"></i><b>4.4.3</b> Solving Triangular Systems</a></li>
@@ -255,45 +234,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.5" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#the-qr-factorization"><i class="fa fa-check"></i><b>4.5</b> The QR Factorization</a></li>
 <li class="chapter" data-level="4.6" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#over-determined-systems-and-curve-fitting"><i class="fa fa-check"></i><b>4.6</b> Over Determined Systems and Curve Fitting</a></li>
 <li class="chapter" data-level="4.7" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#the-eigenvalue-eigenvector-problem"><i class="fa fa-check"></i><b>4.7</b> The Eigenvalue-Eigenvector Problem</a></li>
-<li class="chapter" data-level="4.8" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#exercises-3"><i class="fa fa-check"></i><b>4.8</b> Exercises</a>
-<ul>
+<li class="chapter" data-level="4.8" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#exercises-3"><i class="fa fa-check"></i><b>4.8</b> Exercises</a><ul>
 <li class="chapter" data-level="4.8.1" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#algorithm-summaries-2"><i class="fa fa-check"></i><b>4.8.1</b> Algorithm Summaries</a></li>
 <li class="chapter" data-level="4.8.2" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#applying-what-youve-learned-3"><i class="fa fa-check"></i><b>4.8.2</b> Applying What You’ve Learned</a></li>
 </ul></li>
-<li class="chapter" data-level="4.9" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#projects-2"><i class="fa fa-check"></i><b>4.9</b> Projects</a>
-<ul>
+<li class="chapter" data-level="4.9" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#projects-2"><i class="fa fa-check"></i><b>4.9</b> Projects</a><ul>
 <li class="chapter" data-level="4.9.1" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#the-google-page-rank-algorithm"><i class="fa fa-check"></i><b>4.9.1</b> The Google Page Rank Algorithm</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="ch-odes.html"><a href="ch-odes.html"><i class="fa fa-check"></i><b>5</b> Ordinary Differential Equations</a>
-<ul>
+<li class="chapter" data-level="5" data-path="ch-odes.html"><a href="ch-odes.html"><i class="fa fa-check"></i><b>5</b> Ordinary Differential Equations</a><ul>
 <li class="chapter" data-level="5.1" data-path="ch-odes.html"><a href="ch-odes.html#intro-to-numerical-odes"><i class="fa fa-check"></i><b>5.1</b> Intro to Numerical ODEs</a></li>
 <li class="chapter" data-level="5.2" data-path="ch-odes.html"><a href="ch-odes.html#recalling-the-basics-of-odes"><i class="fa fa-check"></i><b>5.2</b> Recalling the Basics of ODEs</a></li>
 <li class="chapter" data-level="5.3" data-path="ch-odes.html"><a href="ch-odes.html#eulers-method"><i class="fa fa-check"></i><b>5.3</b> Euler’s Method</a></li>
 <li class="chapter" data-level="5.4" data-path="ch-odes.html"><a href="ch-odes.html#the-midpoint-method"><i class="fa fa-check"></i><b>5.4</b> The Midpoint Method</a></li>
 <li class="chapter" data-level="5.5" data-path="ch-odes.html"><a href="ch-odes.html#the-runge-kutta-4-method"><i class="fa fa-check"></i><b>5.5</b> The Runge-Kutta 4 Method</a></li>
-<li class="chapter" data-level="5.6" data-path="ch-odes.html"><a href="ch-odes.html#animating-ode-solutions"><i class="fa fa-check"></i><b>5.6</b> Animating ODE Solutions</a>
-<ul>
+<li class="chapter" data-level="5.6" data-path="ch-odes.html"><a href="ch-odes.html#animating-ode-solutions"><i class="fa fa-check"></i><b>5.6</b> Animating ODE Solutions</a><ul>
 <li class="chapter" data-level="5.6.1" data-path="ch-odes.html"><a href="ch-odes.html#ipywidgets.interactive"><i class="fa fa-check"></i><b>5.6.1</b> <code>ipywidgets.interactive</code></a></li>
 <li class="chapter" data-level="5.6.2" data-path="ch-odes.html"><a href="ch-odes.html#matplotlib.animation"><i class="fa fa-check"></i><b>5.6.2</b> <code>matplotlib.animation</code></a></li>
 </ul></li>
 <li class="chapter" data-level="5.7" data-path="ch-odes.html"><a href="ch-odes.html#the-backwards-euler-method"><i class="fa fa-check"></i><b>5.7</b> The Backwards Euler Method</a></li>
 <li class="chapter" data-level="5.8" data-path="ch-odes.html"><a href="ch-odes.html#fitting-ode-models-to-data"><i class="fa fa-check"></i><b>5.8</b> Fitting ODE Models to Data</a></li>
-<li class="chapter" data-level="5.9" data-path="ch-odes.html"><a href="ch-odes.html#exercises-4"><i class="fa fa-check"></i><b>5.9</b> Exercises</a>
-<ul>
+<li class="chapter" data-level="5.9" data-path="ch-odes.html"><a href="ch-odes.html#exercises-4"><i class="fa fa-check"></i><b>5.9</b> Exercises</a><ul>
 <li class="chapter" data-level="5.9.1" data-path="ch-odes.html"><a href="ch-odes.html#algorithm-summaries-3"><i class="fa fa-check"></i><b>5.9.1</b> Algorithm Summaries</a></li>
 <li class="chapter" data-level="5.9.2" data-path="ch-odes.html"><a href="ch-odes.html#applying-what-youve-learned-4"><i class="fa fa-check"></i><b>5.9.2</b> Applying What You’ve Learned</a></li>
 </ul></li>
-<li class="chapter" data-level="5.10" data-path="ch-odes.html"><a href="ch-odes.html#projects-3"><i class="fa fa-check"></i><b>5.10</b> Projects</a>
-<ul>
+<li class="chapter" data-level="5.10" data-path="ch-odes.html"><a href="ch-odes.html#projects-3"><i class="fa fa-check"></i><b>5.10</b> Projects</a><ul>
 <li class="chapter" data-level="5.10.1" data-path="ch-odes.html"><a href="ch-odes.html#the-covid-19-pandemic"><i class="fa fa-check"></i><b>5.10.1</b> The COVID-19 Pandemic</a></li>
 <li class="chapter" data-level="5.10.2" data-path="ch-odes.html"><a href="ch-odes.html#pain-management"><i class="fa fa-check"></i><b>5.10.2</b> Pain Management</a></li>
 <li class="chapter" data-level="5.10.3" data-path="ch-odes.html"><a href="ch-odes.html#the-h1n1-virus"><i class="fa fa-check"></i><b>5.10.3</b> The H1N1 Virus</a></li>
 <li class="chapter" data-level="5.10.4" data-path="ch-odes.html"><a href="ch-odes.html#the-artillery-problem"><i class="fa fa-check"></i><b>5.10.4</b> The Artillery Problem</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="ch-pdes.html"><a href="ch-pdes.html"><i class="fa fa-check"></i><b>6</b> Partial Differential Equations</a>
-<ul>
+<li class="chapter" data-level="6" data-path="ch-pdes.html"><a href="ch-pdes.html"><i class="fa fa-check"></i><b>6</b> Partial Differential Equations</a><ul>
 <li class="chapter" data-level="6.1" data-path="ch-pdes.html"><a href="ch-pdes.html#intro-to-pdes"><i class="fa fa-check"></i><b>6.1</b> Intro to PDEs</a></li>
 <li class="chapter" data-level="6.2" data-path="ch-pdes.html"><a href="ch-pdes.html#solutions-to-pdes"><i class="fa fa-check"></i><b>6.2</b> Solutions to PDEs</a></li>
 <li class="chapter" data-level="6.3" data-path="ch-pdes.html"><a href="ch-pdes.html#boundary-conditions"><i class="fa fa-check"></i><b>6.3</b> Boundary Conditions</a></li>
@@ -302,25 +274,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.6" data-path="ch-pdes.html"><a href="ch-pdes.html#the-wave-equation"><i class="fa fa-check"></i><b>6.6</b> The Wave Equation</a></li>
 <li class="chapter" data-level="6.7" data-path="ch-pdes.html"><a href="ch-pdes.html#traveling-waves"><i class="fa fa-check"></i><b>6.7</b> Traveling Waves</a></li>
 <li class="chapter" data-level="6.8" data-path="ch-pdes.html"><a href="ch-pdes.html#the-laplace-and-poisson-equations"><i class="fa fa-check"></i><b>6.8</b> The Laplace and Poisson Equations</a></li>
-<li class="chapter" data-level="6.9" data-path="ch-pdes.html"><a href="ch-pdes.html#exercises-5"><i class="fa fa-check"></i><b>6.9</b> Exercises</a>
-<ul>
+<li class="chapter" data-level="6.9" data-path="ch-pdes.html"><a href="ch-pdes.html#exercises-5"><i class="fa fa-check"></i><b>6.9</b> Exercises</a><ul>
 <li class="chapter" data-level="6.9.1" data-path="ch-pdes.html"><a href="ch-pdes.html#algorithm-summaries-4"><i class="fa fa-check"></i><b>6.9.1</b> Algorithm Summaries</a></li>
 <li class="chapter" data-level="6.9.2" data-path="ch-pdes.html"><a href="ch-pdes.html#applying-what-youve-learned-5"><i class="fa fa-check"></i><b>6.9.2</b> Applying What You’ve Learned</a></li>
 </ul></li>
-<li class="chapter" data-level="6.10" data-path="ch-pdes.html"><a href="ch-pdes.html#projects-4"><i class="fa fa-check"></i><b>6.10</b> Projects</a>
-<ul>
+<li class="chapter" data-level="6.10" data-path="ch-pdes.html"><a href="ch-pdes.html#projects-4"><i class="fa fa-check"></i><b>6.10</b> Projects</a><ul>
 <li class="chapter" data-level="6.10.1" data-path="ch-pdes.html"><a href="ch-pdes.html#hunting-and-diffusion"><i class="fa fa-check"></i><b>6.10.1</b> Hunting and Diffusion</a></li>
 <li class="chapter" data-level="6.10.2" data-path="ch-pdes.html"><a href="ch-pdes.html#heating-adobe-houses"><i class="fa fa-check"></i><b>6.10.2</b> Heating Adobe Houses</a></li>
 </ul></li>
 </ul></li>
 <li class="appendix"><span><b>Appendices</b></span></li>
-<li class="chapter" data-level="A" data-path="ch-python.html"><a href="ch-python.html"><i class="fa fa-check"></i><b>A</b> Introduction to Python</a>
-<ul>
+<li class="chapter" data-level="A" data-path="ch-python.html"><a href="ch-python.html"><i class="fa fa-check"></i><b>A</b> Introduction to Python</a><ul>
 <li class="chapter" data-level="A.1" data-path="ch-python.html"><a href="ch-python.html#why-python"><i class="fa fa-check"></i><b>A.1</b> Why Python?</a></li>
 <li class="chapter" data-level="A.2" data-path="ch-python.html"><a href="ch-python.html#getting-started"><i class="fa fa-check"></i><b>A.2</b> Getting Started</a></li>
 <li class="chapter" data-level="A.3" data-path="ch-python.html"><a href="ch-python.html#hello-world"><i class="fa fa-check"></i><b>A.3</b> Hello, World!</a></li>
-<li class="chapter" data-level="A.4" data-path="ch-python.html"><a href="ch-python.html#python-programming-basics"><i class="fa fa-check"></i><b>A.4</b> Python Programming Basics</a>
-<ul>
+<li class="chapter" data-level="A.4" data-path="ch-python.html"><a href="ch-python.html#python-programming-basics"><i class="fa fa-check"></i><b>A.4</b> Python Programming Basics</a><ul>
 <li class="chapter" data-level="A.4.1" data-path="ch-python.html"><a href="ch-python.html#variables"><i class="fa fa-check"></i><b>A.4.1</b> Variables</a></li>
 <li class="chapter" data-level="A.4.2" data-path="ch-python.html"><a href="ch-python.html#indexing-and-lists"><i class="fa fa-check"></i><b>A.4.2</b> Indexing and Lists</a></li>
 <li class="chapter" data-level="A.4.3" data-path="ch-python.html"><a href="ch-python.html#list-operations"><i class="fa fa-check"></i><b>A.4.3</b> List Operations</a></li>
@@ -330,19 +298,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="A.4.7" data-path="ch-python.html"><a href="ch-python.html#lambda-functions"><i class="fa fa-check"></i><b>A.4.7</b> Lambda Functions</a></li>
 <li class="chapter" data-level="A.4.8" data-path="ch-python.html"><a href="ch-python.html#packages"><i class="fa fa-check"></i><b>A.4.8</b> Packages</a></li>
 </ul></li>
-<li class="chapter" data-level="A.5" data-path="ch-python.html"><a href="ch-python.html#numerical-python-with-numpy"><i class="fa fa-check"></i><b>A.5</b> Numerical Python with <code>numpy</code></a>
-<ul>
+<li class="chapter" data-level="A.5" data-path="ch-python.html"><a href="ch-python.html#numerical-python-with-numpy"><i class="fa fa-check"></i><b>A.5</b> Numerical Python with <code>numpy</code></a><ul>
 <li class="chapter" data-level="A.5.1" data-path="ch-python.html"><a href="ch-python.html#numpy-arrays-array-operations-and-matrix-operations"><i class="fa fa-check"></i><b>A.5.1</b> Numpy Arrays, Array Operations, and Matrix Operations</a></li>
 <li class="chapter" data-level="A.5.2" data-path="ch-python.html"><a href="ch-python.html#arange-linspace-zeros-ones-and-meshgrid"><i class="fa fa-check"></i><b>A.5.2</b> <code>arange, linspace, zeros, ones</code>, and <code>meshgrid</code></a></li>
 </ul></li>
-<li class="chapter" data-level="A.6" data-path="ch-python.html"><a href="ch-python.html#plotting-with-matplotlib"><i class="fa fa-check"></i><b>A.6</b> Plotting with <code>matplotlib</code></a>
-<ul>
+<li class="chapter" data-level="A.6" data-path="ch-python.html"><a href="ch-python.html#plotting-with-matplotlib"><i class="fa fa-check"></i><b>A.6</b> Plotting with <code>matplotlib</code></a><ul>
 <li class="chapter" data-level="A.6.1" data-path="ch-python.html"><a href="ch-python.html#basics-with-plt.plot"><i class="fa fa-check"></i><b>A.6.1</b> Basics with <code>plt.plot()</code></a></li>
 <li class="chapter" data-level="A.6.2" data-path="ch-python.html"><a href="ch-python.html#subplots"><i class="fa fa-check"></i><b>A.6.2</b> Subplots</a></li>
 <li class="chapter" data-level="A.6.3" data-path="ch-python.html"><a href="ch-python.html#logarithmic-scaling-with-semilogy-semilogx-and-loglog"><i class="fa fa-check"></i><b>A.6.3</b> Logarithmic Scaling with <code>semilogy</code>, <code>semilogx</code>, and <code>loglog</code></a></li>
 </ul></li>
-<li class="chapter" data-level="A.7" data-path="ch-python.html"><a href="ch-python.html#symbolic-python-with-sympy"><i class="fa fa-check"></i><b>A.7</b> Symbolic Python with <code>sympy</code></a>
-<ul>
+<li class="chapter" data-level="A.7" data-path="ch-python.html"><a href="ch-python.html#symbolic-python-with-sympy"><i class="fa fa-check"></i><b>A.7</b> Symbolic Python with <code>sympy</code></a><ul>
 <li class="chapter" data-level="A.7.1" data-path="ch-python.html"><a href="ch-python.html#symbolic-variables-with-symbols"><i class="fa fa-check"></i><b>A.7.1</b> Symbolic Variables with <code>symbols</code></a></li>
 <li class="chapter" data-level="A.7.2" data-path="ch-python.html"><a href="ch-python.html#symbolic-algebra"><i class="fa fa-check"></i><b>A.7.2</b> Symbolic Algebra</a></li>
 <li class="chapter" data-level="A.7.3" data-path="ch-python.html"><a href="ch-python.html#symbolic-function-evaluation"><i class="fa fa-check"></i><b>A.7.3</b> Symbolic Function Evaluation</a></li>
@@ -351,27 +316,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="A.7.6" data-path="ch-python.html"><a href="ch-python.html#symbolic-plotting"><i class="fa fa-check"></i><b>A.7.6</b> Symbolic Plotting</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="ch-writing.html"><a href="ch-writing.html"><i class="fa fa-check"></i><b>B</b> Mathematical Writing</a>
-<ul>
+<li class="chapter" data-level="B" data-path="ch-writing.html"><a href="ch-writing.html"><i class="fa fa-check"></i><b>B</b> Mathematical Writing</a><ul>
 <li class="chapter" data-level="B.1" data-path="ch-writing.html"><a href="ch-writing.html#the-paper"><i class="fa fa-check"></i><b>B.1</b> The Paper</a></li>
 <li class="chapter" data-level="B.2" data-path="ch-writing.html"><a href="ch-writing.html#figures-and-tables"><i class="fa fa-check"></i><b>B.2</b> Figures and Tables</a></li>
 <li class="chapter" data-level="B.3" data-path="ch-writing.html"><a href="ch-writing.html#writing-style"><i class="fa fa-check"></i><b>B.3</b> Writing Style</a></li>
-<li class="chapter" data-level="B.4" data-path="ch-writing.html"><a href="ch-writing.html#tips-for-writing-clear-math"><i class="fa fa-check"></i><b>B.4</b> Tips For Writing Clear Math</a>
-<ul>
+<li class="chapter" data-level="B.4" data-path="ch-writing.html"><a href="ch-writing.html#tips-for-writing-clear-math"><i class="fa fa-check"></i><b>B.4</b> Tips For Writing Clear Math</a><ul>
 <li class="chapter" data-level="B.4.1" data-path="ch-writing.html"><a href="ch-writing.html#audience"><i class="fa fa-check"></i><b>B.4.1</b> Audience</a></li>
 <li class="chapter" data-level="B.4.2" data-path="ch-writing.html"><a href="ch-writing.html#how-to-make-mathematics-readable-10-things-to-do"><i class="fa fa-check"></i><b>B.4.2</b> How To Make Mathematics Readable – 10 Things To Do</a></li>
 <li class="chapter" data-level="B.4.3" data-path="ch-writing.html"><a href="ch-writing.html#some-writing-tips"><i class="fa fa-check"></i><b>B.4.3</b> Some Writing Tips</a></li>
 <li class="chapter" data-level="B.4.4" data-path="ch-writing.html"><a href="ch-writing.html#mathematical-vocabulary"><i class="fa fa-check"></i><b>B.4.4</b> Mathematical Vocabulary</a></li>
 </ul></li>
-<li class="chapter" data-level="B.5" data-path="ch-writing.html"><a href="ch-writing.html#sensitivity-analysis"><i class="fa fa-check"></i><b>B.5</b> Sensitivity Analysis</a>
-<ul>
+<li class="chapter" data-level="B.5" data-path="ch-writing.html"><a href="ch-writing.html#sensitivity-analysis"><i class="fa fa-check"></i><b>B.5</b> Sensitivity Analysis</a><ul>
 <li class="chapter" data-level="B.5.1" data-path="ch-writing.html"><a href="ch-writing.html#example-of-sensitivity-analysis"><i class="fa fa-check"></i><b>B.5.1</b> Example of Sensitivity Analysis</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="C" data-path="ch-extras.html"><a href="ch-extras.html"><i class="fa fa-check"></i><b>C</b> Optional Material</a>
-<ul>
-<li class="chapter" data-level="C.1" data-path="ch-extras.html"><a href="ch-extras.html#interpolation"><i class="fa fa-check"></i><b>C.1</b> Interpolation</a>
-<ul>
+<li class="chapter" data-level="C" data-path="ch-extras.html"><a href="ch-extras.html"><i class="fa fa-check"></i><b>C</b> Optional Material</a><ul>
+<li class="chapter" data-level="C.1" data-path="ch-extras.html"><a href="ch-extras.html#interpolation"><i class="fa fa-check"></i><b>C.1</b> Interpolation</a><ul>
 <li class="chapter" data-level="C.1.1" data-path="ch-extras.html"><a href="ch-extras.html#vandermonde-interpolation"><i class="fa fa-check"></i><b>C.1.1</b> Vandermonde Interpolation</a></li>
 <li class="chapter" data-level="C.1.2" data-path="ch-extras.html"><a href="ch-extras.html#lagrange-interpolation"><i class="fa fa-check"></i><b>C.1.2</b> Lagrange Interpolation</a></li>
 <li class="chapter" data-level="C.1.3" data-path="ch-extras.html"><a href="ch-extras.html#chebyshev-points"><i class="fa fa-check"></i><b>C.1.3</b> Chebyshev Points</a></li>
@@ -397,10 +357,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ch:intro" class="section level1" number="1">
+<div id="ch:intro" class="section level1">
 <h1><span class="header-section-number">1</span> Preliminary Topics</h1>
-<div id="what-is-numerical-analysis" class="section level2" number="1.1">
+<div id="what-is-numerical-analysis" class="section level2">
 <h2><span class="header-section-number">1.1</span> What Is Numerical Analysis?</h2>
+
 <blockquote>
 <p><em>“In the 1950s and 1960s, the founding fathers of Numerical Analysis discovered that inexact arithmetic can be a source of danger, causing errors in results that ‘ought’ to be right. The source of such problems is numerical instability: that is, the amplification of rounding errors from microscopic to macroscopic scale by certain modes of computation.”</em><br />
 –<a href="https://en.wikipedia.org/wiki/Nick_Trefethen">Oxford Professor Lloyd (Nick) Trefethen
@@ -443,7 +404,7 @@ class. If you need to review the basics then see Appendix <a href="ch-python.htm
 <p>Let’s begin.</p>
 <div style="page-break-after: always;"></div>
 </div>
-<div id="arithmetic-in-base-2" class="section level2" number="1.2">
+<div id="arithmetic-in-base-2" class="section level2">
 <h2><span class="header-section-number">1.2</span> Arithmetic in Base 2</h2>
 
 <div class="exercise">
@@ -451,17 +412,20 @@ class. If you need to review the basics then see Appendix <a href="ch-python.htm
 terms of this sequence with the initial condition <span class="math inline">\(x_0 = 1/10\)</span>.
 <span class="math display">\[x_{n+1} = \left\{ \begin{array}{ll} 2x_n, &amp; x_n \in [0,\frac{1}{2}] \\ 2x_n - 1, &amp; x_n \in (\frac{1}{2},1] \end{array} \right.\]</span>
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-3" class="exercise"><strong>Exercise 1.2  </strong></span>Now use a spreadhseet and to do the computations. Do
 you get the same answers?
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-4" class="exercise"><strong>Exercise 1.3  </strong></span>Finally, solve this problem with Python. Some starter code is given to you below.
 </div>
+
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="ch-intro.html#cb1-1"></a>x <span class="op">=</span> <span class="fl">1.0</span><span class="op">/</span><span class="dv">10</span></span>
 <span id="cb1-2"><a href="ch-intro.html#cb1-2"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">50</span>):</span>
 <span id="cb1-3"><a href="ch-intro.html#cb1-3"></a>    <span class="cf">if</span> x<span class="op">&lt;=</span> <span class="fl">0.5</span>:</span>
@@ -477,12 +441,14 @@ What do you think happened on the computer and why did it give you a
 different answer? What, do you suppose, is the cautionary tale hiding
 behind the scenes with this problem?
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-7" class="exercise"><strong>Exercise 1.5  </strong></span>Now what happens with this problem when you start with <span class="math inline">\(x_0 = 1/8\)</span>? Why
 does this new initial condition work better?
 </div>
+
 <hr />
 <p>A computer circuit knows two states: on and off. As such, anything saved
 in computer memory is stored using base-2 numbers. This is called a
@@ -526,12 +492,14 @@ digits and mentally keep track of what we’re reading.</p>
 <li><span class="math inline">\(1,111,111,111_2\)</span></li>
 </ol>
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-9" class="exercise"><strong>Exercise 1.7  </strong></span>Explain the joke: <em>There are 10 types of people. Those who understand binary and those who
 don’t.</em>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -540,10 +508,11 @@ number into its binary representation. Once you have a proposed method
 put it into action on the number <span class="math inline">\(237_{10}\)</span> to show that the base-2 expression is
 <span class="math inline">\(11,101,101_2\)</span>
 </div>
+
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-11" class="exercise"><strong>Exercise 1.9  </strong></span>Convert to following numbers from base 10 to base 2 or visa versa.</p>
+<p><span id="exr:unnamed-chunk-11" class="exercise"><strong>Exercise 1.9  </strong></span>Convert the following numbers from base 10 to base 2 or visa versa.</p>
 <ul>
 <li>Write <span class="math inline">\(12_{10}\)</span> in binary</li>
 <li>Write <span class="math inline">\(11_{10}\)</span> in binary</li>
@@ -552,12 +521,14 @@ put it into action on the number <span class="math inline">\(237_{10}\)</span> t
 <li>What is <span class="math inline">\(100101_2\)</span> in base <span class="math inline">\(10\)</span>?</li>
 </ul>
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-12" class="exercise"><strong>Exercise 1.10  </strong></span>Now that you have converted several base-10 numbers to base-2, summarize
 an efficient technique to do the conversion.
 </div>
+
 <hr />
 
 <div class="example">
@@ -574,6 +545,7 @@ this remainder. Repeat until you have the number. <span class="math display">\[\
         &amp;= 10001001_2
     \end{aligned}\]</span>
 </div>
+
 <hr />
 <p>Next we’ll work with fractions and decimals. For example, let’s take the
 base 10 number <span class="math inline">\(5.341_{10}\)</span> and expand it out to get
@@ -587,8 +559,9 @@ position. We can do a similar thing with binary decimals.</p>
 <span id="exr:unnamed-chunk-14" class="exercise"><strong>Exercise 1.11  </strong></span>The base-2 number <span class="math inline">\(1,101.01_2\)</span> can be expanded in powers of 2. Fill in
 the question marks below and observe the pattern in the powers.
 <span class="math display">\[1,101.01_2 = ? \times 2^3 + 1 \times 2^2 + 0 \times 2^1 +
-    ? \times 2^0 + 0 \times 2^{?} + 1 \times 2^{-1}.\]</span>
+    ? \times 2^0 + 0 \times 2^{?} + 1 \times 2^{-2}.\]</span>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -605,6 +578,7 @@ decimal representation. I’ll get you started: <span class="math display">\[\be
     \end{aligned}\]</span> We want to know what this series converges to in
 base 10. Work with your partners to approximate the base-10 number.
 </div>
+
 <hr />
 
 <div class="example">
@@ -615,6 +589,7 @@ base 10. Work with your partners to approximate the base-10 number.
         \times 2^{-3} + 1 \times 2^{-4} + 1 \times 2^{-5}\\ &amp;= 3.34375_{10}.
     \end{aligned}\]</span>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -626,6 +601,7 @@ base 10. Work with your partners to approximate the base-10 number.
 <li>What is <span class="math inline">\(0.15625\)</span> in binary?</li>
 </ol>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -640,22 +616,25 @@ by 2. The whole number part is the second binary decimal digit.</li>
 </ol>
 <p>Explain why each step gives the binary digit that it does.</p>
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-19" class="exercise"><strong>Exercise 1.15  </strong></span>Based on your previous problem write an algorithm that will convert
 base-10 decimals (less than 1) to base decimal expansions.
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-20" class="exercise"><strong>Exercise 1.16  </strong></span>Convert the base 10 fraction <span class="math inline">\(1/10\)</span> into binary. Use your solution to
 fully describe what went wrong in the Exercise <a href="ch-intro.html#exr:fail">1.1</a>.
 </div>
+
 <hr />
 <div style="page-break-after: always;"></div>
 </div>
-<div id="floating-point-arithmetic" class="section level2" number="1.3">
+<div id="floating-point-arithmetic" class="section level2">
 <h2><span class="header-section-number">1.3</span> Floating Point Arithmetic</h2>
 <p>Everything stored in the memory of a computer is a number, but how does
 a computer actually store a number. More specifically, since computers
@@ -671,6 +650,7 @@ numbers that are possible to store in a computer. Moreover, since there is finit
 <li>Using your answer to part (b), what would a computer need to store for the binary number <span class="math inline">\(x=10001001.1100110011_2\)</span>?</li>
 </ol>
 </div>
+
 <hr />
 <p>For any base-2 number <span class="math inline">\(x\)</span> we can write
 <span class="math display">\[x = (-1)^{s} \times (1+ m) \times 2^E\]</span> where <span class="math inline">\(s \in \{0,1\}\)</span> is
@@ -695,6 +675,7 @@ exponent.</p>
 we have <span class="math inline">\(s=0\)</span>, <span class="math inline">\(m=0.100110011\cdots\)</span>, and <span class="math inline">\(E = -4\)</span>.</p></li>
 </ul>
 </div>
+
 <hr />
 <p>In the last part of the previous example we saw that the number
 <span class="math inline">\((0.1)_{10}\)</span> is actually a repeating decimal in base-2. This means that
@@ -720,6 +701,7 @@ sign, 11 for the exponent, and 52 for the significand.</p></li>
 the sign, 15 for the exponent, and 64 for the significand.</p></li>
 </ul>
 </div>
+
 <hr />
 
 <div class="definition">
@@ -730,6 +712,7 @@ system exactly and if <span class="math inline">\(\epsilon\)</span> is machine p
 then <span class="math inline">\(1+\epsilon\)</span> is the next largest number that can be stored with
 that machine.
 </div>
+
 <hr />
 <p>For all practical purposes the computer cannot tell the difference
 between two numbers if the difference is smaller than machine precision.
@@ -758,17 +741,20 @@ form?<br />
 <li><p>What would change if we allowed <span class="math inline">\(E \in \{-2,-1,0,1,2\}\)</span>?</p></li>
 </ul>
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-26" class="exercise"><strong>Exercise 1.19  </strong></span>What are the largest and smallest numbers that can be stored in single
 and double precision?
 </div>
+
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-27" class="exercise"><strong>Exercise 1.20  </strong></span>What is machine epsilon for single and and double precision?
+<span id="exr:unnamed-chunk-27" class="exercise"><strong>Exercise 1.20  </strong></span>What is machine precision for the single and double precision standard?
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -781,6 +767,7 @@ In particular, now that you know about how numbers are stored in a
 computer, how long do you expect it to take until the truncation error
 creeps into the computation?
 </div>
+
 <hr />
 <p>Much more can be said about floating point numbers such as how we store
 infinity, how we store NaN, and how we store 0. The <a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic">Wikipedia page for
@@ -796,9 +783,9 @@ this class and this book to go into all of those details here. Instead, the bigg
 </ul>
 <div style="page-break-after: always;"></div>
 </div>
-<div id="sec:Taylor" class="section level2" number="1.4">
+<div id="sec:Taylor" class="section level2">
 <h2><span class="header-section-number">1.4</span> Approximating Functions</h2>
-<p>Numerical analysis is all about doing mathematics on a computer in accurate and predictable ways. Since a computer can only ever store finite bits of information for any number, everything that we do in a computer is naturally an approximation of the real mathematics. In this section we will look at a very powerful way to approximate mathematical functions.</p>
+<p>Numerical analysis is all about doing mathematics on a computer in accurate and predictable ways. Since a computer can only ever store finite bits of information for any number, most of what we do in a computer is naturally an approximation of the real mathematics. In this section we will look at a very powerful way to approximate mathematical functions.</p>
 <p>How does a computer <em>understand</em> a function like <span class="math inline">\(f(x) = e^x\)</span> or <span class="math inline">\(f(x) = \sin(x)\)</span> or <span class="math inline">\(f(x) = \ln(x)\)</span>? What happens under the hood, so to speak, when you ask a computer to do a computation with one of these functions? A computer is darn good at arithmetic, but working with transcendental functions like these, or really any other sufficiently complicated functions for that matter, causes all sorts of problems in a computer. Approximation of the function is something that is always happening under the hood.</p>
 <hr />
 
@@ -817,11 +804,13 @@ this class and this book to go into all of those details here. Instead, the bigg
 <li>… is there anything else that you would add?</li>
 </ul>
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-30" class="exercise"><strong>Exercise 1.23  </strong></span>Discuss: Could a polynomial function with a high enough degree satify everything in the wish list from the previous problem? Explain your reasoning.
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -834,14 +823,16 @@ If <span class="math inline">\(f(x)\)</span> is a differentiable function at <sp
 <li>What is the value of <span class="math inline">\(D\)</span> such that <span class="math inline">\(f&#39;&#39;&#39;(x_0) = g&#39;&#39;&#39;(x_0)\)</span>?</li>
 </ol>
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-32" class="exercise"><strong>Exercise 1.25  </strong></span>Let <span class="math inline">\(f(x) = e^x\)</span>. Put the answers to the previous question into action and build a cubic polynomial that approximates <span class="math inline">\(f(x) = e^x\)</span> near <span class="math inline">\(x_0=0\)</span>.
 </div>
+
 <hr />
 <p>In the previous 4 exercises you have built up some basic intuition for what we would want out of a mathematical operation that might build an approximation of a complicated function. What we’ve built is actually a way to get better and better approximations for functions out to pretty much any arbitrary accuracy that we like so long as we are near some anchor point (which we called <span class="math inline">\(x_0\)</span> in the previous exercises).</p>
-<p>In the next several problems you’ll unpack the approximations of <span class="math inline">\(f(x) = e^x\)</span> a bit more carefully and we’ll wrap the whole discussion with a little bit of formal mathematical language. Then we’ll examine other functions like sine, cosine, logarithms, etc. One of the points of this whole discussion is to give you a little gimps as to what is happening behind the scenes in scientific programming languages when you do computations with these functions. A bigger point is to start getting a feel for how we might go in reverse and approximate an unknown function out of much simpler parts. This last goal is one of the big takeaways from numerical analysis: <em>we can mathematically model highly complicated functions out of fairly simple pieces.</em></p>
+<p>In the next several problems you’ll unpack the approximations of <span class="math inline">\(f(x) = e^x\)</span> a bit more carefully and we’ll wrap the whole discussion with a little bit of formal mathematical language. Then we’ll examine other functions like sine, cosine, logarithms, etc. One of the points of this whole discussion is to give you a little glimpse as to what is happening behind the scenes in scientific programming languages when you do computations with these functions. A bigger point is to start getting a feel for how we might go in reverse and approximate an unknown function out of much simpler parts. This last goal is one of the big takeaways from numerical analysis: <em>we can mathematically model highly complicated functions out of fairly simple pieces.</em></p>
 <hr />
 
 <div class="exercise">
@@ -860,10 +851,11 @@ Recall from algebra that the point-slope form of a line is <span class="math inl
 </p></li>
 </ol>
 </div>
+
 <div class="figure" style="text-align: center"><span id="fig:taylor-exp1"></span>
-<img src="images/Ch01Sec04_Taylor_exp1.png" alt="The first few Taylor approximations of the exponential function." width="75%" />
+<img src="images/Ch01Sec04_Taylor_exp1.png" alt="The first few polynomial approximations of the exponential function." width="75%" />
 <p class="caption">
-Figure 1.1: The first few Taylor approximations of the exponential function.
+Figure 1.1: The first few polynomial approximations of the exponential function.
 </p>
 </div>
 <hr />
@@ -886,13 +878,14 @@ In this case we are using <span class="math inline">\(x_0 = 0\)</span> so the qu
 <ol style="list-style-type: lower-roman">
 <li>Find the cubic approximation for <span class="math inline">\(f(x) = e^x\)</span>.</li>
 <li>How do we know that this function matches the first, second, and third derivatives of <span class="math inline">\(f(x)\)</span> at <span class="math inline">\(x=0\)</span>?</li>
-<li>Add your function function to the plot.</li>
+<li>Add your function to the plot.</li>
 <li>Pause and think: What’s the deal with the <span class="math inline">\(3!\)</span> on the cubic term?<br />
 </li>
 </ol></li>
 <li>Your turn: Build the next several approximations of <span class="math inline">\(f(x) = e^x\)</span> at <span class="math inline">\(x=0\)</span>. Add these plots to the plot that we’ve been building all along.</li>
 </ol>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -941,16 +934,19 @@ In Python just type <code>np.exp(1)</code> which will just evaluate <span class=
 </tbody>
 </table>
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-36" class="exercise"><strong>Exercise 1.29  </strong></span>Use the functions that you’ve built to approximate <span class="math inline">\(\sqrt{e} = e^{0.5}\)</span>. Check the accuracy of your answer using <code>np.exp(0.5)</code> in Python.
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-37" class="exercise"><strong>Exercise 1.30  </strong></span>Use the functions that you’ve built to approximate <span class="math inline">\(\frac{1}{e} = e^{-1}\)</span>. Check the accuracy of your answer using <code>np.exp(-1)</code> in Python.
 </div>
+
 <hr />
 <p>What we’ve been exploring so far in this section is the <strong>Taylor Series</strong> of a function.</p>
 
@@ -959,6 +955,7 @@ In Python just type <code>np.exp(1)</code> which will just evaluate <span class=
 <span class="math display">\[ f(x) = f(x_0) + f&#39;(x_0)(x-x_0) + \frac{f&#39;&#39;(x_0)}{2}(x-x_0)^2 + \cdots \frac{f^{(n)}(x_0)}{n!}(x-x_0)^n + \cdots  \]</span>
 for any reasonably small interval around <span class="math inline">\(x_0\)</span>. The infinite polynomial expansion is called the <strong>Taylor Series</strong> of the function <span class="math inline">\(f(x)\)</span>. Taylor Series are named for the mathematician <a href="https://en.wikipedia.org/wiki/Brook_Taylor">Brook Taylor</a>.
 </div>
+
 <hr />
 <p>The Taylor Series of a function is often written with summation notation as
 <span class="math display">\[ f(x) = \sum_{k=0}^\infty \frac{f^{(k)}(x_0)}{k!} (x-x_0)^k. \]</span>
@@ -977,24 +974,28 @@ Don’t let the notation scare you. In a Taylor Series you are just saying: <em>
 <div class="definition">
 <span id="def:unnamed-chunk-39" class="definition"><strong>Definition 1.4  (Maclaurin Series)  </strong></span>A Taylor Series that is centered at <span class="math inline">\(x_0 = 0\)</span> is called a Maclaurin Series after the mathematician <a href="https://en.wikipedia.org/wiki/Colin_Maclaurin">Colin Maclaurin</a>. This is just a special case of a Taylor Series, so throughout this book we will refer to both Taylor Series and Maclaurin Series simply as Taylor Series.
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-40" class="exercise"><strong>Exercise 1.31  </strong></span>Verify from your previous work that the Taylor Series centered at <span class="math inline">\(x_0 = 0\)</span> (i.e. the Maclaurin Series) for <span class="math inline">\(f(x) = e^x\)</span> is indeed
 <span class="math display">\[ e^x = 1 + x + \frac{x^2}{2} + \frac{x^3}{3!} + \frac{x^4}{4!} + \frac{x^5}{5!} + \cdots. \]</span>
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-41" class="exercise"><strong>Exercise 1.32  </strong></span>Do all of the calculations to show that the Taylor Series centered at <span class="math inline">\(x_0 = 0\)</span> for the function <span class="math inline">\(f(x) = \sin(x)\)</span> is indeed
 <span class="math display">\[ \sin(x) = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots \]</span>
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-42" class="exercise"><strong>Exercise 1.33  </strong></span>Do all of the calculations to show that the Taylor Series centered at <span class="math inline">\(x_0 = 0\)</span> for the function <span class="math inline">\(f(x) = \cos(x)\)</span> is indeed
 <span class="math display">\[ \cos(x) = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots \]</span>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -1002,6 +1003,7 @@ Don’t let the notation scare you. In a Taylor Series you are just saying: <em>
 <span class="math display">\[ f(x) = f\left( \frac{\pi}{2} \right) + f&#39;\left( \frac{\pi}{2} \right)\left( x - \frac{\pi}{2} \right) + \frac{f&#39;&#39;\left( \frac{\pi}{2} \right)}{2!}\left( x - \frac{\pi}{2} \right)^2 + \frac{f&#39;&#39;&#39;\left( \frac{\pi}{2} \right)}{3!}\left( x - \frac{\pi}{2} \right)^3 + \cdots \]</span></p>
 Write the first several terms of the Taylor Series for <span class="math inline">\(f(x) = \sin(x)\)</span> centered at <span class="math inline">\(x_0 = \frac{\pi}{2}\)</span>. Then write Python code to build the plot below showing successive approximations for <span class="math inline">\(f(x) = \sin(x)\)</span> centered at <span class="math inline">\(\pi/2\)</span>.
 </div>
+
 <div class="figure" style="text-align: center"><span id="fig:taylor-sine-pi2"></span>
 <img src="images/Ch01Sec04_Taylor_Sine_pi2.png" alt="Taylor Series approximations of the sine function." width="75%" />
 <p class="caption">
@@ -1017,16 +1019,19 @@ Figure 1.2: Taylor Series approximations of the sine function.
   f(x) &amp;= \ln(x) \text{ centered at } x_0 = 1
 \end{eqnarray}\]</span>
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-45" class="exercise"><strong>Exercise 1.36  </strong></span>Approximate <span class="math inline">\(\cos(3)\)</span> using a Taylor Series.
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-46" class="exercise"><strong>Exercise 1.37  </strong></span>Approximate <span class="math inline">\(\ln(1.1)\)</span> using a Taylor Series.
 </div>
+
 <hr />
 
 <div class="example">
@@ -1036,6 +1041,7 @@ If we build a Taylor Series centered at <span class="math inline">\(x_0 = 0\)</s
 <span class="math display">\[ f(x) = 1 + x + x^2 + x^3 + x^4 + x^5 + \cdots \]</span>
 (you should stop now and verify this!). However, if we plot the function <span class="math inline">\(f(x)\)</span> along with several successive approximations for <span class="math inline">\(f(x)\)</span> we find that beyond <span class="math inline">\(x=1\)</span> we don’t get the correct behavior of the function (see Figure <a href="ch-intro.html#fig:taylor-3">1.3</a>). More specifically, we cannot get the Taylor Series to change behavior across the vertical asymptote of the function at <span class="math inline">\(x=1\)</span>. This example is meant to point out the fact that a Taylor Series will only ever make sense <em>near</em> the point at which you center the expansion. For the function <span class="math inline">\(f(x) = \frac{1}{1-x}\)</span> centered at <span class="math inline">\(x_0 = 0\)</span> we can only get good approximations within the interval <span class="math inline">\(x \in (-1,1)\)</span> and no further.
 </div>
+
 <div class="figure" style="text-align: center"><span id="fig:taylor-3"></span>
 <img src="images/Ch01Sec04_Taylor3.png" alt="Several Taylor Series approximations of the function $f(x) = 1/(1-x)$." width="75%" />
 <p class="caption">
@@ -1053,7 +1059,7 @@ Figure 1.3: Several Taylor Series approximations of the function <span class="ma
 <p>A Taylor Series will give good approximations to the function within the domain of convergence, but will give garbage outside of it. For more details about the domain of convergence of a Taylor Series you can refer to the <a href="https://activecalculus.org/single/sec-8-5-taylor.html">Taylor Series section of the online Active Calculus Textbook</a> <span class="citation">[<a href="#ref-active-calculus" role="doc-biblioref">2</a>]</span>.</p>
 <div style="page-break-after: always;"></div>
 </div>
-<div id="approximation-error-with-taylor-series" class="section level2" number="1.5">
+<div id="approximation-error-with-taylor-series" class="section level2">
 <h2><span class="header-section-number">1.5</span> Approximation Error with Taylor Series</h2>
 <p>The great thing about Taylor Series is that they allow for the
 representation of potentially very complicated functions as polynomials – and polynomials are
@@ -1159,6 +1165,7 @@ meaning that we expect the error to be proportional to <span class="math inline"
 </tbody>
 </table>
 </div>
+
 <hr />
 <p>Observe in the previous exercise that the actual absolute error is always less than the expected error. Using the first term in the remainder to estimate the approximation error of truncating a Taylor Series is crude but very easy to implement.</p>
 <hr />
@@ -1166,6 +1173,7 @@ meaning that we expect the error to be proportional to <span class="math inline"
 <div class="theorem">
 <span id="thm:unnamed-chunk-49" class="theorem"><strong>Theorem 1.1  </strong></span>The approximation error when using a truncated Taylor Series is roughly proportional to the size of the next term in the Taylor Series.
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -1229,6 +1237,7 @@ meaning that we expect the error to be proportional to <span class="math inline"
 </li>
 </ol>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -1305,17 +1314,19 @@ meaning that we expect the error to be proportional to <span class="math inline"
 <li>Use Python’s <code>np.log(1.1)</code> to get an approximation for <span class="math inline">\(\ln(1.1)\)</span> and then numerically verify your answer to part (d).</li>
 </ol>
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-52" class="exercise"><strong>Exercise 1.41  </strong></span>In the previous problem you found an approximation for <span class="math inline">\(\ln(1.1)\)</span> to 5 decimal places. In doing so you had to build a Taylor Series at a well-known point nearby 1.1 and then use our approximation of the error to determine the number of terms to keep in the approximation. In this exercise we want an approximation of <span class="math inline">\(\cos\left( \frac{\pi}{2} + 0.05 \right)\)</span>. To do so you should build a Taylor Series for the cosine function centered at an appropriate point, determine an estimate for the approximation error, and then use that estimate to determine the number of terms to keep in the approximation.
 </div>
+
 <hr />
 <div style="page-break-after: always;"></div>
 </div>
-<div id="exercises" class="section level2" number="1.6">
+<div id="exercises" class="section level2">
 <h2><span class="header-section-number">1.6</span> Exercises</h2>
-<div id="coding-exercises" class="section level3" number="1.6.1">
+<div id="coding-exercises" class="section level3">
 <h3><span class="header-section-number">1.6.1</span> Coding Exercises</h3>
 <p>The first several exercises here are meant for you to practice and
 improve your coding skills. If you are stuck on any of the coding then I recommend that you have a look at Appendix <a href="ch-python.html#ch:python">A</a>. Please refrain from Googling anything on these problems. The point is to struggle through the code, get it wrong many times, debug, and then to eventually have working code.</p>
@@ -1328,6 +1339,7 @@ get 3, 5, 6, and 9. The sum of these multiples is 23. Write code to find
 the sum of all the multiples of 3 or 5 below 1000. Your code needs to
 run error free and output only the sum.
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -1339,6 +1351,7 @@ terms in the Fibonacci sequence whose values do not exceed four million,
 write code to find the sum of the even-valued terms. Your code needs to
 run error free and output only the sum.
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -1359,6 +1372,7 @@ average …and the number that you get should be familiar!</p>
 </dd>
 </dl>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -1370,6 +1384,7 @@ Write a script that verifies this fact.</p>
 </dd>
 </dl>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -1385,6 +1400,7 @@ variable:
 </dd>
 </dl>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -1396,6 +1412,7 @@ the difference between the square of the sum of the first ten natural
 numbers and the sum of the squares is <span class="math inline">\(3025 - 385 = 2640\)</span>.</p>
 Write code to find the difference between the square of the sum of the first one hundred natural numbers and the sum of the squares. Your code needs to run error free and output only the difference.
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -1404,6 +1421,7 @@ The prime factors of <span class="math inline">\(13195\)</span> are <span class=
 the largest prime factor of the number <span class="math inline">\(600851475143\)</span>? Your code needs
 to run error free and output only the largest prime factor.
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -1414,6 +1432,7 @@ smallest positive number that is evenly divisible by all of the numbers
 from 1 to 20?</p>
 <p><strong>Hint:</strong> You will likely want to use <a href="https://python-reference.readthedocs.io/en/latest/docs/operators/modulus.html">modular division</a> for this problem.</p>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -1433,9 +1452,10 @@ Write code to determine which starting number, under one million,
 produces the longest chain. NOTE: Once the chain starts the terms are
 allowed to go above one million.
 </div>
+
 <hr />
 </div>
-<div id="applying-what-youve-learned" class="section level3" number="1.6.2">
+<div id="applying-what-youve-learned" class="section level3">
 <h3><span class="header-section-number">1.6.2</span> Applying What You’ve Learned</h3>
 
 <div class="exercise">
@@ -1448,6 +1468,7 @@ Sometimes floating point arithmetic does not work like we would expect (and hope
 <li>Create your own example of where Python gets something incorrect because of floating point arithmetic.</li>
 </ol>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -1470,8 +1491,9 @@ millionaire.</p>
 <li>Explain what the code below does.</li>
 </ol>
 </div>
+
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="ch-intro.html#cb2-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-2"><a href="ch-intro.html#cb2-2"></a>accounts <span class="op">=</span> <span class="dv">100</span> <span class="op">+</span> (<span class="dv">100000</span><span class="op">-</span><span class="dv">100</span>) <span class="op">*</span> np.random.rand(<span class="dv">50000</span>,<span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb2-2"><a href="ch-intro.html#cb2-2"></a>accounts <span class="op">=</span> <span class="dv">100</span> <span class="op">+</span> (<span class="dv">100000-100</span>) <span class="op">*</span> np.random.rand(<span class="dv">50000</span>,<span class="dv">1</span>)<span class="op">;</span></span>
 <span id="cb2-3"><a href="ch-intro.html#cb2-3"></a>accounts <span class="op">=</span> np.floor(<span class="dv">100</span><span class="op">*</span>accounts)<span class="op">/</span><span class="dv">100</span><span class="op">;</span></span></code></pre></div>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>By hand (no computer) write the mathematical steps necessary to
@@ -1503,11 +1525,13 @@ to <span class="math inline">\(\frac{1}{10}\)</span>. What is the absolute error
 during the time error computed in (c).</li>
 </ol>
 </div>
+
 <hr />
 
 <div class="exercise">
 <span id="exr:unnamed-chunk-66" class="exercise"><strong>Exercise 1.54  </strong></span>Find the Taylor Series for <span class="math inline">\(f(x) = \frac{1}{\ln(x)}\)</span> centered at the point <span class="math inline">\(x_0 = e\)</span>. Then use the Taylor Series to approximate the number <span class="math inline">\(\frac{1}{\ln(3)}\)</span> to 4 decimal places.
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -1534,6 +1558,7 @@ Hence, if we integrate each term of the Taylor Series that results from part (b)
 <p>Let’s use these facts along with the Taylor Series for <span class="math inline">\(\arctan(x)\)</span> to approximate <span class="math inline">\(\pi\)</span>: we can just plug in <span class="math inline">\(x=1\)</span> to the series, add up a bunch of terms, and then multiply by 4. Write a loop in Python that builds successively better and better approximations of <span class="math inline">\(\pi\)</span>. Stop the loop when you have an approximation that is correct to 6 decimal places.</p></li>
 </ul>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -1560,6 +1585,7 @@ notice?</p></li>
 <li><p>Use your result from part (c) to prove that <span class="math inline">\(e^{i\pi} + 1 = 0\)</span>.</p></li>
 </ol>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -1578,6 +1604,7 @@ for the relativistic energy equation?<a href="#fn2" class="footnote-ref" id="fnr
 <li>Show all of the work to derive the Taylor Series centered at <span class="math inline">\(v = 0\)</span> given above.</li>
 </ol>
 </div>
+
 <hr />
 
 <div class="exercise">
@@ -1592,6 +1619,7 @@ for the relativistic energy equation?<a href="#fn2" class="footnote-ref" id="fnr
 <li>Make a conjecture: How do we go from the binary representations of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> to the binary representation for Python’s <code>a^b</code> for numbers <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>? Test and verify your conjecture on several different examples and then write a few sentences explaining what the caret operator does in Python.</li>
 </ol>
 </div>
+
 <hr />
 
 </div>
