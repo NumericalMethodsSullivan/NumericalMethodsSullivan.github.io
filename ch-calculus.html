@@ -716,7 +716,7 @@ of <span class="math inline">\(h\)</span>: <span class="math display">\[\begin{a
 difference and then calculate the absolute percent error with a
 fixed value of <span class="math inline">\(h\)</span>, then what do you expect to happen to the
 absolute error if you divide the value of <span class="math inline">\(h\)</span> by some positive
-contant <span class="math inline">\(M\)</span>?</p></li>
+contant <span class="math inline">\(M\)</span>? It may be helpful at this point to go back to your table and include a column called the <em>error reduction factor</em> where you find the ratio of two successive absolute percenter errors. Observe what happens to this error reduction factor as <span class="math inline">\(h\)</span> gets smaller and smaller.</p></li>
 <li><p>What does your answer to part (e) have to do with the approximation
 order of the numerical derivative method that you used?</p></li>
 </ol>
@@ -744,10 +744,15 @@ order of the numerical derivative method that you used?</p></li>
 <span id="cb5-7"><a href="ch-calculus.html#cb5-7"></a><span class="cf">for</span> h <span class="kw">in</span> H:</span>
 <span id="cb5-8"><a href="ch-calculus.html#cb5-8"></a>    approx <span class="op">=</span> <span class="co"># FINISH THIS LINE OF CODE</span></span>
 <span id="cb5-9"><a href="ch-calculus.html#cb5-9"></a>    AbsPctError.append( np.<span class="bu">abs</span>( (approx <span class="op">-</span> exact)<span class="op">/</span>exact ) )</span>
-<span id="cb5-10"><a href="ch-calculus.html#cb5-10"></a>    <span class="bu">print</span>(<span class="st">&quot;h=&quot;</span>,h,<span class="st">&quot;</span><span class="ch">\t</span><span class="st"> Absolute Pct Error=&quot;</span>, AbsPctError[<span class="op">-</span><span class="dv">1</span>])</span>
-<span id="cb5-11"><a href="ch-calculus.html#cb5-11"></a>plt.loglog(H,AbsPctError,<span class="st">&#39;b-*&#39;</span>) <span class="co"># Why are we build a loglog plot?</span></span>
-<span id="cb5-12"><a href="ch-calculus.html#cb5-12"></a>plt.grid()</span>
-<span id="cb5-13"><a href="ch-calculus.html#cb5-13"></a>plt.show()</span></code></pre></div>
+<span id="cb5-10"><a href="ch-calculus.html#cb5-10"></a>    <span class="cf">if</span> h<span class="op">==</span>H[<span class="dv">0</span>]:</span>
+<span id="cb5-11"><a href="ch-calculus.html#cb5-11"></a>      <span class="bu">print</span>(<span class="st">&quot;h=&quot;</span>,h,<span class="st">&quot;</span><span class="ch">\t</span><span class="st"> Absolute Pct Error=&quot;</span>, AbsPctError[<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb5-12"><a href="ch-calculus.html#cb5-12"></a>    <span class="cf">else</span>:</span>
+<span id="cb5-13"><a href="ch-calculus.html#cb5-13"></a>      err_reduction_factor <span class="op">=</span> AbsPctError[<span class="op">-</span><span class="dv">2</span>]<span class="op">/</span>AbsPctError[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb5-14"><a href="ch-calculus.html#cb5-14"></a>      <span class="bu">print</span>(<span class="st">&quot;h=&quot;</span>,h,<span class="st">&quot;</span><span class="ch">\t</span><span class="st"> Absolute Pct Error=&quot;</span>, AbsPctError[<span class="op">-</span><span class="dv">1</span>],</span>
+<span id="cb5-15"><a href="ch-calculus.html#cb5-15"></a>              <span class="st">&quot;with error reduction&quot;</span>,err_reduction_factor)</span>
+<span id="cb5-16"><a href="ch-calculus.html#cb5-16"></a>plt.loglog(H,AbsPctError,<span class="st">&#39;b-*&#39;</span>) <span class="co"># Why are we build a loglog plot?</span></span>
+<span id="cb5-17"><a href="ch-calculus.html#cb5-17"></a>plt.grid()</span>
+<span id="cb5-18"><a href="ch-calculus.html#cb5-18"></a>plt.show()</span></code></pre></div>
 <hr />
 
 <div class="exercise">
@@ -1046,7 +1051,7 @@ of <span class="math inline">\(h\)</span>: <span class="math display">\[\begin{a
 difference and calculate the resulting absolute percent error with a
 fixed value of <span class="math inline">\(h\)</span>, then what do you expect to happen to the
 absolute percent error if you divide the value of <span class="math inline">\(h\)</span> by some
-positive constant <span class="math inline">\(M\)</span>?</p></li>
+positive constant <span class="math inline">\(M\)</span>? It may be helpful to include a column in your table that tracks the error reduction factor as we decrease <span class="math inline">\(h\)</span>.</p></li>
 <li><p>What does your answer to part (e) have to do with the approximation
 order of the numerical derivative method that you used?</p></li>
 </ol>
@@ -1286,10 +1291,12 @@ percent error is less than (but close to) 1%?</p></li>
 <div class="exercise">
 <p><span id="exr:unnamed-chunk-169" class="exercise"><strong>Exercise 3.31  </strong></span>Consider the shaded area of the region under the function plotted in
 Figure <a href="ch-calculus.html#fig:integration-ex1">3.4</a> between <span class="math inline">\(x=0\)</span> and <span class="math inline">\(x=2\)</span>.</p>
-<p>a.What rectangle with area 6 gives an upper bound for the area under the curve? Can you give a better upper bound?
-b. Why must the area under the curve be greater than 3?
-c. Is the area greater than 4? Why/Why not?
-d. Work with your partner to give an estimate of the area and provide an estimate for the amount of error that you’re making.</p>
+<ol style="list-style-type: lower-alpha">
+<li>What rectangle with area 6 gives an upper bound for the area under the curve? Can you give a better upper bound?</li>
+<li>Why must the area under the curve be greater than 3?</li>
+<li>Is the area greater than 4? Why/Why not?</li>
+<li>Work with your partner to give an estimate of the area and provide an estimate for the amount of error that you’re making.</li>
+</ol>
 </div>
 
 <div class="figure" style="text-align: center"><span id="fig:integration-ex1"></span>
@@ -1313,13 +1320,13 @@ a decent approximation of the integral so long as <span class="math inline">\(N\
 <span class="math display">\[\int_a^b f(x) dx \approx \sum_{j=1}^N f(x_j) \Delta x.\]</span> You are
 likely familiar with this approximation of the integral from Calculus.
 The value of <span class="math inline">\(x_j\)</span> can be chosen anywhere within the sub interval and
-three common choices are to use the left endpoint, the midpoint, and the
-right endpoint.</p>
+three common choices are to use the left-aligned, the midpoint-aligned, and the
+right-aligned.</p>
 <p>We see a depiction of this in Figure <a href="ch-calculus.html#fig:integral-with-rectangles">3.5</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:integral-with-rectangles"></span>
-<img src="images/Ch03_ThreeRiemannSums.png" alt="Right-aligned Riemann sums, midpoint-aligned Riemann sums, and left-aligned Riemann sums" width="80%" />
+<img src="images/Ch03_ThreeRiemannSums.png" alt="Left-aligned Riemann sums, midpoint-aligned Riemann sums, and right-aligned Riemann sums" width="80%" />
 <p class="caption">
-Figure 3.5: Right-aligned Riemann sums, midpoint-aligned Riemann sums, and left-aligned Riemann sums
+Figure 3.5: Left-aligned Riemann sums, midpoint-aligned Riemann sums, and right-aligned Riemann sums
 </p>
 </div>
 <p>Clearly, the more rectangles we choose the closer the sum of the areas
@@ -1617,10 +1624,10 @@ points <span class="math inline">\((a,f(a))\)</span>, <span class="math inline">
 the midpoint of the two boundary points.</p>
 <p>We want to find constants <span class="math inline">\(A_1\)</span>, <span class="math inline">\(A_2\)</span>, and <span class="math inline">\(A_3\)</span> such that the integral
 <span class="math inline">\(\int_a^b f(x) dx\)</span> can be written as a linear combination of <span class="math inline">\(f(a)\)</span>,
-<span class="math inline">\(f(m)\)</span>, and <span class="math inline">\(f(b)\)</span>. Specifically, we want constants <span class="math inline">\(A_1\)</span>, <span class="math inline">\(A_2\)</span>, and
-<span class="math inline">\(A_3\)</span> such that
+<span class="math inline">\(f(m)\)</span>, and <span class="math inline">\(f(b)\)</span>. Specifically, we want to find constants <span class="math inline">\(A_1\)</span>, <span class="math inline">\(A_2\)</span>, and
+<span class="math inline">\(A_3\)</span> in terms of <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(f(a)\)</span>, <span class="math inline">\(f(b)\)</span>, and <span class="math inline">\(f(m)\)</span> such that
 <span class="math display">\[\int_a^b f(x) dx = A_1 f(a) + A_2 f(m) + A_3 f(b)\]</span>
-is for all constant, linear, and quadratic functions. This would
+is exact for all constant, linear, and quadratic functions. This would
 guarantee that we have an exact integration method for all polynomials
 of order 2 or less but should serve as a decent approximation if the
 function is not quadratic.</p>
