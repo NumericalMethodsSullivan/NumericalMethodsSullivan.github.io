@@ -2029,7 +2029,7 @@ point at a time so that your three points eventually converge to a
 nearby local maximum. It may be helpful to make a surface plot or a
 contour plot of a well-known function just as a visual.</p></li>
 </ol>
-<p>The clode below will demonstrate how to make a contour plot.</p>
+<p>The code below will demonstrate how to make a contour plot.</p>
 </div>
 
 <div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="ch-calculus.html#cb12-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -2037,7 +2037,7 @@ contour plot of a well-known function just as a visual.</p></li>
 <span id="cb12-3"><a href="ch-calculus.html#cb12-3"></a>xdomain <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">100</span>)</span>
 <span id="cb12-4"><a href="ch-calculus.html#cb12-4"></a>ydomain <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">100</span>)</span>
 <span id="cb12-5"><a href="ch-calculus.html#cb12-5"></a>X, Y <span class="op">=</span> np.meshgrid(xdomain,ydomain)</span>
-<span id="cb12-6"><a href="ch-calculus.html#cb12-6"></a>f <span class="op">=</span> <span class="kw">lambda</span> x, y: np.sin(x)<span class="op">*</span>np.cos(x)</span>
+<span id="cb12-6"><a href="ch-calculus.html#cb12-6"></a>f <span class="op">=</span> <span class="kw">lambda</span> x, y: np.sin(x)<span class="op">*</span>np.exp(<span class="op">-</span>np.sqrt(x<span class="op">**</span><span class="dv">2</span><span class="op">+</span>y<span class="op">**</span><span class="dv">2</span>))</span>
 <span id="cb12-7"><a href="ch-calculus.html#cb12-7"></a>plt.contour(X,Y,f(X,Y))</span>
 <span id="cb12-8"><a href="ch-calculus.html#cb12-8"></a>plt.grid()</span>
 <span id="cb12-9"><a href="ch-calculus.html#cb12-9"></a>plt.show()</span></code></pre></div>
