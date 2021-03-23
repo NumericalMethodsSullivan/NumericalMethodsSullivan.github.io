@@ -1907,7 +1907,7 @@ next iteration of the loop)</p>
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-377" class="exercise"><strong>Exercise 4.63  </strong></span>The check that we built into our code to stop the <code>while</code> loop in our <code>myPower()</code> function will fail if <span class="math inline">\(\lambda_1 &lt; 0\)</span>. Why? What happens to the approximation of the dominant eigenvector throughout the iterations when <span class="math inline">\(\lambda_1 &lt; 1\)</span>. Modify your code to account for this issue so that it will still stop appropriately.
+<span id="exr:unnamed-chunk-377" class="exercise"><strong>Exercise 4.63  </strong></span>In the Power Method iteration you may end up getting a different sign on your eigenvector as compared to <code>np.linalg.eig()</code>. Why might this happen? Generate a few examples so you can see this. You can avoid this issue if you use a <code>while</code> loop in your Power Method code and the logical check takes advantage of the fact that we are trying to solve the equation <span class="math inline">\(A\boldsymbol{x} = \lambda \boldsymbol{x}\)</span>. Hint: <span class="math inline">\(A\boldsymbol{x} = \lambda \boldsymbol{x}\)</span> is equivalent to <span class="math inline">\(A\boldsymbol{x} - \lambda \boldsymbol{x} = \boldsymbol{0}\)</span>.
 </div>
 
 <hr />
