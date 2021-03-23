@@ -519,7 +519,7 @@ A_{n-1,0} &amp; A_{n-1,1} &amp; A_{n-1,2} &amp; \cdots &amp; A_{n-1,n-1} \end{pm
 <hr />
 
 <div class="example">
-<span id="exm:unnamed-chunk-290" class="example"><strong>Example 4.5  (Matrix Slicing)  </strong></span>The last thing that we need to be familiar with is <em>slicing</em> a matrix. The term “slicing” gernally refers to pulling out individual rows, columns, entries, or blocks from a list, array, or matrix in Python. Examine the code below to see how to slice parts out of a <code>numpy</code> matrix.
+<span id="exm:unnamed-chunk-290" class="example"><strong>Example 4.5  (Matrix Slicing)  </strong></span>The last thing that we need to be familiar with is <em>slicing</em> a matrix. The term “slicing” generally refers to pulling out individual rows, columns, entries, or blocks from a list, array, or matrix in Python. Examine the code below to see how to slice parts out of a <code>numpy</code> matrix.
 </div>
 
 <div class="sourceCode" id="cb83"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb83-1"><a href="ch-linearalgebra.html#cb83-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -747,7 +747,7 @@ Partial code is given below. Fill in all of the details and give ample comments 
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-311" class="exercise"><strong>Exercise 4.13  </strong></span>Build in an error catch so that your <code>myMatrixMul()</code> function catches when the input matrices do not have compatible sizes for multiplication. Write your code so that it returns an appropriate error message in this special case.
+<span id="exr:unnamed-chunk-311" class="exercise"><strong>Exercise 4.13  </strong></span>Build in an error catch so that your <code>myMatrixMult()</code> function catches when the input matrices do not have compatible sizes for multiplication. Write your code so that it returns an appropriate error message in this special case.
 </div>
 
 <hr />
@@ -968,15 +968,14 @@ Now explicitly find the product <span class="math inline">\(L_1^{-1} L_2^{-1} L_
 <div class="sourceCode" id="cb107"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb107-1"><a href="ch-linearalgebra.html#cb107-1"></a><span class="kw">def</span> myLU(A):</span>
 <span id="cb107-2"><a href="ch-linearalgebra.html#cb107-2"></a>    n <span class="op">=</span> A.shape[<span class="dv">0</span>] <span class="co"># get the dimension of the matrix A</span></span>
 <span id="cb107-3"><a href="ch-linearalgebra.html#cb107-3"></a>    L <span class="op">=</span> np.matrix( np.identity(n) ) <span class="co"># Build the identity part L</span></span>
-<span id="cb107-4"><a href="ch-linearalgebra.html#cb107-4"></a>    U <span class="op">=</span> A <span class="co"># start a placeholder for the U matrix</span></span>
+<span id="cb107-4"><a href="ch-linearalgebra.html#cb107-4"></a>    U <span class="op">=</span> np.copy(A) <span class="co"># start the U matrix as a copy of A</span></span>
 <span id="cb107-5"><a href="ch-linearalgebra.html#cb107-5"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,n<span class="dv">-1</span>):</span>
 <span id="cb107-6"><a href="ch-linearalgebra.html#cb107-6"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(j<span class="op">+</span><span class="dv">1</span>,n):</span>
 <span id="cb107-7"><a href="ch-linearalgebra.html#cb107-7"></a>            mult <span class="op">=</span> A[i,j] <span class="op">/</span> A[j,j]</span>
-<span id="cb107-8"><a href="ch-linearalgebra.html#cb107-8"></a>            A[i, j<span class="op">+</span><span class="dv">1</span>:n] <span class="op">=</span> A[i, j<span class="op">+</span><span class="dv">1</span>:n] <span class="op">-</span> mult <span class="op">*</span> A[j,j<span class="op">+</span><span class="dv">1</span>:n]</span>
-<span id="cb107-9"><a href="ch-linearalgebra.html#cb107-9"></a>            U[i, j<span class="op">+</span><span class="dv">1</span>:n] <span class="op">=</span> A[i, j<span class="op">+</span><span class="dv">1</span>:n]</span>
-<span id="cb107-10"><a href="ch-linearalgebra.html#cb107-10"></a>            L[i,j] <span class="op">=</span> mult</span>
-<span id="cb107-11"><a href="ch-linearalgebra.html#cb107-11"></a>            U[i,j] <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb107-12"><a href="ch-linearalgebra.html#cb107-12"></a>    <span class="cf">return</span> L,U</span></code></pre></div>
+<span id="cb107-8"><a href="ch-linearalgebra.html#cb107-8"></a>            U[i, j<span class="op">+</span><span class="dv">1</span>:n] <span class="op">=</span> U[i, j<span class="op">+</span><span class="dv">1</span>:n] <span class="op">-</span> mult <span class="op">*</span> U[j,j<span class="op">+</span><span class="dv">1</span>:n]</span>
+<span id="cb107-9"><a href="ch-linearalgebra.html#cb107-9"></a>            L[i,j] <span class="op">=</span> mult</span>
+<span id="cb107-10"><a href="ch-linearalgebra.html#cb107-10"></a>            U[i,j] <span class="op">=</span> <span class="dv">0</span> <span class="co"># why are we doing this?</span></span>
+<span id="cb107-11"><a href="ch-linearalgebra.html#cb107-11"></a>    <span class="cf">return</span> L,U</span></code></pre></div>
 <hr />
 
 <div class="exercise">
@@ -1195,7 +1194,7 @@ systems of arbitrarily large size.
 <li>Solve <span class="math inline">\(L \boldsymbol{y} = \boldsymbol{b}\)</span> for <span class="math inline">\(\boldsymbol{y}\)</span> using forward substitution.</li>
 <li>Solve <span class="math inline">\(U \boldsymbol{x} = \boldsymbol{y}\)</span> for <span class="math inline">\(\boldsymbol{x}\)</span> using backward substitution.</li>
 </ol>
-<p>Pick a matrix <span class="math inline">\(A\)</span> and a right-hand side <span class="math inline">\(\boldsymbol{b}\)</span> and solve the system using this process..</p>
+<p>Pick a matrix <span class="math inline">\(A\)</span> and a right-hand side <span class="math inline">\(\boldsymbol{b}\)</span> and solve the system using this process.</p>
 </div>
 
 <hr />
@@ -1366,7 +1365,7 @@ and therefore either <span class="math inline">\(c=0\)</span>, which is only tru
 <li>the <strong>vector projection of <span class="math inline">\(\boldsymbol{u}\)</span> onto <span class="math inline">\(\boldsymbol{v}\)</span></strong> is
 <span class="math display">\[ c \boldsymbol{v} = \left( \frac{\boldsymbol{u} \cdot \boldsymbol{v}}{\|\boldsymbol{v} \|^2} \right) \boldsymbol{v} \]</span></li>
 </ul>
-<p>Another problem related to scalar and vector projections is to take a basis for the column space of a matrix and transform that basis into an orthogonal (or orthonormal) basis. Indeed, in Figure <a href="ch-linearalgebra.html#fig:projection2dimage">4.1</a> is we have the matrix
+<p>Another problem related to scalar and vector projections is to take a basis for the column space of a matrix and transform that basis into an orthogonal (or orthonormal) basis. Indeed, in Figure <a href="ch-linearalgebra.html#fig:projection2dimage">4.1</a> if we have the matrix
 <span class="math display">\[A = \begin{pmatrix} | &amp; | \\ \boldsymbol{u} &amp; \boldsymbol{v} \\ | &amp; | \end{pmatrix}\]</span>
 it should be clear from the picture that the columns of this matrix are not perpendicular. However, if we take the vector <span class="math inline">\(\boldsymbol{v}\)</span> and the vector <span class="math inline">\(\boldsymbol{w}\)</span> we do arrive at two orthogonal vector that form a basis for the same space. Moreover, if we normalize these vectors (by dividing by their respective lengths) then we can easily transform the original basis for the column space of <span class="math inline">\(A\)</span> into an orthonormal basis. This process is called the Gramm-Schmidt process, and you may have encountered it in your Linear Algebra class.</p>
 <p>Now we return to our goal of finding a way to factor a matrix <span class="math inline">\(A\)</span> into an orthonormal matrix <span class="math inline">\(Q\)</span> and an upper triangular matrix <span class="math inline">\(R\)</span>. The algorithm that we are about to build depends greatly on the ideas of scalar and vector projections.</p>
@@ -1503,7 +1502,7 @@ In the end you should end up with an orthonormal matrix <span class="math inline
 <span id="cb112-15"><a href="ch-linearalgebra.html#cb112-15"></a>    <span class="cf">return</span> Q, R</span></code></pre></div>
 <div class="sourceCode" id="cb113"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb113-1"><a href="ch-linearalgebra.html#cb113-1"></a><span class="co"># Test Code</span></span>
 <span id="cb113-2"><a href="ch-linearalgebra.html#cb113-2"></a>A <span class="op">=</span> np.matrix( ... ) </span>
-<span id="cb113-3"><a href="ch-linearalgebra.html#cb113-3"></a><span class="co"># or you can buidl A with use np.random.randn() </span></span>
+<span id="cb113-3"><a href="ch-linearalgebra.html#cb113-3"></a><span class="co"># or you can build A with use np.random.randn() </span></span>
 <span id="cb113-4"><a href="ch-linearalgebra.html#cb113-4"></a><span class="co"># Often time random matrices are good test cases</span></span>
 <span id="cb113-5"><a href="ch-linearalgebra.html#cb113-5"></a>Q, R <span class="op">=</span> myQR(A)</span>
 <span id="cb113-6"><a href="ch-linearalgebra.html#cb113-6"></a>error <span class="op">=</span> np.linalg.norm(A <span class="op">-</span> Q<span class="op">*</span>R)</span>
@@ -1564,7 +1563,7 @@ Back in Exercise <a href="ch-calculus.html#exr:first-least-squares">3.81</a> and
 <hr />
 
 <div class="theorem">
-<p><span id="thm:overdetermined" class="theorem"><strong>Theorem 4.3  (Solving Overdetermined Systems)  </strong></span>If <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span> is an overdetermined system (i.e. <span class="math inline">\(A\)</span> has more rows than columns) then we first multiply both sides of the equation by <span class="math inline">\(A^T\)</span> (why do we do this?) and then solve square the <span class="math inline">\((A^T A) \boldsymbol{x} = A^T \boldsymbol{b}\)</span> using any system solving technique. The answer to this new system is interpreted as the vector <span class="math inline">\(\boldsymbol{x}\)</span> which solves exactly for the projection of <span class="math inline">\(\boldsymbol{b}\)</span> onto the column space of <span class="math inline">\(A\)</span>.</p>
+<p><span id="thm:overdetermined" class="theorem"><strong>Theorem 4.3  (Solving Overdetermined Systems)  </strong></span>If <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span> is an overdetermined system (i.e. <span class="math inline">\(A\)</span> has more rows than columns) then we first multiply both sides of the equation by <span class="math inline">\(A^T\)</span> (why do we do this?) and then solve the square system of equations <span class="math inline">\((A^T A) \boldsymbol{x} = A^T \boldsymbol{b}\)</span> using a system solving like <span class="math inline">\(LU\)</span> or <span class="math inline">\(QR\)</span>. The answer to this new system is interpreted as the vector <span class="math inline">\(\boldsymbol{x}\)</span> which solves exactly for the projection of <span class="math inline">\(\boldsymbol{b}\)</span> onto the column space of <span class="math inline">\(A\)</span>.</p>
 The equation <span class="math inline">\((A^T A) \boldsymbol{x} = A^T \boldsymbol{b}\)</span> is called <strong>the normal equations</strong> and arises often in Statistics and Machine Learning.
 </div>
 
@@ -1851,7 +1850,7 @@ then what happens to each of the <span class="math inline">\((\lambda_j/\lambda_
 <dl>
 <dt>Step #1:</dt>
 <dd><p>Given a nonzero vector <span class="math inline">\(\boldsymbol{x}\)</span>, set <span class="math inline">\(\boldsymbol{v}^{(1)} = \boldsymbol{x} / \|\boldsymbol{x}\|\)</span>. (Here
-the superscript indiates the iteration number) Note that the initial vector <span class="math inline">\(\boldsymbol{x}\)</span> is pretty irrelevant to the process so it can just be a random vector of the correct size..</p>
+the superscript indicates the iteration number) Note that the initial vector <span class="math inline">\(\boldsymbol{x}\)</span> is pretty irrelevant to the process so it can just be a random vector of the correct size..</p>
 </dd>
 <dt>Step #2:</dt>
 <dd><p>For <span class="math inline">\(k=2, 3, \ldots\)</span></p>
@@ -1887,24 +1886,18 @@ next iteration of the loop)</p>
 <span id="cb117-2"><a href="ch-linearalgebra.html#cb117-2"></a><span class="kw">def</span> myPower(A, tol <span class="op">=</span> <span class="fl">1e-8</span>):</span>
 <span id="cb117-3"><a href="ch-linearalgebra.html#cb117-3"></a>    n <span class="op">=</span> A.shape[<span class="dv">0</span>]</span>
 <span id="cb117-4"><a href="ch-linearalgebra.html#cb117-4"></a>    x <span class="op">=</span> np.matrix( np.random.randn(n,<span class="dv">1</span>) )</span>
-<span id="cb117-5"><a href="ch-linearalgebra.html#cb117-5"></a>    v <span class="op">=</span> <span class="co"># turn x into a unit vector</span></span>
-<span id="cb117-6"><a href="ch-linearalgebra.html#cb117-6"></a>    </span>
-<span id="cb117-7"><a href="ch-linearalgebra.html#cb117-7"></a>    <span class="co"># The variable &quot;difference&quot; will initialize the normed </span></span>
-<span id="cb117-8"><a href="ch-linearalgebra.html#cb117-8"></a>    <span class="co"># difference between two successive approximations of </span></span>
-<span id="cb117-9"><a href="ch-linearalgebra.html#cb117-9"></a>    <span class="co"># the dominant eigenvector.  We start the value to be </span></span>
-<span id="cb117-10"><a href="ch-linearalgebra.html#cb117-10"></a>    <span class="co"># large so that our code enters the while loop.</span></span>
-<span id="cb117-11"><a href="ch-linearalgebra.html#cb117-11"></a>    difference <span class="op">=</span> <span class="dv">1000</span> </span>
-<span id="cb117-12"><a href="ch-linearalgebra.html#cb117-12"></a>    counter <span class="op">=</span> <span class="dv">0</span> <span class="co"># keep track of how many steps we&#39;ve taken</span></span>
-<span id="cb117-13"><a href="ch-linearalgebra.html#cb117-13"></a>    <span class="cf">while</span> difference <span class="op">&gt;</span> tol <span class="kw">and</span> counter <span class="op">&lt;</span> <span class="dv">1000</span>:</span>
-<span id="cb117-14"><a href="ch-linearalgebra.html#cb117-14"></a>        vnew <span class="op">=</span> <span class="co"># Calcuate the new approximation of v</span></span>
-<span id="cb117-15"><a href="ch-linearalgebra.html#cb117-15"></a>        L <span class="op">=</span> ( np.transpose(vnew) <span class="op">*</span> v).item() <span class="co"># approx of the e-value</span></span>
-<span id="cb117-16"><a href="ch-linearalgebra.html#cb117-16"></a>        vnew <span class="op">=</span> <span class="co"># normalized vnew to make it a unit vector</span></span>
-<span id="cb117-17"><a href="ch-linearalgebra.html#cb117-17"></a>        <span class="co"># Next we should use np.linalg.norm() to determine how </span></span>
-<span id="cb117-18"><a href="ch-linearalgebra.html#cb117-18"></a>        <span class="co"># close v and vnew are</span></span>
-<span id="cb117-19"><a href="ch-linearalgebra.html#cb117-19"></a>        difference <span class="op">=</span> ???</span>
-<span id="cb117-20"><a href="ch-linearalgebra.html#cb117-20"></a>        counter <span class="op">+=</span> <span class="dv">1</span> <span class="co"># increment the counter</span></span>
-<span id="cb117-21"><a href="ch-linearalgebra.html#cb117-21"></a>        v <span class="op">=</span> vnew <span class="co"># set v to vnew so we can start again.</span></span>
-<span id="cb117-22"><a href="ch-linearalgebra.html#cb117-22"></a>    <span class="cf">return</span> v, L</span></code></pre></div>
+<span id="cb117-5"><a href="ch-linearalgebra.html#cb117-5"></a>    x <span class="op">=</span> <span class="co"># turn x into a unit vector</span></span>
+<span id="cb117-6"><a href="ch-linearalgebra.html#cb117-6"></a>    <span class="co"># we don&#39;t actually need to keep track of the old iterates</span></span>
+<span id="cb117-7"><a href="ch-linearalgebra.html#cb117-7"></a>    L <span class="op">=</span> <span class="dv">1</span> <span class="co"># initialize the dominant eigenvalue</span></span>
+<span id="cb117-8"><a href="ch-linearalgebra.html#cb117-8"></a>    counter <span class="op">=</span> <span class="dv">0</span> <span class="co"># keep track of how many steps we&#39;ve taken</span></span>
+<span id="cb117-9"><a href="ch-linearalgebra.html#cb117-9"></a>    <span class="co"># You can build a stopping rule from the definition</span></span>
+<span id="cb117-10"><a href="ch-linearalgebra.html#cb117-10"></a>    <span class="co"># Ax = lambda x ... </span></span>
+<span id="cb117-11"><a href="ch-linearalgebra.html#cb117-11"></a>    <span class="cf">while</span> (???) <span class="op">&gt;</span> tol <span class="kw">and</span> counter <span class="op">&lt;</span> <span class="dv">10000</span>:</span>
+<span id="cb117-12"><a href="ch-linearalgebra.html#cb117-12"></a>        x <span class="op">=</span> A<span class="op">*</span>x <span class="co"># update the dominant eigenvector</span></span>
+<span id="cb117-13"><a href="ch-linearalgebra.html#cb117-13"></a>        x <span class="op">=</span> ??? <span class="co"># normalize</span></span>
+<span id="cb117-14"><a href="ch-linearalgebra.html#cb117-14"></a>        L <span class="op">=</span> ??? <span class="co"># approximate the eignevalue</span></span>
+<span id="cb117-15"><a href="ch-linearalgebra.html#cb117-15"></a>        counter <span class="op">+=</span> <span class="dv">1</span> <span class="co"># increment the counter</span></span>
+<span id="cb117-16"><a href="ch-linearalgebra.html#cb117-16"></a>    <span class="cf">return</span> x, L</span></code></pre></div>
 <hr />
 
 <div class="exercise">
@@ -2114,7 +2107,7 @@ different ways with
 
 <div class="exercise">
 <p><span id="exr:unnamed-chunk-397" class="exercise"><strong>Exercise 4.83  </strong></span>Let <span class="math inline">\(A\)</span> be defined as
-<span class="math display">\[ A = \begin{pmatrix} 10^{-15} &amp; 1 \\ 1 &amp; 1 \end{pmatrix} \]</span>
+<span class="math display">\[ A = \begin{pmatrix} 10^{-20} &amp; 1 \\ 1 &amp; 1 \end{pmatrix} \]</span>
 and let <span class="math inline">\(\boldsymbol{b}\)</span> be the vector
 <span class="math display">\[ \boldsymbol{b}=\begin{pmatrix} 2 \\ 3\end{pmatrix}. \]</span><br />
 Notice that <span class="math inline">\(A\)</span> has a tiny, but nonzero, value in the first entry.</p>
@@ -2140,9 +2133,9 @@ This type of matrix is often used to test numerical linear algebra algorithms si
 <li>Write code to build a <span class="math inline">\(n\times n\)</span> Hilbert Matrix and call this matrix <span class="math inline">\(H\)</span>. Test your code for various values of <span class="math inline">\(n\)</span> to be sure that it is building the correct matrices.</li>
 <li>Build a vector of ones called <span class="math inline">\(\boldsymbol{b}\)</span> with code <code>b = np.ones( (n,1) )</code>. We will use <span class="math inline">\(\boldsymbol{b}\)</span> as the right hand side of the system of equations <span class="math inline">\(H\boldsymbol{x} = \boldsymbol{b}\)</span>.</li>
 <li>Solve the system of equations <span class="math inline">\(H \boldsymbol{x} = \boldsymbol{b}\)</span> using any technique you like from this chapter.</li>
-<li>Now let’s say that you change the first entry of <span class="math inline">\(\boldsymbol{b}\)</span> by just a little bit, say 10^(-15). If we were to now solve the equation <span class="math inline">\(H \boldsymbol{x}_{new} = \boldsymbol{b}_{new}\)</span> what would you expect as compared to solving <span class="math inline">\(H \boldsymbol{x} = \boldsymbol{b}\)</span>.</li>
+<li>Now let’s say that you change the first entry of <span class="math inline">\(\boldsymbol{b}\)</span> by just a little bit, say <span class="math inline">\(10^{-15}\)</span>. If we were to now solve the equation <span class="math inline">\(H \boldsymbol{x}_{new} = \boldsymbol{b}_{new}\)</span> what would you expect as compared to solving <span class="math inline">\(H \boldsymbol{x} = \boldsymbol{b}\)</span>.</li>
 <li>Now let’s actually make the change suggested in part (d). Use the code <code>bnew = np.ones( (n,1) )</code> and then <code>bnew[0] = bnew[0] + 1e-15</code> to build a new <span class="math inline">\(\boldsymbol{b}\)</span> vector with this small change. Solve <span class="math inline">\(H\boldsymbol{x}=\boldsymbol{b}\)</span> and <span class="math inline">\(H\boldsymbol{x}_{new}=\boldsymbol{b}_{new}\)</span> and then compare the maximum absolute difference <code>np.max( np.abs( x - xnew ) )</code>. What do you notice? Make a plot with <span class="math inline">\(n\)</span> on the horizontal axis and the maximum absolute difference on the vertical axis. What does this plot tell you about the solution to the equation <span class="math inline">\(H \boldsymbol{x} = \boldsymbol{b}\)</span>?</li>
-<li>We know that <span class="math inline">\(H H^{-1}\)</span> should be the identity matrix. As we’ll see, however, Hilbert matrices are particularly poorly behaved! Write a loop over <span class="math inline">\(n\)</span> that (i) builds a Hilbert matrix of size <span class="math inline">\(n\)</span>, (ii) calculates <span class="math inline">\(H * H^{-1}\)</span> (using <code>np.linalg.inv()</code> to compute the inverse directly), (iii) calculates the norm of the difference between the identity matrix (<code>np.identity(n)</code>) and your calculated identity matrix from part (ii). Finally. Build a plot that shows <span class="math inline">\(n\)</span> on the horizontal axis and the normed difference on the vertical axis. What do you see? What does this mean about the matrix inversion of the Hilbert matrix.</li>
+<li>We know that <span class="math inline">\(H H^{-1}\)</span> should be the identity matrix. As we’ll see, however, Hilbert matrices are particularly poorly behaved! Write a loop over <span class="math inline">\(n\)</span> that (i) builds a Hilbert matrix of size <span class="math inline">\(n\)</span>, (ii) calculates <span class="math inline">\(H H^{-1}\)</span> (using <code>np.linalg.inv()</code> to compute the inverse directly), (iii) calculates the norm of the difference between the identity matrix (<code>np.identity(n)</code>) and your calculated identity matrix from part (ii). Finally. Build a plot that shows <span class="math inline">\(n\)</span> on the horizontal axis and the normed difference on the vertical axis. What do you see? What does this mean about the matrix inversion of the Hilbert matrix.</li>
 <li>There are cautionary tales hiding in this problem. Write a paragraph explaining what you can learn by playing with pathological matrices like the Hilbert Matrix.</li>
 </ol>
 </div>
@@ -2160,7 +2153,7 @@ at 50 equally spaced points <span class="math inline">\(t\)</span> between <span
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-400" class="exercise"><strong>Exercise 4.86  </strong></span>Find the largest eigenvalue of the matrix <span class="math inline">\(A\)</span> WITHOUT using any built-in Python command for finding eigenstructure.
+<span id="exr:unnamed-chunk-400" class="exercise"><strong>Exercise 4.86  </strong></span>Find the largest eigenvalue and the associated eigenvector of the matrix <span class="math inline">\(A\)</span> WITHOUT using <code>np.linalg.eig()</code>. (Don’t do this by hand either)
 <span class="math display">\[A = \begin{pmatrix} 1 &amp; 2 &amp; 3 &amp; 4 \\ 5 &amp; 6 &amp; 7 &amp; 8 \\ 9 &amp; 0 &amp; 1 &amp; 2 \\ 3 &amp; 4 &amp; 5 &amp;
         6 \end{pmatrix}\]</span>
 </div>

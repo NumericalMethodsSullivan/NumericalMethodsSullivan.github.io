@@ -2106,8 +2106,8 @@ negative gradient.</p>
 <div class="exercise">
 <span id="exr:unnamed-chunk-208" class="exercise"><strong>Exercise 3.65  </strong></span>The functions like <span class="math inline">\(f(x,y) = \sin(x)\cos(y)\)</span> have many local extreme
 values which makes optimization challenging. Implement your Gradient
-Descent code on this function to find the local minimum <span class="math inline">\((0,0)\)</span>. Start
-somewhere near <span class="math inline">\((0,0)\)</span> and show by way of example that your gradient
+Descent code on this function to find the local minimum <span class="math inline">\((-\pi/2,0)\)</span>. Start
+somewhere near <span class="math inline">\((-\pi/2,0)\)</span> and show by way of example that your gradient
 descent code may not converge to this particular local minimum. Why is
 this important?
 </div>
@@ -2523,7 +2523,7 @@ Figure 3.12: Best fit quadratic function.
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-247" class="exercise"><strong>Exercise 3.86  </strong></span>For each dataset associated with this exercise give a functional form that might be a good model for the data. Be sure to choose the most general form of your guess. For example, if you choose “quadratic” then your functional guess is <span class="math inline">\(f(x) = ax^2 + bx + c\)</span>, if you choose “quadratic” then your functional guess should be something like <span class="math inline">\(f(x) = ae^{b(x-c)}+d\)</span>, or if you choose “sinusoidal” then your guess should be something like <span class="math inline">\(f(x) = a\sin(bx) + c\cos(dx) + e\)</span>. Once you have a guess of the function type create a plot showing your data along with your guess for a reasonable set of parameters. Then write a function that leverages <code>scipy.optimize.minimize()</code> to find the best set of parameters so that your function best fits the data. Note that if <code>scipy.optimize.minimize()</code> does not converge then try the alternative <code>scipy</code> function <code>scipy.optimize.fmin()</code>. Also note that you likely need to be very close to the optimal parameters to get the optimizer to work properly.</p>
+<p><span id="exr:unnamed-chunk-247" class="exercise"><strong>Exercise 3.86  </strong></span>For each dataset associated with this exercise give a functional form that might be a good model for the data. Be sure to choose the most general form of your guess. For example, if you choose “quadratic” then your functional guess is <span class="math inline">\(f(x) = ax^2 + bx + c\)</span>, if you choose “exponential” then your functional guess should be something like <span class="math inline">\(f(x) = ae^{b(x-c)}+d\)</span>, or if you choose “sinusoidal” then your guess should be something like <span class="math inline">\(f(x) = a\sin(bx) + c\cos(dx) + e\)</span>. Once you have a guess of the function type create a plot showing your data along with your guess for a reasonable set of parameters. Then write a function that leverages <code>scipy.optimize.minimize()</code> to find the best set of parameters so that your function best fits the data. Note that if <code>scipy.optimize.minimize()</code> does not converge then try the alternative <code>scipy</code> function <code>scipy.optimize.fmin()</code>. Also note that you likely need to be very close to the optimal parameters to get the optimizer to work properly.</p>
 You can load the data with the following script.
 </div>
 
@@ -2645,7 +2645,7 @@ that the formula is true and (2) find the order of the method. To prove
 that each of the formulas is true you will need to write the Taylor
 series for all of the terms in the numerator on the right and then
 simplify to solve for the necessary derivative. The highest power of the
-remainder should reveal the order of the method.</p>
+remainder should reveal the order of the method. Simplifying hint: You may want to leverage Python’s <code>sympy</code> library to do some of the algebra for you.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p><span class="math inline">\(f&#39;(x) \approx \frac{\frac{1}{12} f(x-2h) - \frac{2}{3} f(x-h) +  \frac{2}{3} f(x+h) - \frac{1}{12} f(x+2h)}{h}\)</span></p></li>
 <li><p><span class="math inline">\(f&#39;(x) \approx \frac{-\frac{3}{2} f(x) + 2 f(x+h) -  \frac{1}{2} f(x+2h)}{h}\)</span></p></li>
@@ -2881,7 +2881,7 @@ get an approximate solution to the problem.
 <li>Draw a circle with radius <span class="math inline">\(r\)</span> centered at the point <span class="math inline">\((0,0)\)</span>. We will take <span class="math inline">\(0 &lt; r &lt; 2\)</span> so there are two intersections of the two circles.
 <ul>
 <li>Label the left-hand intersection of the two circles as point <span class="math inline">\(A\)</span>. (Point <span class="math inline">\(A\)</span> should be in the second quadrant of your coordinate plane.)</li>
-<li>Label the right-hand intersection of the circles as point <span class="math inline">\(B\)</span>. (Point <span class="math inline">\(B\)</span> shoudl be in the first quadrant of your coordinate plan.)</li>
+<li>Label the right-hand intersection of the circles as point <span class="math inline">\(B\)</span>. (Point <span class="math inline">\(B\)</span> should be in the first quadrant of your coordinate plane.)</li>
 </ul></li>
 <li>Label the point <span class="math inline">\((0,0)\)</span> as the point <span class="math inline">\(P\)</span>.</li>
 </ul>
