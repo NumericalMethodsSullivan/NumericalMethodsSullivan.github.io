@@ -443,7 +443,7 @@ Furthermore, <span class="math inline">\(x(0) = 3e^{-0.25 \cdot 0} = 3e^0 = 3 \c
 <div id="recalling-the-basics-of-odes" class="section level2">
 <h2><span class="header-section-number">5.2</span> Recalling the Basics of ODEs</h2>
 <p>You should be familiar with the basics of differential equations from previous classes, but just in case you’re a bit rusty, this section gives a very brief review of some of the basics.</p>
-<p>Solving differential equations analytically is a subject unto itself, but it is worth our time here to revisit some of the basic techniques for solving differential equations. It should be noted that if an analytic solution exits then there is no reason to do any of the numerical techniques that we will discuss in this chapter – if you have an exact analytic solution then why on earth would you then approximate the solution!? The fact of the matter is, however, that the techniques for finding analytic solutions to differential equations are rather limited relative to the wild zoo of possible ODEs, and when the differential equations get complicated we will only have numerical approximations to lean back on. However, when we build approximation methods we will test them on differential equations for which we have the answer. So let’s get started with some review.</p>
+<p>Solving differential equations analytically is a subject unto itself, but it is worth our time here to revisit some of the basic techniques for solving differential equations. It should be noted that if an analytic solution exists then there is no reason to do any of the numerical techniques that we will discuss in this chapter – if you have an exact analytic solution then why on earth would you then approximate the solution!? The fact of the matter is, however, that the techniques for finding analytic solutions to differential equations are rather limited relative to the wild zoo of possible ODEs, and when the differential equations get complicated we will only have numerical approximations to lean back on. However, when we build approximation methods we will test them on differential equations for which we have the answer. So let’s get started with some review.</p>
 <hr />
 
 <div class="exercise">
@@ -924,7 +924,7 @@ where <span class="math inline">\(\alpha, \beta, \gamma,\)</span> and
 <li>Your answers to the previous bullets should be: <span class="math inline">\(x&#39;(0) = -3\)</span>, <span class="math inline">\(x(0.5) \approx 4.5\)</span>, <span class="math inline">\(x&#39;(0.5) = -2.25\)</span>, so if we take a full step forward with slope <span class="math inline">\(m=-2.25\)</span> starting from <span class="math inline">\(t=0\)</span> we get <span class="math inline">\(x(1) \approx 3.75\)</span>.</li>
 </ul>
 <ol start="2" style="list-style-type: lower-alpha">
-<li>Repeat the process outlined in part (a) to approximate the solution to the differential equation at times <span class="math inline">\(t=2, 3, \ldots, 10\)</span>. Also record the exact answer at each of these times.</li>
+<li>Repeat the process outlined in part (a) to approximate the solution to the differential equation at times <span class="math inline">\(t=2, 3, \ldots, 10\)</span>. Also record the exact answer at each of these times by noting that the exact solution is <span class="math inline">\(x(t) = 6e^{-0.5t}\)</span>.</li>
 </ol>
 <table>
 <thead>
@@ -945,7 +945,7 @@ where <span class="math inline">\(\alpha, \beta, \gamma,\)</span> and
 </thead>
 <tbody>
 <tr class="odd">
-<td>Approximation of <span class="math inline">\(x(t)\)</span></td>
+<td>Euler approx of <span class="math inline">\(x(t)\)</span></td>
 <td>6</td>
 <td></td>
 <td></td>
@@ -959,6 +959,20 @@ where <span class="math inline">\(\alpha, \beta, \gamma,\)</span> and
 <td></td>
 </tr>
 <tr class="even">
+<td>New approx of <span class="math inline">\(x(t)\)</span></td>
+<td>6</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>Exact value of <span class="math inline">\(x(t)\)</span></td>
 <td>6</td>
 <td></td>
