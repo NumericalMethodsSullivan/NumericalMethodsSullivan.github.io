@@ -240,6 +240,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.9" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#projects-2"><i class="fa fa-check"></i><b>4.9</b> Projects</a><ul>
 <li class="chapter" data-level="4.9.1" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#the-google-page-rank-algorithm"><i class="fa fa-check"></i><b>4.9.1</b> The Google Page Rank Algorithm</a></li>
+<li class="chapter" data-level="4.9.2" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#alternative-methods-to-solving-a-boldsymbolx-boldsymbolb"><i class="fa fa-check"></i><b>4.9.2</b> Alternative Methods To Solving <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="ch-odes.html"><a href="ch-odes.html"><i class="fa fa-check"></i><b>5</b> Ordinary Differential Equations</a><ul>
@@ -674,8 +675,8 @@ is given below. Test your code on other vectors. Then implement an error catch i
 <hr />
 
 <div class="definition">
-<span id="def:unnamed-chunk-305" class="definition"><strong>Definition 4.3  (Matrix Multiplicaiton)  </strong></span>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are matrices with <span class="math inline">\(A \in \mathbb{R}^{n \times p}\)</span> and <span class="math inline">\(B \in \mathbb{R}^{p \times m}\)</span> then the product <span class="math inline">\(AB\)</span> is defined as
-<span class="math display">\[ \left( AB \right)_{ij} = \sum_{k=1}^p A_{ik} B_{kj}.\]</span>
+<p><span id="def:unnamed-chunk-305" class="definition"><strong>Definition 4.3  (Matrix Multiplicaiton)  </strong></span>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are matrices with <span class="math inline">\(A \in \mathbb{R}^{n \times p}\)</span> and <span class="math inline">\(B \in \mathbb{R}^{p \times m}\)</span> then the product <span class="math inline">\(AB\)</span> is defined as
+<span class="math display">\[ \left( AB \right)_{ij} = \sum_{k=1}^p A_{ik} B_{kj}.\]</span></p>
 A moment’s reflection reveals that each entry in the matrix product is actually a dot product,
 <span class="math display">\[ \left( \text{Entry in row $i$ column $j$ of $AB$} \right) = \left( \text{Row $i$ of matrix $A$} \right) \cdot \left( \text{Column $j$ of matrix $B$} \right).\]</span>
 </div>
@@ -2677,6 +2678,94 @@ results from the previous problem.
 </div>
 
 <hr />
+</div>
+<div id="alternative-methods-to-solving-a-boldsymbolx-boldsymbolb" class="section level3">
+<h3><span class="header-section-number">4.9.2</span> Alternative Methods To Solving <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span></h3>
+<p>Throughout most of the linear algebra chapter we have studied ways to solve systems of
+equations of the form <span class="math inline">\(Ax = b\)</span> where <span class="math inline">\(A\)</span> is a square <span class="math inline">\(n \times n\)</span> matrix, <span class="math inline">\(\boldsymbol{x} \in \mathbb{R}^n\)</span>, and <span class="math inline">\(\boldsymbol{b} \in \mathbb{R}^n\)</span>. We have studied by-hand row reduction, the <span class="math inline">\(LU\)</span>
+decomposition, and the <span class="math inline">\(QR\)</span> decomposition – all of which are great in their own right and
+all of which have their shortcomings.</p>
+<p>Both <span class="math inline">\(LU\)</span> and <span class="math inline">\(QR\)</span> are great solution techniques and they generally work very very well.
+However (no surprise), we can build algorithms that will<em>usually</em> be faster!</p>
+<p>In the following new algorithms we want to solve the linear system of equations
+<span class="math display">\[ A \boldsymbol{x} = \boldsymbol{b} \]</span>
+but in each we will do so iteratively by applying an algorithm over and over until the algorithm converges to the solution vector <span class="math inline">\(\boldsymbol{x}\)</span>.</p>
+<ul>
+<li><strong>Method 1:</strong> Start by ``factoring’’<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> the matrix <span class="math inline">\(A\)</span> into <span class="math inline">\(A = L + U\)</span> where
+<span class="math inline">\(L\)</span> is a lower triangular matrix and <span class="math inline">\(U\)</span> is an upper triangular matrix. Take note
+that this time we will not force the diagonal entries of <span class="math inline">\(L\)</span> to be <span class="math inline">\(1\)</span> like we
+did in the classical <span class="math inline">\(LU\)</span> factorization . The <span class="math inline">\(U\)</span> in the factorization <span class="math inline">\(A = L + U\)</span>
+is an upper triangular matrix where the entries on the main diagonal are exactly 0.</li>
+</ul>
+<p>Specifically,
+<span class="math display">\[ A = L + U = \begin{pmatrix} a_{00} &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\
+                                       a_{10} &amp; a_{11} &amp; 0 &amp; \cdots &amp; 0 \\
+                                       a_{20} &amp; a_{21} &amp; a_{22} &amp; \cdots &amp; 0 \\ 
+                                       \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+                                   a_{n0} &amp; a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{n-1,n-1}
+                           \end{pmatrix} + 
+                        \begin{pmatrix}
+                            0 &amp; a_{01} &amp; a_{02} &amp; \cdots &amp; a_{0,n-1} \\
+                            0 &amp; 0 &amp; a_{12} &amp; \cdots &amp; a_{1,n-1} \\
+                            0 &amp; 0 &amp; 0 &amp; a_{23} &amp; \cdots &amp; \\
+                            \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+                            0 &amp; 0 &amp; 0 &amp; &amp; 0
+                        \end{pmatrix}.
+                       \]</span></p>
+<p>As an example,</p>
+<p><span class="math display">\[ \begin{pmatrix} 2 &amp; 3 &amp; 4 \\ 
+                           5 &amp; 6 &amp; 7 \\
+                       8 &amp; 9 &amp; 1 \end{pmatrix} = \begin{pmatrix} 2 &amp; 0 &amp; 0 \\ 5 &amp; 6 &amp; 0 \\
+                   8 &amp; 9 &amp; 1\end{pmatrix} + \begin{pmatrix} 0 &amp; 3 &amp; 4 \\ 0 &amp; 0 &amp; 7 \\ 0 &amp;
+           0 &amp; 0 \end{pmatrix}. \]</span></p>
+<p>After factoring the system of equations can be rewritten as
+<span class="math display">\[ A
+     A \boldsymbol{x} = \boldsymbol{b}
+        \implies (L+U)x = \boldsymbol{b} 
+        \implies L\boldsymbol{x} + U\boldsymbol{x} = b 
+        \implies L\boldsymbol{x} = b-U\boldsymbol{x}  
+        \implies \boldsymbol{x} = L^{-1}(\boldsymbol{b}-U\boldsymbol{x})
+\]</span></p>
+<p>Of course we would never (<em>ever</em>!) actually compute the inverse of <span class="math inline">\(L\)</span>, and consequently we have to do
+something else in place of the matrix inverse. Stop and think here for a moment. We’ve run into this problem earlier in this chapter. You have some code that you will need to modify for
+this job, but take very careful note that the <span class="math inline">\(L\)</span> matrix here does not quite have the same structure as the <span class="math inline">\(L\)</span> matrix we used in the past. Moreover, notice that we have the
+unknown <span class="math inline">\(\boldsymbol{x}\)</span> on both sides of the equation. If we treat this as an iterative scheme by first making a <strong>guess</strong> about <span class="math inline">\(x\)</span> and then iteratively find
+solutions via the difference equation
+<span class="math display">\[ \boldsymbol{x}_{k+1} = L^{-1} (b-U\boldsymbol{x}_k) \]</span>
+we may, under moderate conditions on <span class="math inline">\(A\)</span>, quickly be able to approximate the solution to <span class="math inline">\(Ax=b\)</span>.</p>
+<p>Note: The subscripts in the iterative scheme represet the iteration number. Hence,
+<span class="math display">\[ \boldsymbol{x}_{1} = L^{-1} (b-U\boldsymbol{x}_0) \]</span>
+<span class="math display">\[ \boldsymbol{x}_{2} = L^{-1} (b-U\boldsymbol{x}_1) \]</span>
+<span class="math display">\[ \vdots \]</span></p>
+<p>What you need to pay attention to is that the method is not guaranteed to converge to the actual solution to the equation <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span> unless some conditions on <span class="math inline">\(A\)</span> are met, and you will need to experiemnt with the algorithm to come up with a conjecture about the appropriate conditions.</p>
+<ul>
+<li><strong>Method 2:</strong> Start by factoring the matrix <span class="math inline">\(A\)</span> into <span class="math inline">\(A = L + D + U\)</span> where <span class="math inline">\(L\)</span> is strictly lower triangular (0’s on the main diagonal and in the entire upper triangle), <span class="math inline">\(D\)</span> is a diagonal matrix, and <span class="math inline">\(U\)</span> is a strictly upper triangular matrix (0’s on the main diagonal and in the entire lower triangle). In this new factorization, the diagonal matrix <span class="math inline">\(D\)</span> simply contains the entries from the main diagonal of <span class="math inline">\(A\)</span>. The <span class="math inline">\(L\)</span> matrix is the lower triangle of <span class="math inline">\(A\)</span>, and the <span class="math inline">\(U\)</span> matrix is the upper triangle of <span class="math inline">\(A\)</span>.</li>
+</ul>
+<p>Considering the system of equations <span class="math inline">\(A\boldsymbol{x} = \boldsymbol{b}\)</span> we get
+<span class="math display">\[  (L+D+U)\boldsymbol{x} = \boldsymbol{b} \]</span>
+and after simplifying we get</p>
+<p><span class="math display">\[ L\boldsymbol{x} + D\boldsymbol{x} + U\boldsymbol{x} = \boldsymbol{b}
+ \implies D\boldsymbol{x} = \boldsymbol{b} - L\boldsymbol{x} - U\boldsymbol{x} \implies \boldsymbol{x} = D^{-1} (b-L\boldsymbol{x}-U\boldsymbol{x}). \]</span></p>
+<p>A moment’s relection should reveal that the inverse of <span class="math inline">\(D\)</span> is really easy to find (no heavy-duty linear algebra necessary) if some mild conditions are met. Like before there is an <span class="math inline">\(\boldsymbol{x}\)</span> on both sides of the equation, but if we again make the algorithm iterative we can get successive approximations of the solution with
+<span class="math display">\[ \boldsymbol{x}_{k+1} = D^{-1}(b - L\boldsymbol{x}_k - U\boldsymbol{x}_k). \]</span></p>
+<p><strong>Your Tasks:</strong></p>
+
+<ol style="list-style-type: decimal">
+<li>Pick a small (larger than <span class="math inline">\(3 \times 3\)</span>) matrix and an appropriate right-hand side <span class="math inline">\(b\)</span> and work each of the algorithms by hand. You do not need to write this step up in the final product, but this exercise will help you locate where things may go wrong in the algorithms.</li>
+<li>Build Python functions that accept a square matrix <span class="math inline">\(A\)</span> and complete the factorizations <span class="math inline">\(A = L+U\)</span> and <span class="math inline">\(A = L+D+U\)</span>.</li>
+<li>Build functions to implement the two algorithms and then demonstrate that the algorithms work on a handful of carefully chosen test examples. As part of these functions you need to build a way to deal with the matrix inversions as well as build a stopping rule for the iterative schemes. Hint: You should use a <code>while</code> loop with a proper logical condition. Think carefully about what we’re finding at each iteration and what we can use to check our accuracy at each iteration. It would also be wise to write your code in such a way that it checks to see if the sequence of
+approximations is diverging.</li>
+<li>Discuss where each method might fail and then demonstrate the possible failures with
+several carefully chosen examples. Stick to <span class="math inline">\(3\times3\)</span> examples and work these out by
+hand to clearly show the failure.</li>
+<li>Iterative methods such as these will produce a sequence of approximations, but there is no guranatee that either method will actually produce a convergent sequence. Experiment with several examples and propose a condition on the matrix <span class="math inline">\(A\)</span> which will likely result in a convergent sequence. Demonstrate that the methods fail if your condition is violated and that the methods converge if your condition is met. Take care that it is tempting to think that your code is broken if it doesn’t converge. The more likely scenario is that the problem that you have chosen to solve will result in a non-convergent sequence of iterations, and you need to think and experiment carefully when choosing the example problems to solve. One such convergence criterion has something to do with the diagonal entries of <span class="math inline">\(A\)</span> relative to the other entries, but that doesn’t mean that you shouldn’t explore other features of the matrices as well (I-gen can’t give you any more hints than that). This task is not asking for a proof; just a conjecture and convincing numerical evidence that the conjecture holds. The actual proofs are beyond the scope of this project and this course.</li>
+<li>Devise a way to demonstrate how the time to solve a large linear system <span class="math inline">\(Ax = b\)</span> compares between our two new methods, the <span class="math inline">\(LU\)</span> algorithm, and the <span class="math inline">\(QR\)</span> algorithm that we built earlier in the chapter. Conclude this demonstration with a plot and ample discussion.</li>
+</ol>
+<p>You need to do this project without the help of your old buddy Google. All code must be
+originally yours or code that we built in class. You can ask Google how Python works with matrices and the like, but searching directly for the algorithms (which are actually well-known, well-studied, and named algorithms) is not allowed.</p>
+<p>Finally, solving systems of equations with the <code>|np.linalg.solve()</code> command can only be done to verify or check your answer(s).</p>
+<p>Finally, solving systems of equations with the  command can only
+be done to verify or check your answer(s).</p>
 
 </div>
 </div>
@@ -2696,6 +2785,7 @@ results from the previous problem.
 <li id="fn8"><p>Numerical Linear Algebra is a huge field and there is way more to say … but alas, this is an introductory course in numerical methods so we can’t do everything. Sigh.<a href="ch-linearalgebra.html#fnref8" class="footnote-back">↩︎</a></p></li>
 <li id="fn9"><p>To build a matrix with specific eigenvalues it may be helpful to recall the matrix factorization <span class="math inline">\(A = PDP^{-1}\)</span> where the columns of <span class="math inline">\(P\)</span> are the eigenvectors of <span class="math inline">\(A\)</span> and the diagonal entries of <span class="math inline">\(D\)</span> are the eigenvalues. If you choose <span class="math inline">\(P\)</span> and <span class="math inline">\(D\)</span> then you can build <span class="math inline">\(A\)</span> with your specific eigen-structure. If you are looking for complex eigenvalues then remember that the eigenvectors may well be complex too.<a href="ch-linearalgebra.html#fnref9" class="footnote-back">↩︎</a></p></li>
 <li id="fn10"><p>Actually, the determinant computation uses LU with partial pivoting which we did not cover here in the text. What we are looking at in this exercise is a smaller subcase of what happens when you have a matrix <span class="math inline">\(A\)</span> that does not require any row swaps in the row reduction process.<a href="ch-linearalgebra.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>Technically speaking we should not call this a “factorization” since we have not split the matrix <span class="math inline">\(A\)</span> into a product of two matrices. Instead we should call it a “partition” since in number theory we call the process of breaking an integer into the sum of two integers is called a “partition”. Even so, we will still use the word factoriazation here.<a href="ch-linearalgebra.html#fnref11" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

@@ -240,6 +240,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.9" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#projects-2"><i class="fa fa-check"></i><b>4.9</b> Projects</a><ul>
 <li class="chapter" data-level="4.9.1" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#the-google-page-rank-algorithm"><i class="fa fa-check"></i><b>4.9.1</b> The Google Page Rank Algorithm</a></li>
+<li class="chapter" data-level="4.9.2" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#alternative-methods-to-solving-a-boldsymbolx-boldsymbolb"><i class="fa fa-check"></i><b>4.9.2</b> Alternative Methods To Solving <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="ch-odes.html"><a href="ch-odes.html"><i class="fa fa-check"></i><b>5</b> Ordinary Differential Equations</a><ul>
@@ -1871,7 +1872,7 @@ method iteration to solve that equation – at each time step. More simply, we c
 <div class="exercise">
 <p><span id="exr:unnamed-chunk-497" class="exercise"><strong>Exercise 5.56  (Newton’s Law of Cooling)  </strong></span>From Calculus you may recall Newton’s Law of Cooling:
 <span class="math display">\[ \frac{dT}{dt} = -k(T - T_{ambient}) \]</span>
-where <span class="math inline">\(T\)</span> is the temperature of some object (like a cup of coffee), <span class="math inline">\(T_{ambient}\)</span> is the temperature of the ambient environment, and <span class="math inline">\(k\)</span> is the proportionality constant that governs the rate of cooling. This is a classic differential equation with a well known solution.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> In the present situation we don’t want the analytic solution, but instead we will work with a numerical solution since we are thinking ahead to where the differential equation may be very hard to solve in future problems. We also don’t want to just look at the data and guess an algebraic form for the function that best fits the data. That would be a trap! (why?) Instead, we rely on our knowledge of the physics of the situation to give us the differential equation.</p>
+where <span class="math inline">\(T\)</span> is the temperature of some object (like a cup of coffee), <span class="math inline">\(T_{ambient}\)</span> is the temperature of the ambient environment, and <span class="math inline">\(k\)</span> is the proportionality constant that governs the rate of cooling. This is a classic differential equation with a well known solution.<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> In the present situation we don’t want the analytic solution, but instead we will work with a numerical solution since we are thinking ahead to where the differential equation may be very hard to solve in future problems. We also don’t want to just look at the data and guess an algebraic form for the function that best fits the data. That would be a trap! (why?) Instead, we rely on our knowledge of the physics of the situation to give us the differential equation.</p>
 <p>The following data table gives the temperature (degrees <span class="math inline">\(F\)</span>) at several times while a cup of tea cools on a table <span class="citation">[<a href="#ref-tea" role="doc-biblioref">7</a>]</span>. The ambient temperature of the room is <span class="math inline">\(65^\circ F\)</span>.</p>
 <table>
 <thead>
@@ -2682,7 +2683,7 @@ the differential equations describing its acceleration are very simple:
 where <span class="math inline">\(v_x\)</span> and <span class="math inline">\(v_z\)</span> are the velocities in the <span class="math inline">\(x\)</span> and <span class="math inline">\(z\)</span> directions
 respectively and <span class="math inline">\(g\)</span> is the acceleration due to gravity (<span class="math inline">\(g = 9.8\)</span>
 m/s<span class="math inline">\(^2\)</span>). We can use these equations to <em>easily</em> show that the resulting
-trajectory is parabolic. Once we know this we can easily<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> calculate
+trajectory is parabolic. Once we know this we can easily<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> calculate
 the initial speed <span class="math inline">\(v_0\)</span> and angle <span class="math inline">\(\theta_0\)</span> above the horizontal
 necessary for the shell to reach the target. We will undoubtedly find
 that the maximum range will always result from an angle of
@@ -2774,12 +2775,12 @@ start the field manual.</p>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="11">
-<li id="fn11"><p>If you don’t know the solution to Newton’s Law of Cooling then take a moment and do the separation of variables to solve for <span class="math inline">\(T(t)\)</span>.<a href="ch-odes.html#fnref11" class="footnote-back">↩︎</a></p></li>
-<li id="fn12"><p>I’m showing you the algebra here, but it really isn’t necessary to
+<ol start="12">
+<li id="fn12"><p>If you don’t know the solution to Newton’s Law of Cooling then take a moment and do the separation of variables to solve for <span class="math inline">\(T(t)\)</span>.<a href="ch-odes.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>I’m showing you the algebra here, but it really isn’t necessary to
 show this level of routine algebra in your papers. Only show the
 algebra and other calculations that are necessary for the reader to
-understand the work that you’re doing.<a href="ch-odes.html#fnref12" class="footnote-back">↩︎</a></p></li>
+understand the work that you’re doing.<a href="ch-odes.html#fnref13" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

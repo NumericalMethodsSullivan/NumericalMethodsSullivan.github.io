@@ -240,6 +240,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.9" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#projects-2"><i class="fa fa-check"></i><b>4.9</b> Projects</a><ul>
 <li class="chapter" data-level="4.9.1" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#the-google-page-rank-algorithm"><i class="fa fa-check"></i><b>4.9.1</b> The Google Page Rank Algorithm</a></li>
+<li class="chapter" data-level="4.9.2" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#alternative-methods-to-solving-a-boldsymbolx-boldsymbolb"><i class="fa fa-check"></i><b>4.9.2</b> Alternative Methods To Solving <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="ch-odes.html"><a href="ch-odes.html"><i class="fa fa-check"></i><b>5</b> Ordinary Differential Equations</a><ul>
@@ -1124,7 +1125,7 @@ Figure 6.9: The finite difference stencil for the 2D heat equation.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-587" class="exercise"><strong>Exercise 6.36  </strong></span>Now we need to implement the finite difference scheme that you developed in the previous problem. As a model problem, consider the 2D heat equation <span class="math inline">\(u_t = D(u_{xx} + u_{yy})\)</span> on the domain <span class="math inline">\((x,y) \in [0,1] \times [0,1]\)</span> with the initial condition <span class="math inline">\(u(0,x,y) = \sin(\pi x)\sin(\pi y)\)</span>, homogeneous Dirichlet boundary conditions, and <span class="math inline">\(D=1\)</span>.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> Fill in the holes in the following code chunks.
+<span id="exr:unnamed-chunk-587" class="exercise"><strong>Exercise 6.36  </strong></span>Now we need to implement the finite difference scheme that you developed in the previous problem. As a model problem, consider the 2D heat equation <span class="math inline">\(u_t = D(u_{xx} + u_{yy})\)</span> on the domain <span class="math inline">\((x,y) \in [0,1] \times [0,1]\)</span> with the initial condition <span class="math inline">\(u(0,x,y) = \sin(\pi x)\sin(\pi y)\)</span>, homogeneous Dirichlet boundary conditions, and <span class="math inline">\(D=1\)</span>.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> Fill in the holes in the following code chunks.
 </div>
 
 <ul>
@@ -2348,8 +2349,8 @@ assumptions needed for your model.</p></li>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="13">
-<li id="fn13"><p>Take note that homogeneous boundary conditions are “0”, so saying that a PDE has homogeneous Dirichlet boundary conditions on this domain means that <span class="math inline">\(u(t,x,0) = u(t,x,1)=u(t,0,y)=u(t,1,y)=0\)</span>.<a href="ch-pdes.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<ol start="14">
+<li id="fn14"><p>Take note that homogeneous boundary conditions are “0”, so saying that a PDE has homogeneous Dirichlet boundary conditions on this domain means that <span class="math inline">\(u(t,x,0) = u(t,x,1)=u(t,0,y)=u(t,1,y)=0\)</span>.<a href="ch-pdes.html#fnref14" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
