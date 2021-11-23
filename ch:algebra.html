@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Algebra | Numerical Methods</title>
+  <meta name="description" content="Inquiry Based Numerical Methods" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Algebra | Numerical Methods" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Inquiry Based Numerical Methods" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Algebra | Numerical Methods" />
+  
+  <meta name="twitter:description" content="Inquiry Based Numerical Methods" />
+  
+
+<meta name="author" content="Eric Sullivan" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ch:intro.html"/>
+<link rel="next" href="ch:calculus.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Front Matter</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#resources"><i class="fa fa-check"></i>Resources</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#preface"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#creative-commons"><i class="fa fa-check"></i>Creative Commons</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#to-the-student"><i class="fa fa-check"></i>To The Student</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#the-inquiry-based-approach"><i class="fa fa-check"></i>The Inquiry-Based Approach</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#to-the-instructor"><i class="fa fa-check"></i>To the Instructor</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#the-inquiry-based-approach-1"><i class="fa fa-check"></i>The Inquiry-Based Approach</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#the-projects"><i class="fa fa-check"></i>The Projects</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#coding"><i class="fa fa-check"></i>Coding</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pacing"><i class="fa fa-check"></i>Pacing</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#other-considerations"><i class="fa fa-check"></i>Other Considerations:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="ch:intro.html"><a href="ch:intro.html"><i class="fa fa-check"></i><b>1</b> Preliminary Topics</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="ch:intro.html"><a href="ch:intro.html#what-is-numerical-analysis"><i class="fa fa-check"></i><b>1.1</b> What Is Numerical Analysis?</a></li>
+<li class="chapter" data-level="1.2" data-path="ch:intro.html"><a href="ch:intro.html#arithmetic-in-base-2"><i class="fa fa-check"></i><b>1.2</b> Arithmetic in Base 2</a></li>
+<li class="chapter" data-level="1.3" data-path="ch:intro.html"><a href="ch:intro.html#floating-point-arithmetic"><i class="fa fa-check"></i><b>1.3</b> Floating Point Arithmetic</a></li>
+<li class="chapter" data-level="1.4" data-path="ch:intro.html"><a href="ch:intro.html#sec:Taylor"><i class="fa fa-check"></i><b>1.4</b> Approximating Functions</a></li>
+<li class="chapter" data-level="1.5" data-path="ch:intro.html"><a href="ch:intro.html#approximation-error-with-taylor-series"><i class="fa fa-check"></i><b>1.5</b> Approximation Error with Taylor Series</a></li>
+<li class="chapter" data-level="1.6" data-path="ch:intro.html"><a href="ch:intro.html#exercises"><i class="fa fa-check"></i><b>1.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="ch:intro.html"><a href="ch:intro.html#coding-exercises"><i class="fa fa-check"></i><b>1.6.1</b> Coding Exercises</a></li>
+<li class="chapter" data-level="1.6.2" data-path="ch:intro.html"><a href="ch:intro.html#applying-what-youve-learned"><i class="fa fa-check"></i><b>1.6.2</b> Applying What You’ve Learned</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="ch:algebra.html"><a href="ch:algebra.html"><i class="fa fa-check"></i><b>2</b> Algebra</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="ch:algebra.html"><a href="ch:algebra.html#intro-to-numerical-root-finding"><i class="fa fa-check"></i><b>2.1</b> Intro to Numerical Root Finding</a></li>
+<li class="chapter" data-level="2.2" data-path="ch:algebra.html"><a href="ch:algebra.html#the-bisection-method"><i class="fa fa-check"></i><b>2.2</b> The Bisection Method</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="ch:algebra.html"><a href="ch:algebra.html#intuition-and-implementation"><i class="fa fa-check"></i><b>2.2.1</b> Intuition and Implementation</a></li>
+<li class="chapter" data-level="2.2.2" data-path="ch:algebra.html"><a href="ch:algebra.html#analysis"><i class="fa fa-check"></i><b>2.2.2</b> Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="ch:algebra.html"><a href="ch:algebra.html#the-regula-falsi-method"><i class="fa fa-check"></i><b>2.3</b> The Regula Falsi Method</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="ch:algebra.html"><a href="ch:algebra.html#intuition-and-implementation-1"><i class="fa fa-check"></i><b>2.3.1</b> Intuition and Implementation</a></li>
+<li class="chapter" data-level="2.3.2" data-path="ch:algebra.html"><a href="ch:algebra.html#analysis-1"><i class="fa fa-check"></i><b>2.3.2</b> Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="ch:algebra.html"><a href="ch:algebra.html#newtons-method"><i class="fa fa-check"></i><b>2.4</b> Newton’s Method</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="ch:algebra.html"><a href="ch:algebra.html#intuition-and-implementation-2"><i class="fa fa-check"></i><b>2.4.1</b> Intuition and Implementation</a></li>
+<li class="chapter" data-level="2.4.2" data-path="ch:algebra.html"><a href="ch:algebra.html#analysis-2"><i class="fa fa-check"></i><b>2.4.2</b> Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="ch:algebra.html"><a href="ch:algebra.html#the-secant-method"><i class="fa fa-check"></i><b>2.5</b> The Secant Method</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="ch:algebra.html"><a href="ch:algebra.html#intuition-and-implementation-3"><i class="fa fa-check"></i><b>2.5.1</b> Intuition and Implementation</a></li>
+<li class="chapter" data-level="2.5.2" data-path="ch:algebra.html"><a href="ch:algebra.html#analysis-3"><i class="fa fa-check"></i><b>2.5.2</b> Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="ch:algebra.html"><a href="ch:algebra.html#exercises-1"><i class="fa fa-check"></i><b>2.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="ch:algebra.html"><a href="ch:algebra.html#algorithm-summaries"><i class="fa fa-check"></i><b>2.6.1</b> Algorithm Summaries</a></li>
+<li class="chapter" data-level="2.6.2" data-path="ch:algebra.html"><a href="ch:algebra.html#applying-what-youve-learned-1"><i class="fa fa-check"></i><b>2.6.2</b> Applying What You’ve Learned</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="ch:algebra.html"><a href="ch:algebra.html#projects"><i class="fa fa-check"></i><b>2.7</b> Projects</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="ch:algebra.html"><a href="ch:algebra.html#basins-of-attraction"><i class="fa fa-check"></i><b>2.7.1</b> Basins of Attraction</a></li>
+<li class="chapter" data-level="2.7.2" data-path="ch:algebra.html"><a href="ch:algebra.html#artillery"><i class="fa fa-check"></i><b>2.7.2</b> Artillery</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ch:calculus.html"><a href="ch:calculus.html"><i class="fa fa-check"></i><b>3</b> Calculus</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="ch:calculus.html"><a href="ch:calculus.html#intro-to-numerical-calculus"><i class="fa fa-check"></i><b>3.1</b> Intro to Numerical Calculus</a></li>
+<li class="chapter" data-level="3.2" data-path="ch:calculus.html"><a href="ch:calculus.html#differentiation"><i class="fa fa-check"></i><b>3.2</b> Differentiation</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="ch:calculus.html"><a href="ch:calculus.html#the-first-derivative"><i class="fa fa-check"></i><b>3.2.1</b> The First Derivative</a></li>
+<li class="chapter" data-level="3.2.2" data-path="ch:calculus.html"><a href="ch:calculus.html#error-analysis"><i class="fa fa-check"></i><b>3.2.2</b> Error Analysis</a></li>
+<li class="chapter" data-level="3.2.3" data-path="ch:calculus.html"><a href="ch:calculus.html#efficient-coding"><i class="fa fa-check"></i><b>3.2.3</b> Efficient Coding</a></li>
+<li class="chapter" data-level="3.2.4" data-path="ch:calculus.html"><a href="ch:calculus.html#a-better-first-derivative"><i class="fa fa-check"></i><b>3.2.4</b> A Better First Derivative</a></li>
+<li class="chapter" data-level="3.2.5" data-path="ch:calculus.html"><a href="ch:calculus.html#the-second-derivative"><i class="fa fa-check"></i><b>3.2.5</b> The Second Derivative</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="ch:calculus.html"><a href="ch:calculus.html#integration"><i class="fa fa-check"></i><b>3.3</b> Integration</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="ch:calculus.html"><a href="ch:calculus.html#riemann-sums"><i class="fa fa-check"></i><b>3.3.1</b> Riemann Sums</a></li>
+<li class="chapter" data-level="3.3.2" data-path="ch:calculus.html"><a href="ch:calculus.html#trapezoidal-rule"><i class="fa fa-check"></i><b>3.3.2</b> Trapezoidal Rule</a></li>
+<li class="chapter" data-level="3.3.3" data-path="ch:calculus.html"><a href="ch:calculus.html#simpsons-rule"><i class="fa fa-check"></i><b>3.3.3</b> Simpsons Rule</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="ch:calculus.html"><a href="ch:calculus.html#optimization"><i class="fa fa-check"></i><b>3.4</b> Optimization</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="ch:calculus.html"><a href="ch:calculus.html#single-variable-optimization"><i class="fa fa-check"></i><b>3.4.1</b> Single Variable Optimization</a></li>
+<li class="chapter" data-level="3.4.2" data-path="ch:calculus.html"><a href="ch:calculus.html#multivariable-optimization"><i class="fa fa-check"></i><b>3.4.2</b> Multivariable Optimization</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="ch:calculus.html"><a href="ch:calculus.html#calculus-with-numpy-and-scipy"><i class="fa fa-check"></i><b>3.5</b> Calculus with <code>numpy</code> and <code>scipy</code></a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="ch:calculus.html"><a href="ch:calculus.html#differentiation-1"><i class="fa fa-check"></i><b>3.5.1</b> Differentiation</a></li>
+<li class="chapter" data-level="3.5.2" data-path="ch:calculus.html"><a href="ch:calculus.html#integration-1"><i class="fa fa-check"></i><b>3.5.2</b> Integration</a></li>
+<li class="chapter" data-level="3.5.3" data-path="ch:calculus.html"><a href="ch:calculus.html#optimization-1"><i class="fa fa-check"></i><b>3.5.3</b> Optimization</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="ch:calculus.html"><a href="ch:calculus.html#least-squares-curve-fitting"><i class="fa fa-check"></i><b>3.6</b> Least Squares Curve Fitting</a></li>
+<li class="chapter" data-level="3.7" data-path="ch:calculus.html"><a href="ch:calculus.html#exercises-2"><i class="fa fa-check"></i><b>3.7</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="ch:calculus.html"><a href="ch:calculus.html#algorithm-summaries-1"><i class="fa fa-check"></i><b>3.7.1</b> Algorithm Summaries</a></li>
+<li class="chapter" data-level="3.7.2" data-path="ch:calculus.html"><a href="ch:calculus.html#applying-what-youve-learned-2"><i class="fa fa-check"></i><b>3.7.2</b> Applying What You’ve Learned</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="ch:calculus.html"><a href="ch:calculus.html#projects-1"><i class="fa fa-check"></i><b>3.8</b> Projects</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="ch:calculus.html"><a href="ch:calculus.html#galaxy-integration"><i class="fa fa-check"></i><b>3.8.1</b> Galaxy Integration</a></li>
+<li class="chapter" data-level="3.8.2" data-path="ch:calculus.html"><a href="ch:calculus.html#higher-order-integration"><i class="fa fa-check"></i><b>3.8.2</b> Higher Order Integration</a></li>
+<li class="chapter" data-level="3.8.3" data-path="ch:calculus.html"><a href="ch:calculus.html#dam-integration"><i class="fa fa-check"></i><b>3.8.3</b> Dam Integration</a></li>
+<li class="chapter" data-level="3.8.4" data-path="ch:calculus.html"><a href="ch:calculus.html#edge-detection-in-images"><i class="fa fa-check"></i><b>3.8.4</b> Edge Detection in Images</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ch:linearalgebra.html"><a href="ch:linearalgebra.html"><i class="fa fa-check"></i><b>4</b> Linear Algebra</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="ch:linearalgebra.html"><a href="ch:linearalgebra.html#intro-to-numerical-linear-algebra"><i class="fa fa-check"></i><b>4.1</b> Intro to Numerical Linear Algebra</a></li>
+<li class="chapter" data-level="4.2" data-path="ch:linearalgebra.html"><a href="ch:linearalgebra.html#vectors-and-matrices-in-python"><i class="fa fa-check"></i><b>4.2</b> Vectors and Matrices in Python</a></li>
+<li class="chapter" data-level="4.3" data-path="ch:linearalgebra.html"><a href="ch:linearalgebra.html#matrix-and-vector-operations"><i class="fa fa-check"></i><b>4.3</b> Matrix and Vector Operations</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="ch:linearalgebra.html"><a href="ch:linearalgebra.html#the-dot-product"><i class="fa fa-check"></i><b>4.3.1</b> The Dot Product</a></li>
+<li class="chapter" data-level="4.3.2" data-path="ch:linearalgebra.html"><a href="ch:linearalgebra.html#matrix-multiplication"><i class="fa fa-check"></i><b>4.3.2</b> Matrix Multiplication</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="ch:linearalgebra.html"><a href="ch:linearalgebra.html#the-lu-factorization"><i class="fa fa-check"></i><b>4.4</b> The LU Factorization</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="ch:linearalgebra.html"><a href="ch:linearalgebra.html#a-recap-of-row-reduction"><i class="fa fa-check"></i><b>4.4.1</b> A Recap of Row Reduction</a></li>
+<li class="chapter" data-level="4.4.2" data-path="ch:linearalgebra.html"><a href="ch:linearalgebra.html#the-lu-decomposition"><i class="fa fa-check"></i><b>4.4.2</b> The LU Decomposition</a></li>
+<li class="chapter" data-level="4.4.3" data-path="ch:linearalgebra.html"><a href="ch:linearalgebra.html#solving-triangular-systems"><i class="fa fa-check"></i><b>4.4.3</b> Solving Triangular Systems</a></li>
+<li class="chapter" data-level="4.4.4" data-path="ch:linearalgebra.html"><a href="ch:linearalgebra.html#solving-systems-with-lu"><i class="fa fa-check"></i><b>4.4.4</b> Solving Systems with LU</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="ch:linearalgebra.html"><a href="ch:linearalgebra.html#the-qr-factorization"><i class="fa fa-check"></i><b>4.5</b> The QR Factorization</a></li>
+<li class="chapter" data-level="4.6" data-path="ch:linearalgebra.html"><a href="ch:linearalgebra.html#over-determined-systems-and-curve-fitting"><i class="fa fa-check"></i><b>4.6</b> Over Determined Systems and Curve Fitting</a></li>
+<li class="chapter" data-level="4.7" data-path="ch:linearalgebra.html"><a href="ch:linearalgebra.html#the-eigenvalue-eigenvector-problem"><i class="fa fa-check"></i><b>4.7</b> The Eigenvalue-Eigenvector Problem</a></li>
+<li class="chapter" data-level="4.8" data-path="ch:linearalgebra.html"><a href="ch:linearalgebra.html#exercises-3"><i class="fa fa-check"></i><b>4.8</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="ch:linearalgebra.html"><a href="ch:linearalgebra.html#algorithm-summaries-2"><i class="fa fa-check"></i><b>4.8.1</b> Algorithm Summaries</a></li>
+<li class="chapter" data-level="4.8.2" data-path="ch:linearalgebra.html"><a href="ch:linearalgebra.html#applying-what-youve-learned-3"><i class="fa fa-check"></i><b>4.8.2</b> Applying What You’ve Learned</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="ch:linearalgebra.html"><a href="ch:linearalgebra.html#projects-2"><i class="fa fa-check"></i><b>4.9</b> Projects</a>
+<ul>
+<li class="chapter" data-level="4.9.1" data-path="ch:linearalgebra.html"><a href="ch:linearalgebra.html#the-google-page-rank-algorithm"><i class="fa fa-check"></i><b>4.9.1</b> The Google Page Rank Algorithm</a></li>
+<li class="chapter" data-level="4.9.2" data-path="ch:linearalgebra.html"><a href="ch:linearalgebra.html#alternative-methods-to-solving-a-boldsymbolx-boldsymbolb"><i class="fa fa-check"></i><b>4.9.2</b> Alternative Methods To Solving <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ch:odes.html"><a href="ch:odes.html"><i class="fa fa-check"></i><b>5</b> Ordinary Differential Equations</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="ch:odes.html"><a href="ch:odes.html#intro-to-numerical-odes"><i class="fa fa-check"></i><b>5.1</b> Intro to Numerical ODEs</a></li>
+<li class="chapter" data-level="5.2" data-path="ch:odes.html"><a href="ch:odes.html#recalling-the-basics-of-odes"><i class="fa fa-check"></i><b>5.2</b> Recalling the Basics of ODEs</a></li>
+<li class="chapter" data-level="5.3" data-path="ch:odes.html"><a href="ch:odes.html#eulers-method"><i class="fa fa-check"></i><b>5.3</b> Euler’s Method</a></li>
+<li class="chapter" data-level="5.4" data-path="ch:odes.html"><a href="ch:odes.html#the-midpoint-method"><i class="fa fa-check"></i><b>5.4</b> The Midpoint Method</a></li>
+<li class="chapter" data-level="5.5" data-path="ch:odes.html"><a href="ch:odes.html#the-runge-kutta-4-method"><i class="fa fa-check"></i><b>5.5</b> The Runge-Kutta 4 Method</a></li>
+<li class="chapter" data-level="5.6" data-path="ch:odes.html"><a href="ch:odes.html#animating-ode-solutions"><i class="fa fa-check"></i><b>5.6</b> Animating ODE Solutions</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="ch:odes.html"><a href="ch:odes.html#ipywidgets.interactive"><i class="fa fa-check"></i><b>5.6.1</b> <code>ipywidgets.interactive</code></a></li>
+<li class="chapter" data-level="5.6.2" data-path="ch:odes.html"><a href="ch:odes.html#matplotlib.animation"><i class="fa fa-check"></i><b>5.6.2</b> <code>matplotlib.animation</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="ch:odes.html"><a href="ch:odes.html#the-backwards-euler-method"><i class="fa fa-check"></i><b>5.7</b> The Backwards Euler Method</a></li>
+<li class="chapter" data-level="5.8" data-path="ch:odes.html"><a href="ch:odes.html#fitting-ode-models-to-data"><i class="fa fa-check"></i><b>5.8</b> Fitting ODE Models to Data</a></li>
+<li class="chapter" data-level="5.9" data-path="ch:odes.html"><a href="ch:odes.html#exercises-4"><i class="fa fa-check"></i><b>5.9</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="5.9.1" data-path="ch:odes.html"><a href="ch:odes.html#algorithm-summaries-3"><i class="fa fa-check"></i><b>5.9.1</b> Algorithm Summaries</a></li>
+<li class="chapter" data-level="5.9.2" data-path="ch:odes.html"><a href="ch:odes.html#applying-what-youve-learned-4"><i class="fa fa-check"></i><b>5.9.2</b> Applying What You’ve Learned</a></li>
+</ul></li>
+<li class="chapter" data-level="5.10" data-path="ch:odes.html"><a href="ch:odes.html#projects-3"><i class="fa fa-check"></i><b>5.10</b> Projects</a>
+<ul>
+<li class="chapter" data-level="5.10.1" data-path="ch:odes.html"><a href="ch:odes.html#the-covid-19-pandemic"><i class="fa fa-check"></i><b>5.10.1</b> The COVID-19 Pandemic</a></li>
+<li class="chapter" data-level="5.10.2" data-path="ch:odes.html"><a href="ch:odes.html#pain-management"><i class="fa fa-check"></i><b>5.10.2</b> Pain Management</a></li>
+<li class="chapter" data-level="5.10.3" data-path="ch:odes.html"><a href="ch:odes.html#the-h1n1-virus"><i class="fa fa-check"></i><b>5.10.3</b> The H1N1 Virus</a></li>
+<li class="chapter" data-level="5.10.4" data-path="ch:odes.html"><a href="ch:odes.html#the-artillery-problem"><i class="fa fa-check"></i><b>5.10.4</b> The Artillery Problem</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ch:pdes.html"><a href="ch:pdes.html"><i class="fa fa-check"></i><b>6</b> Partial Differential Equations</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="ch:pdes.html"><a href="ch:pdes.html#intro-to-pdes"><i class="fa fa-check"></i><b>6.1</b> Intro to PDEs</a></li>
+<li class="chapter" data-level="6.2" data-path="ch:pdes.html"><a href="ch:pdes.html#solutions-to-pdes"><i class="fa fa-check"></i><b>6.2</b> Solutions to PDEs</a></li>
+<li class="chapter" data-level="6.3" data-path="ch:pdes.html"><a href="ch:pdes.html#boundary-conditions"><i class="fa fa-check"></i><b>6.3</b> Boundary Conditions</a></li>
+<li class="chapter" data-level="6.4" data-path="ch:pdes.html"><a href="ch:pdes.html#the-heat-equation"><i class="fa fa-check"></i><b>6.4</b> The Heat Equation</a></li>
+<li class="chapter" data-level="6.5" data-path="ch:pdes.html"><a href="ch:pdes.html#stability-of-the-heat-equation-solution"><i class="fa fa-check"></i><b>6.5</b> Stability of the Heat Equation Solution</a></li>
+<li class="chapter" data-level="6.6" data-path="ch:pdes.html"><a href="ch:pdes.html#the-wave-equation"><i class="fa fa-check"></i><b>6.6</b> The Wave Equation</a></li>
+<li class="chapter" data-level="6.7" data-path="ch:pdes.html"><a href="ch:pdes.html#traveling-waves"><i class="fa fa-check"></i><b>6.7</b> Traveling Waves</a></li>
+<li class="chapter" data-level="6.8" data-path="ch:pdes.html"><a href="ch:pdes.html#the-laplace-and-poisson-equations"><i class="fa fa-check"></i><b>6.8</b> The Laplace and Poisson Equations</a></li>
+<li class="chapter" data-level="6.9" data-path="ch:pdes.html"><a href="ch:pdes.html#exercises-5"><i class="fa fa-check"></i><b>6.9</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="6.9.1" data-path="ch:pdes.html"><a href="ch:pdes.html#algorithm-summaries-4"><i class="fa fa-check"></i><b>6.9.1</b> Algorithm Summaries</a></li>
+<li class="chapter" data-level="6.9.2" data-path="ch:pdes.html"><a href="ch:pdes.html#applying-what-youve-learned-5"><i class="fa fa-check"></i><b>6.9.2</b> Applying What You’ve Learned</a></li>
+</ul></li>
+<li class="chapter" data-level="6.10" data-path="ch:pdes.html"><a href="ch:pdes.html#projects-4"><i class="fa fa-check"></i><b>6.10</b> Projects</a>
+<ul>
+<li class="chapter" data-level="6.10.1" data-path="ch:pdes.html"><a href="ch:pdes.html#hunting-and-diffusion"><i class="fa fa-check"></i><b>6.10.1</b> Hunting and Diffusion</a></li>
+<li class="chapter" data-level="6.10.2" data-path="ch:pdes.html"><a href="ch:pdes.html#heating-adobe-houses"><i class="fa fa-check"></i><b>6.10.2</b> Heating Adobe Houses</a></li>
+</ul></li>
+</ul></li>
+<li class="appendix"><span><b>Appendices</b></span></li>
+<li class="chapter" data-level="A" data-path="ch:python.html"><a href="ch:python.html"><i class="fa fa-check"></i><b>A</b> Introduction to Python</a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="ch:python.html"><a href="ch:python.html#why-python"><i class="fa fa-check"></i><b>A.1</b> Why Python?</a></li>
+<li class="chapter" data-level="A.2" data-path="ch:python.html"><a href="ch:python.html#getting-started"><i class="fa fa-check"></i><b>A.2</b> Getting Started</a></li>
+<li class="chapter" data-level="A.3" data-path="ch:python.html"><a href="ch:python.html#hello-world"><i class="fa fa-check"></i><b>A.3</b> Hello, World!</a></li>
+<li class="chapter" data-level="A.4" data-path="ch:python.html"><a href="ch:python.html#python-programming-basics"><i class="fa fa-check"></i><b>A.4</b> Python Programming Basics</a>
+<ul>
+<li class="chapter" data-level="A.4.1" data-path="ch:python.html"><a href="ch:python.html#variables"><i class="fa fa-check"></i><b>A.4.1</b> Variables</a></li>
+<li class="chapter" data-level="A.4.2" data-path="ch:python.html"><a href="ch:python.html#indexing-and-lists"><i class="fa fa-check"></i><b>A.4.2</b> Indexing and Lists</a></li>
+<li class="chapter" data-level="A.4.3" data-path="ch:python.html"><a href="ch:python.html#list-operations"><i class="fa fa-check"></i><b>A.4.3</b> List Operations</a></li>
+<li class="chapter" data-level="A.4.4" data-path="ch:python.html"><a href="ch:python.html#tuples"><i class="fa fa-check"></i><b>A.4.4</b> Tuples</a></li>
+<li class="chapter" data-level="A.4.5" data-path="ch:python.html"><a href="ch:python.html#control-flow-loops-and-if-statements"><i class="fa fa-check"></i><b>A.4.5</b> Control Flow: Loops and If Statements</a></li>
+<li class="chapter" data-level="A.4.6" data-path="ch:python.html"><a href="ch:python.html#functions"><i class="fa fa-check"></i><b>A.4.6</b> Functions</a></li>
+<li class="chapter" data-level="A.4.7" data-path="ch:python.html"><a href="ch:python.html#lambda-functions"><i class="fa fa-check"></i><b>A.4.7</b> Lambda Functions</a></li>
+<li class="chapter" data-level="A.4.8" data-path="ch:python.html"><a href="ch:python.html#packages"><i class="fa fa-check"></i><b>A.4.8</b> Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="A.5" data-path="ch:python.html"><a href="ch:python.html#numerical-python-with-numpy"><i class="fa fa-check"></i><b>A.5</b> Numerical Python with <code>numpy</code></a>
+<ul>
+<li class="chapter" data-level="A.5.1" data-path="ch:python.html"><a href="ch:python.html#numpy-arrays-array-operations-and-matrix-operations"><i class="fa fa-check"></i><b>A.5.1</b> Numpy Arrays, Array Operations, and Matrix Operations</a></li>
+<li class="chapter" data-level="A.5.2" data-path="ch:python.html"><a href="ch:python.html#arange-linspace-zeros-ones-and-meshgrid"><i class="fa fa-check"></i><b>A.5.2</b> <code>arange, linspace, zeros, ones</code>, and <code>meshgrid</code></a></li>
+</ul></li>
+<li class="chapter" data-level="A.6" data-path="ch:python.html"><a href="ch:python.html#plotting-with-matplotlib"><i class="fa fa-check"></i><b>A.6</b> Plotting with <code>matplotlib</code></a>
+<ul>
+<li class="chapter" data-level="A.6.1" data-path="ch:python.html"><a href="ch:python.html#basics-with-plt.plot"><i class="fa fa-check"></i><b>A.6.1</b> Basics with <code>plt.plot()</code></a></li>
+<li class="chapter" data-level="A.6.2" data-path="ch:python.html"><a href="ch:python.html#subplots"><i class="fa fa-check"></i><b>A.6.2</b> Subplots</a></li>
+<li class="chapter" data-level="A.6.3" data-path="ch:python.html"><a href="ch:python.html#logarithmic-scaling-with-semilogy-semilogx-and-loglog"><i class="fa fa-check"></i><b>A.6.3</b> Logarithmic Scaling with <code>semilogy</code>, <code>semilogx</code>, and <code>loglog</code></a></li>
+</ul></li>
+<li class="chapter" data-level="A.7" data-path="ch:python.html"><a href="ch:python.html#symbolic-python-with-sympy"><i class="fa fa-check"></i><b>A.7</b> Symbolic Python with <code>sympy</code></a>
+<ul>
+<li class="chapter" data-level="A.7.1" data-path="ch:python.html"><a href="ch:python.html#symbolic-variables-with-symbols"><i class="fa fa-check"></i><b>A.7.1</b> Symbolic Variables with <code>symbols</code></a></li>
+<li class="chapter" data-level="A.7.2" data-path="ch:python.html"><a href="ch:python.html#symbolic-algebra"><i class="fa fa-check"></i><b>A.7.2</b> Symbolic Algebra</a></li>
+<li class="chapter" data-level="A.7.3" data-path="ch:python.html"><a href="ch:python.html#symbolic-function-evaluation"><i class="fa fa-check"></i><b>A.7.3</b> Symbolic Function Evaluation</a></li>
+<li class="chapter" data-level="A.7.4" data-path="ch:python.html"><a href="ch:python.html#symbolic-calculus"><i class="fa fa-check"></i><b>A.7.4</b> Symbolic Calculus</a></li>
+<li class="chapter" data-level="A.7.5" data-path="ch:python.html"><a href="ch:python.html#solving-equations-symbolically"><i class="fa fa-check"></i><b>A.7.5</b> Solving Equations Symbolically</a></li>
+<li class="chapter" data-level="A.7.6" data-path="ch:python.html"><a href="ch:python.html#symbolic-plotting"><i class="fa fa-check"></i><b>A.7.6</b> Symbolic Plotting</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="ch:writing.html"><a href="ch:writing.html"><i class="fa fa-check"></i><b>B</b> Mathematical Writing</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="ch:writing.html"><a href="ch:writing.html#the-paper"><i class="fa fa-check"></i><b>B.1</b> The Paper</a></li>
+<li class="chapter" data-level="B.2" data-path="ch:writing.html"><a href="ch:writing.html#figures-and-tables"><i class="fa fa-check"></i><b>B.2</b> Figures and Tables</a></li>
+<li class="chapter" data-level="B.3" data-path="ch:writing.html"><a href="ch:writing.html#writing-style"><i class="fa fa-check"></i><b>B.3</b> Writing Style</a></li>
+<li class="chapter" data-level="B.4" data-path="ch:writing.html"><a href="ch:writing.html#tips-for-writing-clear-math"><i class="fa fa-check"></i><b>B.4</b> Tips For Writing Clear Math</a>
+<ul>
+<li class="chapter" data-level="B.4.1" data-path="ch:writing.html"><a href="ch:writing.html#audience"><i class="fa fa-check"></i><b>B.4.1</b> Audience</a></li>
+<li class="chapter" data-level="B.4.2" data-path="ch:writing.html"><a href="ch:writing.html#how-to-make-mathematics-readable-10-things-to-do"><i class="fa fa-check"></i><b>B.4.2</b> How To Make Mathematics Readable – 10 Things To Do</a></li>
+<li class="chapter" data-level="B.4.3" data-path="ch:writing.html"><a href="ch:writing.html#some-writing-tips"><i class="fa fa-check"></i><b>B.4.3</b> Some Writing Tips</a></li>
+<li class="chapter" data-level="B.4.4" data-path="ch:writing.html"><a href="ch:writing.html#mathematical-vocabulary"><i class="fa fa-check"></i><b>B.4.4</b> Mathematical Vocabulary</a></li>
+</ul></li>
+<li class="chapter" data-level="B.5" data-path="ch:writing.html"><a href="ch:writing.html#sensitivity-analysis"><i class="fa fa-check"></i><b>B.5</b> Sensitivity Analysis</a>
+<ul>
+<li class="chapter" data-level="B.5.1" data-path="ch:writing.html"><a href="ch:writing.html#example-of-sensitivity-analysis"><i class="fa fa-check"></i><b>B.5.1</b> Example of Sensitivity Analysis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="ch:extras.html"><a href="ch:extras.html"><i class="fa fa-check"></i><b>C</b> Optional Material</a>
+<ul>
+<li class="chapter" data-level="C.1" data-path="ch:extras.html"><a href="ch:extras.html#interpolation"><i class="fa fa-check"></i><b>C.1</b> Interpolation</a>
+<ul>
+<li class="chapter" data-level="C.1.1" data-path="ch:extras.html"><a href="ch:extras.html#vandermonde-interpolation"><i class="fa fa-check"></i><b>C.1.1</b> Vandermonde Interpolation</a></li>
+<li class="chapter" data-level="C.1.2" data-path="ch:extras.html"><a href="ch:extras.html#lagrange-interpolation"><i class="fa fa-check"></i><b>C.1.2</b> Lagrange Interpolation</a></li>
+<li class="chapter" data-level="C.1.3" data-path="ch:extras.html"><a href="ch:extras.html#chebyshev-points"><i class="fa fa-check"></i><b>C.1.3</b> Chebyshev Points</a></li>
+</ul></li>
+<li class="chapter" data-level="C.2" data-path="ch:extras.html"><a href="ch:extras.html#sec:mv_newton"><i class="fa fa-check"></i><b>C.2</b> Multi-Dimensional Newton’s Method</a></li>
+<li class="chapter" data-level="C.3" data-path="ch:extras.html"><a href="ch:extras.html#the-method-of-lines"><i class="fa fa-check"></i><b>C.3</b> The Method Of Lines</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Numerical Methods</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ch:algebra" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Algebra</h1>
+<div id="intro-to-numerical-root-finding" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Intro to Numerical Root Finding</h2>
+<blockquote>
+<p>The golden rule of numerical analysis: <em>We compute only when everything else fails.</em></p>
+</blockquote>
+<p>In this chapter we want to solve equations using a computer. The goal of equation solving is to find the value of the independent variable which makes the equation true. These are the sorts of equations that you learned to solve in high school algebra and Pre-Calculus. For a very simple example, <em>solve for <span class="math inline">\(x\)</span> if <span class="math inline">\(x+5 = 2x- 3\)</span>.</em> Or for another example, the equation <span class="math inline">\(x^2+x=2x - 7\)</span> is an equation that could be solved with the quadratic formula. As another example, the equation <span class="math inline">\(\sin(x) = \frac{\sqrt{2}}{2}\)</span> is an equation which can be solved using some knowledge of trigonometry. The topic of Numerical Root Finding really boils down to approximating the solutions to equations <em>without</em> using all of the by-hand techniques that you learned in high school. The down side to everything that we’re about to do is that our answers are only ever going to be approximations. To see a video introduction to this chapter go to <a href="https://youtu.be/W2yL9IVmv2A">https://youtu.be/W2yL9IVmv2A</a>.</p>
+<p>The fact that we will only ever get approximate answers begs the question: <em>why would we want to do numerical algebra if by-hand techniques exist?</em> The answers are relatively simple:</p>
+<ul>
+<li>By-hand algebra is often very challenging, quite time consuming, and error prone. You will find that the numerical techniques are quite elegant, work very quickly, and require very little overhead to actually implement and verify.<br />
+</li>
+<li>Most equations do not lend themselves to by-hand solutions. The techniques that we know from high school algebra solve common, and often quite simplified, problems but when equations arise naturally they are often not <em>nice</em>.</li>
+</ul>
+<p>Let’s first take a look at equations in a more abstract way. Consider the equation <span class="math inline">\(\ell(x) = r(x)\)</span> where <span class="math inline">\(\ell(x)\)</span> and <span class="math inline">\(r(x)\)</span> stand for
+left-hand and right-hand expressions respectively. To begin solving this equation we can first rewrite it by subtracting the right-hand side from the left to get
+<span class="math display">\[ \ell(x) - r(x) = 0.\]</span>
+Hence, we can define a function <span class="math inline">\(f(x)\)</span> as <span class="math inline">\(f(x)=\ell(x)-r(x)\)</span> and observe that <strong>every</strong> equation can be written as:
+<span class="math display">\[ \text{If } f(x) = 0, \text{ find } x. \]</span>
+This gives us a common language for which to frame all of our numerical algorithms.</p>
+<p>For example, if we want to solve the equation <span class="math inline">\(3\sin(x) + 9 = x^2 - \cos(x)\)</span> then this is the same as solving <span class="math inline">\((3\sin(x) + 9 ) - (x^2 - \cos(x)) = 0\)</span>. We illustrate this idea in Figure <a href="ch:algebra.html#fig:root-finding-intro">2.1</a>. You should pause and notice that there is no way that you are going to apply by-hand techniques from algebra to solve this equation … an approximate answer is pretty much our <a href="https://www.youtube.com/watch?v=5cc_h5Ghuj4">only hope</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:root-finding-intro"></span>
+<img src="images/Ch02Sec01_IntroRootFinding.png" alt="A Typical Root Finding Problem" width="90%" />
+<p class="caption">
+Figure 2.1: A Typical Root Finding Problem
+</p>
+</div>
+<!-- ![](images/Ch02Sec01_IntroRootFinding.png) -->
+<p>On the left-hand side of Figure <a href="ch:algebra.html#fig:root-finding-intro">2.1</a> we see the solutions to the equation <span class="math inline">\(3\sin(x) + 9 = x^2 - \cos(x)\)</span>, and on the right-hand side we see the solutions to the equation
+<span class="math display">\[ \left( 3\sin(x)+9 \right) - \left( x^2 - \cos(x) \right) = 0.\]</span>
+From the plots it is apparent that the two equations have the same solutions: <span class="math inline">\(x_1 \approx -2.55\)</span> and <span class="math inline">\(x_2 \approx 2.88\)</span>. Figure <a href="ch:algebra.html#fig:root-finding-intro">2.1</a> should demonstrate what we mean when we say that solving equations of the form <span class="math inline">\(\ell(x) = r(x)\)</span> will give the same answer as solving <span class="math inline">\(f(x) = 0\)</span>. Pause for a moment and closely examine the plots to verify this for yourself.</p>
+<p>We now have one way to view every equation-solving problem. As we’ll see in this chapter, if <span class="math inline">\(f(x)\)</span> has certain properties then different numerical techniques for solving the equation will apply – and some will be much faster and more accurate than others. The following sections give several different techniques for solving equations of the form <span class="math inline">\(f(x) = 0\)</span>. We will start with the simplest techniques to implement and then move to the more powerful techniques that require some ideas from Calculus to understand and analyze. Throughout this chapter we will also work to quantify the amount of error that we make while using these techniques.</p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="the-bisection-method" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> The Bisection Method</h2>
+<div id="intuition-and-implementation" class="section level3" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Intuition and Implementation</h3>
+
+<div class="exercise">
+<p><span id="exr:bisection1" class="exercise"><strong>Exercise 2.1  </strong></span>A friend tells you that she is thinking of a number between 1 and 100. She will allow you multiple guesses with some feedback for where the mystery number falls. How do you systematically go about guessing the mystery number? Is there an optimal strategy?</p>
+<p>For example, the conversation might go like this.</p>
+<ul>
+<li>Sally: I’m thinking of a number between 1 and 100</li>
+<li>Joe: Is it 35?</li>
+<li>Sally: No, but the number is between 35 and 100</li>
+<li>Joe: Is it 99?</li>
+<li>Sally: No, but the number is between 35 and 99</li>
+<li>…</li>
+</ul>
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:bisection2" class="exercise"><strong>Exercise 2.2  </strong></span>Now let’s say that Sally has a continuous function that has a root somewhere between <span class="math inline">\(x=2\)</span> and <span class="math inline">\(x=10\)</span>. Modify your strategy from the number guessing game in the previous problem to narrow down where the root is.
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-71" class="exercise"><strong>Exercise 2.3  </strong></span>Was it necessary to say that Sally’s function was continuous? Could your technique work if the function were not continuous.
+</div>
+<hr />
+<p>Now let’s get to the math. We’ll start the mathematical discussion with a theorem from Calculus.</p>
+
+<div class="theorem">
+<span id="thm:unnamed-chunk-72" class="theorem"><strong>Theorem 2.1  (The Intermediate Value Theorem (IVT))  </strong></span>If <span class="math inline">\(f(x)\)</span> is a continuous function on the closed interval <span class="math inline">\([a,b]\)</span> and
+<span class="math inline">\(y_*\)</span> lies between <span class="math inline">\(f(a)\)</span> and <span class="math inline">\(f(b)\)</span>, then there exists some point
+<span class="math inline">\(x_* \in [a,b]\)</span> such that <span class="math inline">\(f(x_*) = y_*\)</span>.
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-73" class="exercise"><strong>Exercise 2.4  </strong></span>Draw a picture of what the intermediate value theorem says graphically.
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-74" class="exercise"><strong>Exercise 2.5  </strong></span>If <span class="math inline">\(y_*=0\)</span> the Intermediate Value Theorem gives us important information
+about solving equations. What does it tell us?
+</div>
+<hr />
+
+<div class="corollary">
+<span id="cor:unnamed-chunk-75" class="corollary"><strong>Corollary 2.1  </strong></span>If <span class="math inline">\(f(x)\)</span> is a continuous function on the closed interval <span class="math inline">\([a,b]\)</span> and if
+<span class="math inline">\(f(a)\)</span> and <span class="math inline">\(f(b)\)</span> have opposite signs then from the Intermediate Value
+Theorem we know that there exists some point <span class="math inline">\(x_* \in [a,b]\)</span> such that ____.
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-76" class="exercise"><strong>Exercise 2.6  </strong></span>Fill in the blank in the previous corollary and then draw several pictures that indicate why this might be true for continuous functions.
+</div>
+<hr />
+<p>The Intermediate Value Theorem (IVT) and its corollary are <em>existence theorems</em> in the
+sense that they tell us that some point exists. The annoying thing about
+mathematical existence theorems is that they typically don’t tell us
+<em>how</em> to find the point that is guaranteed to exist – annoying. The method that you developed in Exercises <a href="ch:algebra.html#exr:bisection1">2.1</a> and <a href="ch:algebra.html#exr:bisection2">2.2</a> give one possible way to find the root.</p>
+<p>In Exercises <a href="ch:algebra.html#exr:bisection1">2.1</a> and <a href="ch:algebra.html#exr:bisection2">2.2</a> you likely came up with an algorithm such as this:</p>
+<ul>
+<li>Say we know that the root of a continuous function lies between <span class="math inline">\(x=a\)</span> and <span class="math inline">\(x=b\)</span>.</li>
+<li>Guess that the root is at the midpoint <span class="math inline">\(m = \frac{a+b}{2}\)</span>.</li>
+<li>By using the signs of the function narrow the interval which contains the root to either <span class="math inline">\([a,m]\)</span> or <span class="math inline">\([m,b]\)</span>.</li>
+<li>Repeat</li>
+</ul>
+<p>Now we will turn this optimal strategy into computer code that will simply play the game for us. But first we need to pay careful attention to some of the mathematical details.</p>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-77" class="exercise"><strong>Exercise 2.7  </strong></span>Where is the Intermediate Value Theorem used in the root-guessing strategy?
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-78" class="exercise"><strong>Exercise 2.8  </strong></span>Why was it important that the function <span class="math inline">\(f(x)\)</span> is continuous when playing this root-guessing game? Provide a few sketches to demonstrate your answer.
+</div>
+<hr />
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-79" class="exercise"><strong>Exercise 2.9  (The Bisection Method)  </strong></span><strong>Goal:</strong> We want to solve the equation <span class="math inline">\(f(x) = 0\)</span> for <span class="math inline">\(x\)</span> assuming that the solution <span class="math inline">\(x^*\)</span> is in the interval <span class="math inline">\([a,b]\)</span>.</p>
+<p><strong>The Algorithm:</strong> Assume that <span class="math inline">\(f(x)\)</span> is continuous on the closed interval <span class="math inline">\([a,b]\)</span>. To make
+approximations of the solutions to the equation <span class="math inline">\(f(x) = 0\)</span>, do the
+following:</p>
+<ol style="list-style-type: decimal">
+<li><p>Check to see if <span class="math inline">\(f(a)\)</span> and <span class="math inline">\(f(b)\)</span> have opposite signs. You can do
+this taking the product of <span class="math inline">\(f(a)\)</span> and <span class="math inline">\(f(b)\)</span>.</p>
+<ul>
+<li><p>If <span class="math inline">\(f(a)\)</span> and <span class="math inline">\(f(b)\)</span> have different signs then what does the IVT
+tell you?</p></li>
+<li><p>If <span class="math inline">\(f(a)\)</span> and <span class="math inline">\(f(b)\)</span> have the same sign then what does the IVT
+not tell you? What should you do in this case?</p></li>
+<li><p>Why does the product of <span class="math inline">\(f(a)\)</span> and <span class="math inline">\(f(b)\)</span> tell us something
+about the signs of the two numbers?</p></li>
+</ul></li>
+<li><p>Compute the midpoint of the closed interval, <span class="math inline">\(m=\frac{a+b}{2}\)</span>, and
+evaluate <span class="math inline">\(f(m)\)</span>.</p>
+<ul>
+<li><p>Will <span class="math inline">\(m\)</span> always be a better guess of the root than <span class="math inline">\(a\)</span> or <span class="math inline">\(b\)</span>?
+Why?</p></li>
+<li><p>What should you do here if <span class="math inline">\(f(m)\)</span> is really close to zero?</p></li>
+</ul></li>
+<li><p>Compare the signs of <span class="math inline">\(f(a)\)</span> vs <span class="math inline">\(f(m)\)</span> and <span class="math inline">\(f(b)\)</span> vs <span class="math inline">\(f(m)\)</span>.</p>
+<ul>
+<li><p>What do you do if <span class="math inline">\(f(a)\)</span> and <span class="math inline">\(f(m)\)</span> have opposite signs?</p></li>
+<li><p>What do you do if <span class="math inline">\(f(m)\)</span> and <span class="math inline">\(f(b)\)</span> have opposite signs?</p></li>
+</ul></li>
+<li><p>Repeat steps 2 and 3 and stop when <span class="math inline">\(f(m)\)</span> is <em>close enough</em> to zero.</p></li>
+</ol>
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-80" class="exercise"><strong>Exercise 2.10  </strong></span>Draw a picture illustrating what the Bisection Method does to approximate solutions to the equation <span class="math inline">\(f(x) = 0\)</span>.
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-81" class="exercise"><strong>Exercise 2.11  </strong></span>We want to write a Python function for the Bisection Method. Instead of jumping
+straight into the code we should ALWAYS write pseudo-code first. It is
+often helpful to write pseudo-code as comments in your file. Use the
+template below to complete your pseudo-code.
+</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="ch:algebra.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Bisection(f , a , b , tol):</span>
+<span id="cb3-2"><a href="ch:algebra.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The input parameters are</span></span>
+<span id="cb3-3"><a href="ch:algebra.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># f is a Python function or a lambda function</span></span>
+<span id="cb3-4"><a href="ch:algebra.html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># a is the lower guess</span></span>
+<span id="cb3-5"><a href="ch:algebra.html#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># b is the upper guess</span></span>
+<span id="cb3-6"><a href="ch:algebra.html#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># tol is an optional tolerance for the accuracy of the root</span></span>
+<span id="cb3-7"><a href="ch:algebra.html#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="ch:algebra.html#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># if the user doesn&#39;t define a tolerance we need </span></span>
+<span id="cb3-9"><a href="ch:algebra.html#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># code to create a default</span></span>
+<span id="cb3-10"><a href="ch:algebra.html#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="ch:algebra.html#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># check that there is a root between a and b</span></span>
+<span id="cb3-12"><a href="ch:algebra.html#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># if not we should return an error and break the code</span></span>
+<span id="cb3-13"><a href="ch:algebra.html#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="ch:algebra.html#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># next calculate the midpoint m = (a+b)/2</span></span>
+<span id="cb3-15"><a href="ch:algebra.html#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="ch:algebra.html#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># start a while loop</span></span>
+<span id="cb3-17"><a href="ch:algebra.html#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">#   # in the while loop we need an if statement</span></span>
+<span id="cb3-18"><a href="ch:algebra.html#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">#   # if ...</span></span>
+<span id="cb3-19"><a href="ch:algebra.html#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">#   # elif ...</span></span>
+<span id="cb3-20"><a href="ch:algebra.html#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">#   # elif ...</span></span>
+<span id="cb3-21"><a href="ch:algebra.html#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="ch:algebra.html#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co">#   # we should check that the while loop isn&#39;t running away</span></span>
+<span id="cb3-23"><a href="ch:algebra.html#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="ch:algebra.html#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co"># end the while loop</span></span>
+<span id="cb3-25"><a href="ch:algebra.html#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co"># define and return the root</span></span></code></pre></div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-83" class="exercise"><strong>Exercise 2.12  </strong></span>Now use the pseudo-code as structure to complete a function for the
+Bisection Method. Also write test code that verifies that your
+function works properly. Be sure that it can take a Lambda Function as an input along with an initial lower
+bound, an initial upper bound, and an optional error tolerance. The
+output should be only 1 single number: the root.
+</div>
+<hr />
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-84" class="exercise"><strong>Exercise 2.13  </strong></span>Test your Bisection Method code on the following equations.</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(x^2 - 2 = 0\)</span> on <span class="math inline">\(x \in [0,2]\)</span></li>
+<li><span class="math inline">\(\sin(x) + x^2 = 2\ln(x) + 5\)</span> on <span class="math inline">\(x \in [0,5]\)</span> (be careful! make a
+plot first)</li>
+<li><span class="math inline">\((5-x)e^{x}=5\)</span> on <span class="math inline">\(x \in [0,5]\)</span></li>
+</ol>
+</div>
+<hr />
+</div>
+<div id="analysis" class="section level3" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Analysis</h3>
+<p>After we build any root finding algorithm we need to stop and think about how it will perform on new problems. The questions that we typically have for a root-finding algorithm are:</p>
+<ul>
+<li>Will the algorithm always converge to a solution?</li>
+<li>How fast will the algorithm converge to a solution?</li>
+<li>Are there any pitfalls that we should be aware of when using the algorithm?</li>
+</ul>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-85" class="exercise"><strong>Exercise 2.14  </strong></span>Discussion: What must be true in order to use the bisection method?
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-86" class="exercise"><strong>Exercise 2.15  </strong></span>Discussion: Does the bisection method work if the Intermediate Value Theorem does not apply? (Hint: what does it mean for the IVT to “not apply?”)
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-87" class="exercise"><strong>Exercise 2.16  </strong></span>If there is a root of a continuous function <span class="math inline">\(f(x)\)</span> between <span class="math inline">\(x=a\)</span> and <span class="math inline">\(x=b\)</span> will the bisection method always be able to find it? Why / why not?
+</div>
+<hr />
+<p>Next we’ll focus on a deeper mathematical analysis that will allow us to determine exactly how fast the bisection method actually converges to within a pre-set tolerance. Work through the next problem to develop a formula that tells you exactly how many steps the bisection method needs to take in order to stop.</p>
+<hr />
+
+<div class="exercise">
+<p><span id="exr:bisectionerror" class="exercise"><strong>Exercise 2.17  </strong></span>Let <span class="math inline">\(f(x)\)</span> be a continuous function on the interval <span class="math inline">\([a,b]\)</span> and assume
+that <span class="math inline">\(f(a) \cdot f(b) &lt;0\)</span>. A reoccurring theme in Numerical Analysis is to
+approximate some mathematical thing to within some tolerance. For
+example, if we want to approximate the solution to the equation <span class="math inline">\(f(x)=0\)</span>
+to within <span class="math inline">\(\varepsilon\)</span> with the bisection method, we should be able to
+figure out how many steps it will take to achieve that goal.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Let’s say that <span class="math inline">\(a = 3\)</span> and <span class="math inline">\(b = 8\)</span> and <span class="math inline">\(f(a) \cdot f(b) &lt; 0\)</span> for
+some continuous function <span class="math inline">\(f(x)\)</span>. The width of this interval is 5, so
+if we guess that the root is <span class="math inline">\(m=(3+8)/2 = 5.5\)</span> then our error is
+less than <span class="math inline">\(5/2\)</span>. In the more general setting, if there is a root of
+a continuous function in the interval <span class="math inline">\([a,b]\)</span> then how far off could
+the midpoint approximation of the root be? In other words, what is
+the error in using <span class="math inline">\(m=(a+b)/2\)</span> as the approximation of the root?</p></li>
+<li><p>The bisection method cuts the width of the interval down to a
+smaller size at every step. As such, the approximation error gets
+smaller at every step. Fill in the blanks in the following table to
+see the pattern in how the approximation error changes with each
+iteration.</p></li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th>Iteration</th>
+<th>Width of Interval</th>
+<th>Approximation Error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td><span class="math inline">\(|b-a|\)</span></td>
+<td><span class="math inline">\(\frac{|b-a|}{2}\)</span></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td><span class="math inline">\(\frac{|b-a|}{2}\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td><span class="math inline">\(\frac{|b-a|}{2^2}\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(n\)</span></td>
+<td><span class="math inline">\(\frac{|b-a|}{2^n}\)</span></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Now to the key question:<br />
+If we want to approximate the solution to the equation <span class="math inline">\(f(x)=0\)</span> to
+within some tolerance <span class="math inline">\(\varepsilon\)</span> then how many iterations of the
+bisection method do we need to take?<br />
+Hint: Set the <span class="math inline">\(n^{th}\)</span> approximation error from the table equal to
+<span class="math inline">\(\varepsilon\)</span>. What should you solve for from there?</li>
+</ol>
+</div>
+<hr />
+<p>In Exercise <a href="ch:algebra.html#exr:bisectionerror">2.17</a> you actually proved the following theorem.</p>
+
+<div class="theorem">
+<p><span id="thm:bisectionconvergence" class="theorem"><strong>Theorem 2.2  (Convergence Rate of the Bisection Method)  </strong></span>If <span class="math inline">\(f(x)\)</span> is a continuous function with a root in the interval <span class="math inline">\([a,b]\)</span> and if the bisection method is performed to find the root then:</p>
+<ul>
+<li>The error between the actual root and the approximate root will decrease by a factor of 2 at every iteration.</li>
+<li>If we want the approximate root found by the bisection method to be within a tolerance of <span class="math inline">\(\varepsilon\)</span> then
+<span class="math display">\[ \frac{|b-a|}{2^{n+1}} = \varepsilon \]</span>
+where <span class="math inline">\(n\)</span> is the number of iterations that it takes to achieve that tolerance.
+<ul>
+<li>Solving for the number of iterations (<span class="math inline">\(n\)</span>) we get
+<span class="math display">\[ n = \log_2\left( \frac{|b-a|}{\varepsilon} \right) - 1. \]</span></li>
+<li>Rounding the value of <span class="math inline">\(n\)</span> up to the nearest integer gives the number of iterations necessary to approximate the root to a precision less than <span class="math inline">\(\varepsilon\)</span>.</li>
+</ul></li>
+</ul>
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-88" class="exercise"><strong>Exercise 2.18  </strong></span>Is it possible for a given function and a given interval that the
+Bisection Method converges to the root in fewer steps than what you just
+found in the previous problem? Explain.
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-89" class="exercise"><strong>Exercise 2.19  </strong></span>Create a second version of your Python Bisection Method function that uses a <code>for</code>
+loop that takes the optimal number of steps to approximate the root to
+within some tolerance. This should be in contrast to your first version
+which likely used a <code>while</code> loop to decide when to stop. Is there an advantage
+to using one of these version of the Bisection Method over the other?
+</div>
+<hr />
+<p>The final type of analysis that we should do on the bisection method is to make plots of the error between the approximate solution that the bisection method gives you and the exact solution to the equation. This is a bit of a funny thing! Stop and think about this for a second: <em>if you know the exact solution to the equation then why are you solving it numerically in the first place!?!?</em> However, whenever you build an algorithm you need to test it on problems where you actually do know the answer so that you can can be somewhat sure that it isn’t giving you nonsense. Furthermore, analysis like this tells us how fast the algorithm is expected to perform.</p>
+<p>From Theorem <a href="ch:algebra.html#thm:bisectionconvergence">2.2</a> you know that the bisection method cuts the interval in half at every iteration. You proved in Exercise <a href="ch:algebra.html#exr:bisectionerror">2.17</a> that the error given by the bisection method is therefore cut in half at every iteration as well. The following example demonstrate this theorem graphically.</p>
+<hr />
+
+<div class="example">
+<p><span id="exm:bisectionplots" class="example"><strong>Example 2.1  </strong></span>Let’s solve the very simple equation <span class="math inline">\(x^2 - 2 = 0\)</span> for <span class="math inline">\(x\)</span> to get the solution <span class="math inline">\(x = \sqrt{2}\)</span> with the bisection method. Since we know the exact answer we can compare the exact answer to the value of the midpoint given at each iteration and calculate an absolute error:
+<span class="math display">\[ \text{Absolute Error} = | \text{Approximate Solution} - \text{Exact Solution}|. \]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>If we plot the absolute error on the vertical axis and the iteration number on the horizontal axis we get Figure <a href="ch:algebra.html#fig:bisection-exponential-error">2.2</a>. As expected, the absolute error follows an exponentially decreasing trend. Notice that it isn’t a completely smooth curve since we will have some jumps in the accuracy just due to the fact that sometimes the root will be near the midpoint of the interval and sometimes it won’t be.</li>
+</ol>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bisection-exponential-error"></span>
+<img src="images/Ch02Sec02_BisectionError1.png" alt="The evolution of the absolute error when solving the equation $x^2-2=0$ with the bisection method." width="90%" />
+<p class="caption">
+Figure 2.2: The evolution of the absolute error when solving the equation <span class="math inline">\(x^2-2=0\)</span> with the bisection method.
+</p>
+</div>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Without Theorem <a href="ch:algebra.html#thm:bisectionconvergence">2.2</a> it would be rather hard to tell what the exact behavior is in the exponential plot above. We know from Theorem <a href="ch:algebra.html#thm:bisectionconvergence">2.2</a> that the error will divide by 2 at every step, so if we instead plot the base-2 logarithm of the absolute error against the iteration number we should see a linear trend as shown in Figure <a href="ch:algebra.html#fig:bisection-error-1">2.3</a>. There will be times later in this course where we won’t have a nice theorem like Theorem <a href="ch:algebra.html#thm:bisectionconvergence">2.2</a> and instead we will need to deduce the relationship from plots like these.
+<ol style="list-style-type: lower-roman">
+<li>The trend is linear since logarithms and exponential functions are inverses. Hence, applying a logarithm to an exponential will give a linear function.</li>
+<li>The slope of the resulting linear function should be <span class="math inline">\(-1\)</span> in this case since we are dividing by 1 power of 2 each iteration. Visually verify that the slope in the plot below follows this trend (the red dashed line in the plot is shown to help you see the slope).</li>
+</ol></li>
+</ol>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bisection-error-1"></span>
+<img src="images/Ch02Sec02_BisectionError2.png" alt="Iteration number vs the base-2 logarithm of the absolute error.  Notice the slope of $-1$ indicating that the error is divided by 1 factor of 2 at each step of the algorithm." width="75%" />
+<p class="caption">
+Figure 2.3: Iteration number vs the base-2 logarithm of the absolute error. Notice the slope of <span class="math inline">\(-1\)</span> indicating that the error is divided by 1 factor of 2 at each step of the algorithm.
+</p>
+</div>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Another plot that numerical analysts use quite frequently for determining how an algorithm is behaving as it progresses is described by the following bullets:</li>
+</ol>
+<ul>
+<li>The horizontal axis is the absolute error at iteration <span class="math inline">\(k\)</span>.</li>
+<li>The vertical axis is the absolute error at iteration <span class="math inline">\(k+1\)</span>.</li>
+</ul>
+<p>See Figure <a href="ch:algebra.html#fig:bisection-error-2">2.4</a> below, but this type of plot takes a bit of explaining the first time you see it. Start on the right-hand side of the plot where the error is the largest (this will be where the algorithm starts). The coordinates of the first point are interpreted as:
+<span class="math display">\[ (\text{absolute error at step 1} \, , \, \text{absolute error at step 2}). \]</span>
+The coordinates of the second point are interpreted as:
+<span class="math display">\[ (\text{absolute error at step 2} \, , \, \text{absolute error at step 3}). \]</span>
+Etc. Examining the slope of the trend line in this plot shows how we expect the error to progress from step to step. The slope appears to be about <span class="math inline">\(1\)</span> in the plot below and the intercept appears to be about <span class="math inline">\(-1\)</span>. In this case we used a base-2 logarithm for each axis so we have just empirically shown that
+<span class="math display">\[ \log_2(\text{absolute error at step $k+1$}) \approx 1\cdot \log_2(\text{absolute error at step $k$}) -1. \]</span>
+Rearranging the algebra a bit we see that this linear relationship turns into
+<span class="math display">\[ \frac{\text{absolute error at step $k+1$}}{\text{absolute error at step $k$}} \approx \frac{1}{2}. \]</span>
+(You should stop now and do this algebra.) Rearranging a bit more we get
+<span class="math display">\[ (\text{absolute error at step $k+1$}) = \frac{1}{2}(\text{absolute error at step $k$}), \]</span>
+exactly as expected!! Pause and ponder this result for a second – we just empirically verified the convergence rate for the bisection method just by examining the plot below!! That’s what makes these types of plots so powerful!</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bisection-error-2"></span>
+<img src="images/Ch02Sec02_BisectionError3.png" alt="The base-2 logarithm of the absolute error at iteration $k$ vs the base-2 logarithm of the absolute error at iteration $k+1$." width="75%" />
+<p class="caption">
+Figure 2.4: The base-2 logarithm of the absolute error at iteration <span class="math inline">\(k\)</span> vs the base-2 logarithm of the absolute error at iteration <span class="math inline">\(k+1\)</span>.
+</p>
+</div>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>The final plot that we will make in analyzing the bisection method is the same as the plot that we just made but with the base-10 logarithm instead. See Figure <a href="ch:algebra.html#fig:bisection-error-3">2.5</a>. In future algorithms we will not know that the error decreases by a factor of 2 so instead we will just try the base-10 logarithm. We will be able to extract the exact same information from this plot. The primary advantage of this last plot is that we can see how the order of magnitude (the power of 10) for the error progresses as the algorithm steps forward. Notice that for every order of magnitude iteration <span class="math inline">\(k\)</span> decreases, iteration <span class="math inline">\(k+1\)</span> decreases by one order of magnitude. That is, the slope of the best fit line in Figure <a href="ch:algebra.html#fig:bisection-error-3">2.5</a> is approximately <span class="math inline">\(1\)</span>. Discuss what this means about how the error in the bisection method behaves as the iterations progress.</li>
+</ol>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bisection-error-3"></span>
+<img src="images/Ch02Sec02_BisectionError4.png" alt="The base-10 logarithm of the absolute error at iteration $k$ vs the base-10 logarithm of the absolute error at iteration $k+1$." width="75%" />
+<p class="caption">
+Figure 2.5: The base-10 logarithm of the absolute error at iteration <span class="math inline">\(k\)</span> vs the base-10 logarithm of the absolute error at iteration <span class="math inline">\(k+1\)</span>.
+</p>
+</div>
+<hr />
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-90" class="exercise"><strong>Exercise 2.20  </strong></span>Carefully read and discuss all of the details of the previous example and plots. Then create plots similar to this example to solve an equation to which you know the exact solution to. You should see the same basic behavior based on the theorem that you proved in Exercise <a href="ch:algebra.html#exr:bisectionerror">2.17</a>. If you don’t see the same basic behavior then something has gone wrong.</p>
+<dl>
+<dt>Hints:</dt>
+<dd><p>You will need to create a modified bisection method function which returns all of the iterations instead of just the final root.</p>
+</dd>
+<dd><p>If the logarithms of your absolute errors are in a Python list called <code>error</code> then a command like <code>plt.plot(error[:-1],error[1:],'b*')</code> will plot the <span class="math inline">\((k+1)^{st}\)</span> absolute error against the <span class="math inline">\(k^{th}\)</span> absolute error.</p>
+</dd>
+<dd><p>If you want the actual slope and intercept of the trend line then you can use <code>m, b = np.polyfit(error[:-1], error[1:], deg=1)</code>.</p>
+</dd>
+</dl>
+</div>
+<hr />
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div id="the-regula-falsi-method" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> The Regula Falsi Method</h2>
+<div id="intuition-and-implementation-1" class="section level3" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Intuition and Implementation</h3>
+<p>The bisection method is one of many methods for performing root finding
+on a continuous function. The next algorithm takes a slightly different
+approach.</p>
+<hr />
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-91" class="exercise"><strong>Exercise 2.21  </strong></span>In the Bisection Method, we always used the midpoint of the interval as
+the next approximation of the root of the function <span class="math inline">\(f(x)\)</span> on the
+interval <span class="math inline">\([a,b]\)</span>. The three pictures in Figure <a href="ch:algebra.html#fig:regula-falsi-1">2.6</a> show the same function
+with three different choices for <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. Which one will take fewer
+Bisection-steps to find the root? Which one will take more steps? Explain your reasoning.</p>
+(<em>Note: The root in question is marked with the green star and the initial interval is marked with the red circles.</em>)
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:regula-falsi-1"></span>
+<img src="images/Ch02Sec03_MultipleBisections.png" alt="In the bisection method you get to choose the starting interval however you like.  That choice will make an impact on how fast the algorithm converges to the approximate root." width="90%" />
+<p class="caption">
+Figure 2.6: In the bisection method you get to choose the starting interval however you like. That choice will make an impact on how fast the algorithm converges to the approximate root.
+</p>
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-92" class="exercise"><strong>Exercise 2.22  </strong></span>Now let’s modify the Bisection Method approach. Instead of always using
+the midpoint (which as you saw in the previous problem could take a
+little while to converge) let’s draw a line between the endpoints and
+use the <span class="math inline">\(x\)</span>-intercept as the updated guess. If we use this method can we
+improve the speed of convergence on any of the choices of <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>
+for this function? Which one will now likely take the fewest steps to
+converge? Figure <a href="ch:algebra.html#fig:regula-falsi-2">2.7</a> shows three different starting intervals marked in red with the new guess marked as a black X.
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:regula-falsi-2"></span>
+<img src="images/Ch02Sec03_MultipleBisections2.png" alt="In hopes of improving the bisection method we instead propose that we choose the intersection of a line between the endpoints of the interval and the $x$ axis.  The intersection (marked with a black X) would be the next approximation instead of the midpoint of the interval." width="90%" />
+<p class="caption">
+Figure 2.7: In hopes of improving the bisection method we instead propose that we choose the intersection of a line between the endpoints of the interval and the <span class="math inline">\(x\)</span> axis. The intersection (marked with a black X) would be the next approximation instead of the midpoint of the interval.
+</p>
+</div>
+<hr />
+<p>The algorithm that you played with graphically in the previous problem
+is known as the Regula Falsi (false position) algorithm. It is really
+just a minor tweak on the Bisection method. After all, the algorithm is
+still designed to use the Intermediate Value Theorem and to iteratively
+zero in on the root of the function on the given interval. This time, instead of picking the midpoint of the interval that contains the root we draw a line between the function values at either end of the interval and then use the intersection of that line with the <span class="math inline">\(x\)</span> axis as the new approximation of the root. As you can see in Figure <a href="ch:algebra.html#fig:regula-falsi-2">2.7</a> you might actually converge to the approximate root much faster this way (like with the far right plot) or you might gain very little performance (like the far left plot).</p>
+<hr />
+
+<div class="exercise">
+<p><span id="exr:regula-falsi" class="exercise"><strong>Exercise 2.23  (The Regula Falsi Method)  </strong></span>Assume that <span class="math inline">\(f(x)\)</span> is continuous on the interval <span class="math inline">\([a,b]\)</span>. To make iterative
+approximations of the solutions to the equation <span class="math inline">\(f(x) = 0\)</span>, do the
+following:</p>
+<ol style="list-style-type: decimal">
+<li><p>Check to see if <span class="math inline">\(f(a)\)</span> and <span class="math inline">\(f(b)\)</span> have opposite signs so that the
+intermediate value theorem guarantees a root on the interval.</p></li>
+<li><p>We want to write the equation of the line connecting the points
+<span class="math inline">\((a,f(a))\)</span> and <span class="math inline">\((b,f(b))\)</span>.</p>
+<ul>
+<li><p>What is the slope of this line? <span class="math display">\[m = \underline{\hspace{0.4in}}\]</span></p></li>
+<li><p>Using the point-slope form of a line, <span class="math inline">\(y-y_1 = m(x-x_1)\)</span>, what
+is the equation of the line?
+<span class="math display">\[y - \underline{\hspace{0.4in}} = \underline{\hspace{0.4in}} \cdot
+                    \left( x - \underline{\hspace{0.4in}} \right)\]</span></p></li>
+</ul></li>
+<li><p>Find the <span class="math inline">\(x\)</span> intercept of the linear function that you wrote in the
+previous step by setting the <span class="math inline">\(y\)</span> to zero and solving for <span class="math inline">\(x\)</span>. Call
+this point <span class="math inline">\(x=c\)</span>. <span class="math display">\[c = \underline{\hspace{2in}}\]</span>
+<em>Hint: The <span class="math inline">\(x\)</span> intercept occurs with <span class="math inline">\(y=0\)</span>.</em></p></li>
+<li><p>Just as we did with the bisection method, compare the signs of
+<span class="math inline">\(f(a)\)</span> vs <span class="math inline">\(f(c)\)</span> and <span class="math inline">\(f(b)\)</span> vs <span class="math inline">\(f(c)\)</span>. Replace one of the endpoints
+with <span class="math inline">\(c\)</span>. Which one do you replace and why?</p></li>
+<li><p>Repeat steps 2 - 4, and stop when <span class="math inline">\(f(c)\)</span> is <em>close enough</em> to zero.</p></li>
+</ol>
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-93" class="exercise"><strong>Exercise 2.24  </strong></span>Draw a picture of what the Regula Falsi method does to approximate a
+root.
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-94" class="exercise"><strong>Exercise 2.25  </strong></span>Give sketches of functions where the Regula Falsi method will perform
+faster than the Bisection method and visa versa. Justify your thinking
+with several pictures and be prepared to defend your answers.
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:regulafalsi-python" class="exercise"><strong>Exercise 2.26  </strong></span>Create a new Python function called <code>regulafalsi</code> and write comments giving pseudo-code for
+the Regula-Falsi method. Remember that starting with pseudo-code is always the best way to start your coding. Write comments that give direction to the code that you’re about to write. It is a trap to try and write actual code without any pseudo-code to give you a backbone for the function.
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-95" class="exercise"><strong>Exercise 2.27  </strong></span>Use your pseudo-code to create a Python function that implements the Regula
+Falsi method. Write a test script that verifies that your function
+works properly. Your function should accept a Python function or a Lambda function as input along with
+an initial lower bound, an
+initial upper bound, and an optional error tolerance. The output should
+be only 1 single number: the approximate root.
+</div>
+<hr />
+</div>
+<div id="analysis-1" class="section level3" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Analysis</h3>
+<p>In this subsection we will lean on the fact that we developed a bunch of analysis tools in the Analysis section of the Bisection Method. You may want to go back to that section first and take another look at the plots and tools that we built.</p>
+<hr />
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-96" class="exercise"><strong>Exercise 2.28  </strong></span>In this problem we are going to solve the equation <span class="math inline">\(x^2 - 2 = 0\)</span> since we know that the exact answer is <span class="math inline">\(x = \sqrt{2}\)</span>. You will need to start by modifying your <code>regulafalsi</code> function from Exercise <a href="ch:algebra.html#exr:regulafalsi-python">2.26</a> so that it returns all of the iterations instead of just the root.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Start with the interval <span class="math inline">\([0,2]\)</span> and solve the equation <span class="math inline">\(x^2 - 2 = 0\)</span> with the Regula-Falsi method.
+<ol style="list-style-type: lower-roman">
+<li>Find the absolute error between each iteration and the exact answer <span class="math inline">\(x=\sqrt{2}\)</span>.</li>
+<li>Make a plot of the base-10 logarithm of the absolute error at step <span class="math inline">\(k\)</span> against the base-10 logarithm of the absolute error at step <span class="math inline">\(k+1\)</span>. This plot will be very similar to Figure <a href="ch:algebra.html#fig:bisection-error-3">2.5</a>.</li>
+<li>Approximate the slope and intercept of the linear trend in the plot.
+<span class="math display">\[\begin{aligned}
+ &amp; \log_{10}(\text{abs error at step $k+1$}) \\
+ &amp; \qquad = \underline{\hspace{0.4in}} \log_{10}(\text{abs error at step $k+1$}) + \underline{\hspace{0.4in}} \end{aligned}\]</span></li>
+<li>Based on the work that we did in Example <a href="ch:algebra.html#exm:bisectionplots">2.1</a> estimate the rate of convergence of the Regula-Falsi method.</li>
+</ol></li>
+<li>Repeat part (a) with the initial interval <span class="math inline">\([1,2]\)</span>.</li>
+<li>Repeat part (a) with the initial interval <span class="math inline">\([0,1.5]\)</span>.</li>
+</ol>
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-97" class="exercise"><strong>Exercise 2.29  (Bisection vs Regula-Falsi)  </strong></span>Pick a somewhat non-trivial equation where you know the exact answer. Then pick several different starting intervals where you can use both the Bisection Method and the Regula-Falsi Method. Try picking the starting intervals so that some of them converge faster using the Bisection Method and some will converge faster with the Regula-Falsi Method. Show your results with error plots similar to the previous exercise.
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-98" class="exercise"><strong>Exercise 2.30  </strong></span>Is the Regula-Falsi always better than the bisection method at finding an approximate root for a continuous function that has a known root in a closed interval? Why / why not? Discuss.
+</div>
+<hr />
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div id="newtons-method" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Newton’s Method</h2>
+<p>In the previous two sections we studied techniques for solving equations that required very little sophisticated math. The bisection and regula-falsi methods work very well, but as we’ll find in this section we can actually greatly improve the quality of the root-finding algorithms by leveraging some Calculus.</p>
+<div id="intuition-and-implementation-2" class="section level3" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Intuition and Implementation</h3>
+<hr />
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-99" class="exercise"><strong>Exercise 2.31  </strong></span>We will start this section with a reminder from Differential Calculus.<br />
+</p>
+<ol style="list-style-type: lower-alpha">
+<li>If <span class="math inline">\(f(x)\)</span> is a differentiable function at <span class="math inline">\(x=x_0\)</span> then the slope of the tangent line to <span class="math inline">\(f(x)\)</span> at <span class="math inline">\(x=x_0\)</span> is
+<span class="math display">\[ \text{Slope of Tangent Line to $f(x)$ at $x=x_0$ is } m= \underline{\hspace{1in}} \]</span></li>
+<li>From algebra, the point-slope form of a line is
+<span class="math display">\[ y - y_0 = m(x-x_0) \]</span>
+where <span class="math inline">\((x_0, y_0)\)</span> is a point on the line and <span class="math inline">\(m\)</span> is the slope.<br />
+</li>
+<li>If <span class="math inline">\(f(x)\)</span> is a differential function at <span class="math inline">\(x=x_0\)</span> then the equation of the tangent to <span class="math inline">\(f(x)\)</span> at that point is
+<span class="math display">\[ y - \underline{\hspace{1in}} = \underline{\hspace{0.5in}} \cdot \left( x - \underline{\hspace{0.5in}} \right) \]</span></li>
+<li>If we rearrange the answer from part (c) we get
+<span class="math display">\[ y = \underline{\hspace{0.5in}} + \underline{\hspace{0.5in}} \cdot \left( x - \underline{\hspace{0.5in}} \right)  \]</span></li>
+</ol>
+</div>
+<hr />
+<p>The <span class="math inline">\(x\)</span>-intercept of a function is where the function is 0. Root finding is really the process of finding the <span class="math inline">\(x\)</span>-intercept of the function. If the function is complicated (e.g. highly nonlinear or doesn’t lend itself to traditional by-hand techniques) then we can approximate the <span class="math inline">\(x\)</span>-intercept by creating a Taylor Series approximation of the function at a nearby point and then finding the <span class="math inline">\(x\)</span>-intercept of that simpler Taylor Series. The simplest non-trivial Taylor Series is a linear function – a tangent line!</p>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-100" class="exercise"><strong>Exercise 2.32  </strong></span>A tangent line approximation to a function <span class="math inline">\(f(x)\)</span> near a point <span class="math inline">\(x=x_0\)</span> is
+<span class="math display">\[ y = f(x_0) + f&#39;(x_0) \left( x - x_0 \right). \]</span>
+Set <span class="math inline">\(y\)</span> to zero and solve for <span class="math inline">\(x\)</span> to find the <span class="math inline">\(x\)</span>-intercept of the tangent line.
+<span class="math display">\[ \text{$x$-intercept of tangent line is } x = \underline{\hspace{0.5in}} \]</span>
+</div>
+<hr />
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-101" class="exercise"><strong>Exercise 2.33  </strong></span>Now let’s use the computations you did in the previous exercises to look at an algorithm for approximating the root of a function. In the following sequence of plots we do the following algorithm:</p>
+<ul>
+<li>Given a value of <span class="math inline">\(x\)</span> that is a decent approximation of the root, draw a tangent line to <span class="math inline">\(f(x)\)</span> at that point.</li>
+<li>Find where the tangent line intersects the <span class="math inline">\(x\)</span> axis.</li>
+<li>Use this intersection as the new <span class="math inline">\(x\)</span> value and repeat.</li>
+</ul>
+<p>The first step has been shown for you. Take a couple more steps
+graphically. Does the algorithm appear to converge to the root? Do you
+think that this will generally take more or fewer steps than the
+Bisection Method?</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:newton01"></span>
+<img src="images/Ch02Sec04_Newton01.png" alt="Using successive tangent line approximations to find the root of a function" width="90%" />
+<p class="caption">
+Figure 2.8: Using successive tangent line approximations to find the root of a function
+</p>
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-102" class="exercise"><strong>Exercise 2.34  </strong></span>If we had started at <span class="math inline">\(x=0\)</span> in the previous problem what would have
+happened? Would this initial guess have worked to eventually approximate
+the root?
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-103" class="exercise"><strong>Exercise 2.35  </strong></span>Make a complete list of what you must know about the function <span class="math inline">\(f(x)\)</span> for
+the previous algorithm to work?
+</div>
+<hr />
+<p>The algorithm that we just played with is known as Newton’s Method. The
+method was originally proposed by Isaac Newton, and later modified by
+Joseph Raphson, for approximating roots of the equation <span class="math inline">\(f(x)=0\)</span>. It should
+be clear that Newton’s method requires the existence of the first
+derivative so we are asking a bit more of our functions than we were
+before. In Bisection and Regula Falsi we only asked that the functions
+be continuous, now we’re asking that they be differentiable. Stop and think for a moment … why is this a more restrictive thing to ask for of the function <span class="math inline">\(f(x)\)</span>?</p>
+<hr />
+
+<div class="exercise">
+<p><span id="exr:newtons-method" class="exercise"><strong>Exercise 2.36  (Newton’s Method)  </strong></span>The Newton-Raphson method for solving equations can be
+described as follows:</p>
+<ol style="list-style-type: decimal">
+<li><p>Check that <span class="math inline">\(f\)</span> is differentiable on a given domain and find a way to
+guarantee that <span class="math inline">\(f\)</span> has a root on that domain (this step happens by
+hand, not on the computer).</p></li>
+<li><p>Pick a starting point <span class="math inline">\(x_0\)</span> in the domain</p></li>
+<li><p>We want to write the equation of a tangent line to <span class="math inline">\(f\)</span> at the point
+<span class="math inline">\((x_0,  f(x_0))\)</span>.</p>
+<ol style="list-style-type: lower-roman">
+<li><p>What is the slope of the tangent line to the function <span class="math inline">\(f(x)\)</span> at
+the point <span class="math inline">\((x_0, f(x_0))\)</span>?
+<span class="math display">\[m_{tangent} = \underline{\hspace{0.5in}}\]</span></p></li>
+<li><p>Using the point-slope form of a line, <span class="math inline">\(y-y_1 = m(x-x_1)\)</span>, write
+the equation of the tangent line to <span class="math inline">\(f(x)\)</span> at the point
+<span class="math inline">\((x_0, f(x_0))\)</span>.
+<span class="math display">\[y - \underline{\hspace{0.4in}} = \underline{\hspace{0.4in}} \cdot \left(
+              x - \underline{\hspace{0.4in}} \right)\]</span></p></li>
+</ol></li>
+<li><p>Find the <span class="math inline">\(x\)</span> intercept of the equation of the tangent line by
+setting <span class="math inline">\(y=0\)</span> and solving for <span class="math inline">\(x\)</span>. Call this new point <span class="math inline">\(x_1\)</span>.
+<span class="math display">\[x_1 = \underline{\hspace{2in}}\]</span></p></li>
+<li><p>Now iterate the process by replacing the labels “<span class="math inline">\(x_1\)</span>” and “<span class="math inline">\(x_0\)</span>”
+in the previous step with <span class="math inline">\(x_{n+1}\)</span> and <span class="math inline">\(x_{n}\)</span> respectively.
+<span class="math display">\[x_{n+1} = \underline{\hspace{2in}}\]</span></p></li>
+<li><p>Iterate step 5 until <span class="math inline">\(f(x_{n})\)</span> is <em>close</em> to zero.</p></li>
+</ol>
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-104" class="exercise"><strong>Exercise 2.37  </strong></span>Draw a picture of what Newton’s method does graphically.
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-105" class="exercise"><strong>Exercise 2.38  </strong></span>Create a new Python function called <code>newton()</code> and write comments giving pseudo-code for Newton’s method. Your function needs to accept a Python function for <span class="math inline">\(f(x)\)</span>, a Python function for <span class="math inline">\(f&#39;(x)\)</span>, an initial guess, and an optional error tolerance. You don’t need to set aside any code for calculating the derivative.
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-106" class="exercise"><strong>Exercise 2.39  </strong></span>Using your pseudocode from the previous problem, write the full <code>newton()</code> function. The only output should be the solution to the equation that you are solving. Write a test script to verify that your Newton’s method code indeed works.
+</div>
+<hr />
+</div>
+<div id="analysis-2" class="section level3" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Analysis</h3>
+<p>There are several ways in which Newton’s Method will behave unexpectedly
+– or downright fail. Some of these issues can be foreseen by examining
+the Newton iteration formula
+<span class="math display">\[ x_{n+1} = x_n - \frac{f(x_n)}{f&#39;(x_n)}. \]</span>
+Some of the failures that we’ll see are a little more surprising. Also in this section we will look at the convergence rate of Newton’s Method and we will show that we can greatly outperform the Bisection and Regula-Falsi methods.</p>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-107" class="exercise"><strong>Exercise 2.40  </strong></span>There are several reasons why Newton’s method could fail. Work with your
+partners to come up with a list of reasons. Support each of
+your reasons with a sketch or an example.
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-108" class="exercise"><strong>Exercise 2.41  </strong></span>One of the failures of Newton’s Method is that it requires a division by <span class="math inline">\(f&#39;(x_n)\)</span>. If <span class="math inline">\(f&#39;(x_n)\)</span> is zero then the algorithm completely fails. Go back to your Python function and put an <code>if</code> statement in the function that catches instances when Newton’s Method fails in this way.
+</div>
+<hr />
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-109" class="exercise"><strong>Exercise 2.42  </strong></span>An interesting failure can occur with Newton’s Method that you might not
+initially expect. Consider the function <span class="math inline">\(f(x) = x^3 - 2x + 2\)</span>. This
+function has a root near <span class="math inline">\(x=-1.77\)</span>. Fill in the table below and draw the
+tangent lines on the figure for approximating the solution to <span class="math inline">\(f(x) = 0\)</span>
+with a starting point of <span class="math inline">\(x=0\)</span>.</p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(n\)</span></th>
+<th><span class="math inline">\(x_n\)</span></th>
+<th><span class="math inline">\(f(x_n)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(x_0 = 0\)</span></td>
+<td><span class="math inline">\(f(x_0) = 2\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(x_1 = 0 - \frac{f(x_0)}{f&#39;(x_0)} = 1\)</span></td>
+<td><span class="math inline">\(f(x_1) = 1\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(x_2 = 1 - \frac{f(x_1)}{f&#39;(x_1)} =\)</span></td>
+<td><span class="math inline">\(f(x_2) =\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(x_3 =\)</span></td>
+<td><span class="math inline">\(f(x_3) =\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(4\)</span></td>
+<td><span class="math inline">\(x_4 =\)</span></td>
+<td><span class="math inline">\(f(x_4) =\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:newton02"></span>
+<img src="images/Ch02Sec04_Newton02.png" alt="An interesting Newton's Method failure." width="50%" />
+<p class="caption">
+Figure 2.9: An interesting Newton’s Method failure.
+</p>
+</div>
+<hr />
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-110" class="exercise"><strong>Exercise 2.43  </strong></span>Now let’s consider the function <span class="math inline">\(f(x) = \sqrt[3]{x}\)</span>. This function has
+a root <span class="math inline">\(x=0\)</span>. Furthermore, it is differentiable everywhere except at
+<span class="math inline">\(x=0\)</span> since <span class="math display">\[f&#39;(x) = \frac{1}{3} x^{-2/3} = \frac{1}{3x^{2/3}}.\]</span> The
+point of this problem is to show what can happen when the point of
+non-differentiability is precisely the point that you’re looking for.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Fill in the table of iterations starting at <span class="math inline">\(x=-1\)</span>, draw the tangent
+lines on the plot, and make a general observation of what is
+happening with the Newton iterations.</li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(n\)</span></th>
+<th><span class="math inline">\(x_n\)</span></th>
+<th><span class="math inline">\(f(x_n)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(x_0 = -1\)</span></td>
+<td><span class="math inline">\(f(x_0) = -1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(x_1 = -1 - \frac{f(-1)}{f&#39;(-1)} =\)</span></td>
+<td><span class="math inline">\(f(x_1) =\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(2\)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(3\)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(4\)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+</tr>
+</tbody>
+</table>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><p>Now let’s look at the Newton iteration in a bit more detail. Since
+<span class="math inline">\(f(x) = x^{1/3}\)</span> and <span class="math inline">\(f&#39;(x) = \frac{1}{3} x^{-2/3}\)</span> the Newton iteration
+can be simplified as
+<span class="math display">\[x_{n+1} = x_n - \frac{x^{1/3}}{ \left( \frac{1}{3} x^{-2/3} \right)} = x_n - 3 \frac{x^{1/3}}{x^{-2/3}} =
+    x_n - 3x_n = -2x_n.\]</span> What does this tell us about the Newton
+iterations?<br />
+Hint: You should have found the exact same thing in the numerical
+experiment in part (a).</p></li>
+<li><p>Was there anything special about the starting point <span class="math inline">\(x_0=-1\)</span>? Will
+this problem exist for every starting point?</p></li>
+</ol>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:newton03"></span>
+<img src="images/Ch02Sec04_Newton03.png" alt="Another surprising Newton's Method failure." width="50%" />
+<p class="caption">
+Figure 2.10: Another surprising Newton’s Method failure.
+</p>
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-111" class="exercise"><strong>Exercise 2.44  </strong></span>Repeat the previous exercise with the function <span class="math inline">\(f(x) = x^3 - 5x\)</span> with the starting point <span class="math inline">\(x_0 = -1\)</span>.
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:newton04"></span>
+<img src="images/Ch02Sec04_Newton04.png" alt="Another surprising Newton's Method failure." width="50%" />
+<p class="caption">
+Figure 2.11: Another surprising Newton’s Method failure.
+</p>
+</div>
+<hr />
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-112" class="exercise"><strong>Exercise 2.45  </strong></span>Newton’s Method is known to have a
+<em>quadratic convergence rate</em>. This means that there is some constant <span class="math inline">\(C\)</span>
+such that <span class="math display">\[|x_{k+1} - x_*| \leq C |x_{k} - x_*|^2,\]</span> where <span class="math inline">\(x_*\)</span> is the
+root that we’re hunting for.</p>
+<p>The quadratic convergence implies that if we plot the error in the new iterate on the <span class="math inline">\(y\)</span>-axis and
+the error in the old iterate on the <span class="math inline">\(x\)</span> axis of a log-log plot then we
+will see a constant slope of 2. To see this we can take the log (base
+10) of both sides of the previous equation to get
+<span class="math display">\[\log(|x_{k+1} - x_*|) = \log(C) + 2 \log(|x_{k} - x_*|),\]</span>
+and we see that this is a linear function (on a log-log plot) and the slope is 2. We created plots like this back in Example <a href="ch:algebra.html#exm:bisectionplots">2.1</a>.</p>
+<p>We are going to create an error plot just like what we just described.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Pick an equation where you know the solution.<br />
+</li>
+<li>Create the error plot with <span class="math inline">\(|x_{k} - x_*|\)</span> on the horizontal axis and <span class="math inline">\(|x_{k+1} - x_*|\)</span> on the vertical axis</li>
+<li>Demonstrate that this plot has a slope of 2.</li>
+<li>Give a thorough explanation for how to interpret the plot that you just made.</li>
+<li>When solving an equation with Newton’s method Joe found that the absolute error at iteration 1 of the process was <span class="math inline">\(0.15\)</span>. Based on the fact that Newton’s method is a second order method this means that the absolute error at step 2 will be less than or equal to some constant times <span class="math inline">\(0.15^2 = 0.0225\)</span>. Similarly, the error at step 3 will be less than or equal to some scalar multiple of <span class="math inline">\(0.0025^2 = 0.00050625\)</span>. What would Joe’s expected error be bounded by for the fourth iteration, fifth iteration, etc?</li>
+</ol>
+</div>
+<hr />
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div id="the-secant-method" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> The Secant Method</h2>
+<div id="intuition-and-implementation-3" class="section level3" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Intuition and Implementation</h3>
+<p>Newton’s Method has second-order (quadratic) convergence and, as such, will perform faster than the Bisection and Regula-Falsi methods. However, Newton’s Method requires that you have a function and a derivative of that function. The conundrum here is that sometimes the derivative is cumbersome or impossible to obtain but you still want to have the great quadratic convergence exhibited by Newton’s method.</p>
+<p>Recall that Newton’s method is
+<span class="math display">\[x_{n+1} = x_n - \frac{f(x_n)}{f&#39;(x_n)}.\]</span> If we replace <span class="math inline">\(f&#39;(x_n)\)</span> with
+an approximation of the derivative then we may have a method that is
+<em>close</em> to Newton’s method in terms of convergence rate but is less
+troublesome to compute. Any method that replaces the derivative in
+Newton’s method with an approximation is called a <strong>Quasi-Newton
+Method</strong>. The first, and most obvious, way to approximate the derivative is just to
+use the slope of a secant line instead of the slope a tangent line in the Newton iteration. If
+we choose two starting points that are quite close to each other then
+the slope of the secant line through those points will be approximately
+the same as the slope of the tangent line.</p>
+<hr />
+
+<div class="exercise">
+<p><span id="exr:secant-method" class="exercise"><strong>Exercise 2.46  (The Secant Method)  </strong></span>Assume that <span class="math inline">\(f(x)\)</span> is continuous and we wish to solve <span class="math inline">\(f(x) = 0\)</span> for
+<span class="math inline">\(x\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Determine if there is a root <em>near</em> an arbitrary starting point
+<span class="math inline">\(x_0\)</span>. How might you do that?</p></li>
+<li><p>Pick a second starting point <em>near</em> <span class="math inline">\(x_0\)</span>. Call this second starting
+point <span class="math inline">\(x_1\)</span>. Note well that the points <span class="math inline">\(x_0\)</span> and <span class="math inline">\(x_1\)</span> should be
+close to each other. Why?<br />
+(The choice here is different than for the Bisection and Regula
+Falsi methods. We are <em>not</em> choosing the left- and right- sides of an interval surrounding the root.)</p></li>
+<li><p>Use the backward difference
+<span class="math display">\[f&#39;(x_n) \approx \frac{f(x_n) - f(x_{n-1})}{x_n - x_{n-1}}\]</span> to
+approximate the derivative of <span class="math inline">\(f\)</span> at <span class="math inline">\(x_n\)</span>.  Discuss why this approximates the derivative.</p></li>
+<li><p>Perform the Newton-type iteration
+<span class="math display">\[x_{n+1} = x_n - \frac{f(x_n)}{ \left(  \frac{f(x_n) - f(x_{n-1})}{x_n - x_{n-1}}\right)}\]</span>
+until <span class="math inline">\(f(x_n)\)</span> is <em>close enough</em> to zero. Notice that the new
+iteration simplifies to
+<span class="math display">\[x_{n+1} = x_n - \frac{f(x_n)\left( x_n - x_{n-1} \right)}{f(x_n) -
+            f(x_{n-1})}.\]</span></p></li>
+</ol>
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-113" class="exercise"><strong>Exercise 2.47  </strong></span>Draw several pictures showing what the Secant method does pictorially.
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-114" class="exercise"><strong>Exercise 2.48  </strong></span>Write pseudo-code to outline how you will implement the Secant Method.
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-115" class="exercise"><strong>Exercise 2.49  </strong></span>Write Python code for solving equations of the form <span class="math inline">\(f(x) = 0\)</span> with
+the Secant method. Your function should accept a Python function, two starting points, and an optional error tolerance. Also write a test script that clearly shows that your
+code is working.
+</div>
+<hr />
+</div>
+<div id="analysis-3" class="section level3" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> Analysis</h3>
+<p>Up to this point we have done analysis work on the Bisection Method, the Regula-Falsi Method, and Newton’s Method. We have found that the methods are first order, first order, and second order respectively. We end this chapter by doing the same for the Secant Method.</p>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-116" class="exercise"><strong>Exercise 2.50  </strong></span>Choose a non-trivial equation for which you know the solution
+and write a script to empirically determine the convergence rate of the
+Secant method.
+</div>
+<hr />
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div id="exercises-1" class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> Exercises</h2>
+<div id="algorithm-summaries" class="section level3" number="2.6.1">
+<h3><span class="header-section-number">2.6.1</span> Algorithm Summaries</h3>
+<p>The following four problems are meant to have you re-build each of the
+algorithms that we developed in this chapter. Write all of the
+mathematical details completely and clearly. Don’t just write “how” the
+method works, but give all of the mathematical details for “why” it
+works.</p>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-117" class="exercise"><strong>Exercise 2.51  </strong></span>Let <span class="math inline">\(f(x)\)</span> be a continuous function on the interval <span class="math inline">\([a,b]\)</span> where
+<span class="math inline">\(f(a) \cdot f(b) &lt; 0\)</span>. Clearly give all of the mathematical details for how the
+Bisection Method approximates the root of the function <span class="math inline">\(f(x)\)</span> in the
+interval <span class="math inline">\([a,b]\)</span>.
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-118" class="exercise"><strong>Exercise 2.52  </strong></span>Let <span class="math inline">\(f(x)\)</span> be a continuous function on the interval <span class="math inline">\([a,b]\)</span> where
+<span class="math inline">\(f(a) \cdot f(b) &lt;  0\)</span>. Clearly give all of the mathematical details for how the Regula
+Falsi Method approximates the root of the function <span class="math inline">\(f(x)\)</span> in the
+interval <span class="math inline">\([a,b]\)</span>.
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-119" class="exercise"><strong>Exercise 2.53  </strong></span>Let <span class="math inline">\(f(x)\)</span> be a differentiable function with a root <em>near</em> <span class="math inline">\(x=x_0\)</span>.
+Clearly give all of the mathematical details for how Newton’s Method
+approximates the root of the function <span class="math inline">\(f(x)\)</span>.
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-120" class="exercise"><strong>Exercise 2.54  </strong></span>Let <span class="math inline">\(f(x)\)</span> be a continuous function with a root <em>near</em> <span class="math inline">\(x=x_0\)</span>. Clearly
+give all of the mathematical details for how the Secant Method
+approximates the root of the function <span class="math inline">\(f(x)\)</span>.
+</div>
+<hr />
+</div>
+<div id="applying-what-youve-learned-1" class="section level3" number="2.6.2">
+<h3><span class="header-section-number">2.6.2</span> Applying What You’ve Learned</h3>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-121" class="exercise"><strong>Exercise 2.55  </strong></span>How many iterations of the bisection method are necessary to approximate
+<span class="math inline">\(\sqrt{3}\)</span> to within <span class="math inline">\(10^{-3}\)</span>, <span class="math inline">\(10^{-4}\)</span>, …, <span class="math inline">\(10^{-15}\)</span> using the
+initial interval <span class="math inline">\([a,b]=[0,2]\)</span>? See Theorem <a href="ch:algebra.html#thm:bisectionconvergence">2.2</a>.
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-122" class="exercise"><strong>Exercise 2.56  </strong></span>Refer back to Example <a href="ch:algebra.html#exm:bisectionplots">2.1</a> and demonstrate that you get the same results by solving the problem <span class="math inline">\(x^3 - 3 = 0\)</span>. Generate versions of all of the plots from the Example and give thorough descriptions of what you learn from each plot.
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-123" class="exercise"><strong>Exercise 2.57  </strong></span>In this problem you will demonstrate that all of your root finding codes
+work. At the beginning of this chapter we proposed the
+equation solving problem <span class="math display">\[3\sin(x) + 9 = x^2 - \cos(x).\]</span> Write a
+script that calls upon your Bisection, Regula Falsi, Newton, and Secant
+methods one at a time to find the positive solution to this equation.
+Your script needs to output the solutions in a clear and readable way so
+you can tell which answer can from which root finding algorithm.
+</div>
+<hr />
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-124" class="exercise"><strong>Exercise 2.58  </strong></span>A root-finding method has a convergence rate of order <span class="math inline">\(M\)</span> if there is a
+constant <span class="math inline">\(C\)</span> such that <span class="math display">\[|x_{k+1} - x_*| \leq C |x_k - x_*|^M.\]</span> Here,
+<span class="math inline">\(x_*\)</span> is the exact root, <span class="math inline">\(x_k\)</span> is the <span class="math inline">\(k^{th}\)</span> iteration of the root
+finding technique, and <span class="math inline">\(x_{k+1}\)</span> is the <span class="math inline">\((k+1)^{st}\)</span> iteration of the
+root finding technique.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>If we consider the equation <span class="math display">\[|x_{k+1} - x_*| \leq C |x_k - x_*|^M\]</span> and take the logarithm (base 10) of both sides then we get <span class="math display">\[\log\left( |x_{k+1} - x_*| \right) \leq \underline{\hspace{1in}} + \underline{\hspace{1in}}\]</span></p></li>
+<li><p>In part (a) you should have found that the log of new error is a linear function of the log of the old error. What is the slope of this linear function on a log-log plot?</p></li>
+<li><p>In the plots below you will see six different log-log plots of the new error to the old error for different root finding techniques. What is the order of the approximate convergence rate for each of these methods?</p></li>
+</ol>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:thee-error-plots"></span>
+<img src="images/Ch02_ErrorsExercise2.png" alt="Six Error Plots" width="95%" />
+<p class="caption">
+Figure 2.12: Six Error Plots
+</p>
+</div>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>In your own words, what does it mean for a root finding method to have a “first order convergence rate?” “Second order convergence rate?” etc.</li>
+</ol>
+<hr />
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-125" class="exercise"><strong>Exercise 2.59  </strong></span>
+Shelby started using Newton’s method to solve a root-finding problem. To test her code she was using an equation for which she new the solution. Given the starting point the absolute error after one step of Newton’s method was <span class="math inline">\(|x_1 - x_*| = 0.2\)</span>. What is the approximate expected error at step 2? What about at step 3? Step 4? Defend your answers by fully describing your thought process.</p>
+</div>
+<hr />
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-126" class="exercise"><strong>Exercise 2.60  </strong></span>There are MANY other root finding techniques beyond the four that we have studied thus far. We can build these methods using Taylor Series as follows:</p>
+<p>Near <span class="math inline">\(x=x_0\)</span> the function <span class="math inline">\(f(x)\)</span> is approximated by the Taylor Series <span class="math display">\[f(x) \approx y = f(x_0) + \sum_{n=1}^N \frac{f^{(n)}(x_0)}{n!} (x-x_0)^n\]</span>
+where <span class="math inline">\(N\)</span> is a positive integer. In a root-finding algorithm we set <span class="math inline">\(y\)</span> to zero to find the root of the approximation function. The root of this function <em>should</em> be close to the actual root that we’re looking for. Therefore, to find the next iterate we solve the equation <span class="math display">\[0 = f(x_0) + \sum_{n=1}^N \frac{f^{(n)}(x_0)}{n!} (x-x_0)^n\]</span> for <span class="math inline">\(x\)</span>. For example, if <span class="math inline">\(N=1\)</span> then we need to solve <span class="math inline">\(0 = f(x_0) + f&#39;(x_0)(x-x_0)\)</span> for <span class="math inline">\(x\)</span>. In doing so we get <span class="math inline">\(x = x_0 - f(x_0)/f&#39;(x_0)\)</span>. This is exactly Newton’s method. If <span class="math inline">\(N=2\)</span> then we need to solve <span class="math display">\[0 = f(x_0) + f&#39;(x_0)(x-x_0) + \frac{f&#39;&#39;(x_0)}{2!}(x-x_0)^2\]</span> for <span class="math inline">\(x\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Solve for <span class="math inline">\(x\)</span> in the case that <span class="math inline">\(N=2\)</span>. Then write a Python function that implements this root-finding method.</li>
+<li>Demonstrate that your code from part (a) is indeed working by solving several problems where you know the exact solution.</li>
+<li>Show several plots that estimates the order of the method from part (a). That is, create a log-log plot of the successive errors for several different equation-solving problems.</li>
+<li>What are the pro’s and con’s to using this new method?</li>
+</ol>
+</div>
+<hr />
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-127" class="exercise"><strong>Exercise 2.61  </strong></span>(modified from <span class="citation"><a href="#ref-burden" role="doc-biblioref">[5]</a></span>) An object falling vertically through the air is subject to friction due
+to air resistance as well as gravity. The function describing the
+position of such a function is
+<span class="math display">\[s(t) = s_0 - \frac{mg}{k} t + \frac{m^2 g}{k^2}\left( 1- e^{-kt/m} \right),\]</span>
+where <span class="math inline">\(m\)</span> is the mass measured in kg, <span class="math inline">\(g\)</span> is gravity measured in meters
+per second per second, <span class="math inline">\(s_0\)</span> is the initial position measured in meters,
+and <span class="math inline">\(k\)</span> is the coefficient of air resistance.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>What are the units of the parameter <span class="math inline">\(k\)</span>?</p></li>
+<li><p>If <span class="math inline">\(m = 1\)</span>kg, <span class="math inline">\(g=9.8\)</span>m/s<span class="math inline">\(^2\)</span>, <span class="math inline">\(k=0.1\)</span>, and <span class="math inline">\(s_0 = 100\)</span>m how long
+will it take for the object to hit the ground? Find your answer to
+within 0.01 seconds.</p></li>
+<li><p>The value of <span class="math inline">\(k\)</span> depends on the aerodynamics of the object and might
+be challenging to measure. We want to perform a sensitivity analysis
+on your answer to part (b) subject to small measurement errors in
+<span class="math inline">\(k\)</span>. If the value of <span class="math inline">\(k\)</span> is only known to within 10% then what are
+your estimates of when the object will hit the ground?</p></li>
+</ol>
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-128" class="exercise"><strong>Exercise 2.62  </strong></span>Can the Bisection Method, Regula Falsi Method, or Newton’s Method be used to find the roots of the function <span class="math inline">\(f(x) = \cos(x) + 1\)</span>? Explain why or why not for each technique?
+</div>
+<hr />
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-129" class="exercise"><strong>Exercise 2.63  </strong></span>In Single Variable Calculus you studied methods for finding local and
+global extrema of functions. You likely recall that part of the process
+is to set the first derivative to zero and to solve for the independent
+variable (remind yourself why you’re doing this). The trouble with this
+process is that it may be very very challenging to
+solve by hand. This is a perfect place for Newton’s method or any other
+root finding techinque!<br />
+Find the local extrema for the function <span class="math inline">\(f(x) = x^3(x-3)(x-6)^4\)</span> using numerical techniques where appropriate.
+</div>
+<hr />
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-130" class="exercise"><strong>Exercise 2.64  </strong></span>A <em>fixed point</em> of a function <span class="math inline">\(f(x)\)</span> is a point that solves the equation
+<span class="math inline">\(f(x) =  x\)</span>. Fixed points are interesting in iterative processes since fixed
+points don’t change under repeated application of the function <span class="math inline">\(f\)</span>.</p>
+<p>For example, consider the function <span class="math inline">\(f(x) = x^2 - 6\)</span>. The fixed points of
+<span class="math inline">\(f(x)\)</span> can be found by solving the equation <span class="math inline">\(x^2 - 6 = x\)</span> which, when
+simplified algebraically, is <span class="math inline">\(x^2 - x - 6 = 0\)</span>. Factoring the left-hand side gives <span class="math inline">\((x-3)(x+2)=0\)</span> which
+implies that <span class="math inline">\(x=3\)</span> and <span class="math inline">\(x=-2\)</span> are fixed points for this function. That
+is, <span class="math inline">\(f(3) = 3\)</span> and <span class="math inline">\(f(-2) = -2\)</span>. Notice, however, that finding fixed
+points is identical to a root finding problem.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Use a numerical root-finding algorithm to find the fixed points of
+the function <span class="math inline">\(f(x) = x^2 - 6\)</span> on the interval <span class="math inline">\([0,\infty)\)</span>.</p></li>
+<li><p>Find the fixed points of the function <span class="math inline">\(f(x) =  \sqrt{\frac{8}{x+6}}\)</span>.</p></li>
+</ol>
+</div>
+<hr />
+
+<div class="exercise">
+<p><span id="exr:fsolve" class="exercise"><strong>Exercise 2.65  (<code>scipy.optimize.fsolve()</code>)  </strong></span>The <code>scipy</code> library in Python has many built-in numerical analysis routines much like the ones that we have built in this chapter. Of particular interest to the task of root finding is the <code>fsolve</code> command in the <code>scipy.optimize</code> library.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Go to the <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fsolve.html">help documentation</a> for <code>scipy.optimize.fsolve</code> and make yourself familiar with how to use the tool.</li>
+<li>First solve the equation <span class="math inline">\(x\sin(x) - \ln(x) = 0\)</span> for <span class="math inline">\(x\)</span> starting at <span class="math inline">\(x_0 = 3\)</span>.
+<ol style="list-style-type: lower-roman">
+<li>Make a plot of the function on the domain <span class="math inline">\([0,5]\)</span> so you can eyeball the root before using the tool.</li>
+<li>Use the <code>scipy.optimize.fsolve()</code> command to approximate the root.</li>
+<li>Fully explain each of the outputs from the <code>scipy.optimize.fsolve()</code> command. You should use the <code>fsolve()</code> command with <code>full_output=1</code> so you can see all of the solver diagnostics.</li>
+</ol></li>
+<li>Demonstrate how to use <code>fsolve()</code> using any non-trivial nonlinear equation solving problem. Demonstrate what some of the options of <code>fsolve()</code> do.</li>
+<li>The <code>scipy.optimize.fsolve()</code> command can also solve systems of equations (something we have not built algorithms for in this chapter). Consider the system of equations
+<span class="math display">\[ \begin{aligned} x_0 \cos(x_1) &amp;= 4 \\ x_0 x_1 - x_1 &amp;= 5  \end{aligned} \]</span>
+The following Python code allows you to use <code>scipy.optimize.fsolve()</code> so solve this system of nonlinear equations in much the same way as we did in part (b) of this problem. However, be aware that we need to think of <code>x</code> as a vector of <span class="math inline">\(x\)</span>-values. Go through the code below and be sure that you understand every line of code.</li>
+<li>Solve the system of nonlinear equations below using <code>.fsolve()</code>.
+<span class="math display">\[ \begin{aligned} x^2-xy^2 &amp;=2 \\ xy &amp;= 2 \end{aligned} \]</span></li>
+</ol>
+</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="ch:algebra.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-2"><a href="ch:algebra.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> fsolve</span>
+<span id="cb4-3"><a href="ch:algebra.html#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="ch:algebra.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> F(x):</span>
+<span id="cb4-5"><a href="ch:algebra.html#cb4-5" aria-hidden="true" tabindex="-1"></a>  Output <span class="op">=</span> [ x[<span class="dv">0</span>]<span class="op">*</span>np.cos(x[<span class="dv">1</span>])<span class="op">-</span><span class="dv">4</span> ]</span>
+<span id="cb4-6"><a href="ch:algebra.html#cb4-6" aria-hidden="true" tabindex="-1"></a>  Output.append( x[<span class="dv">0</span>]<span class="op">*</span>x[<span class="dv">1</span>] <span class="op">-</span> x[<span class="dv">1</span>] <span class="op">-</span> <span class="dv">5</span> )</span>
+<span id="cb4-7"><a href="ch:algebra.html#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Output</span>
+<span id="cb4-8"><a href="ch:algebra.html#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="ch:algebra.html#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Or alternately we could define the system as a lambda function </span></span>
+<span id="cb4-10"><a href="ch:algebra.html#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># with F = lambda x: [ x[0]*np.cos(x[1])-4 , x[0]*x[1]-x[1]-5 ]</span></span>
+<span id="cb4-11"><a href="ch:algebra.html#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="ch:algebra.html#cb4-12" aria-hidden="true" tabindex="-1"></a>fsolve(F,[<span class="dv">6</span>,<span class="dv">1</span>],full_output<span class="op">=</span><span class="dv">1</span>) </span>
+<span id="cb4-13"><a href="ch:algebra.html#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: full_output gives the solver diagnostics</span></span></code></pre></div>
+<hr />
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div id="projects" class="section level2" number="2.7">
+<h2><span class="header-section-number">2.7</span> Projects</h2>
+<p>At the end of every chapter we propose a few projects related to the content in the preceding chapter(s). In this section we propose one ideas for a project related to numerical algebra. The projects in this book are meant to be open ended, to encourage creative mathematics, to push your coding skills, and to require you to write and communicate your mathematics. Take the time to read Appendix <a href="ch:writing.html#ch:writing">B</a> before you write your final paper.</p>
+<div id="basins-of-attraction" class="section level3" number="2.7.1">
+<h3><span class="header-section-number">2.7.1</span> Basins of Attraction</h3>
+<p>Let <span class="math inline">\(f(x)\)</span> be a differentiable function with several roots. Given a
+starting <span class="math inline">\(x\)</span> value we should be able to apply Newton’s Method to that
+starting point and we will converge to one of the roots (so long as you
+aren’t in one of the special cases discussed earlier in the chapter). It
+stands to reason that starting points <em>near</em> each other should all end
+up at the same root, and for some functions this is true. However, it is
+not true in general.</p>
+<p>A <strong>basin of attraction</strong> for a root is the set of <span class="math inline">\(x\)</span> values that
+converges to that root under Newton iterations. In this problem you will
+produce colored plots showing the basins of attraction for all of the
+following functions. Do this as follows:</p>
+<ul>
+<li><p>Find the actual roots of the function by hand (this should be easy
+on the functions below).</p></li>
+<li><p>Assign each of the roots a different color.</p></li>
+<li><p>Pick a starting point on the <span class="math inline">\(x\)</span> axis and use it to start Newton’s
+Method.</p></li>
+<li><p>Color the starting point according to the root that it converges to.</p></li>
+<li><p>Repeat this process for many many starting points so you get a
+colored picture of the <span class="math inline">\(x\)</span> axis showing where the starting points
+converge to.</p></li>
+</ul>
+<p>The set of points that are all the same color are called the <strong>basin of
+attraction</strong> for the root associated with that color. In Figure <a href="ch:algebra.html#fig:basin">2.13</a> there is an image of a sample basin of attraction image.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:basin"></span>
+<img src="images/Ch02ProjectBasin.png" alt="A sample basin of attraction image for a cubic function." width="60%" />
+<p class="caption">
+Figure 2.13: A sample basin of attraction image for a cubic function.
+</p>
+</div>
+<ol style="list-style-type: decimal">
+<li><p>Create a basin on attraction image for the function <span class="math inline">\(f(x) = (x-4)(x+1)\)</span>.</p></li>
+<li><p>Create a basin on attraction image for the function <span class="math inline">\(g(x) = (x-1)(x+3)\)</span>.</p></li>
+<li><p>Create a basin on attraction image for the function <span class="math inline">\(h(x) = (x-4)(x-1)(x+3)\)</span>.</p></li>
+<li><p>Find a non-trivial single-variable function of your own that has an interesting
+picture of the basins of attraction. In your write up explain why you thought that this was an interesting function in terms of the basins of attraction.</p></li>
+<li><p>Now for the fun part! Consider the function <span class="math inline">\(f(z) = z^3 - 1\)</span> where
+<span class="math inline">\(z\)</span> is a complex variable. That is, <span class="math inline">\(z = x + iy\)</span> where
+<span class="math inline">\(i = \sqrt{-1}\)</span>. From the Fundamental Theorem of Algebra we know
+that there are three roots to this polynomial in the complex plane.
+In fact, we know that the roots are <span class="math inline">\(z_0 =  1\)</span>, <span class="math inline">\(z_1 = \frac{1}{2}\left( -1 + \sqrt{3} i \right)\)</span>, and
+<span class="math inline">\(z_2 =  \frac{1}{2} \left( -1 - \sqrt{3} i \right)\)</span> (you should stop
+now and check that these three numbers are indeed roots of the
+polynomial <span class="math inline">\(f(z)\)</span>). Your job is to build a picture of the basins of
+attraction for the three roots in the complex plane. This picture
+will naturally be two-dimensional since numbers in the complex plane
+are two dimensional (each has a real and an imaginary part). When
+you have your picture give a thorough write up of what you found.</p></li>
+<li><p>Now pick your favorite complex-valued function and build a picture
+of the basins of attraction. Consider this an art project! See if
+you can come up with the prettiest basin of attraction picture.</p></li>
+</ol>
+</div>
+<div id="artillery" class="section level3" number="2.7.2">
+<h3><span class="header-section-number">2.7.2</span> Artillery</h3>
+<p>An artillery officer wishes to fire his cannon on an enemy brigade. He wants to know the angle to aim the cannon in order to strike the target. If we have control over the initial velocity of the cannon ball, <span class="math inline">\(v_0\)</span>, and the angle of the cannon above horizontal, <span class="math inline">\(\theta\)</span>, then the initial vertical component of the velocity of the ball is <span class="math inline">\(v_y(0) = v_0 \sin(\theta)\)</span> and the initial horizontal component of the velocity of the ball is <span class="math inline">\(v_x(0) = v_0 \cos(\theta)\)</span>. In this problem we will assume the following:</p>
+<ul>
+<li>We will neglect air resistance<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> so, for all time, the differential equations <span class="math inline">\(v_y&#39;(t) = -g\)</span> and <span class="math inline">\(v_x&#39;(t) = 0\)</span> must both hold.</li>
+<li>We will assume that the position of the cannon is the origin of a coordinate system so <span class="math inline">\(s_x(0) = 0\)</span> and <span class="math inline">\(s_y(0) = 0\)</span>.</li>
+<li>We will assume that the target is at position <span class="math inline">\((x_*,y_*)\)</span> which you can measure accurately relative to the cannon’s position. The landscape is relatively flat but <span class="math inline">\(y_*\)</span> could be a bit higher or a bit lower than the cannon’s position.</li>
+</ul>
+<p>Use the given information to write a nonlinear equation<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> that relates <span class="math inline">\(x_*\)</span>, <span class="math inline">\(y_*\)</span>, <span class="math inline">\(v_0\)</span>, <span class="math inline">\(g\)</span>, and <span class="math inline">\(\theta\)</span>. We know that <span class="math inline">\(g = 9.8m/s^2\)</span> is constant and we will assume that the initial velocity can be adjusted between <span class="math inline">\(v_0 = 100m/s\)</span> and <span class="math inline">\(v_0 = 150m/s\)</span> in increments of <span class="math inline">\(10m/s\)</span>. If we then are given a fixed value of <span class="math inline">\(x_*\)</span> and <span class="math inline">\(y_*\)</span> the only variable left to find in your equation is <span class="math inline">\(\theta\)</span>. A numerical root-finding technique can then be applied to your equation to approximate the angle. Create several look up tables for the artillery officer so they can be given <span class="math inline">\(v_0\)</span>, <span class="math inline">\(x_*\)</span>, and <span class="math inline">\(y_*\)</span> and then use your tables to look up the angle at which to set the cannon. Be sure to indicate when a target is out of range.</p>
+<p>Write a brief technical report detailing your methods. Support your work with appropriate mathematics and plots. Include your tables at the end of your report.</p>
+
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body">
+<div id="ref-burden" class="csl-entry">
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">R. Burden, D. Faires, and A. Burden, <em>Numerical analysis, 10ed</em>. Cengage Learning, 2016.</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="3">
+<li id="fn3"><p>Strictly speaking, neglecting air resistance is a poor assumption since a cannon ball moves fast enough that friction with the air plays a non-negligible role. However, the assumption of no air resistance greatly simplifies the math and makes this version of the problem more tractable. The second version of the artillery problem in Chapter <a href="ch:odes.html#ch:odes">5</a> will look at the effects of air resistance on the cannon ball.<a href="ch:algebra.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Hint: Symbolically work out the amount of time that it takes until the vertical position of the cannon ball reaches <span class="math inline">\(y_*\)</span>. Then substitute that time into the horizontal position, and set the horizontal position equation to <span class="math inline">\(x_*\)</span>.<a href="ch:algebra.html#fnref4" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ch:intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ch:calculus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
