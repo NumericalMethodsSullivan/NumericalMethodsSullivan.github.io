@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>B Mathematical Writing | Numerical Methods</title>
   <meta name="description" content="Inquiry Based Numerical Methods" />
-  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="B Mathematical Writing | Numerical Methods" />
   <meta property="og:type" content="book" />
@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="Inquiry Based Numerical Methods" />
   
 
-<meta name="author" content="Eric Sullivan" />
+<meta name="author" content="Dr. Eric Sullivan" />
 
 
 
@@ -32,8 +32,9 @@
   
 <link rel="prev" href="ch-python.html"/>
 <link rel="next" href="ch-extras.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<script src="libs/elevate-section-attrs-2.0/elevate-section-attrs.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,13 +50,15 @@
 
 
 
-
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -116,6 +119,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 </head>
 
 <body>
@@ -128,25 +154,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Front Matter</a>
-<ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#resources"><i class="fa fa-check"></i>Resources</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#preface"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#creative-commons"><i class="fa fa-check"></i>Creative Commons</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i>Acknowledgements</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#to-the-student"><i class="fa fa-check"></i>To The Student</a>
-<ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#the-inquiry-based-approach"><i class="fa fa-check"></i>The Inquiry-Based Approach</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#to-the-instructor"><i class="fa fa-check"></i>To the Instructor</a>
-<ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#the-inquiry-based-approach-1"><i class="fa fa-check"></i>The Inquiry-Based Approach</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#the-projects"><i class="fa fa-check"></i>The Projects</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#coding"><i class="fa fa-check"></i>Coding</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pacing"><i class="fa fa-check"></i>Pacing</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#other-considerations"><i class="fa fa-check"></i>Other Considerations:</a></li>
-</ul></li>
-</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Front Matter</a></li>
 <li class="chapter" data-level="1" data-path="ch-intro.html"><a href="ch-intro.html"><i class="fa fa-check"></i><b>1</b> Preliminary Topics</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="ch-intro.html"><a href="ch-intro.html#what-is-numerical-analysis"><i class="fa fa-check"></i><b>1.1</b> What Is Numerical Analysis?</a></li>
@@ -263,6 +271,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.9" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#projects-2"><i class="fa fa-check"></i><b>4.9</b> Projects</a>
 <ul>
 <li class="chapter" data-level="4.9.1" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#the-google-page-rank-algorithm"><i class="fa fa-check"></i><b>4.9.1</b> The Google Page Rank Algorithm</a></li>
+<li class="chapter" data-level="4.9.2" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#alternative-methods-to-solving-a-boldsymbolx-boldsymbolb"><i class="fa fa-check"></i><b>4.9.2</b> Alternative Methods To Solving <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="ch-odes.html"><a href="ch-odes.html"><i class="fa fa-check"></i><b>5</b> Ordinary Differential Equations</a>
@@ -294,22 +303,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="ch-pdes.html"><a href="ch-pdes.html"><i class="fa fa-check"></i><b>6</b> Partial Differential Equations</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="ch-pdes.html"><a href="ch-pdes.html#solutions-to-pdes"><i class="fa fa-check"></i><b>6.1</b> Solutions to PDEs</a></li>
-<li class="chapter" data-level="6.2" data-path="ch-pdes.html"><a href="ch-pdes.html#boundary-conditions"><i class="fa fa-check"></i><b>6.2</b> Boundary Conditions</a></li>
-<li class="chapter" data-level="6.3" data-path="ch-pdes.html"><a href="ch-pdes.html#the-heat-equation"><i class="fa fa-check"></i><b>6.3</b> The Heat Equation</a></li>
-<li class="chapter" data-level="6.4" data-path="ch-pdes.html"><a href="ch-pdes.html#stability-of-the-heat-equation-solution"><i class="fa fa-check"></i><b>6.4</b> Stability of the Heat Equation Solution</a></li>
-<li class="chapter" data-level="6.5" data-path="ch-pdes.html"><a href="ch-pdes.html#the-wave-equation"><i class="fa fa-check"></i><b>6.5</b> The Wave Equation</a></li>
-<li class="chapter" data-level="6.6" data-path="ch-pdes.html"><a href="ch-pdes.html#traveling-waves"><i class="fa fa-check"></i><b>6.6</b> Traveling Waves</a></li>
-<li class="chapter" data-level="6.7" data-path="ch-pdes.html"><a href="ch-pdes.html#the-laplace-and-poisson-equations"><i class="fa fa-check"></i><b>6.7</b> The Laplace and Poisson Equations</a></li>
-<li class="chapter" data-level="6.8" data-path="ch-pdes.html"><a href="ch-pdes.html#exercises-5"><i class="fa fa-check"></i><b>6.8</b> Exercises</a>
+<li class="chapter" data-level="6.1" data-path="ch-pdes.html"><a href="ch-pdes.html#intro-to-pdes"><i class="fa fa-check"></i><b>6.1</b> Intro to PDEs</a></li>
+<li class="chapter" data-level="6.2" data-path="ch-pdes.html"><a href="ch-pdes.html#solutions-to-pdes"><i class="fa fa-check"></i><b>6.2</b> Solutions to PDEs</a></li>
+<li class="chapter" data-level="6.3" data-path="ch-pdes.html"><a href="ch-pdes.html#boundary-conditions"><i class="fa fa-check"></i><b>6.3</b> Boundary Conditions</a></li>
+<li class="chapter" data-level="6.4" data-path="ch-pdes.html"><a href="ch-pdes.html#the-heat-equation"><i class="fa fa-check"></i><b>6.4</b> The Heat Equation</a></li>
+<li class="chapter" data-level="6.5" data-path="ch-pdes.html"><a href="ch-pdes.html#stability-of-the-heat-equation-solution"><i class="fa fa-check"></i><b>6.5</b> Stability of the Heat Equation Solution</a></li>
+<li class="chapter" data-level="6.6" data-path="ch-pdes.html"><a href="ch-pdes.html#the-wave-equation"><i class="fa fa-check"></i><b>6.6</b> The Wave Equation</a></li>
+<li class="chapter" data-level="6.7" data-path="ch-pdes.html"><a href="ch-pdes.html#traveling-waves"><i class="fa fa-check"></i><b>6.7</b> Traveling Waves</a></li>
+<li class="chapter" data-level="6.8" data-path="ch-pdes.html"><a href="ch-pdes.html#the-laplace-and-poisson-equations"><i class="fa fa-check"></i><b>6.8</b> The Laplace and Poisson Equations</a></li>
+<li class="chapter" data-level="6.9" data-path="ch-pdes.html"><a href="ch-pdes.html#exercises-5"><i class="fa fa-check"></i><b>6.9</b> Exercises</a>
 <ul>
-<li class="chapter" data-level="6.8.1" data-path="ch-pdes.html"><a href="ch-pdes.html#algorithm-summaries-4"><i class="fa fa-check"></i><b>6.8.1</b> Algorithm Summaries</a></li>
-<li class="chapter" data-level="6.8.2" data-path="ch-pdes.html"><a href="ch-pdes.html#applying-what-youve-learned-5"><i class="fa fa-check"></i><b>6.8.2</b> Applying What You’ve Learned</a></li>
+<li class="chapter" data-level="6.9.1" data-path="ch-pdes.html"><a href="ch-pdes.html#algorithm-summaries-4"><i class="fa fa-check"></i><b>6.9.1</b> Algorithm Summaries</a></li>
+<li class="chapter" data-level="6.9.2" data-path="ch-pdes.html"><a href="ch-pdes.html#applying-what-youve-learned-5"><i class="fa fa-check"></i><b>6.9.2</b> Applying What You’ve Learned</a></li>
 </ul></li>
-<li class="chapter" data-level="6.9" data-path="ch-pdes.html"><a href="ch-pdes.html#projects-4"><i class="fa fa-check"></i><b>6.9</b> Projects</a>
+<li class="chapter" data-level="6.10" data-path="ch-pdes.html"><a href="ch-pdes.html#projects-4"><i class="fa fa-check"></i><b>6.10</b> Projects</a>
 <ul>
-<li class="chapter" data-level="6.9.1" data-path="ch-pdes.html"><a href="ch-pdes.html#hunting-and-diffusion"><i class="fa fa-check"></i><b>6.9.1</b> Hunting and Diffusion</a></li>
-<li class="chapter" data-level="6.9.2" data-path="ch-pdes.html"><a href="ch-pdes.html#heating-adobe-houses"><i class="fa fa-check"></i><b>6.9.2</b> Heating Adobe Houses</a></li>
+<li class="chapter" data-level="6.10.1" data-path="ch-pdes.html"><a href="ch-pdes.html#hunting-and-diffusion"><i class="fa fa-check"></i><b>6.10.1</b> Hunting and Diffusion</a></li>
+<li class="chapter" data-level="6.10.2" data-path="ch-pdes.html"><a href="ch-pdes.html#heating-adobe-houses"><i class="fa fa-check"></i><b>6.10.2</b> Heating Adobe Houses</a></li>
 </ul></li>
 </ul></li>
 <li class="appendix"><span><b>Appendices</b></span></li>
@@ -376,6 +386,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="C.1.3" data-path="ch-extras.html"><a href="ch-extras.html#chebyshev-points"><i class="fa fa-check"></i><b>C.1.3</b> Chebyshev Points</a></li>
 </ul></li>
 <li class="chapter" data-level="C.2" data-path="ch-extras.html"><a href="ch-extras.html#sec:mv_newton"><i class="fa fa-check"></i><b>C.2</b> Multi-Dimensional Newton’s Method</a></li>
+<li class="chapter" data-level="C.3" data-path="ch-extras.html"><a href="ch-extras.html#the-method-of-lines"><i class="fa fa-check"></i><b>C.3</b> The Method Of Lines</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
@@ -395,10 +406,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ch:writing" class="section level1" number="8">
+<div id="ch-writing" class="section level1" number="8">
 <h1><span class="header-section-number">B</span> Mathematical Writing</h1>
 <p>This appendix is designed to give you helpful hints for the writing
-requires of the homework and the projects. You will find that
+required of the homework and the projects. You will find that
 mathematical writing is different than writing for literature, for
 general consumption, or perhaps other scientific disciplines. Pay
 careful attention to the conventions mentioned in this chapter when you
@@ -466,10 +477,6 @@ approximations, not absolutes, and in mathematics we reserve the word
 </div>
 <div id="tips-for-writing-clear-math" class="section level2" number="8.4">
 <h2><span class="header-section-number">B.4</span> Tips For Writing Clear Math</h2>
-<p>At this point you know just enough mathematics and LaTeX to be
-dangerous. It is time to clean up your act and teach you some of the
-formalities about writing mathematics. The following sections stem from
-a document that I give all of my upper level mathematics students.</p>
 <div id="audience" class="section level3" number="8.4.1">
 <h3><span class="header-section-number">B.4.1</span> Audience</h3>
 <p>The following suggestions will help you to submit properly written
@@ -512,7 +519,7 @@ is correct or not. Keep the level of detail uniform.</p></li>
 details on the side with utmost honesty, going as deep as necessary.
 Decide later how much detail to include.</p></li>
 <li><p>Do not write irrelevant things just to fill paper and show you know
-something.</p></li>
+something. This includes avoiding writing about dead ends and failed attempts.</p></li>
 <li><p>Your argument should flow well. Make the reading easy. Logical and
 intuitive notation matters.</p></li>
 <li><p>Keep in mind what the problem is and make sure you are not doing
@@ -566,7 +573,7 @@ variable <span class="math inline">\(n\)</span> is already a numeric variable so
 like an actual number. The correct versions are:</p>
 <blockquote>
 <p>Suppose the graph has <span class="math inline">\(n\)</span> vertices.<br />
-(Read this as: “Suppose the graph has en vertices”.)<br />
+(Read this as: “Suppose the graph has en vertices.”)<br />
 The piggy bank contains <span class="math inline">\(n\)</span> coins.</p>
 </blockquote>
 <p>You should also avoid sentences like:</p>
@@ -578,7 +585,7 @@ The piggy bank contains <span class="math inline">\(n\)</span> coins.</p>
 <p>From the previous computation we see that <span class="math inline">\(x=5\)</span>.</p>
 </blockquote>
 <p>When you read the equal sign as part of the sentence you realize
-that there is no reason to write “is true”.</p>
+that there is no reason to write “is true.”</p>
 </dd>
 <dt><span class="math inline">\(=\)</span> is NOT a conjunction:</dt>
 <dd><p>The mathematical symbol <span class="math inline">\(=\)</span> is an assertion that the expression on
@@ -611,7 +618,7 @@ be written as:
 </dd>
 <dt>Avoid ambiguity:</dt>
 <dd><p>When in doubt, repeat a noun rather using unspecific words like “it”
-or “the”. For example, in the sentences</p>
+or “the.” For example, in the sentences</p>
 <blockquote>
 <p>Let <span class="math inline">\(G\)</span> be a simple graph with <span class="math inline">\(n \ge 2\)</span> vertices that is not
 complete and let <span class="math inline">\(G\)</span> be its complement. Then it must contain at
@@ -619,7 +626,7 @@ least one edge.</p>
 </blockquote>
 <p>there is some ambiguity about whether “it” refers to <span class="math inline">\(G\)</span> or to the
 complement of <span class="math inline">\(G\)</span>. The second sentence is better written as “Then G
-must contain at least one edge”.</p>
+must contain at least one edge.”</p>
 </dd>
 <dt>Use Proper Notation:</dt>
 <dd><p>There are many notational conventions in mathematics. You need to
@@ -629,7 +636,7 @@ expressions <span class="math display">\[\sum_{i=1}^n \qquad \qquad \int_a^b\]</
 are meaningless. The expressions
 <span class="math display">\[\sum_{i=1}^n a_n \qquad \qquad \int_a^b f(x) dx\]</span> have
 well-understood meanings.</p>
-<p>An another example,
+<p>As another example,
 <span class="math display">\[\underbrace{\lim_{h \to 0} = \frac{2x+h}{2}}_{\text{incorrect!}} = \frac{2x}{2} = x\]</span>
 is incorrect. It should be written
 <span class="math display">\[\lim_{h \to 0} \frac{2x+h}{2} = \frac{2x}{2} = x\]</span></p>
@@ -668,14 +675,14 @@ In this equation we are assuming the domain
 </dd>
 <dt>“Timesing”:</dt>
 <dd><p>The act of multiplication should not be called “timesing” as in “I
-can times 3 and 5 to get 15”. The correct version of this sentence
-is “I can multiply 3 and 5 to get 15”. The phrase “3 times 5 is 15”,
+can times 3 and 5 to get 15.” The correct version of this sentence
+is “I can multiply 3 and 5 to get 15.” The phrase “3 times 5 is 15,”
 on the other hand, is correct and is likely the root of the
 confusion. The mathematical operation being performed is not called
-“timesing”. It seems as if this is an unfortunate carry over from
-childhood when a child hears “3 times 5”, sees “<span class="math inline">\(3  \times 5\)</span>”, and then incorrectly associates the symbol
+“timesing.” It seems as if this is an unfortunate carry over from
+childhood when a child hears “3 times 5,” sees “<span class="math inline">\(3  \times 5\)</span>,” and then incorrectly associates the symbol
 “<span class="math inline">\(\times\)</span>” with the word multiply in the statement “I can multiply 3
-and 5 to get 15”.</p>
+and 5 to get 15.”</p>
 </dd>
 </dl>
 </div>
@@ -734,34 +741,34 @@ probably won’t need this word very often, but it is used like this:
 <dd><p>Equations are solved, whereas functions are evaluated. So you would
 say, “We solved the equation for <span class="math inline">\(x\)</span>,” but you would say “We
 evaluated the function at <span class="math inline">\(x = 5\)</span> and found the function value to be
-<span class="math inline">\(26\)</span>.”</p>
+<span class="math inline">\(26\)</span>.” Avoid the words “plugged in,” such as “we plug 5 in for <span class="math inline">\(x\)</span>,” when you actually mean that you are doing substitution.</p>
 </dd>
 <dt>Add Subtract vs Plus Minus:</dt>
 <dd><p>The word subtract is used when discussing what needs to be done:
 “Subtract two from five to get three.” Add is used similarly: “Add
 two and five to get seven.” Minus is used when reading a
 mathematical equation or expression. For example, the equation
-<span class="math inline">\(x - y = 5\)</span> would be read as “<span class="math inline">\(x\)</span> minus <span class="math inline">\(y\)</span> is equal to five”. Plus
-is used similarly. So the equation <span class="math inline">\(x + y  = 5\)</span> would be read as “<span class="math inline">\(x\)</span> plus <span class="math inline">\(y\)</span> is equal to five”. Some
+<span class="math inline">\(x - y = 5\)</span> would be read as “<span class="math inline">\(x\)</span> minus <span class="math inline">\(y\)</span> is equal to five.” Plus
+is used similarly. So the equation <span class="math inline">\(x + y  = 5\)</span> would be read as “<span class="math inline">\(x\)</span> plus <span class="math inline">\(y\)</span> is equal to five.” Some
 things we don’t say are “We plus 2 and 5 to get 7” or “We minus <span class="math inline">\(x\)</span>
 from both sides of the equation.”</p>
 </dd>
 <dt>Number/Amount:</dt>
 <dd><p>The word number is used when referring to discrete items, such as
-“there were a large number of cougars”, or “there are a large number
-of books on my shelf”. The word amount is used when referring to
+“there were a large number of cougars,” or “there are a large number
+of books on my shelf.” The word amount is used when referring to
 something that might come in a pile, such as “that is a huge amount
-of sand!” or, “I only use a small amount of salt when I cook”.</p>
+of sand!” or, “I only use a small amount of salt when I cook.”</p>
 </dd>
 <dt>Many/Much:</dt>
 <dd><p>These words are used in much the same way as number and amount, with
 many in place of number and much in place of amount. For example, we
-might say, “There aren’t as many cougars here as before”, or “I
+might say, “There aren’t as many cougars here as before,” or “I
 don’t use as much salt as you do.”</p>
 </dd>
 <dt>Fewer/Less:</dt>
 <dd><p>These are the diminutive analogues of many and much. So, “There are
-fewer cougars here than before”, or “You use less salt than I do.”</p>
+fewer cougars here than before,” or “You use less salt than I do.”</p>
 </dd>
 </dl>
 </div>
@@ -771,7 +778,7 @@ fewer cougars here than before”, or “You use less salt than I do.”</p>
 <p>(This section is paraphrased partly from Dianne O’Leary’s book
 <em>Computing in Science &amp; Engineering</em> and partly from Mark Meerschaert’s
 text <em>Mathematical Modeling</em>.)</p>
-<p>In contrast to to classroom exercises, the real world rarely presents us
+<p>In contrast to classroom exercises, the real world rarely presents us
 with a problem in which the data is known with absolute certainty. Some
 parameters (such as <span class="math inline">\(\pi\)</span>) we can define with certainty, and others
 (such as Planck’s constant <span class="math inline">\(\hslash\)</span>) we know to high precision, but
@@ -868,7 +875,7 @@ to an increase in the growth rate we see that <span class="math inline">\(S\)</s
     &amp;= \Big| \frac{k}{k+\delta} \Big| \\
     &amp;= \frac{0.009}{0.009 + 1.96 \times 0.001} = \frac{0.009}{0.01096} \approx
     0.8212\end{aligned}\]</span> To measure sensitivity in doubling time to a
-decrease in the growth rate we see that <span class="math inline">\(S\)</span> is given as<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>
+decrease in the growth rate we see that <span class="math inline">\(S\)</span> is given as<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a>
 <span class="math display">\[\begin{aligned}
     S &amp;= \Big| \left( \frac{T_d(k-\delta)-T_d(k)}{\delta} \right) \cdot \left(
     \frac{k}{T_d(k)} \right) \Big| \\
@@ -891,11 +898,11 @@ intuitively <em>obvious</em>.</p>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="15">
-<li id="fn15"><p>I’m showing you the algebra here, but it really isn’t necessary to
+<ol start="16">
+<li id="fn16"><p>I’m showing you the algebra here, but it really isn’t necessary to
 show this level of routine algebra in your papers. Only show the
 algebra and other calculations that are necessary for the reader to
-understand the work that you’re doing.<a href="ch-writing.html#fnref15" class="footnote-back">↩︎</a></p></li>
+understand the work that you’re doing.<a href="ch-writing.html#fnref16" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -908,7 +915,6 @@ understand the work that you’re doing.<a href="ch-writing.html#fnref15" class=
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -927,6 +933,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -946,7 +953,11 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["_main.pdf"],
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
 }
