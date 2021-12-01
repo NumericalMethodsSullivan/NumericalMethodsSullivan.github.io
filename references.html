@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>References | Numerical Methods</title>
   <meta name="description" content="Inquiry Based Numerical Methods" />
-  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24.4 and GitBook 2.6.7" />
 
   <meta property="og:title" content="References | Numerical Methods" />
   <meta property="og:type" content="book" />
@@ -32,8 +32,9 @@
   
 <link rel="prev" href="ch-extras.html"/>
 
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<script src="libs/elevate-section-attrs-2.0/elevate-section-attrs.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,13 +50,15 @@
 
 
 
-
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -114,6 +117,29 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 </head>
@@ -263,6 +289,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.9" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#projects-2"><i class="fa fa-check"></i><b>4.9</b> Projects</a>
 <ul>
 <li class="chapter" data-level="4.9.1" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#the-google-page-rank-algorithm"><i class="fa fa-check"></i><b>4.9.1</b> The Google Page Rank Algorithm</a></li>
+<li class="chapter" data-level="4.9.2" data-path="ch-linearalgebra.html"><a href="ch-linearalgebra.html#alternative-methods-to-solving-a-boldsymbolx-boldsymbolb"><i class="fa fa-check"></i><b>4.9.2</b> Alternative Methods To Solving <span class="math inline">\(A \boldsymbol{x} = \boldsymbol{b}\)</span></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="ch-odes.html"><a href="ch-odes.html"><i class="fa fa-check"></i><b>5</b> Ordinary Differential Equations</a>
@@ -294,22 +321,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="ch-pdes.html"><a href="ch-pdes.html"><i class="fa fa-check"></i><b>6</b> Partial Differential Equations</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="ch-pdes.html"><a href="ch-pdes.html#solutions-to-pdes"><i class="fa fa-check"></i><b>6.1</b> Solutions to PDEs</a></li>
-<li class="chapter" data-level="6.2" data-path="ch-pdes.html"><a href="ch-pdes.html#boundary-conditions"><i class="fa fa-check"></i><b>6.2</b> Boundary Conditions</a></li>
-<li class="chapter" data-level="6.3" data-path="ch-pdes.html"><a href="ch-pdes.html#the-heat-equation"><i class="fa fa-check"></i><b>6.3</b> The Heat Equation</a></li>
-<li class="chapter" data-level="6.4" data-path="ch-pdes.html"><a href="ch-pdes.html#stability-of-the-heat-equation-solution"><i class="fa fa-check"></i><b>6.4</b> Stability of the Heat Equation Solution</a></li>
-<li class="chapter" data-level="6.5" data-path="ch-pdes.html"><a href="ch-pdes.html#the-wave-equation"><i class="fa fa-check"></i><b>6.5</b> The Wave Equation</a></li>
-<li class="chapter" data-level="6.6" data-path="ch-pdes.html"><a href="ch-pdes.html#traveling-waves"><i class="fa fa-check"></i><b>6.6</b> Traveling Waves</a></li>
-<li class="chapter" data-level="6.7" data-path="ch-pdes.html"><a href="ch-pdes.html#the-laplace-and-poisson-equations"><i class="fa fa-check"></i><b>6.7</b> The Laplace and Poisson Equations</a></li>
-<li class="chapter" data-level="6.8" data-path="ch-pdes.html"><a href="ch-pdes.html#exercises-5"><i class="fa fa-check"></i><b>6.8</b> Exercises</a>
+<li class="chapter" data-level="6.1" data-path="ch-pdes.html"><a href="ch-pdes.html#intro-to-pdes"><i class="fa fa-check"></i><b>6.1</b> Intro to PDEs</a></li>
+<li class="chapter" data-level="6.2" data-path="ch-pdes.html"><a href="ch-pdes.html#solutions-to-pdes"><i class="fa fa-check"></i><b>6.2</b> Solutions to PDEs</a></li>
+<li class="chapter" data-level="6.3" data-path="ch-pdes.html"><a href="ch-pdes.html#boundary-conditions"><i class="fa fa-check"></i><b>6.3</b> Boundary Conditions</a></li>
+<li class="chapter" data-level="6.4" data-path="ch-pdes.html"><a href="ch-pdes.html#the-heat-equation"><i class="fa fa-check"></i><b>6.4</b> The Heat Equation</a></li>
+<li class="chapter" data-level="6.5" data-path="ch-pdes.html"><a href="ch-pdes.html#stability-of-the-heat-equation-solution"><i class="fa fa-check"></i><b>6.5</b> Stability of the Heat Equation Solution</a></li>
+<li class="chapter" data-level="6.6" data-path="ch-pdes.html"><a href="ch-pdes.html#the-wave-equation"><i class="fa fa-check"></i><b>6.6</b> The Wave Equation</a></li>
+<li class="chapter" data-level="6.7" data-path="ch-pdes.html"><a href="ch-pdes.html#traveling-waves"><i class="fa fa-check"></i><b>6.7</b> Traveling Waves</a></li>
+<li class="chapter" data-level="6.8" data-path="ch-pdes.html"><a href="ch-pdes.html#the-laplace-and-poisson-equations"><i class="fa fa-check"></i><b>6.8</b> The Laplace and Poisson Equations</a></li>
+<li class="chapter" data-level="6.9" data-path="ch-pdes.html"><a href="ch-pdes.html#exercises-5"><i class="fa fa-check"></i><b>6.9</b> Exercises</a>
 <ul>
-<li class="chapter" data-level="6.8.1" data-path="ch-pdes.html"><a href="ch-pdes.html#algorithm-summaries-4"><i class="fa fa-check"></i><b>6.8.1</b> Algorithm Summaries</a></li>
-<li class="chapter" data-level="6.8.2" data-path="ch-pdes.html"><a href="ch-pdes.html#applying-what-youve-learned-5"><i class="fa fa-check"></i><b>6.8.2</b> Applying What You’ve Learned</a></li>
+<li class="chapter" data-level="6.9.1" data-path="ch-pdes.html"><a href="ch-pdes.html#algorithm-summaries-4"><i class="fa fa-check"></i><b>6.9.1</b> Algorithm Summaries</a></li>
+<li class="chapter" data-level="6.9.2" data-path="ch-pdes.html"><a href="ch-pdes.html#applying-what-youve-learned-5"><i class="fa fa-check"></i><b>6.9.2</b> Applying What You’ve Learned</a></li>
 </ul></li>
-<li class="chapter" data-level="6.9" data-path="ch-pdes.html"><a href="ch-pdes.html#projects-4"><i class="fa fa-check"></i><b>6.9</b> Projects</a>
+<li class="chapter" data-level="6.10" data-path="ch-pdes.html"><a href="ch-pdes.html#projects-4"><i class="fa fa-check"></i><b>6.10</b> Projects</a>
 <ul>
-<li class="chapter" data-level="6.9.1" data-path="ch-pdes.html"><a href="ch-pdes.html#hunting-and-diffusion"><i class="fa fa-check"></i><b>6.9.1</b> Hunting and Diffusion</a></li>
-<li class="chapter" data-level="6.9.2" data-path="ch-pdes.html"><a href="ch-pdes.html#heating-adobe-houses"><i class="fa fa-check"></i><b>6.9.2</b> Heating Adobe Houses</a></li>
+<li class="chapter" data-level="6.10.1" data-path="ch-pdes.html"><a href="ch-pdes.html#hunting-and-diffusion"><i class="fa fa-check"></i><b>6.10.1</b> Hunting and Diffusion</a></li>
+<li class="chapter" data-level="6.10.2" data-path="ch-pdes.html"><a href="ch-pdes.html#heating-adobe-houses"><i class="fa fa-check"></i><b>6.10.2</b> Heating Adobe Houses</a></li>
 </ul></li>
 </ul></li>
 <li class="appendix"><span><b>Appendices</b></span></li>
@@ -376,6 +404,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="C.1.3" data-path="ch-extras.html"><a href="ch-extras.html#chebyshev-points"><i class="fa fa-check"></i><b>C.1.3</b> Chebyshev Points</a></li>
 </ul></li>
 <li class="chapter" data-level="C.2" data-path="ch-extras.html"><a href="ch-extras.html#sec:mv_newton"><i class="fa fa-check"></i><b>C.2</b> Multi-Dimensional Newton’s Method</a></li>
+<li class="chapter" data-level="C.3" data-path="ch-extras.html"><a href="ch-extras.html#the-method-of-lines"><i class="fa fa-check"></i><b>C.3</b> The Method Of Lines</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
@@ -395,45 +424,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered" number="">
+<div id="references" class="section level1 unnumbered">
 <h1>References</h1>
 
-<div id="refs" class="references">
-<div>
-<p>[1] Y. Xie, “Bookdown: Authoring books and technical documents with r markdown.” <a href="https://bookdown.org/yihui/bookdown/">https://bookdown.org/yihui/bookdown/</a>, 2019.</p>
+<p>In this project you will be turning in a well-formatted and well-written Google Colab
+document. No extra code should be apparent in your document (move it somewhere else).
+All code needs to run without errors. All of the blocks of code should be preceded by
+thorough exposition and clear explanation. Any plots should be well built, clear, and
+tell a complete story. Be sure to discuss all of the tasks completely.</p>
+
+<div id="refs" class="references csl-bib-body">
+<div class="csl-entry">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">Y. Xie, <em>Bookdown: Authoring books and technical documents with r markdown</em>. 2019.</div>
 </div>
-<div>
-<p>[2] M. Boelkins, “Active calculus.” <a href="https://activecalculus.org/single/frontmatter.html">https://activecalculus.org/single/frontmatter.html</a>, 2018.</p>
+<div class="csl-entry">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">M. Boelkins, <span>“Active calculus.”</span> <a href="https://activecalculus.org/single/frontmatter.html">https://activecalculus.org/single/frontmatter.html</a>, 2018.</div>
 </div>
-<div>
-<p>[3] “ProjectEuler.net.” <a href="https://projecteuler.net/">https://projecteuler.net/</a>.</p>
+<div class="csl-entry">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline"><span>“ProjectEuler.net.”</span> <a href="https://projecteuler.net/">https://projecteuler.net/</a>.</div>
 </div>
-<div>
-<p>[4] A. Greenbaum and T. Chartier, <em>Numerical methods: Design, analysis, and computer implementation of algorithms</em>. Princeton University Press, 2012.</p>
+<div class="csl-entry">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">A. Greenbaum and T. Chartier, <em>Numerical methods: Design, analysis, and computer implementation of algorithms</em>. Princeton University Press, 2012.</div>
 </div>
-<div>
-<p>[5] R. Burden, D. Faires, and A. Burden, <em>Numerical analysis, 10ed</em>. Cengage Learning, 2016.</p>
+<div class="csl-entry">
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">R. Burden, D. Faires, and A. Burden, <em>Numerical analysis, 10ed</em>. Cengage Learning, 2016.</div>
 </div>
-<div>
-<p>[6] M. Meerschaert, <em>Mathematical modeling, 4ed</em>. Academic Press, 2013.</p>
+<div class="csl-entry">
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">M. Meerschaert, <em>Mathematical modeling, 4ed</em>. Academic Press, 2013.</div>
 </div>
-<div>
-<p>[7] E. Sullivan, J. Bauer, and E. Wiens, “1-094-s-steepingtea.” Sep. 2017, [Online]. Available: <a href="https://www.simiode.org/resources/4190">https://www.simiode.org/resources/4190</a>.</p>
+<div class="csl-entry">
+<div class="csl-left-margin">[7] </div><div class="csl-right-inline">E. Sullivan, J. Bauer, and E. Wiens, <span>“1-094-s-SteepingTea.”</span> Sep. 2017, [Online]. Available: <a href="https://www.simiode.org/resources/4190">https://www.simiode.org/resources/4190</a>.</div>
 </div>
-<div>
-<p>[8] B. Winkel, “6-004-s-villageepidemic.” Jul. 2016, [Online]. Available: <a href="https://simiode.org/resources/2372">https://simiode.org/resources/2372</a>.</p>
+<div class="csl-entry">
+<div class="csl-left-margin">[8] </div><div class="csl-right-inline">B. Winkel, <span>“6-004-s-VillageEpidemic.”</span> Jul. 2016, [Online]. Available: <a href="https://simiode.org/resources/2372">https://simiode.org/resources/2372</a>.</div>
 </div>
-<div>
-<p>[9] S. Miller, “6-001-s-epidemic.” Jun. 2015, [Online]. Available: <a href="https://simiode.org/resources/572">https://simiode.org/resources/572</a>.</p>
+<div class="csl-entry">
+<div class="csl-left-margin">[9] </div><div class="csl-right-inline">S. Miller, <span>“6-001-s-epidemic.”</span> Jun. 2015, [Online]. Available: <a href="https://simiode.org/resources/572">https://simiode.org/resources/572</a>.</div>
 </div>
-<div>
-<p>[10] R. Spindler, “6-023-s-droneheadinghome.” Apr. 2017, [Online]. Available: <a href="https://www.simiode.org/resources/3476">https://www.simiode.org/resources/3476</a>.</p>
+<div class="csl-entry">
+<div class="csl-left-margin">[10] </div><div class="csl-right-inline">R. Spindler, <span>“6-023-s-DroneHeadingHome.”</span> Apr. 2017, [Online]. Available: <a href="https://www.simiode.org/resources/3476">https://www.simiode.org/resources/3476</a>.</div>
 </div>
-<div>
-<p>[11] K. Spayd and J. Puckett, “9-020-t-heatdiffusion.” Oct. 2019, [Online]. Available: <a href="https://simiode.org/resources/6452">https://simiode.org/resources/6452</a>.</p>
+<div class="csl-entry">
+<div class="csl-left-margin">[11] </div><div class="csl-right-inline">K. Spayd and J. Puckett, <span>“9-020-t-HeatDiffusion.”</span> Oct. 2019, [Online]. Available: <a href="https://simiode.org/resources/6452">https://simiode.org/resources/6452</a>.</div>
 </div>
 </div>
 </div>
+
 
 
 
@@ -470,7 +506,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -489,6 +524,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -508,7 +544,11 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["_main.pdf"],
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
 }
