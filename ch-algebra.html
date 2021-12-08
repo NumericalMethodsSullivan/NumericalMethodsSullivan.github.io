@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 Algebra | Numerical Methods</title>
   <meta name="description" content="Inquiry Based Numerical Methods" />
-  <meta name="generator" content="bookdown 0.24.4 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 Algebra | Numerical Methods" />
   <meta property="og:type" content="book" />
@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="Inquiry Based Numerical Methods" />
   
 
-<meta name="author" content="Eric Sullivan" />
+<meta name="author" content="Dr. Eric Sullivan" />
 
 
 
@@ -390,10 +390,7 @@ div.csl-indent {
 <li class="chapter" data-level="B.4.3" data-path="ch-writing.html"><a href="ch-writing.html#some-writing-tips"><i class="fa fa-check"></i><b>B.4.3</b> Some Writing Tips</a></li>
 <li class="chapter" data-level="B.4.4" data-path="ch-writing.html"><a href="ch-writing.html#mathematical-vocabulary"><i class="fa fa-check"></i><b>B.4.4</b> Mathematical Vocabulary</a></li>
 </ul></li>
-<li class="chapter" data-level="B.5" data-path="ch-writing.html"><a href="ch-writing.html#sensitivity-analysis"><i class="fa fa-check"></i><b>B.5</b> Sensitivity Analysis</a>
-<ul>
-<li class="chapter" data-level="B.5.1" data-path="ch-writing.html"><a href="ch-writing.html#example-of-sensitivity-analysis"><i class="fa fa-check"></i><b>B.5.1</b> Example of Sensitivity Analysis</a></li>
-</ul></li>
+<li class="chapter" data-level="B.5" data-path="ch-writing.html"><a href="ch-writing.html#code-and-mathematical-writing"><i class="fa fa-check"></i><b>B.5</b> Code and Mathematical writing</a></li>
 </ul></li>
 <li class="chapter" data-level="C" data-path="ch-extras.html"><a href="ch-extras.html"><i class="fa fa-check"></i><b>C</b> Optional Material</a>
 <ul>
@@ -489,7 +486,7 @@ From the plots it is apparent that the two equations have the same solutions: <s
 <p>Now let’s get to the math. We’ll start the mathematical discussion with a theorem from Calculus.</p>
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-72" class="theorem"><strong>Theorem 2.1  (The Intermediate Value Theorem (IVT))  </strong></span>If <span class="math inline">\(f(x)\)</span> is a continuous function on the closed interval <span class="math inline">\([a,b]\)</span> and
+<span id="thm:unnamed-chunk-72" class="theorem"><strong>Theorem 2.1  </strong></span>(<strong>The Intermediate Value Theorem (IVT)</strong>) If <span class="math inline">\(f(x)\)</span> is a continuous function on the closed interval <span class="math inline">\([a,b]\)</span> and
 <span class="math inline">\(y_*\)</span> lies between <span class="math inline">\(f(a)\)</span> and <span class="math inline">\(f(b)\)</span>, then there exists some point
 <span class="math inline">\(x_* \in [a,b]\)</span> such that <span class="math inline">\(f(x_*) = y_*\)</span>.
 </div>
@@ -542,7 +539,7 @@ mathematical existence theorems is that they typically don’t tell us
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-79" class="exercise"><strong>Exercise 2.9  (The Bisection Method)  </strong></span><strong>Goal:</strong> We want to solve the equation <span class="math inline">\(f(x) = 0\)</span> for <span class="math inline">\(x\)</span> assuming that the solution <span class="math inline">\(x^*\)</span> is in the interval <span class="math inline">\([a,b]\)</span>.</p>
+<p><span id="exr:unnamed-chunk-79" class="exercise"><strong>Exercise 2.9  </strong></span>(<strong>The Bisection Method</strong>) <strong>Goal:</strong> We want to solve the equation <span class="math inline">\(f(x) = 0\)</span> for <span class="math inline">\(x\)</span> assuming that the solution <span class="math inline">\(x^*\)</span> is in the interval <span class="math inline">\([a,b]\)</span>.</p>
 <p><strong>The Algorithm:</strong> Assume that <span class="math inline">\(f(x)\)</span> is continuous on the closed interval <span class="math inline">\([a,b]\)</span>. To make
 approximations of the solutions to the equation <span class="math inline">\(f(x) = 0\)</span>, do the
 following:</p>
@@ -729,7 +726,7 @@ Hint: Set the <span class="math inline">\(n^{th}\)</span> approximation error fr
 <p>In Exercise <a href="ch-algebra.html#exr:bisectionerror">2.17</a> you actually proved the following theorem.</p>
 
 <div class="theorem">
-<p><span id="thm:bisectionconvergence" class="theorem"><strong>Theorem 2.2  (Convergence Rate of the Bisection Method)  </strong></span>If <span class="math inline">\(f(x)\)</span> is a continuous function with a root in the interval <span class="math inline">\([a,b]\)</span> and if the bisection method is performed to find the root then:</p>
+<p><span id="thm:bisectionconvergence" class="theorem"><strong>Theorem 2.2  </strong></span>(<strong>Convergence Rate of the Bisection Method</strong>) If <span class="math inline">\(f(x)\)</span> is a continuous function with a root in the interval <span class="math inline">\([a,b]\)</span> and if the bisection method is performed to find the root then:</p>
 <ul>
 <li>The error between the actual root and the approximate root will decrease by a factor of 2 at every iteration.</li>
 <li>If we want the approximate root found by the bisection method to be within a tolerance of <span class="math inline">\(\varepsilon\)</span> then
@@ -889,7 +886,7 @@ zero in on the root of the function on the given interval. This time, instead of
 <hr />
 
 <div class="exercise">
-<p><span id="exr:regula-falsi" class="exercise"><strong>Exercise 2.23  (The Regula Falsi Method)  </strong></span>Assume that <span class="math inline">\(f(x)\)</span> is continuous on the interval <span class="math inline">\([a,b]\)</span>. To make iterative
+<p><span id="exr:regula-falsi" class="exercise"><strong>Exercise 2.23  </strong></span>(<strong>The Regula Falsi Method</strong>) Assume that <span class="math inline">\(f(x)\)</span> is continuous on the interval <span class="math inline">\([a,b]\)</span>. To make iterative
 approximations of the solutions to the equation <span class="math inline">\(f(x) = 0\)</span>, do the
 following:</p>
 <ol style="list-style-type: decimal">
@@ -970,7 +967,7 @@ be only 1 single number: the approximate root.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-97" class="exercise"><strong>Exercise 2.29  (Bisection vs Regula-Falsi)  </strong></span>Pick a somewhat non-trivial equation where you know the exact answer. Then pick several different starting intervals where you can use both the Bisection Method and the Regula-Falsi Method. Try picking the starting intervals so that some of them converge faster using the Bisection Method and some will converge faster with the Regula-Falsi Method. Show your results with error plots similar to the previous exercise.
+<span id="exr:unnamed-chunk-97" class="exercise"><strong>Exercise 2.29  </strong></span>(<strong>Bisection vs Regula Falsi</strong>) Pick a somewhat non-trivial equation where you know the exact answer. Then pick several different starting intervals where you can use both the Bisection Method and the Regula-Falsi Method. Try picking the starting intervals so that some of them converge faster using the Bisection Method and some will converge faster with the Regula-Falsi Method. Show your results with error plots similar to the previous exercise.
 </div>
 <hr />
 
@@ -1058,7 +1055,7 @@ be continuous, now we’re asking that they be differentiable. Stop and think fo
 <hr />
 
 <div class="exercise">
-<p><span id="exr:newtons-method" class="exercise"><strong>Exercise 2.36  (Newton’s Method)  </strong></span>The Newton-Raphson method for solving equations can be
+<p><span id="exr:newtons-method" class="exercise"><strong>Exercise 2.36  </strong></span>(<strong>Newton’s Method</strong>) The Newton-Raphson method for solving equations can be
 described as follows:</p>
 <ol style="list-style-type: decimal">
 <li><p>Check that <span class="math inline">\(f\)</span> is differentiable on a given domain and find a way to
@@ -1309,7 +1306,7 @@ the same as the slope of the tangent line.</p>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:secant-method" class="exercise"><strong>Exercise 2.46  (The Secant Method)  </strong></span>Assume that <span class="math inline">\(f(x)\)</span> is continuous and we wish to solve <span class="math inline">\(f(x) = 0\)</span> for
+<p><span id="exr:secant-method" class="exercise"><strong>Exercise 2.46  </strong></span>(<strong>The Secant Method</strong>) Assume that <span class="math inline">\(f(x)\)</span> is continuous and we wish to solve <span class="math inline">\(f(x) = 0\)</span> for
 <span class="math inline">\(x\)</span>.</p>
 <ol style="list-style-type: decimal">
 <li><p>Determine if there is a root <em>near</em> an arbitrary starting point
@@ -1531,7 +1528,7 @@ the function <span class="math inline">\(f(x) = x^2 - 6\)</span> on the interval
 <hr />
 
 <div class="exercise">
-<p><span id="exr:fsolve" class="exercise"><strong>Exercise 2.65  (<code>scipy.optimize.fsolve()</code>)  </strong></span>The <code>scipy</code> library in Python has many built-in numerical analysis routines much like the ones that we have built in this chapter. Of particular interest to the task of root finding is the <code>fsolve</code> command in the <code>scipy.optimize</code> library.</p>
+<p><span id="exr:fsolve" class="exercise"><strong>Exercise 2.65  </strong></span>(<code>scipy.optimize.fsolve()</code>) The <code>scipy</code> library in Python has many built-in numerical analysis routines much like the ones that we have built in this chapter. Of particular interest to the task of root finding is the <code>fsolve</code> command in the <code>scipy.optimize</code> library.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Go to the <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fsolve.html">help documentation</a> for <code>scipy.optimize.fsolve</code> and make yourself familiar with how to use the tool.</li>
 <li>First solve the equation <span class="math inline">\(x\sin(x) - \ln(x) = 0\)</span> for <span class="math inline">\(x\)</span> starting at <span class="math inline">\(x_0 = 3\)</span>.
@@ -1567,7 +1564,7 @@ The following Python code allows you to use <code>scipy.optimize.fsolve()</code>
 </div>
 <div id="projects" class="section level2" number="2.7">
 <h2><span class="header-section-number">2.7</span> Projects</h2>
-<p>At the end of every chapter we propose a few projects related to the content in the preceding chapter(s). In this section we propose one ideas for a project related to numerical algebra. The projects in this book are meant to be open ended, to encourage creative mathematics, to push your coding skills, and to require you to write and communicate your mathematics. Take the time to read Appendix <a href="#ch:writing"><strong>??</strong></a> before you write your final paper.</p>
+<p>At the end of every chapter we propose a few projects related to the content in the preceding chapter(s). In this section we propose one ideas for a project related to numerical algebra. The projects in this book are meant to be open ended, to encourage creative mathematics, to push your coding skills, and to require you to write and communicate your mathematics. Take the time to read Appendix <a href="ch-writing.html#ch-writing">B</a> before you write your final paper.</p>
 <div id="basins-of-attraction" class="section level3" number="2.7.1">
 <h3><span class="header-section-number">2.7.1</span> Basins of Attraction</h3>
 <p>Let <span class="math inline">\(f(x)\)</span> be a differentiable function with several roots. Given a
@@ -1646,7 +1643,7 @@ you can come up with the prettiest basin of attraction picture.</p></li>
 <div class="footnotes">
 <hr />
 <ol start="3">
-<li id="fn3"><p>Strictly speaking, neglecting air resistance is a poor assumption since a cannon ball moves fast enough that friction with the air plays a non-negligible role. However, the assumption of no air resistance greatly simplifies the math and makes this version of the problem more tractable. The second version of the artillery problem in Chapter <a href="#ch:odes"><strong>??</strong></a> will look at the effects of air resistance on the cannon ball.<a href="ch-algebra.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Strictly speaking, neglecting air resistance is a poor assumption since a cannon ball moves fast enough that friction with the air plays a non-negligible role. However, the assumption of no air resistance greatly simplifies the math and makes this version of the problem more tractable. The second version of the artillery problem in Chapter <a href="ch-odes.html#ch-odes">5</a> will look at the effects of air resistance on the cannon ball.<a href="ch-algebra.html#fnref3" class="footnote-back">↩︎</a></p></li>
 <li id="fn4"><p>Hint: Symbolically work out the amount of time that it takes until the vertical position of the cannon ball reaches <span class="math inline">\(y_*\)</span>. Then substitute that time into the horizontal position, and set the horizontal position equation to <span class="math inline">\(x_*\)</span>.<a href="ch-algebra.html#fnref4" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
@@ -1698,13 +1695,14 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["_main.pdf"],
 "search": {
 "engine": "fuse",
 "options": null
 },
 "toc": {
-"collapse": "section"
+"collapse": "section",
+"toc_depth": 5
 }
 });
 });

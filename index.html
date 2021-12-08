@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Numerical Methods</title>
   <meta name="description" content="Inquiry Based Numerical Methods" />
-  <meta name="generator" content="bookdown 0.24.4 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Numerical Methods" />
   <meta property="og:type" content="book" />
@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="Inquiry Based Numerical Methods" />
   
 
-<meta name="author" content="Eric Sullivan" />
+<meta name="author" content="Dr. Eric Sullivan" />
 
 
 
@@ -390,10 +390,7 @@ div.csl-indent {
 <li class="chapter" data-level="B.4.3" data-path="ch-writing.html"><a href="ch-writing.html#some-writing-tips"><i class="fa fa-check"></i><b>B.4.3</b> Some Writing Tips</a></li>
 <li class="chapter" data-level="B.4.4" data-path="ch-writing.html"><a href="ch-writing.html#mathematical-vocabulary"><i class="fa fa-check"></i><b>B.4.4</b> Mathematical Vocabulary</a></li>
 </ul></li>
-<li class="chapter" data-level="B.5" data-path="ch-writing.html"><a href="ch-writing.html#sensitivity-analysis"><i class="fa fa-check"></i><b>B.5</b> Sensitivity Analysis</a>
-<ul>
-<li class="chapter" data-level="B.5.1" data-path="ch-writing.html"><a href="ch-writing.html#example-of-sensitivity-analysis"><i class="fa fa-check"></i><b>B.5.1</b> Example of Sensitivity Analysis</a></li>
-</ul></li>
+<li class="chapter" data-level="B.5" data-path="ch-writing.html"><a href="ch-writing.html#code-and-mathematical-writing"><i class="fa fa-check"></i><b>B.5</b> Code and Mathematical writing</a></li>
 </ul></li>
 <li class="chapter" data-level="C" data-path="ch-extras.html"><a href="ch-extras.html"><i class="fa fa-check"></i><b>C</b> Optional Material</a>
 <ul>
@@ -428,8 +425,8 @@ div.csl-indent {
 <h1 class="title">Numerical Methods</h1>
 <h2 class="subtitle"><em><p>An Inquiry-Based Approach With Python
 <img src="images/bookcoverimage.png" /></p></em></h2>
-<p class="author"><em>Eric Sullivan</em></p>
-<p class="date"><em>Last Updated: 2021-12-01</em></p>
+<p class="author"><em>Dr. Eric Sullivan</em></p>
+<p class="date"><em>Last Updated: 2021-12-08</em></p>
 </div>
 <div id="front-matter" class="section level1 unnumbered">
 <h1>Front Matter</h1>
@@ -587,18 +584,18 @@ the semester. Each of the projects is designed to give the students an
 open-ended task where they can show off their coding skills and, more
 importantly, build their mathematical communication skills. Projects can
 be done in groups or individually depending on the background and group
-dynamics of your class. Appendix <a href="#ch:writing"><strong>??</strong></a> contains several tips for how to tackle the writing in the projects.</p>
+dynamics of your class. Appendix <a href="ch-writing.html#ch-writing">B</a> contains several tips for how to tackle the writing in the projects.</p>
 </div>
 <div id="coding" class="section level3 unnumbered">
 <h3>Coding</h3>
 <p>I expect that my students come with some coding experience from other
 mathematics or computer science classes. With that, I leave the coding
-help as an appendix (see Appendix <a href="#ch:python"><strong>??</strong></a>) and only point the students there for refreshers. If your students need a more thorough ramp up to the coding then you might want to start the course with Appendix <a href="#ch:python"><strong>??</strong></a> to get the students up to speed. I expect the
+help as an appendix (see Appendix <a href="ch-python.html#ch-python">A</a>) and only point the students there for refreshers. If your students need a more thorough ramp up to the coding then you might want to start the course with Appendix <a href="ch-python.html#ch-python">A</a> to get the students up to speed. I expect the
 students to do most of the coding the in the class, but occasionally we
 will code algorithms together (especially earlier in the semester when
 the students are still getting their feet underneath them).</p>
 <p>I encourage students to learn Python. It is a general purpose language that does extremely well with numerical computing when paired with <code>numpy</code> and
-<code>matplotlib</code>. Appendix <a href="#ch:python"><strong>??</strong></a> has several helpful sections for getting students up to speed with Python.</p>
+<code>matplotlib</code>. Appendix <a href="ch-python.html#ch-python">A</a> has several helpful sections for getting students up to speed with Python.</p>
 <p>I encourage you to consider having your students code in Jupyter
 Notebooks or Google CoLab. The advantage is that students can mix their writing and their code in a seamless way. This allows for an iterative approach to coding and writing and gives the students the tools to explain what they’re doing as they code.</p>
 </div>
@@ -613,15 +610,15 @@ Notebooks or Google CoLab. The advantage is that students can mix their writing 
 <li>Chapter 5 - 3 weeks</li>
 <li>Chapter 6 - 3 weeks</li>
 </ul>
-<p>If you are starting with Appendix <a href="#ch:python"><strong>??</strong></a> then you will likely lose time out of the later chapters. Typically I trim Chapters <a href="#ch:linearalgebra"><strong>??</strong></a> and <a href="#ch:pdes"><strong>??</strong></a> a bit short – perhaps not covering the power method, traveling wave equations, and the Laplace equation. This buys a bit more time to teach programming at the beginning of the course.</p>
+<p>If you are starting with Appendix <a href="ch-python.html#ch-python">A</a> then you will likely lose time out of the later chapters. Typically I trim Chapters <a href="ch-linearalgebra.html#ch-linearalgebra">4</a> and <a href="ch-pdes.html#ch-pdes">6</a> a bit short – perhaps not covering the power method, traveling wave equations, and the Laplace equation. This buys a bit more time to teach programming at the beginning of the course.</p>
 </div>
 <div id="other-considerations" class="section level3 unnumbered">
 <h3>Other Considerations:</h3>
 <dl>
 <dt>Projects:</dt>
-<dd><p>I typically assign a project after Chapter <a href="#ch:algebra"><strong>??</strong></a> or <a href="#ch:calculus"><strong>??</strong></a>, a second project
-after Chapter <a href="#ch:linearalgebra"><strong>??</strong></a>, and a third project after Chapter <a href="#ch:odes"><strong>??</strong></a>. The fourth
-project, if time allows, typically comes from Chapter <a href="#ch:pdes"><strong>??</strong></a>. I typically
+<dd><p>I typically assign a project after Chapter <a href="ch-algebra.html#ch-algebra">2</a> or <a href="ch-calculus.html#ch-calculus">3</a>, a second project
+after Chapter <a href="ch-linearalgebra.html#ch-linearalgebra">4</a>, and a third project after Chapter <a href="ch-odes.html#ch-odes">5</a>. The fourth
+project, if time allows, typically comes from Chapter <a href="ch-pdes.html#ch-pdes">6</a>. I typically
 dedicate two class days to the first project and then one class day
 to each subsequent project. For the final project I typically have
 students present their work so this takes a day or two out of our
@@ -631,10 +628,10 @@ class time.</p>
 <dd><p>I typically assign one collection of exercises per week. Students
 are to work on these outside of class, but in some cases it is worth
 taking class time to let students work in teams. Of particular note
-are the coding exercises in Chapter <a href="#ch:intro"><strong>??</strong></a>. If your students need practice with coding
+are the coding exercises in Chapter <a href="ch-intro.html#ch-intro">1</a>. If your students need practice with coding
 then it might be worthwhile to mix these exercises in through
 several assignments and perhaps during a few class periods. I have
-also taken extra class time with the exercises in Chapter <a href="#ch:odes"><strong>??</strong></a> to
+also taken extra class time with the exercises in Chapter <a href="ch-odes.html#ch-odes">5</a> to
 let the students work in pairs on the modeling aspects of some of
 the problems.</p>
 </dd>
@@ -712,13 +709,14 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["_main.pdf"],
 "search": {
 "engine": "fuse",
 "options": null
 },
 "toc": {
-"collapse": "section"
+"collapse": "section",
+"toc_depth": 5
 }
 });
 });

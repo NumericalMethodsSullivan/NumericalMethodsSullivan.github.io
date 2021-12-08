@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 Calculus | Numerical Methods</title>
   <meta name="description" content="Inquiry Based Numerical Methods" />
-  <meta name="generator" content="bookdown 0.24.4 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Calculus | Numerical Methods" />
   <meta property="og:type" content="book" />
@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="Inquiry Based Numerical Methods" />
   
 
-<meta name="author" content="Eric Sullivan" />
+<meta name="author" content="Dr. Eric Sullivan" />
 
 
 
@@ -390,10 +390,7 @@ div.csl-indent {
 <li class="chapter" data-level="B.4.3" data-path="ch-writing.html"><a href="ch-writing.html#some-writing-tips"><i class="fa fa-check"></i><b>B.4.3</b> Some Writing Tips</a></li>
 <li class="chapter" data-level="B.4.4" data-path="ch-writing.html"><a href="ch-writing.html#mathematical-vocabulary"><i class="fa fa-check"></i><b>B.4.4</b> Mathematical Vocabulary</a></li>
 </ul></li>
-<li class="chapter" data-level="B.5" data-path="ch-writing.html"><a href="ch-writing.html#sensitivity-analysis"><i class="fa fa-check"></i><b>B.5</b> Sensitivity Analysis</a>
-<ul>
-<li class="chapter" data-level="B.5.1" data-path="ch-writing.html"><a href="ch-writing.html#example-of-sensitivity-analysis"><i class="fa fa-check"></i><b>B.5.1</b> Example of Sensitivity Analysis</a></li>
-</ul></li>
+<li class="chapter" data-level="B.5" data-path="ch-writing.html"><a href="ch-writing.html#code-and-mathematical-writing"><i class="fa fa-check"></i><b>B.5</b> Code and Mathematical writing</a></li>
 </ul></li>
 <li class="chapter" data-level="C" data-path="ch-extras.html"><a href="ch-extras.html"><i class="fa fa-check"></i><b>C</b> Optional Material</a>
 <ul>
@@ -642,14 +639,14 @@ What is the power of <span class="math inline">\(h\)</span> in the first term of
 <hr />
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-143" class="definition"><strong>Definition 3.1  (Order of a Numerical Differentiation Scheme)  </strong></span>The <strong>order</strong> of a numerical derivative is the power of the step size in
+<p><span id="def:unnamed-chunk-143" class="definition"><strong>Definition 3.1  </strong></span>(<strong>Order of a Numerical Differentiation Scheme</strong>) The <strong>order</strong> of a numerical derivative is the power of the step size in
 the first term of the remainder of the rearranged Taylor Series. For example, a first order method will have “<span class="math inline">\(h^1\)</span>” in the first term of the remainder. A second order method will have “<span class="math inline">\(h^2\)</span>” in the first term of the remainder. Etc.</p>
 The error that you make by dropping the remainder is proportional to the power of <span class="math inline">\(h\)</span> in the first term of the remainder. Hence, the <strong>order</strong> of a numerical differentiation scheme tells you how to quantify the amount of error that you are making by using that approximation scheme.
 </div>
 <hr />
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-144" class="definition"><strong>Definition 3.2  (Big O Notation)  </strong></span>We say that the error in a differentiation scheme is <span class="math inline">\(\mathcal{O}(h)\)</span> (read: “big O of <span class="math inline">\(h\)</span>”),
+<p><span id="def:unnamed-chunk-144" class="definition"><strong>Definition 3.2  </strong></span>(<strong>Big O Notation</strong>) We say that the error in a differentiation scheme is <span class="math inline">\(\mathcal{O}(h)\)</span> (read: “big O of <span class="math inline">\(h\)</span>”),
 if and only if there is a positive constant <span class="math inline">\(M\)</span> such that
 <span class="math display">\[ |Error| \le M \cdot h.\]</span>
 This is equivalent to saying that a differentiation method is “first order.” In other words, if the error in a numerical differentiation scheme is proportional to the length of the subinterval in the partition of the interval (see Figure <a href="ch-calculus.html#fig:differentiation-partition">3.1</a>) then we call that scheme “first order” and say that the error is <span class="math inline">\(\mathcal{O}(h)\)</span>.</p>
@@ -1239,7 +1236,7 @@ second derivative is second order accurate?</p></li>
 </ol>
 </div>
 <hr />
-<p>The table below summarizes the formulas that we have for derivatives thus far. The exercises at the end of this chapter contain several more derivative approximations. We will return to this idea when we study numerical differential equations in Chapter <a href="#ch:odes"><strong>??</strong></a>.</p>
+<p>The table below summarizes the formulas that we have for derivatives thus far. The exercises at the end of this chapter contain several more derivative approximations. We will return to this idea when we study numerical differential equations in Chapter <a href="ch-odes.html#ch-odes">5</a>.</p>
 <table>
 <colgroup>
 <col width="38%" />
@@ -1594,7 +1591,7 @@ the order of the approximation error for the trapezoid method?</li>
 <div style="page-break-after: always;"></div>
 
 <div class="definition">
-<p><span id="def:trapezoidal" class="definition"><strong>Definition 3.3  (The Trapezoidal Rule)  </strong></span>We want to approximate <span class="math inline">\(\displaystyle \int_a^b f(x) dx\)</span>. One of the
+<p><span id="def:trapezoidal" class="definition"><strong>Definition 3.3  </strong></span>(<strong>The Trapezoidal Rule</strong>) We want to approximate <span class="math inline">\(\displaystyle \int_a^b f(x) dx\)</span>. One of the
 simplest ways is to approximate the area under the function with a
 trapezoid. Recall from basic geometry that area of a trapezoid is
 <span class="math inline">\(A = \frac{1}{2} (b_1 + b_2) h\)</span>. In terms of the integration problem we
@@ -1715,7 +1712,7 @@ piece. This is called Simpson’s Rule for integration.</p>
 <hr />
 
 <div class="definition">
-<p><span id="def:simpsons-rule" class="definition"><strong>Definition 3.4  (Simpson’s Rule)  </strong></span>Now we put the process explained above into a form that can be coded to
+<p><span id="def:simpsons-rule" class="definition"><strong>Definition 3.4  </strong></span>(<strong>Simpson’s Rule</strong>) Now we put the process explained above into a form that can be coded to
 approximate integrals. We call this method Simpson’s Rule after <a href="https://en.wikipedia.org/wiki/Thomas_Simpson">Thomas Simpson (1710-1761)</a> who, by the way, was a basket weaver in his day job so he could pay the bills and keep doing math.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>First partition <span class="math inline">\([a,b]\)</span> into the set
@@ -1755,7 +1752,7 @@ further research to the curious reader.</p>
 <hr />
 
 <div class="theorem">
-<span id="thm:num-int" class="theorem"><strong>Theorem 3.3  (Numerical Integration Schemes)  </strong></span>Let <span class="math inline">\(f(x)\)</span> be a continuous function on the interval <span class="math inline">\([a,b]\)</span>. The integral <span class="math inline">\(\int_a^b f(x) dx\)</span> can be approximated with any of the following.
+<span id="thm:num-int" class="theorem"><strong>Theorem 3.3  </strong></span>(<strong>Numerical Integration Schemes</strong>) Let <span class="math inline">\(f(x)\)</span> be a continuous function on the interval <span class="math inline">\([a,b]\)</span>. The integral <span class="math inline">\(\int_a^b f(x) dx\)</span> can be approximated with any of the following.
 <span class="math display">\[\begin{aligned}
        &amp;\text{Riemann Sum: }  \int_a^b f(x) dx \approx \sum_{j=1}^N f(x_j) \Delta x \\
        &amp; \qquad \text{Error for Left and Right Riemann Sums: } \mathcal{O}(\Delta x) \\
@@ -1850,7 +1847,7 @@ local maximum near <span class="math inline">\(x \approx 1.14\)</span>. Try to g
 <hr />
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-190" class="definition"><strong>Definition 3.5  (Derivative Free Optimization)  </strong></span>Let <span class="math inline">\(f(x)\)</span> be the objective function which you are seeking to maximize
+<p><span id="def:unnamed-chunk-190" class="definition"><strong>Definition 3.5  </strong></span>(<strong>Derivative Free Optimization</strong>) Let <span class="math inline">\(f(x)\)</span> be the objective function which you are seeking to maximize
 (or minimize).</p>
 <ul>
 <li><p>Pick a starting point, <span class="math inline">\(x_0\)</span>, and find the value of your objective
@@ -1871,7 +1868,7 @@ next step.</p></li>
 <hr />
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-192" class="definition"><strong>Definition 3.6  (Gradient Descent/Ascent)  </strong></span>Let <span class="math inline">\(f(x)\)</span> be the objective function which you are seeking to maximize (or minimize).</p>
+<p><span id="def:unnamed-chunk-192" class="definition"><strong>Definition 3.6  </strong></span>(<strong>Gradient Descent/Ascent</strong>) Let <span class="math inline">\(f(x)\)</span> be the objective function which you are seeking to maximize (or minimize).</p>
 <ul>
 <li><p>Find the derivative of your objective function, <span class="math inline">\(f&#39;(x)\)</span>.</p></li>
 <li><p>Pick a starting point, <span class="math inline">\(x_0\)</span>.</p></li>
@@ -1892,7 +1889,7 @@ you’re minimizing.</p></li>
 <hr />
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-194" class="definition"><strong>Definition 3.7  (Monte-Carlo Search)  </strong></span>Let <span class="math inline">\(f(x)\)</span> be the objective function which you are seeking to maximize
+<p><span id="def:unnamed-chunk-194" class="definition"><strong>Definition 3.7  </strong></span>(<strong>Monte-Carlo Search</strong>) Let <span class="math inline">\(f(x)\)</span> be the objective function which you are seeking to maximize
 (or minimize).</p>
 <ul>
 <li><p>Pick many (perhaps several thousand!) different <span class="math inline">\(x\)</span> values.</p></li>
@@ -1912,7 +1909,7 @@ to the previous best function value</p></li>
 <hr />
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-196" class="definition"><strong>Definition 3.8  (Optimization via Numerical Root Finding)  </strong></span>Let <span class="math inline">\(f(x)\)</span> be the objective function which you are seeking to maximize (or minimize).</p>
+<p><span id="def:unnamed-chunk-196" class="definition"><strong>Definition 3.8  </strong></span>(<strong>Optimization via Numerical Root Finding</strong>) Let <span class="math inline">\(f(x)\)</span> be the objective function which you are seeking to maximize (or minimize).</p>
 <ul>
 <li><p>Find the derivative of your objective function.</p></li>
 <li><p>Set the derivative to zero and use a numerical root finding method
@@ -2069,7 +2066,7 @@ machine learning.</p>
 <hr />
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-207" class="definition"><strong>Definition 3.9  (The Gradient Descent Algorithm)  </strong></span>We want to solve the problem
+<p><span id="def:unnamed-chunk-207" class="definition"><strong>Definition 3.9  </strong></span>(<strong>The Gradient Descent Algorithm</strong>) We want to solve the problem
 <span class="math display">\[\text{minimize } f(x_1, x_2, \ldots, x_n) \text{ subject to }(x_1, x_2, \ldots, x_n) \in S.\]</span></p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Choose an arbitrary starting point
@@ -2384,13 +2381,13 @@ Figure 3.11: Initial attempt at matching data with a quadratic.
 <p>Now let’s formalize the process that we’ve described in the previous problems.</p>
 
 <div class="definition">
-<p><span id="def:least-squares" class="definition"><strong>Definition 3.10  (Least Squares Regression)  </strong></span>Let
-<span class="math display">\[S = \{ (x_1, y_1), \, (x_2, y_2), \, \ldots, \, (x_n, y_n) \}\]</span> be a
-set of <span class="math inline">\(n\)</span> ordered pairs in <span class="math inline">\(\mathbb{R}^2\)</span>. If we guess that a function
+<p><span id="def:least-squares" class="definition"><strong>Definition 3.10  </strong></span>(<strong>Least Squares Regression</strong>) Let
+<span class="math display">\[S = \{ (x_0, y_0), \, (x_1, y_1), \, \ldots, \, (x_n, y_n) \}\]</span> be a
+set of <span class="math inline">\(n+1\)</span> ordered pairs in <span class="math inline">\(\mathbb{R}^2\)</span>. If we guess that a function
 <span class="math inline">\(f(x)\)</span> is a best choice to fit the data and if <span class="math inline">\(f(x)\)</span> depends on
-parameters <span class="math inline">\(a_1, a_2, \ldots, a_n\)</span> then</p>
+parameters <span class="math inline">\(a_0, a_n, \ldots, a_n\)</span> then</p>
 <ol style="list-style-type: lower-alpha">
-<li><p>Pick initial values for the parameters <span class="math inline">\(a_1, a_2, \ldots, a_n\)</span> so that
+<li><p>Pick initial values for the parameters <span class="math inline">\(a_0, a_1, \ldots, a_n\)</span> so that
 the function <span class="math inline">\(f(x)\)</span> <em>looks like</em> it is close to the data (this is
 strictly a visual step …take care that it may take some playing
 around to guess the initial values of the parameters)</p></li>
@@ -2406,7 +2403,7 @@ sum the squared errors
 (Take note that if there were a continuum of points instead of a
 discrete set then we would integrate the square errors instead of
 taking a sum.)</p></li>
-<li><p>Change the parameters <span class="math inline">\(a_1, a_2, \ldots\)</span> so as to minimize the sum
+<li><p>Change the parameters <span class="math inline">\(a_0, a_1, \ldots\)</span> so as to minimize the sum
 of the square errors.</p></li>
 </ol>
 </div>
@@ -2799,7 +2796,7 @@ get an approximate solution to the problem.
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-275" class="exercise"><strong>Exercise 3.109  (The Goat Problem)  </strong></span>This is a classic problem in recreational mathematics that has a great approximate solution where we can leverage some of our numerical analysis skills. Grab a pencil and a piece of paper so we can draw a picture.</p>
+<p><span id="exr:unnamed-chunk-275" class="exercise"><strong>Exercise 3.109  </strong></span>(<strong>The Goat Problem</strong>) This is a classic problem in recreational mathematics that has a great approximate solution where we can leverage some of our numerical analysis skills. Grab a pencil and a piece of paper so we can draw a picture.</p>
 <ul>
 <li>Draw a coordinate plane</li>
 <li>Draw a circle with radius 1 unit centered at the point <span class="math inline">\((0,1)\)</span>. This circle will obviously be tangent to the <span class="math inline">\(x\)</span> axis.</li>
@@ -2835,7 +2832,7 @@ get an approximate solution to the problem.
 numerical Calculus. These projects are meant to be open ended, to
 encourage creative mathematics, to push your coding skills, and to
 require you to write and communicate your mathematics. Take the time to
-read Appendix <a href="#ch:writing"><strong>??</strong></a> before you write your final solution.</p>
+read Appendix <a href="ch-writing.html#ch-writing">B</a> before you write your final solution.</p>
 <div id="galaxy-integration" class="section level3" number="3.8.1">
 <h3><span class="header-section-number">3.8.1</span> Galaxy Integration</h3>
 <p>To analyze the light from stars and galaxies, scientists use a spectral
@@ -2977,7 +2974,7 @@ In any case, you will need to use Taylor Series to derive coefficients in the fo
 <div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="ch-calculus.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb35-2"><a href="ch-calculus.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb35-3"><a href="ch-calculus.html#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> image</span>
-<span id="cb35-4"><a href="ch-calculus.html#cb35-4" aria-hidden="true" tabindex="-1"></a>I <span class="op">=</span> np.array(image.imread(<span class="st">&#39;ImageName.jpg&#39;</span>))</span>
+<span id="cb35-4"><a href="ch-calculus.html#cb35-4" aria-hidden="true" tabindex="-1"></a>I <span class="op">=</span> np.array(image.plt.imread(<span class="st">&#39;ImageName.jpg&#39;</span>))</span>
 <span id="cb35-5"><a href="ch-calculus.html#cb35-5" aria-hidden="true" tabindex="-1"></a>plt.imshow(I)</span>
 <span id="cb35-6"><a href="ch-calculus.html#cb35-6" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">&quot;off&quot;</span>)</span>
 <span id="cb35-7"><a href="ch-calculus.html#cb35-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
@@ -3052,13 +3049,14 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["_main.pdf"],
 "search": {
 "engine": "fuse",
 "options": null
 },
 "toc": {
-"collapse": "section"
+"collapse": "section",
+"toc_depth": 5
 }
 });
 });

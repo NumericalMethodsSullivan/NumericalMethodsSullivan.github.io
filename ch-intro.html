@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1 Preliminary Topics | Numerical Methods</title>
   <meta name="description" content="Inquiry Based Numerical Methods" />
-  <meta name="generator" content="bookdown 0.24.4 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1 Preliminary Topics | Numerical Methods" />
   <meta property="og:type" content="book" />
@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="Inquiry Based Numerical Methods" />
   
 
-<meta name="author" content="Eric Sullivan" />
+<meta name="author" content="Dr. Eric Sullivan" />
 
 
 
@@ -390,10 +390,7 @@ div.csl-indent {
 <li class="chapter" data-level="B.4.3" data-path="ch-writing.html"><a href="ch-writing.html#some-writing-tips"><i class="fa fa-check"></i><b>B.4.3</b> Some Writing Tips</a></li>
 <li class="chapter" data-level="B.4.4" data-path="ch-writing.html"><a href="ch-writing.html#mathematical-vocabulary"><i class="fa fa-check"></i><b>B.4.4</b> Mathematical Vocabulary</a></li>
 </ul></li>
-<li class="chapter" data-level="B.5" data-path="ch-writing.html"><a href="ch-writing.html#sensitivity-analysis"><i class="fa fa-check"></i><b>B.5</b> Sensitivity Analysis</a>
-<ul>
-<li class="chapter" data-level="B.5.1" data-path="ch-writing.html"><a href="ch-writing.html#example-of-sensitivity-analysis"><i class="fa fa-check"></i><b>B.5.1</b> Example of Sensitivity Analysis</a></li>
-</ul></li>
+<li class="chapter" data-level="B.5" data-path="ch-writing.html"><a href="ch-writing.html#code-and-mathematical-writing"><i class="fa fa-check"></i><b>B.5</b> Code and Mathematical writing</a></li>
 </ul></li>
 <li class="chapter" data-level="C" data-path="ch-extras.html"><a href="ch-extras.html"><i class="fa fa-check"></i><b>C</b> Optional Material</a>
 <ul>
@@ -465,7 +462,7 @@ Series underpins many of our approximation methods in this class.
 Finally, at the end of this chapter we provide several coding exercises
 that will help you to develop your programming skills. It is expected
 that you know some of the basics of programming before beginning this
-class. If you need to review the basics then see Appendix <a href="#ch:python"><strong>??</strong></a></p>
+class. If you need to review the basics then see Appendix <a href="ch-python.html#ch-python">A</a></p>
 <p>You’ll have more than just the basics by the end.</p>
 <p>Let’s begin.</p>
 <div style="page-break-after: always;"></div>
@@ -750,7 +747,7 @@ the sign, 15 for the exponent, and 64 for the significand.</p></li>
 <hr />
 
 <div class="definition">
-<span id="def:unnamed-chunk-24" class="definition"><strong>Definition 1.2  (Machine Precision)  </strong></span>Machine precision is the gap between the number 1 and the next
+<span id="def:unnamed-chunk-24" class="definition"><strong>Definition 1.2  </strong></span>(<strong>machine precision</strong>) Machine precision is the gap between the number 1 and the next
 larger floating point number. Often it is represented by the symbol
 <span class="math inline">\(\epsilon\)</span>. To clarify, the number 1 can always be stored in a computer
 system exactly and if <span class="math inline">\(\epsilon\)</span> is machine precision for that computer
@@ -982,7 +979,7 @@ In Python just type <code>np.exp(1)</code> which will just evaluate <span class=
 <p>What we’ve been exploring so far in this section is the <strong>Taylor Series</strong> of a function.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-38" class="definition"><strong>Definition 1.3  (Taylor Series)  </strong></span>If <span class="math inline">\(f(x)\)</span> is an infinitely differentiable function at the point <span class="math inline">\(x_0\)</span> then
+<span id="def:unnamed-chunk-38" class="definition"><strong>Definition 1.3  </strong></span>(<strong>Taylor Series</strong>)If <span class="math inline">\(f(x)\)</span> is an infinitely differentiable function at the point <span class="math inline">\(x_0\)</span> then
 <span class="math display">\[ f(x) = f(x_0) + f&#39;(x_0)(x-x_0) + \frac{f&#39;&#39;(x_0)}{2}(x-x_0)^2 + \cdots \frac{f^{(n)}(x_0)}{n!}(x-x_0)^n + \cdots  \]</span>
 for any reasonably small interval around <span class="math inline">\(x_0\)</span>. The infinite polynomial expansion is called the <strong>Taylor Series</strong> of the function <span class="math inline">\(f(x)\)</span>. Taylor Series are named for the mathematician <a href="https://en.wikipedia.org/wiki/Brook_Taylor">Brook Taylor</a>.
 </div>
@@ -1002,7 +999,7 @@ Don’t let the notation scare you. In a Taylor Series you are just saying: <em>
 <hr />
 
 <div class="definition">
-<span id="def:unnamed-chunk-39" class="definition"><strong>Definition 1.4  (Maclaurin Series)  </strong></span>A Taylor Series that is centered at <span class="math inline">\(x_0 = 0\)</span> is called a Maclaurin Series after the mathematician <a href="https://en.wikipedia.org/wiki/Colin_Maclaurin">Colin Maclaurin</a>. This is just a special case of a Taylor Series, so throughout this book we will refer to both Taylor Series and Maclaurin Series simply as Taylor Series.
+<span id="def:unnamed-chunk-39" class="definition"><strong>Definition 1.4  </strong></span>(<strong>Maclaurin Series</strong>)A Taylor Series that is centered at <span class="math inline">\(x_0 = 0\)</span> is called a Maclaurin Series after the mathematician <a href="https://en.wikipedia.org/wiki/Colin_Maclaurin">Colin Maclaurin</a>. This is just a special case of a Taylor Series, so throughout this book we will refer to both Taylor Series and Maclaurin Series simply as Taylor Series.
 </div>
 <hr />
 
@@ -1345,7 +1342,7 @@ meaning that we expect the error to be proportional to <span class="math inline"
 <div id="coding-exercises" class="section level3" number="1.6.1">
 <h3><span class="header-section-number">1.6.1</span> Coding Exercises</h3>
 <p>The first several exercises here are meant for you to practice and
-improve your coding skills. If you are stuck on any of the coding then I recommend that you have a look at Appendix <a href="#ch:python"><strong>??</strong></a>. Please refrain from Googling anything on these problems. The point is to struggle through the code, get it wrong many times, debug, and then to eventually have working code.</p>
+improve your coding skills. If you are stuck on any of the coding then I recommend that you have a look at Appendix <a href="ch-python.html#ch-python">A</a>. Please refrain from Googling anything on these problems. The point is to struggle through the code, get it wrong many times, debug, and then to eventually have working code.</p>
 <hr />
 
 <div class="exercise">
@@ -1610,7 +1607,7 @@ for the relativistic energy equation?<a href="#fn2" class="footnote-ref" id="fnr
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-70" class="exercise"><strong>Exercise 1.58  (The Python Caret Operator)  </strong></span>Now that you’re used to using Python to do some basic computations you are probably comfortable with the fact that the caret, <code>^</code>, does NOT do exponentiation like it does in many other programming languages. But what does the caret operator do? That’s what we explore here.</p>
+<p><span id="exr:unnamed-chunk-70" class="exercise"><strong>Exercise 1.58  </strong></span>(<strong>The Python Caret Operator</strong>)Now that you’re used to using Python to do some basic computations you are probably comfortable with the fact that the caret, <code>^</code>, does NOT do exponentiation like it does in many other programming languages. But what does the caret operator do? That’s what we explore here.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Consider the numbers <span class="math inline">\(9\)</span> and <span class="math inline">\(5\)</span>. Write these numbers in binary representation. We are going to use four bits to represent each number (it is ok if the first bit happens to be zero).
 <span class="math display">\[\begin{aligned}
@@ -1693,13 +1690,14 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["_main.pdf"],
 "search": {
 "engine": "fuse",
 "options": null
 },
 "toc": {
-"collapse": "section"
+"collapse": "section",
+"toc_depth": 5
 }
 });
 });

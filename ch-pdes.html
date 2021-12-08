@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6 Partial Differential Equations | Numerical Methods</title>
   <meta name="description" content="Inquiry Based Numerical Methods" />
-  <meta name="generator" content="bookdown 0.24.4 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6 Partial Differential Equations | Numerical Methods" />
   <meta property="og:type" content="book" />
@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="Inquiry Based Numerical Methods" />
   
 
-<meta name="author" content="Eric Sullivan" />
+<meta name="author" content="Dr. Eric Sullivan" />
 
 
 
@@ -390,10 +390,7 @@ div.csl-indent {
 <li class="chapter" data-level="B.4.3" data-path="ch-writing.html"><a href="ch-writing.html#some-writing-tips"><i class="fa fa-check"></i><b>B.4.3</b> Some Writing Tips</a></li>
 <li class="chapter" data-level="B.4.4" data-path="ch-writing.html"><a href="ch-writing.html#mathematical-vocabulary"><i class="fa fa-check"></i><b>B.4.4</b> Mathematical Vocabulary</a></li>
 </ul></li>
-<li class="chapter" data-level="B.5" data-path="ch-writing.html"><a href="ch-writing.html#sensitivity-analysis"><i class="fa fa-check"></i><b>B.5</b> Sensitivity Analysis</a>
-<ul>
-<li class="chapter" data-level="B.5.1" data-path="ch-writing.html"><a href="ch-writing.html#example-of-sensitivity-analysis"><i class="fa fa-check"></i><b>B.5.1</b> Example of Sensitivity Analysis</a></li>
-</ul></li>
+<li class="chapter" data-level="B.5" data-path="ch-writing.html"><a href="ch-writing.html#code-and-mathematical-writing"><i class="fa fa-check"></i><b>B.5</b> Code and Mathematical writing</a></li>
 </ul></li>
 <li class="chapter" data-level="C" data-path="ch-extras.html"><a href="ch-extras.html"><i class="fa fa-check"></i><b>C</b> Optional Material</a>
 <ul>
@@ -478,7 +475,7 @@ div.csl-indent {
 <p>So what <em>is</em> a Partial Differential Equation?</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-533" class="definition"><strong>Definition 6.1  (Partial Differential Equation)  </strong></span>A partial differential equation (PDE) is an equation that relates a function and its partial derivatives. Typically we use the function name <span class="math inline">\(u\)</span> for the unknown function, and in most cases that we consider in this book we are thinking of <span class="math inline">\(u\)</span> as a function of time <span class="math inline">\(t\)</span> as well as one, two, or three spatial dimensions <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>, and <span class="math inline">\(z\)</span>.
+<span id="def:unnamed-chunk-533" class="definition"><strong>Definition 6.1  </strong></span>(<strong>Partial Differential Equation</strong>) A partial differential equation (PDE) is an equation that relates a function and its partial derivatives. Typically we use the function name <span class="math inline">\(u\)</span> for the unknown function, and in most cases that we consider in this book we are thinking of <span class="math inline">\(u\)</span> as a function of time <span class="math inline">\(t\)</span> as well as one, two, or three spatial dimensions <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>, and <span class="math inline">\(z\)</span>.
 </div>
 <hr />
 <p>Specific examples of some common PDEs are:</p>
@@ -612,29 +609,29 @@ This PDE states that the acceleration at a point is proportional to the sum of t
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-544" class="exercise"><strong>Exercise 6.10  (Visualizing Solutions to PDEs)  </strong></span>Solutions to PDEs are multivariable functions. In the previous few problems we have examined the heat equation <span class="math inline">\(u_t = D u_{xx}\)</span>. The function <span class="math inline">\(u\)</span> is a function of time, <span class="math inline">\(t\)</span>, and one spatial variable, <span class="math inline">\(x\)</span>. We have several choices when we make a plot of this type of function. Implement and complete the blocks of code below to get three different visualizations of the solution <span class="math inline">\(u(t,x) = e^{-0.2t} \sin(\pi x)\)</span> on the domain <span class="math inline">\(t \in [0,1]\)</span> and <span class="math inline">\(x \in [0,1]\)</span>.
+<span id="exr:unnamed-chunk-544" class="exercise"><strong>Exercise 6.10  </strong></span>(<strong>Visualizing Solutions to PDEs</strong>) Solutions to PDEs are multivariable functions. In the previous few problems we have examined the heat equation <span class="math inline">\(u_t = D u_{xx}\)</span>. The function <span class="math inline">\(u\)</span> is a function of time, <span class="math inline">\(t\)</span>, and one spatial variable, <span class="math inline">\(x\)</span>. We have several choices when we make a plot of this type of function. Implement and complete the blocks of code below to get three different visualizations of the solution <span class="math inline">\(u(t,x) = e^{-0.2t} \sin(\pi x)\)</span> on the domain <span class="math inline">\(t \in [0,1]\)</span> and <span class="math inline">\(x \in [0,1]\)</span>.
 </div>
 <ol style="list-style-type: lower-alpha">
 <li>The first idea is to show several discrete snapshots of time and to arrange the plots in an array so we can read from left to right to see the evolution in time.</li>
 </ol>
-<div class="sourceCode" id="cb98"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb98-1"><a href="ch-pdes.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb98-2"><a href="ch-pdes.html#cb98-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb98-3"><a href="ch-pdes.html#cb98-3" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> <span class="kw">lambda</span> t, x: np.exp(<span class="op">-</span><span class="fl">0.2</span><span class="op">*</span>t) <span class="op">*</span> np.sin(np.pi<span class="op">*</span>x)</span>
-<span id="cb98-4"><a href="ch-pdes.html#cb98-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="co"># code that gives 100 equally spaced points from 0 to 1 </span></span>
-<span id="cb98-5"><a href="ch-pdes.html#cb98-5" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> <span class="co"># code that gives 16 equally spaced points from 0 to 10</span></span>
-<span id="cb98-6"><a href="ch-pdes.html#cb98-6" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">4</span>,ncols<span class="op">=</span><span class="dv">4</span>)</span>
-<span id="cb98-7"><a href="ch-pdes.html#cb98-7" aria-hidden="true" tabindex="-1"></a>counter <span class="op">=</span> <span class="dv">0</span> <span class="co"># this counter will count through the times</span></span>
-<span id="cb98-8"><a href="ch-pdes.html#cb98-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
-<span id="cb98-9"><a href="ch-pdes.html#cb98-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> m <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
-<span id="cb98-10"><a href="ch-pdes.html#cb98-10" aria-hidden="true" tabindex="-1"></a>        ax[n,m].plot(??? , ???, <span class="st">&#39;b&#39;</span>) <span class="co"># plot x vs u(t[counter],x)</span></span>
-<span id="cb98-11"><a href="ch-pdes.html#cb98-11" aria-hidden="true" tabindex="-1"></a>        ax[n,m].grid()</span>
-<span id="cb98-12"><a href="ch-pdes.html#cb98-12" aria-hidden="true" tabindex="-1"></a>        ax[n,m].set_ylim(<span class="dv">0</span>,<span class="dv">1</span>) <span class="co"># same axis for every plot</span></span>
-<span id="cb98-13"><a href="ch-pdes.html#cb98-13" aria-hidden="true" tabindex="-1"></a>        ax[n,m].set_xlabel(<span class="st">&#39;x&#39;</span>)</span>
-<span id="cb98-14"><a href="ch-pdes.html#cb98-14" aria-hidden="true" tabindex="-1"></a>        ax[n,m].set_ylabel(<span class="st">&#39;u&#39;</span>)</span>
-<span id="cb98-15"><a href="ch-pdes.html#cb98-15" aria-hidden="true" tabindex="-1"></a>        ax[n,m].set_title(<span class="st">&quot;time=&quot;</span><span class="op">+</span>np.<span class="bu">str</span>(t[counter]))</span>
-<span id="cb98-16"><a href="ch-pdes.html#cb98-16" aria-hidden="true" tabindex="-1"></a>        counter <span class="op">+=</span> <span class="dv">1</span> <span class="co"># increment the counter</span></span>
-<span id="cb98-17"><a href="ch-pdes.html#cb98-17" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()        </span>
-<span id="cb98-18"><a href="ch-pdes.html#cb98-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb99-1"><a href="ch-pdes.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb99-2"><a href="ch-pdes.html#cb99-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb99-3"><a href="ch-pdes.html#cb99-3" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> <span class="kw">lambda</span> t, x: np.exp(<span class="op">-</span><span class="fl">0.2</span><span class="op">*</span>t) <span class="op">*</span> np.sin(np.pi<span class="op">*</span>x)</span>
+<span id="cb99-4"><a href="ch-pdes.html#cb99-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="co"># code that gives 100 equally spaced points from 0 to 1 </span></span>
+<span id="cb99-5"><a href="ch-pdes.html#cb99-5" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> <span class="co"># code that gives 16 equally spaced points from 0 to 10</span></span>
+<span id="cb99-6"><a href="ch-pdes.html#cb99-6" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">4</span>,ncols<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb99-7"><a href="ch-pdes.html#cb99-7" aria-hidden="true" tabindex="-1"></a>counter <span class="op">=</span> <span class="dv">0</span> <span class="co"># this counter will count through the times</span></span>
+<span id="cb99-8"><a href="ch-pdes.html#cb99-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb99-9"><a href="ch-pdes.html#cb99-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> m <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb99-10"><a href="ch-pdes.html#cb99-10" aria-hidden="true" tabindex="-1"></a>        ax[n,m].plot(??? , ???, <span class="st">&#39;b&#39;</span>) <span class="co"># plot x vs u(t[counter],x)</span></span>
+<span id="cb99-11"><a href="ch-pdes.html#cb99-11" aria-hidden="true" tabindex="-1"></a>        ax[n,m].grid()</span>
+<span id="cb99-12"><a href="ch-pdes.html#cb99-12" aria-hidden="true" tabindex="-1"></a>        ax[n,m].set_ylim(<span class="dv">0</span>,<span class="dv">1</span>) <span class="co"># same axis for every plot</span></span>
+<span id="cb99-13"><a href="ch-pdes.html#cb99-13" aria-hidden="true" tabindex="-1"></a>        ax[n,m].set_xlabel(<span class="st">&#39;x&#39;</span>)</span>
+<span id="cb99-14"><a href="ch-pdes.html#cb99-14" aria-hidden="true" tabindex="-1"></a>        ax[n,m].set_ylabel(<span class="st">&#39;u&#39;</span>)</span>
+<span id="cb99-15"><a href="ch-pdes.html#cb99-15" aria-hidden="true" tabindex="-1"></a>        ax[n,m].set_title(<span class="st">&quot;time=&quot;</span><span class="op">+</span>np.<span class="bu">str</span>(t[counter]))</span>
+<span id="cb99-16"><a href="ch-pdes.html#cb99-16" aria-hidden="true" tabindex="-1"></a>        counter <span class="op">+=</span> <span class="dv">1</span> <span class="co"># increment the counter</span></span>
+<span id="cb99-17"><a href="ch-pdes.html#cb99-17" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()        </span>
+<span id="cb99-18"><a href="ch-pdes.html#cb99-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-546"></span>
 <img src="images/Ch06_TimeEvolution1.png" alt="Time evolution of a solution to the PDE" width="95%" />
 <p class="caption">
@@ -644,21 +641,21 @@ Figure 6.1: Time evolution of a solution to the PDE
 <ol start="2" style="list-style-type: lower-alpha">
 <li>A second idea for plotting the solution to a PDE is to give an interactive plot where we can use a slider to advance (or reverse) time.</li>
 </ol>
-<div class="sourceCode" id="cb99"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb99-1"><a href="ch-pdes.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb99-2"><a href="ch-pdes.html#cb99-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb99-3"><a href="ch-pdes.html#cb99-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interactive</span>
-<span id="cb99-4"><a href="ch-pdes.html#cb99-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-5"><a href="ch-pdes.html#cb99-5" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> <span class="kw">lambda</span> t, x: np.exp(<span class="op">-</span><span class="fl">0.2</span><span class="op">*</span>t) <span class="op">*</span> (<span class="dv">1</span><span class="op">*</span>np.sin(<span class="dv">1</span><span class="op">*</span>np.pi<span class="op">*</span>x))</span>
-<span id="cb99-6"><a href="ch-pdes.html#cb99-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">100</span>)</span>
-<span id="cb99-7"><a href="ch-pdes.html#cb99-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-8"><a href="ch-pdes.html#cb99-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plotter(T):</span>
-<span id="cb99-9"><a href="ch-pdes.html#cb99-9" aria-hidden="true" tabindex="-1"></a>  plt.plot(x , u(T,x), <span class="st">&#39;b&#39;</span>)</span>
-<span id="cb99-10"><a href="ch-pdes.html#cb99-10" aria-hidden="true" tabindex="-1"></a>  plt.grid()</span>
-<span id="cb99-11"><a href="ch-pdes.html#cb99-11" aria-hidden="true" tabindex="-1"></a>  plt.ylim(<span class="dv">0</span>,<span class="dv">1</span>)</span>
-<span id="cb99-12"><a href="ch-pdes.html#cb99-12" aria-hidden="true" tabindex="-1"></a>  plt.show()</span>
-<span id="cb99-13"><a href="ch-pdes.html#cb99-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-14"><a href="ch-pdes.html#cb99-14" aria-hidden="true" tabindex="-1"></a>interactive_plot <span class="op">=</span> interactive(plotter, T<span class="op">=</span>(<span class="dv">0</span>,<span class="dv">20</span>,<span class="fl">0.1</span>))</span>
-<span id="cb99-15"><a href="ch-pdes.html#cb99-15" aria-hidden="true" tabindex="-1"></a>interactive_plot</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb100-1"><a href="ch-pdes.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb100-2"><a href="ch-pdes.html#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb100-3"><a href="ch-pdes.html#cb100-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interactive</span>
+<span id="cb100-4"><a href="ch-pdes.html#cb100-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-5"><a href="ch-pdes.html#cb100-5" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> <span class="kw">lambda</span> t, x: np.exp(<span class="op">-</span><span class="fl">0.2</span><span class="op">*</span>t) <span class="op">*</span> (<span class="dv">1</span><span class="op">*</span>np.sin(<span class="dv">1</span><span class="op">*</span>np.pi<span class="op">*</span>x))</span>
+<span id="cb100-6"><a href="ch-pdes.html#cb100-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">100</span>)</span>
+<span id="cb100-7"><a href="ch-pdes.html#cb100-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-8"><a href="ch-pdes.html#cb100-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plotter(T):</span>
+<span id="cb100-9"><a href="ch-pdes.html#cb100-9" aria-hidden="true" tabindex="-1"></a>  plt.plot(x , u(T,x), <span class="st">&#39;b&#39;</span>)</span>
+<span id="cb100-10"><a href="ch-pdes.html#cb100-10" aria-hidden="true" tabindex="-1"></a>  plt.grid()</span>
+<span id="cb100-11"><a href="ch-pdes.html#cb100-11" aria-hidden="true" tabindex="-1"></a>  plt.ylim(<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb100-12"><a href="ch-pdes.html#cb100-12" aria-hidden="true" tabindex="-1"></a>  plt.show()</span>
+<span id="cb100-13"><a href="ch-pdes.html#cb100-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-14"><a href="ch-pdes.html#cb100-14" aria-hidden="true" tabindex="-1"></a>interactive_plot <span class="op">=</span> interactive(plotter, T<span class="op">=</span>(<span class="dv">0</span>,<span class="dv">20</span>,<span class="fl">0.1</span>))</span>
+<span id="cb100-15"><a href="ch-pdes.html#cb100-15" aria-hidden="true" tabindex="-1"></a>interactive_plot</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-548"></span>
 <img src="images/Ch06_TimeEvolution2.png" alt="Snapshot of animated time evolution of a solution to the PDE" width="75%" />
 <p class="caption">
@@ -668,20 +665,20 @@ Figure 6.2: Snapshot of animated time evolution of a solution to the PDE
 <ol start="3" style="list-style-type: lower-alpha">
 <li>A third idea for plotting the solution to a PDE is to create a three dimensional plot with time on one axis, <span class="math inline">\(x\)</span> on the second axis, and <span class="math inline">\(u\)</span> on the vertical axis. To read this plot we start our eyes at <span class="math inline">\(t=0\)</span> and then scan down the <span class="math inline">\(t\)</span> axis. In this way we can see the whole time evolution of the PDE in one plot without animation. Of course, if the PDE had two or more spatial dimensions plus time then this sort of plot would not be feasible.</li>
 </ol>
-<div class="sourceCode" id="cb100"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb100-1"><a href="ch-pdes.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb100-2"><a href="ch-pdes.html#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb100-3"><a href="ch-pdes.html#cb100-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mpl_toolkits.mplot3d <span class="im">import</span> Axes3D</span>
-<span id="cb100-4"><a href="ch-pdes.html#cb100-4" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">8</span>))</span>
-<span id="cb100-5"><a href="ch-pdes.html#cb100-5" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.gca(projection<span class="op">=</span><span class="st">&#39;3d&#39;</span>) <span class="co"># gca stands for &quot;Get Current Axis&quot;</span></span>
-<span id="cb100-6"><a href="ch-pdes.html#cb100-6" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> <span class="kw">lambda</span> t, x: np.exp(<span class="op">-</span><span class="fl">0.2</span><span class="op">*</span>t)<span class="op">*</span>np.sin(np.pi<span class="op">*</span>x)</span>
-<span id="cb100-7"><a href="ch-pdes.html#cb100-7" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">25</span>)</span>
-<span id="cb100-8"><a href="ch-pdes.html#cb100-8" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">25</span>)</span>
-<span id="cb100-9"><a href="ch-pdes.html#cb100-9" aria-hidden="true" tabindex="-1"></a>T, X <span class="op">=</span> np.meshgrid(t,x)</span>
-<span id="cb100-10"><a href="ch-pdes.html#cb100-10" aria-hidden="true" tabindex="-1"></a>ax.plot_wireframe(T,X,u(T,X))</span>
-<span id="cb100-11"><a href="ch-pdes.html#cb100-11" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">&#39;time&#39;</span>)</span>
-<span id="cb100-12"><a href="ch-pdes.html#cb100-12" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">&#39;x&#39;</span>)</span>
-<span id="cb100-13"><a href="ch-pdes.html#cb100-13" aria-hidden="true" tabindex="-1"></a>ax.set_zlabel(<span class="st">&#39;u(t,x)&#39;</span>)</span>
-<span id="cb100-14"><a href="ch-pdes.html#cb100-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb101-1"><a href="ch-pdes.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb101-2"><a href="ch-pdes.html#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb101-3"><a href="ch-pdes.html#cb101-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mpl_toolkits.mplot3d <span class="im">import</span> Axes3D</span>
+<span id="cb101-4"><a href="ch-pdes.html#cb101-4" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">8</span>))</span>
+<span id="cb101-5"><a href="ch-pdes.html#cb101-5" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.gca(projection<span class="op">=</span><span class="st">&#39;3d&#39;</span>) <span class="co"># gca stands for &quot;Get Current Axis&quot;</span></span>
+<span id="cb101-6"><a href="ch-pdes.html#cb101-6" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> <span class="kw">lambda</span> t, x: np.exp(<span class="op">-</span><span class="fl">0.2</span><span class="op">*</span>t)<span class="op">*</span>np.sin(np.pi<span class="op">*</span>x)</span>
+<span id="cb101-7"><a href="ch-pdes.html#cb101-7" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">25</span>)</span>
+<span id="cb101-8"><a href="ch-pdes.html#cb101-8" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">25</span>)</span>
+<span id="cb101-9"><a href="ch-pdes.html#cb101-9" aria-hidden="true" tabindex="-1"></a>T, X <span class="op">=</span> np.meshgrid(t,x)</span>
+<span id="cb101-10"><a href="ch-pdes.html#cb101-10" aria-hidden="true" tabindex="-1"></a>ax.plot_wireframe(T,X,u(T,X))</span>
+<span id="cb101-11"><a href="ch-pdes.html#cb101-11" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">&#39;time&#39;</span>)</span>
+<span id="cb101-12"><a href="ch-pdes.html#cb101-12" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">&#39;x&#39;</span>)</span>
+<span id="cb101-13"><a href="ch-pdes.html#cb101-13" aria-hidden="true" tabindex="-1"></a>ax.set_zlabel(<span class="st">&#39;u(t,x)&#39;</span>)</span>
+<span id="cb101-14"><a href="ch-pdes.html#cb101-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-550"></span>
 <img src="images/Ch06_TimeEvolution3.png" alt="3D plot showing the time evolution of the solution to the PDE." width="75%" />
 <p class="caption">
@@ -691,37 +688,37 @@ Figure 6.3: 3D plot showing the time evolution of the solution to the PDE.
 <ol start="4" style="list-style-type: lower-alpha">
 <li>A final idea is to use <code>matplotlib.animation</code>. Note that this method may only work well with the Google Colab environment.</li>
 </ol>
-<div class="sourceCode" id="cb101"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb101-1"><a href="ch-pdes.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb101-2"><a href="ch-pdes.html#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb101-3"><a href="ch-pdes.html#cb101-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> animation, rc</span>
-<span id="cb101-4"><a href="ch-pdes.html#cb101-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML</span>
-<span id="cb101-5"><a href="ch-pdes.html#cb101-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb101-6"><a href="ch-pdes.html#cb101-6" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> <span class="kw">lambda</span> t, x: np.exp(<span class="op">-</span><span class="fl">0.2</span><span class="op">*</span>t)<span class="op">*</span>np.sin(np.pi<span class="op">*</span>x)</span>
-<span id="cb101-7"><a href="ch-pdes.html#cb101-7" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">25</span>)</span>
-<span id="cb101-8"><a href="ch-pdes.html#cb101-8" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">101</span>)</span>
-<span id="cb101-9"><a href="ch-pdes.html#cb101-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb101-10"><a href="ch-pdes.html#cb101-10" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb101-11"><a href="ch-pdes.html#cb101-11" aria-hidden="true" tabindex="-1"></a>plt.close()</span>
-<span id="cb101-12"><a href="ch-pdes.html#cb101-12" aria-hidden="true" tabindex="-1"></a>ax.grid()</span>
-<span id="cb101-13"><a href="ch-pdes.html#cb101-13" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">&#39;x&#39;</span>)</span>
-<span id="cb101-14"><a href="ch-pdes.html#cb101-14" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(( <span class="dv">0</span>, <span class="dv">1</span>))</span>
-<span id="cb101-15"><a href="ch-pdes.html#cb101-15" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(( <span class="dv">0</span>, <span class="dv">1</span>))</span>
-<span id="cb101-16"><a href="ch-pdes.html#cb101-16" aria-hidden="true" tabindex="-1"></a>frame, <span class="op">=</span> ax.plot([], [], linewidth<span class="op">=</span><span class="dv">2</span>, linestyle<span class="op">=</span><span class="st">&#39;--&#39;</span>)</span>
-<span id="cb101-17"><a href="ch-pdes.html#cb101-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb101-18"><a href="ch-pdes.html#cb101-18" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> animator(N):</span>
-<span id="cb101-19"><a href="ch-pdes.html#cb101-19" aria-hidden="true" tabindex="-1"></a>  U <span class="op">=</span> u(t[N],x)</span>
-<span id="cb101-20"><a href="ch-pdes.html#cb101-20" aria-hidden="true" tabindex="-1"></a>  ax.set_title(<span class="st">&#39;Time=&#39;</span><span class="op">+</span><span class="bu">str</span>(t[N]))</span>
-<span id="cb101-21"><a href="ch-pdes.html#cb101-21" aria-hidden="true" tabindex="-1"></a>  frame.set_data(x,U)</span>
-<span id="cb101-22"><a href="ch-pdes.html#cb101-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> (frame,)</span>
-<span id="cb101-23"><a href="ch-pdes.html#cb101-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb101-24"><a href="ch-pdes.html#cb101-24" aria-hidden="true" tabindex="-1"></a>PlotFrames <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(t),<span class="dv">1</span>) </span>
-<span id="cb101-25"><a href="ch-pdes.html#cb101-25" aria-hidden="true" tabindex="-1"></a>anim <span class="op">=</span> animation.FuncAnimation(fig, </span>
-<span id="cb101-26"><a href="ch-pdes.html#cb101-26" aria-hidden="true" tabindex="-1"></a>                               animator, </span>
-<span id="cb101-27"><a href="ch-pdes.html#cb101-27" aria-hidden="true" tabindex="-1"></a>                               frames<span class="op">=</span>PlotFrames, </span>
-<span id="cb101-28"><a href="ch-pdes.html#cb101-28" aria-hidden="true" tabindex="-1"></a>                               interval<span class="op">=</span><span class="dv">100</span>, </span>
-<span id="cb101-29"><a href="ch-pdes.html#cb101-29" aria-hidden="true" tabindex="-1"></a>                              )</span>
-<span id="cb101-30"><a href="ch-pdes.html#cb101-30" aria-hidden="true" tabindex="-1"></a>rc(<span class="st">&#39;animation&#39;</span>, html<span class="op">=</span><span class="st">&#39;jshtml&#39;</span>) <span class="co"># embed in the HTML for Google Colab</span></span>
-<span id="cb101-31"><a href="ch-pdes.html#cb101-31" aria-hidden="true" tabindex="-1"></a>anim</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb102-1"><a href="ch-pdes.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb102-2"><a href="ch-pdes.html#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb102-3"><a href="ch-pdes.html#cb102-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> animation, rc</span>
+<span id="cb102-4"><a href="ch-pdes.html#cb102-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML</span>
+<span id="cb102-5"><a href="ch-pdes.html#cb102-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-6"><a href="ch-pdes.html#cb102-6" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> <span class="kw">lambda</span> t, x: np.exp(<span class="op">-</span><span class="fl">0.2</span><span class="op">*</span>t)<span class="op">*</span>np.sin(np.pi<span class="op">*</span>x)</span>
+<span id="cb102-7"><a href="ch-pdes.html#cb102-7" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">25</span>)</span>
+<span id="cb102-8"><a href="ch-pdes.html#cb102-8" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">101</span>)</span>
+<span id="cb102-9"><a href="ch-pdes.html#cb102-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-10"><a href="ch-pdes.html#cb102-10" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb102-11"><a href="ch-pdes.html#cb102-11" aria-hidden="true" tabindex="-1"></a>plt.close()</span>
+<span id="cb102-12"><a href="ch-pdes.html#cb102-12" aria-hidden="true" tabindex="-1"></a>ax.grid()</span>
+<span id="cb102-13"><a href="ch-pdes.html#cb102-13" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">&#39;x&#39;</span>)</span>
+<span id="cb102-14"><a href="ch-pdes.html#cb102-14" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(( <span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb102-15"><a href="ch-pdes.html#cb102-15" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(( <span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb102-16"><a href="ch-pdes.html#cb102-16" aria-hidden="true" tabindex="-1"></a>frame, <span class="op">=</span> ax.plot([], [], linewidth<span class="op">=</span><span class="dv">2</span>, linestyle<span class="op">=</span><span class="st">&#39;--&#39;</span>)</span>
+<span id="cb102-17"><a href="ch-pdes.html#cb102-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-18"><a href="ch-pdes.html#cb102-18" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> animator(N):</span>
+<span id="cb102-19"><a href="ch-pdes.html#cb102-19" aria-hidden="true" tabindex="-1"></a>  U <span class="op">=</span> u(t[N],x)</span>
+<span id="cb102-20"><a href="ch-pdes.html#cb102-20" aria-hidden="true" tabindex="-1"></a>  ax.set_title(<span class="st">&#39;Time=&#39;</span><span class="op">+</span><span class="bu">str</span>(t[N]))</span>
+<span id="cb102-21"><a href="ch-pdes.html#cb102-21" aria-hidden="true" tabindex="-1"></a>  frame.set_data(x,U)</span>
+<span id="cb102-22"><a href="ch-pdes.html#cb102-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> (frame,)</span>
+<span id="cb102-23"><a href="ch-pdes.html#cb102-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-24"><a href="ch-pdes.html#cb102-24" aria-hidden="true" tabindex="-1"></a>PlotFrames <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(t),<span class="dv">1</span>) </span>
+<span id="cb102-25"><a href="ch-pdes.html#cb102-25" aria-hidden="true" tabindex="-1"></a>anim <span class="op">=</span> animation.FuncAnimation(fig, </span>
+<span id="cb102-26"><a href="ch-pdes.html#cb102-26" aria-hidden="true" tabindex="-1"></a>                               animator, </span>
+<span id="cb102-27"><a href="ch-pdes.html#cb102-27" aria-hidden="true" tabindex="-1"></a>                               frames<span class="op">=</span>PlotFrames, </span>
+<span id="cb102-28"><a href="ch-pdes.html#cb102-28" aria-hidden="true" tabindex="-1"></a>                               interval<span class="op">=</span><span class="dv">100</span>, </span>
+<span id="cb102-29"><a href="ch-pdes.html#cb102-29" aria-hidden="true" tabindex="-1"></a>                              )</span>
+<span id="cb102-30"><a href="ch-pdes.html#cb102-30" aria-hidden="true" tabindex="-1"></a>rc(<span class="st">&#39;animation&#39;</span>, html<span class="op">=</span><span class="st">&#39;jshtml&#39;</span>) <span class="co"># embed in the HTML for Google Colab</span></span>
+<span id="cb102-31"><a href="ch-pdes.html#cb102-31" aria-hidden="true" tabindex="-1"></a>anim</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-552"></span>
 <img src="images/Ch06_TimeEvolution4.png" alt="Snapshot of an animation applet showing the time evolution of the solution to the PDE." width="75%" />
 <p class="caption">
@@ -780,26 +777,26 @@ Hint: You may want to start with a function of the form <span class="math inline
 <span class="math display">\[ u_t = D \left( u_{xx} + u_{yy} \right) \]</span>
 on the domain <span class="math inline">\(x \in [0,1]\)</span> and <span class="math inline">\(y \in [0,1]\)</span> with <span class="math inline">\(D=1\)</span>, the boundary conditions <span class="math inline">\(u(t,0,y) = 0\)</span>, <span class="math inline">\(u(t,1,y) = 0\)</span>, <span class="math inline">\(u(t,x,0)=u(t,x,1)=0\)</span>, and the initial condition <span class="math inline">\(u(0,x,y) = \sin(\pi x) \sin(\pi y)\)</span> (shown in Figure <a href="ch-pdes.html#fig:heat-ic">6.5</a>). Then use the code below to show the time evolution of your solution.
 </div>
-<div class="sourceCode" id="cb102"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb102-1"><a href="ch-pdes.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb102-2"><a href="ch-pdes.html#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb102-3"><a href="ch-pdes.html#cb102-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interactive</span>
-<span id="cb102-4"><a href="ch-pdes.html#cb102-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-5"><a href="ch-pdes.html#cb102-5" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> <span class="kw">lambda</span> t, x, y: <span class="co"># your function goes here</span></span>
-<span id="cb102-6"><a href="ch-pdes.html#cb102-6" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> np.meshgrid( np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">25</span>), np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">25</span>) )</span>
-<span id="cb102-7"><a href="ch-pdes.html#cb102-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-8"><a href="ch-pdes.html#cb102-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plotter(T):</span>
-<span id="cb102-9"><a href="ch-pdes.html#cb102-9" aria-hidden="true" tabindex="-1"></a>    fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">15</span>,<span class="dv">12</span>))</span>
-<span id="cb102-10"><a href="ch-pdes.html#cb102-10" aria-hidden="true" tabindex="-1"></a>    ax <span class="op">=</span> fig.gca(projection<span class="op">=</span><span class="st">&#39;3d&#39;</span>)</span>
-<span id="cb102-11"><a href="ch-pdes.html#cb102-11" aria-hidden="true" tabindex="-1"></a>    z <span class="op">=</span> u(T,x,y)</span>
-<span id="cb102-12"><a href="ch-pdes.html#cb102-12" aria-hidden="true" tabindex="-1"></a>    ax.plot_surface(x,y,z)</span>
-<span id="cb102-13"><a href="ch-pdes.html#cb102-13" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(<span class="st">&#39;x&#39;</span>)</span>
-<span id="cb102-14"><a href="ch-pdes.html#cb102-14" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="st">&#39;y&#39;</span>)</span>
-<span id="cb102-15"><a href="ch-pdes.html#cb102-15" aria-hidden="true" tabindex="-1"></a>    ax.set_zlabel(<span class="st">&#39;u(t,x,y)&#39;</span>)</span>
-<span id="cb102-16"><a href="ch-pdes.html#cb102-16" aria-hidden="true" tabindex="-1"></a>    ax.set_zlim(<span class="dv">0</span>,<span class="dv">1</span>)</span>
-<span id="cb102-17"><a href="ch-pdes.html#cb102-17" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
-<span id="cb102-18"><a href="ch-pdes.html#cb102-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-19"><a href="ch-pdes.html#cb102-19" aria-hidden="true" tabindex="-1"></a>interactive_plot <span class="op">=</span> interactive(plotter, T <span class="op">=</span> (<span class="dv">0</span>,<span class="dv">10</span>,<span class="fl">0.1</span>) )</span>
-<span id="cb102-20"><a href="ch-pdes.html#cb102-20" aria-hidden="true" tabindex="-1"></a>interactive_plot</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb103-1"><a href="ch-pdes.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb103-2"><a href="ch-pdes.html#cb103-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb103-3"><a href="ch-pdes.html#cb103-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interactive</span>
+<span id="cb103-4"><a href="ch-pdes.html#cb103-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-5"><a href="ch-pdes.html#cb103-5" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> <span class="kw">lambda</span> t, x, y: <span class="co"># your function goes here</span></span>
+<span id="cb103-6"><a href="ch-pdes.html#cb103-6" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> np.meshgrid( np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">25</span>), np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">25</span>) )</span>
+<span id="cb103-7"><a href="ch-pdes.html#cb103-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-8"><a href="ch-pdes.html#cb103-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plotter(T):</span>
+<span id="cb103-9"><a href="ch-pdes.html#cb103-9" aria-hidden="true" tabindex="-1"></a>    fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">15</span>,<span class="dv">12</span>))</span>
+<span id="cb103-10"><a href="ch-pdes.html#cb103-10" aria-hidden="true" tabindex="-1"></a>    ax <span class="op">=</span> fig.gca(projection<span class="op">=</span><span class="st">&#39;3d&#39;</span>)</span>
+<span id="cb103-11"><a href="ch-pdes.html#cb103-11" aria-hidden="true" tabindex="-1"></a>    z <span class="op">=</span> u(T,x,y)</span>
+<span id="cb103-12"><a href="ch-pdes.html#cb103-12" aria-hidden="true" tabindex="-1"></a>    ax.plot_surface(x,y,z)</span>
+<span id="cb103-13"><a href="ch-pdes.html#cb103-13" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(<span class="st">&#39;x&#39;</span>)</span>
+<span id="cb103-14"><a href="ch-pdes.html#cb103-14" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="st">&#39;y&#39;</span>)</span>
+<span id="cb103-15"><a href="ch-pdes.html#cb103-15" aria-hidden="true" tabindex="-1"></a>    ax.set_zlabel(<span class="st">&#39;u(t,x,y)&#39;</span>)</span>
+<span id="cb103-16"><a href="ch-pdes.html#cb103-16" aria-hidden="true" tabindex="-1"></a>    ax.set_zlim(<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb103-17"><a href="ch-pdes.html#cb103-17" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb103-18"><a href="ch-pdes.html#cb103-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-19"><a href="ch-pdes.html#cb103-19" aria-hidden="true" tabindex="-1"></a>interactive_plot <span class="op">=</span> interactive(plotter, T <span class="op">=</span> (<span class="dv">0</span>,<span class="dv">10</span>,<span class="fl">0.1</span>) )</span>
+<span id="cb103-20"><a href="ch-pdes.html#cb103-20" aria-hidden="true" tabindex="-1"></a>interactive_plot</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:heat-ic"></span>
 <img src="images/Ch06_IC_2DHeat.png" alt="Initial condition" width="75%" />
 <p class="caption">
@@ -977,17 +974,17 @@ where the function <span class="math inline">\(f(x)\)</span> would model exactly
 <p>In the remainder of this section we’ll use a technique called <strong>the finite difference method</strong> to build numerical approximations to solutions of the heat equation in 1D, 2D, and 3D.</p>
 <p>For the sake of simplicity we will start by considering the time dependent heat equation in 1 spatial dimension with no external forcing function
 <span class="math display">\[ \frac{\partial u}{\partial t} = D \frac{\partial^2 u}{\partial x^2}. \]</span>
-The constant <span class="math inline">\(D\)</span> is the called the diffusivity (the rate of diffusion) so in terms of physical problems, if <span class="math inline">\(D\)</span> is small then the diffusion occurs slowly and if <span class="math inline">\(D\)</span> is large then the diffusion occurs quickly. Just as we did in Chapter <a href="#ch:calculus"><strong>??</strong></a> to approximate derivatives and integrals numerically, and also in Chapter <a href="#ch:odes"><strong>??</strong></a> to approximate solutions to ODEs, we will start by partitioning the domain into finitely many pieces and we will partition time into finitely many pieces.</p>
+The constant <span class="math inline">\(D\)</span> is the called the diffusivity (the rate of diffusion) so in terms of physical problems, if <span class="math inline">\(D\)</span> is small then the diffusion occurs slowly and if <span class="math inline">\(D\)</span> is large then the diffusion occurs quickly. Just as we did in Chapter <a href="ch-calculus.html#ch-calculus">3</a> to approximate derivatives and integrals numerically, and also in Chapter <a href="ch-odes.html#ch-odes">5</a> to approximate solutions to ODEs, we will start by partitioning the domain into finitely many pieces and we will partition time into finitely many pieces.</p>
 <hr />
 
 <div class="exercise">
 <p><span id="exr:unnamed-chunk-576" class="exercise"><strong>Exercise 6.29  </strong></span>In 1 spatial dimension, the heat equation is simply <span class="math display">\[u_t = D u_{xx}.\]</span> We want to build a numerical approximation to the function <span class="math inline">\(u(t,x)\)</span> for a given collection of initial and boundary conditions.</p>
 <p>First we need to introduce some notation for the numerical solution. As you’ll see in a moment, there is a lot to keep track of in numerical PDEs so careful index and well-chosen notation is essential. Let <span class="math inline">\(U_i^n\)</span> be the approximation of the solution to <span class="math inline">\(u(t,x)\)</span> at the point <span class="math inline">\(t=t_n\)</span> and <span class="math inline">\(x=x_i\)</span> (since we have two variables we need to two indices). For example, <span class="math inline">\(U_4^1\)</span> is the value of the approximation at time <span class="math inline">\(t_1\)</span> and at the spatial point <span class="math inline">\(x_4\)</span>.</p>
-<p>Next we need to approximate both derivatives <span class="math inline">\(u_t\)</span> and <span class="math inline">\(u_{xx}\)</span> in the PDE using methods that we have used before. Now would be a good time to go back to Chapter <a href="#ch:calculus"><strong>??</strong></a> and refresh your memory for how we build approximations of derivatives.</p>
+<p>Next we need to approximate both derivatives <span class="math inline">\(u_t\)</span> and <span class="math inline">\(u_{xx}\)</span> in the PDE using methods that we have used before. Now would be a good time to go back to Chapter <a href="ch-calculus.html#ch-calculus">3</a> and refresh your memory for how we build approximations of derivatives.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Give an approximation of <span class="math inline">\(u_t\)</span> similar to Euler’s method
 <span class="math display">\[ u_t \approx \frac{??? - ???}{???}. \]</span></li>
-<li>Give an approximation of <span class="math inline">\(u_{xx}\)</span> using the approximation for the second derivative from Chapter <a href="#ch:calculus"><strong>??</strong></a>
+<li>Give an approximation of <span class="math inline">\(u_{xx}\)</span> using the approximation for the second derivative from Chapter <a href="ch-calculus.html#ch-calculus">3</a>
 <span class="math display">\[ u_{xx} \approx \frac{??? - ??? + ???}{???}. \]</span></li>
 <li>Put your answers from parts (a) and (b) together using the 1D heat equation
 <span class="math display">\[\frac{??? - ???}{\Delta t} = D \left( \frac{??? - ??? + ???}{\Delta x^2} \right).\]</span>
@@ -1005,7 +1002,7 @@ The iterative scheme which you just derived is called a <strong>finite differenc
 </ol>
 </div>
 <hr />
-<p>There are many different finite difference schemes due to the fact that there are many different ways to approximate derivatives (See Chapter <a href="#ch:calculus"><strong>??</strong></a>). One convenient way to keep track of which information you are using and what you are calculating in a finite difference scheme is to use a <strong>finite difference stencil image</strong>. Figure <a href="ch-pdes.html#fig:heat-stencil">6.8</a> shows the finite difference stencil for the approximation to the heat equation that you built in the previous exercise. In this figure we are showing that the function values <span class="math inline">\(U_{i-1}^n\)</span>, <span class="math inline">\(U_i^n\)</span>, and <span class="math inline">\(U_{i+1}^n\)</span> at the points <span class="math inline">\(x_{i-1}\)</span>, <span class="math inline">\(x_i\)</span>, and <span class="math inline">\(x_{i+1}\)</span> are being used at time step <span class="math inline">\(t_n\)</span> to calculate <span class="math inline">\(U_i^{n+1}\)</span>. We will build similar stencil diagrams for other finite difference schemes throughout this chapter.</p>
+<p>There are many different finite difference schemes due to the fact that there are many different ways to approximate derivatives (See Chapter <a href="ch-calculus.html#ch-calculus">3</a>). One convenient way to keep track of which information you are using and what you are calculating in a finite difference scheme is to use a <strong>finite difference stencil image</strong>. Figure <a href="ch-pdes.html#fig:heat-stencil">6.8</a> shows the finite difference stencil for the approximation to the heat equation that you built in the previous exercise. In this figure we are showing that the function values <span class="math inline">\(U_{i-1}^n\)</span>, <span class="math inline">\(U_i^n\)</span>, and <span class="math inline">\(U_{i+1}^n\)</span> at the points <span class="math inline">\(x_{i-1}\)</span>, <span class="math inline">\(x_i\)</span>, and <span class="math inline">\(x_{i+1}\)</span> are being used at time step <span class="math inline">\(t_n\)</span> to calculate <span class="math inline">\(U_i^{n+1}\)</span>. We will build similar stencil diagrams for other finite difference schemes throughout this chapter.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:heat-stencil"></span>
 <img src="images/Ch06_HeatStencil.png" alt="The finite difference stencil for the 1D heat equation." width="75%" />
 <p class="caption">
@@ -1025,52 +1022,52 @@ Some partial code is given below to get you started.
 <ul>
 <li>First we import the proper libraries, set up the time domain, and set up the spatial domain.</li>
 </ul>
-<div class="sourceCode" id="cb103"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb103-1"><a href="ch-pdes.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb103-2"><a href="ch-pdes.html#cb103-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb103-3"><a href="ch-pdes.html#cb103-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interactive</span>
-<span id="cb103-4"><a href="ch-pdes.html#cb103-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb103-5"><a href="ch-pdes.html#cb103-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Write code to give an array of times starting at t=0 and ending </span></span>
-<span id="cb103-6"><a href="ch-pdes.html#cb103-6" aria-hidden="true" tabindex="-1"></a><span class="co"># at t=1.  Be sure that you use many points in the partition of </span></span>
-<span id="cb103-7"><a href="ch-pdes.html#cb103-7" aria-hidden="true" tabindex="-1"></a><span class="co"># the time domain.  Be sure to either specify or calculate the </span></span>
-<span id="cb103-8"><a href="ch-pdes.html#cb103-8" aria-hidden="true" tabindex="-1"></a><span class="co"># value of Delta t.</span></span>
-<span id="cb103-9"><a href="ch-pdes.html#cb103-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb103-10"><a href="ch-pdes.html#cb103-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Write code to give an array of x values starting at x=0 and </span></span>
-<span id="cb103-11"><a href="ch-pdes.html#cb103-11" aria-hidden="true" tabindex="-1"></a><span class="co"># ending exactly at x=1. This is best done with the np.linspace() </span></span>
-<span id="cb103-12"><a href="ch-pdes.html#cb103-12" aria-hidden="true" tabindex="-1"></a><span class="co"># command since you can guarantee that you end exactly at x=1.  </span></span>
-<span id="cb103-13"><a href="ch-pdes.html#cb103-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Be sure to either specify or calculate the value of Delta x as</span></span>
-<span id="cb103-14"><a href="ch-pdes.html#cb103-14" aria-hidden="true" tabindex="-1"></a><span class="co"># part of your code. </span></span>
-<span id="cb103-15"><a href="ch-pdes.html#cb103-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb103-16"><a href="ch-pdes.html#cb103-16" aria-hidden="true" tabindex="-1"></a><span class="co"># The next two lines build two parameters that are of interest </span></span>
-<span id="cb103-17"><a href="ch-pdes.html#cb103-17" aria-hidden="true" tabindex="-1"></a><span class="co"># for the finite difference scheme.</span></span>
-<span id="cb103-18"><a href="ch-pdes.html#cb103-18" aria-hidden="true" tabindex="-1"></a>D <span class="op">=</span> <span class="fl">0.5</span> <span class="co"># The diffusion coefficient for the heat equation given.</span></span>
-<span id="cb103-19"><a href="ch-pdes.html#cb103-19" aria-hidden="true" tabindex="-1"></a><span class="co"># The coefficient &quot;a&quot; appears in the finite difference scheme.</span></span>
-<span id="cb103-20"><a href="ch-pdes.html#cb103-20" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> D<span class="op">*</span>dt <span class="op">/</span> dx<span class="op">**</span><span class="dv">2</span> </span>
-<span id="cb103-21"><a href="ch-pdes.html#cb103-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;dt=&quot;</span>,dt,<span class="st">&quot;, dx=&quot;</span>,dx,<span class="st">&quot; and D dt/dx^2=&quot;</span>,a)</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb104-1"><a href="ch-pdes.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb104-2"><a href="ch-pdes.html#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb104-3"><a href="ch-pdes.html#cb104-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interactive</span>
+<span id="cb104-4"><a href="ch-pdes.html#cb104-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-5"><a href="ch-pdes.html#cb104-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Write code to give an array of times starting at t=0 and ending </span></span>
+<span id="cb104-6"><a href="ch-pdes.html#cb104-6" aria-hidden="true" tabindex="-1"></a><span class="co"># at t=1.  Be sure that you use many points in the partition of </span></span>
+<span id="cb104-7"><a href="ch-pdes.html#cb104-7" aria-hidden="true" tabindex="-1"></a><span class="co"># the time domain.  Be sure to either specify or calculate the </span></span>
+<span id="cb104-8"><a href="ch-pdes.html#cb104-8" aria-hidden="true" tabindex="-1"></a><span class="co"># value of Delta t.</span></span>
+<span id="cb104-9"><a href="ch-pdes.html#cb104-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-10"><a href="ch-pdes.html#cb104-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Write code to give an array of x values starting at x=0 and </span></span>
+<span id="cb104-11"><a href="ch-pdes.html#cb104-11" aria-hidden="true" tabindex="-1"></a><span class="co"># ending exactly at x=1. This is best done with the np.linspace() </span></span>
+<span id="cb104-12"><a href="ch-pdes.html#cb104-12" aria-hidden="true" tabindex="-1"></a><span class="co"># command since you can guarantee that you end exactly at x=1.  </span></span>
+<span id="cb104-13"><a href="ch-pdes.html#cb104-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Be sure to either specify or calculate the value of Delta x as</span></span>
+<span id="cb104-14"><a href="ch-pdes.html#cb104-14" aria-hidden="true" tabindex="-1"></a><span class="co"># part of your code. </span></span>
+<span id="cb104-15"><a href="ch-pdes.html#cb104-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-16"><a href="ch-pdes.html#cb104-16" aria-hidden="true" tabindex="-1"></a><span class="co"># The next two lines build two parameters that are of interest </span></span>
+<span id="cb104-17"><a href="ch-pdes.html#cb104-17" aria-hidden="true" tabindex="-1"></a><span class="co"># for the finite difference scheme.</span></span>
+<span id="cb104-18"><a href="ch-pdes.html#cb104-18" aria-hidden="true" tabindex="-1"></a>D <span class="op">=</span> <span class="fl">0.5</span> <span class="co"># The diffusion coefficient for the heat equation given.</span></span>
+<span id="cb104-19"><a href="ch-pdes.html#cb104-19" aria-hidden="true" tabindex="-1"></a><span class="co"># The coefficient &quot;a&quot; appears in the finite difference scheme.</span></span>
+<span id="cb104-20"><a href="ch-pdes.html#cb104-20" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> D<span class="op">*</span>dt <span class="op">/</span> dx<span class="op">**</span><span class="dv">2</span> </span>
+<span id="cb104-21"><a href="ch-pdes.html#cb104-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;dt=&quot;</span>,dt,<span class="st">&quot;, dx=&quot;</span>,dx,<span class="st">&quot; and D dt/dx^2=&quot;</span>,a)</span></code></pre></div>
 <ul>
 <li>Next we build the array <span class="math inline">\(U\)</span> so we can store all of the approximations at all times and at all spatial points. The array will have the dimensions <code>len(t)</code> versus <code>len(x)</code>. We then need to enforce the boundary conditions so for all times we fill the proper portions of the array with the proper boundary conditions. Lastly, we will build the initial condition for all spatial steps in the first time step.</li>
 </ul>
-<div class="sourceCode" id="cb104"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb104-1"><a href="ch-pdes.html#cb104-1" aria-hidden="true" tabindex="-1"></a>U <span class="op">=</span> np.zeros( (<span class="bu">len</span>(t),<span class="bu">len</span>(x)) )</span>
-<span id="cb104-2"><a href="ch-pdes.html#cb104-2" aria-hidden="true" tabindex="-1"></a>U[:,<span class="dv">0</span>] <span class="op">=</span> <span class="co"># left boundary condition</span></span>
-<span id="cb104-3"><a href="ch-pdes.html#cb104-3" aria-hidden="true" tabindex="-1"></a>U[:,<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="co"># right boundary condition</span></span>
-<span id="cb104-4"><a href="ch-pdes.html#cb104-4" aria-hidden="true" tabindex="-1"></a>U[<span class="dv">0</span>,:] <span class="op">=</span> <span class="co"># the function for the init. condition (should depend on x)</span></span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb105-1"><a href="ch-pdes.html#cb105-1" aria-hidden="true" tabindex="-1"></a>U <span class="op">=</span> np.zeros( (<span class="bu">len</span>(t),<span class="bu">len</span>(x)) )</span>
+<span id="cb105-2"><a href="ch-pdes.html#cb105-2" aria-hidden="true" tabindex="-1"></a>U[:,<span class="dv">0</span>] <span class="op">=</span> <span class="co"># left boundary condition</span></span>
+<span id="cb105-3"><a href="ch-pdes.html#cb105-3" aria-hidden="true" tabindex="-1"></a>U[:,<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="co"># right boundary condition</span></span>
+<span id="cb105-4"><a href="ch-pdes.html#cb105-4" aria-hidden="true" tabindex="-1"></a>U[<span class="dv">0</span>,:] <span class="op">=</span> <span class="co"># the function for the init. condition (should depend on x)</span></span></code></pre></div>
 <ul>
 <li>Now we step through a loop that fills the <span class="math inline">\(U\)</span> array one row at a time. Keep in mind that we want to leave the boundary conditions fixed so we will only fill indices <code>1</code> through <code>-2</code> (stop and explain this). Be careful to get the indexing correct. For example, if we want <span class="math inline">\(U_i^n\)</span> we use <code>U[n,1:-1]</code>, if we want <span class="math inline">\(U_{i+1}^n\)</span> we use <code>U[n,2:]</code>, if we want <span class="math inline">\(U_i^{n+1}\)</span> we use <code>U[n+1,1:-1]</code>, etc.</li>
 </ul>
-<div class="sourceCode" id="cb105"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb105-1"><a href="ch-pdes.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(t)<span class="op">-</span><span class="dv">1</span>):</span>
-<span id="cb105-2"><a href="ch-pdes.html#cb105-2" aria-hidden="true" tabindex="-1"></a>    U[n<span class="op">+</span><span class="dv">1</span>,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> U[n,?:?] <span class="op">+</span> a<span class="op">*</span>( U[n,?:] <span class="op">-</span> <span class="dv">2</span><span class="op">*</span>U[n,?:?] <span class="op">+</span> U[n,:?])</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb106-1"><a href="ch-pdes.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(t)<span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb106-2"><a href="ch-pdes.html#cb106-2" aria-hidden="true" tabindex="-1"></a>    U[n<span class="op">+</span><span class="dv">1</span>,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> U[n,?:?] <span class="op">+</span> a<span class="op">*</span>( U[n,?:] <span class="op">-</span> <span class="dv">2</span><span class="op">*</span>U[n,?:?] <span class="op">+</span> U[n,:?])</span></code></pre></div>
 <ul>
 <li>It remains to plot the solutions. One way to do this is with the <code>ipywidgets.interactive</code> tool. We first need to create a function which returns a plot at a particular time step. Then we call the function inside the <code>interactive</code> function. You could also use the <code>matplotlib.animation</code> function if you wish.</li>
 </ul>
-<div class="sourceCode" id="cb106"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb106-1"><a href="ch-pdes.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plotter(Frame):</span>
-<span id="cb106-2"><a href="ch-pdes.html#cb106-2" aria-hidden="true" tabindex="-1"></a>    plt.plot(x,U[Frame,:],<span class="st">&#39;b&#39;</span>)</span>
-<span id="cb106-3"><a href="ch-pdes.html#cb106-3" aria-hidden="true" tabindex="-1"></a>    plt.grid()</span>
-<span id="cb106-4"><a href="ch-pdes.html#cb106-4" aria-hidden="true" tabindex="-1"></a>    plt.ylim(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb106-5"><a href="ch-pdes.html#cb106-5" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
-<span id="cb106-6"><a href="ch-pdes.html#cb106-6" aria-hidden="true" tabindex="-1"></a>interactive_plot <span class="op">=</span> interactive(plotter, Frame<span class="op">=</span>(<span class="dv">0</span>,<span class="bu">len</span>(t)<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>))</span>
-<span id="cb106-7"><a href="ch-pdes.html#cb106-7" aria-hidden="true" tabindex="-1"></a>interactive_plot</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb107-1"><a href="ch-pdes.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plotter(Frame):</span>
+<span id="cb107-2"><a href="ch-pdes.html#cb107-2" aria-hidden="true" tabindex="-1"></a>    plt.plot(x,U[Frame,:],<span class="st">&#39;b&#39;</span>)</span>
+<span id="cb107-3"><a href="ch-pdes.html#cb107-3" aria-hidden="true" tabindex="-1"></a>    plt.grid()</span>
+<span id="cb107-4"><a href="ch-pdes.html#cb107-4" aria-hidden="true" tabindex="-1"></a>    plt.ylim(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb107-5"><a href="ch-pdes.html#cb107-5" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb107-6"><a href="ch-pdes.html#cb107-6" aria-hidden="true" tabindex="-1"></a>interactive_plot <span class="op">=</span> interactive(plotter, Frame<span class="op">=</span>(<span class="dv">0</span>,<span class="bu">len</span>(t)<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb107-7"><a href="ch-pdes.html#cb107-7" aria-hidden="true" tabindex="-1"></a>interactive_plot</span></code></pre></div>
 <p>Note: If you don’t want to do an interactive plot then you can produce several snapshots of the solutions with the following code.</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb107-1"><a href="ch-pdes.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> Frame <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(t),<span class="dv">20</span>): <span class="co"># ex: build every 20th frame</span></span>
-<span id="cb107-2"><a href="ch-pdes.html#cb107-2" aria-hidden="true" tabindex="-1"></a>    plotter(Frame)</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb108-1"><a href="ch-pdes.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> Frame <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(t),<span class="dv">20</span>): <span class="co"># ex: build every 20th frame</span></span>
+<span id="cb108-2"><a href="ch-pdes.html#cb108-2" aria-hidden="true" tabindex="-1"></a>    plotter(Frame)</span></code></pre></div>
 <hr />
 
 <div class="exercise">
@@ -1126,7 +1123,7 @@ or using subscript notation for the partial derivatives,
 <ol style="list-style-type: lower-alpha">
 <li>We already know how to approximate the time derivative in the heat equation:
 <span class="math display">\[ u_t(t_{n+1}, x_i, y_j) \approx \frac{U_{i,j}^{n+1} - U_{i,j}^n}{\Delta t}. \]</span>
-The new challenge now is that we have two spatial partial derivatives: one in <span class="math inline">\(x\)</span> and one in <span class="math inline">\(y\)</span>. Use what you learned in Chapter <a href="#ch:calculus"><strong>??</strong></a> to write the approximations of <span class="math inline">\(u_{xx}\)</span> and <span class="math inline">\(u_{yy}\)</span>.
+The new challenge now is that we have two spatial partial derivatives: one in <span class="math inline">\(x\)</span> and one in <span class="math inline">\(y\)</span>. Use what you learned in Chapter <a href="ch-calculus.html#ch-calculus">3</a> to write the approximations of <span class="math inline">\(u_{xx}\)</span> and <span class="math inline">\(u_{yy}\)</span>.
 <span class="math display">\[ u_{xx}(t_n,x_i,y_j) \approx \frac{??? - ??? + ???}{\Delta x^2} \]</span>
 <span class="math display">\[ u_{yy}(t_n,x_i,y_j) \approx \frac{??? - ??? + ???}{\Delta y^2} \]</span>
 Take careful note that the index <span class="math inline">\(i\)</span> is the only one that changes for the <span class="math inline">\(x\)</span> derivative. Similarly, the index <span class="math inline">\(j\)</span> is the only one that changes for the <span class="math inline">\(y\)</span> derivative.</li>
@@ -1149,74 +1146,74 @@ Figure 6.9: The finite difference stencil for the 2D heat equation.
 <hr />
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-588" class="exercise"><strong>Exercise 6.36  </strong></span>Now we need to implement the finite difference scheme that you developed in the previous problem. As a model problem, consider the 2D heat equation <span class="math inline">\(u_t = D(u_{xx} + u_{yy})\)</span> on the domain <span class="math inline">\((x,y) \in [0,1] \times [0,1]\)</span> with the initial condition <span class="math inline">\(u(0,x,y) = \sin(\pi x)\sin(\pi y)\)</span>, homogeneous Dirichlet boundary conditions, and <span class="math inline">\(D=1\)</span>.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> Fill in the holes in the following code chunks.
+<span id="exr:unnamed-chunk-588" class="exercise"><strong>Exercise 6.36  </strong></span>Now we need to implement the finite difference scheme that you developed in the previous problem. As a model problem, consider the 2D heat equation <span class="math inline">\(u_t = D(u_{xx} + u_{yy})\)</span> on the domain <span class="math inline">\((x,y) \in [0,1] \times [0,1]\)</span> with the initial condition <span class="math inline">\(u(0,x,y) = \sin(\pi x)\sin(\pi y)\)</span>, homogeneous Dirichlet boundary conditions, and <span class="math inline">\(D=1\)</span>.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> Fill in the holes in the following code chunks.
 </div>
 <ul>
 <li>First we import the proper libraries and set up the domains for <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>, and <span class="math inline">\(t\)</span>.</li>
 </ul>
-<div class="sourceCode" id="cb108"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb108-1"><a href="ch-pdes.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb108-2"><a href="ch-pdes.html#cb108-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb108-3"><a href="ch-pdes.html#cb108-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> cm <span class="co"># this allows for color maps </span></span>
-<span id="cb108-4"><a href="ch-pdes.html#cb108-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interactive</span>
-<span id="cb108-5"><a href="ch-pdes.html#cb108-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb108-6"><a href="ch-pdes.html#cb108-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Write code to build a linearly spaced array of x values </span></span>
-<span id="cb108-7"><a href="ch-pdes.html#cb108-7" aria-hidden="true" tabindex="-1"></a><span class="co"># starting at 0 and ending at exactly 1</span></span>
-<span id="cb108-8"><a href="ch-pdes.html#cb108-8" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="co"># your code here</span></span>
-<span id="cb108-9"><a href="ch-pdes.html#cb108-9" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> x <span class="co"># This is a step that allows for us to have y = x </span></span>
-<span id="cb108-10"><a href="ch-pdes.html#cb108-10" aria-hidden="true" tabindex="-1"></a><span class="co"># The consequence of the previous line is that dy = dx.</span></span>
-<span id="cb108-11"><a href="ch-pdes.html#cb108-11" aria-hidden="true" tabindex="-1"></a>dx <span class="op">=</span> <span class="co"># Extract dx from your array of x values.</span></span>
-<span id="cb108-12"><a href="ch-pdes.html#cb108-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Now write code to build a linearly spaced array of time values </span></span>
-<span id="cb108-13"><a href="ch-pdes.html#cb108-13" aria-hidden="true" tabindex="-1"></a><span class="co"># starting at 0 and ending at 0.25.</span></span>
-<span id="cb108-14"><a href="ch-pdes.html#cb108-14" aria-hidden="true" tabindex="-1"></a><span class="co"># You will want to use many more values for time than for space </span></span>
-<span id="cb108-15"><a href="ch-pdes.html#cb108-15" aria-hidden="true" tabindex="-1"></a><span class="co"># (think about the stability conditions from the 1D heat equation).</span></span>
-<span id="cb108-16"><a href="ch-pdes.html#cb108-16" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> <span class="co"># your code here</span></span>
-<span id="cb108-17"><a href="ch-pdes.html#cb108-17" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> <span class="co"># Extract dt from your array of t values</span></span>
-<span id="cb108-18"><a href="ch-pdes.html#cb108-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb108-19"><a href="ch-pdes.html#cb108-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Next we will use the np.meshgrid() command to turn the arrays of </span></span>
-<span id="cb108-20"><a href="ch-pdes.html#cb108-20" aria-hidden="true" tabindex="-1"></a><span class="co"># x and y values into 2D grids of x and y values.  </span></span>
-<span id="cb108-21"><a href="ch-pdes.html#cb108-21" aria-hidden="true" tabindex="-1"></a><span class="co"># If you match the corresponding entries of X and Y then you get </span></span>
-<span id="cb108-22"><a href="ch-pdes.html#cb108-22" aria-hidden="true" tabindex="-1"></a><span class="co"># every ordered pair in the domain.</span></span>
-<span id="cb108-23"><a href="ch-pdes.html#cb108-23" aria-hidden="true" tabindex="-1"></a>X, Y <span class="op">=</span> np.meshgrid(x,y)</span>
-<span id="cb108-24"><a href="ch-pdes.html#cb108-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb108-25"><a href="ch-pdes.html#cb108-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Next we set up a 3 dimensional array of zeros to store all of </span></span>
-<span id="cb108-26"><a href="ch-pdes.html#cb108-26" aria-hidden="true" tabindex="-1"></a><span class="co"># the time steps of the solutions.</span></span>
-<span id="cb108-27"><a href="ch-pdes.html#cb108-27" aria-hidden="true" tabindex="-1"></a>U <span class="op">=</span> np.zeros( (<span class="bu">len</span>(t), <span class="bu">len</span>(x), <span class="bu">len</span>(y)))</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb109-1"><a href="ch-pdes.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb109-2"><a href="ch-pdes.html#cb109-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb109-3"><a href="ch-pdes.html#cb109-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> cm <span class="co"># this allows for color maps </span></span>
+<span id="cb109-4"><a href="ch-pdes.html#cb109-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interactive</span>
+<span id="cb109-5"><a href="ch-pdes.html#cb109-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-6"><a href="ch-pdes.html#cb109-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Write code to build a linearly spaced array of x values </span></span>
+<span id="cb109-7"><a href="ch-pdes.html#cb109-7" aria-hidden="true" tabindex="-1"></a><span class="co"># starting at 0 and ending at exactly 1</span></span>
+<span id="cb109-8"><a href="ch-pdes.html#cb109-8" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="co"># your code here</span></span>
+<span id="cb109-9"><a href="ch-pdes.html#cb109-9" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> x <span class="co"># This is a step that allows for us to have y = x </span></span>
+<span id="cb109-10"><a href="ch-pdes.html#cb109-10" aria-hidden="true" tabindex="-1"></a><span class="co"># The consequence of the previous line is that dy = dx.</span></span>
+<span id="cb109-11"><a href="ch-pdes.html#cb109-11" aria-hidden="true" tabindex="-1"></a>dx <span class="op">=</span> <span class="co"># Extract dx from your array of x values.</span></span>
+<span id="cb109-12"><a href="ch-pdes.html#cb109-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Now write code to build a linearly spaced array of time values </span></span>
+<span id="cb109-13"><a href="ch-pdes.html#cb109-13" aria-hidden="true" tabindex="-1"></a><span class="co"># starting at 0 and ending at 0.25.</span></span>
+<span id="cb109-14"><a href="ch-pdes.html#cb109-14" aria-hidden="true" tabindex="-1"></a><span class="co"># You will want to use many more values for time than for space </span></span>
+<span id="cb109-15"><a href="ch-pdes.html#cb109-15" aria-hidden="true" tabindex="-1"></a><span class="co"># (think about the stability conditions from the 1D heat equation).</span></span>
+<span id="cb109-16"><a href="ch-pdes.html#cb109-16" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> <span class="co"># your code here</span></span>
+<span id="cb109-17"><a href="ch-pdes.html#cb109-17" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> <span class="co"># Extract dt from your array of t values</span></span>
+<span id="cb109-18"><a href="ch-pdes.html#cb109-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-19"><a href="ch-pdes.html#cb109-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Next we will use the np.meshgrid() command to turn the arrays of </span></span>
+<span id="cb109-20"><a href="ch-pdes.html#cb109-20" aria-hidden="true" tabindex="-1"></a><span class="co"># x and y values into 2D grids of x and y values.  </span></span>
+<span id="cb109-21"><a href="ch-pdes.html#cb109-21" aria-hidden="true" tabindex="-1"></a><span class="co"># If you match the corresponding entries of X and Y then you get </span></span>
+<span id="cb109-22"><a href="ch-pdes.html#cb109-22" aria-hidden="true" tabindex="-1"></a><span class="co"># every ordered pair in the domain.</span></span>
+<span id="cb109-23"><a href="ch-pdes.html#cb109-23" aria-hidden="true" tabindex="-1"></a>X, Y <span class="op">=</span> np.meshgrid(x,y)</span>
+<span id="cb109-24"><a href="ch-pdes.html#cb109-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-25"><a href="ch-pdes.html#cb109-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Next we set up a 3 dimensional array of zeros to store all of </span></span>
+<span id="cb109-26"><a href="ch-pdes.html#cb109-26" aria-hidden="true" tabindex="-1"></a><span class="co"># the time steps of the solutions.</span></span>
+<span id="cb109-27"><a href="ch-pdes.html#cb109-27" aria-hidden="true" tabindex="-1"></a>U <span class="op">=</span> np.zeros( (<span class="bu">len</span>(t), <span class="bu">len</span>(x), <span class="bu">len</span>(y)))</span></code></pre></div>
 <ul>
 <li>Next we have to set up the boundary and initial conditions for the given problem.</li>
 </ul>
-<div class="sourceCode" id="cb109"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb109-1"><a href="ch-pdes.html#cb109-1" aria-hidden="true" tabindex="-1"></a>U[<span class="dv">0</span>,:,:] <span class="op">=</span> <span class="co"># initial condition depending on X and Y</span></span>
-<span id="cb109-2"><a href="ch-pdes.html#cb109-2" aria-hidden="true" tabindex="-1"></a>U[:,<span class="dv">0</span>,:] <span class="op">=</span> <span class="co"># boundary condition for x=0</span></span>
-<span id="cb109-3"><a href="ch-pdes.html#cb109-3" aria-hidden="true" tabindex="-1"></a>U[:,<span class="op">-</span><span class="dv">1</span>,:] <span class="op">=</span> <span class="co"># boundary condition for x=1</span></span>
-<span id="cb109-4"><a href="ch-pdes.html#cb109-4" aria-hidden="true" tabindex="-1"></a>U[:,:,<span class="dv">0</span>] <span class="op">=</span> <span class="co"># boundary condition for y=0</span></span>
-<span id="cb109-5"><a href="ch-pdes.html#cb109-5" aria-hidden="true" tabindex="-1"></a>U[:,:,<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="co"># boundary condition for y=1</span></span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb110-1"><a href="ch-pdes.html#cb110-1" aria-hidden="true" tabindex="-1"></a>U[<span class="dv">0</span>,:,:] <span class="op">=</span> <span class="co"># initial condition depending on X and Y</span></span>
+<span id="cb110-2"><a href="ch-pdes.html#cb110-2" aria-hidden="true" tabindex="-1"></a>U[:,<span class="dv">0</span>,:] <span class="op">=</span> <span class="co"># boundary condition for x=0</span></span>
+<span id="cb110-3"><a href="ch-pdes.html#cb110-3" aria-hidden="true" tabindex="-1"></a>U[:,<span class="op">-</span><span class="dv">1</span>,:] <span class="op">=</span> <span class="co"># boundary condition for x=1</span></span>
+<span id="cb110-4"><a href="ch-pdes.html#cb110-4" aria-hidden="true" tabindex="-1"></a>U[:,:,<span class="dv">0</span>] <span class="op">=</span> <span class="co"># boundary condition for y=0</span></span>
+<span id="cb110-5"><a href="ch-pdes.html#cb110-5" aria-hidden="true" tabindex="-1"></a>U[:,:,<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="co"># boundary condition for y=1</span></span></code></pre></div>
 <ul>
 <li>We know that the value of <span class="math inline">\(D \Delta t / \Delta x^2\)</span> controls the stability of finite element methods. Therefore, the next step in our code is to calculate this value and print it.</li>
 </ul>
-<div class="sourceCode" id="cb110"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb110-1"><a href="ch-pdes.html#cb110-1" aria-hidden="true" tabindex="-1"></a>D <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb110-2"><a href="ch-pdes.html#cb110-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> D<span class="op">*</span>dt<span class="op">/</span>dx<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb110-3"><a href="ch-pdes.html#cb110-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb111-1"><a href="ch-pdes.html#cb111-1" aria-hidden="true" tabindex="-1"></a>D <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb111-2"><a href="ch-pdes.html#cb111-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> D<span class="op">*</span>dt<span class="op">/</span>dx<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb111-3"><a href="ch-pdes.html#cb111-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span></code></pre></div>
 <ul>
 <li>Next for the part of the code that actually calculates all of the time steps. Be sure to keep the indexing straight. Also be sure that we are calculating all of the spatial indices <em>inside</em> the domain since the boundary conditions dictate what happens on the boundary.</li>
 </ul>
-<div class="sourceCode" id="cb111"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb111-1"><a href="ch-pdes.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(t)<span class="op">-</span><span class="dv">1</span>):</span>
-<span id="cb111-2"><a href="ch-pdes.html#cb111-2" aria-hidden="true" tabindex="-1"></a>  U[n<span class="op">+</span><span class="dv">1</span>,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> U[n,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> <span class="op">\</span></span>
-<span id="cb111-3"><a href="ch-pdes.html#cb111-3" aria-hidden="true" tabindex="-1"></a>    a<span class="op">*</span>(U[n, ?:? , ?:?] <span class="op">+</span> <span class="op">\</span></span>
-<span id="cb111-4"><a href="ch-pdes.html#cb111-4" aria-hidden="true" tabindex="-1"></a>       U[n, ?:?, ?:?] <span class="op">-</span> <span class="op">\</span></span>
-<span id="cb111-5"><a href="ch-pdes.html#cb111-5" aria-hidden="true" tabindex="-1"></a>       <span class="dv">4</span><span class="op">*</span>U[n, ?:?, ?:?] <span class="op">+</span> <span class="op">\</span></span>
-<span id="cb111-6"><a href="ch-pdes.html#cb111-6" aria-hidden="true" tabindex="-1"></a>       U[n, ?:?, ?:?] <span class="op">+</span> <span class="op">\</span></span>
-<span id="cb111-7"><a href="ch-pdes.html#cb111-7" aria-hidden="true" tabindex="-1"></a>       U[n, ?:?, ?:?])</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb112-1"><a href="ch-pdes.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(t)<span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb112-2"><a href="ch-pdes.html#cb112-2" aria-hidden="true" tabindex="-1"></a>  U[n<span class="op">+</span><span class="dv">1</span>,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> U[n,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> <span class="op">\</span></span>
+<span id="cb112-3"><a href="ch-pdes.html#cb112-3" aria-hidden="true" tabindex="-1"></a>    a<span class="op">*</span>(U[n, ?:? , ?:?] <span class="op">+</span> <span class="op">\</span></span>
+<span id="cb112-4"><a href="ch-pdes.html#cb112-4" aria-hidden="true" tabindex="-1"></a>       U[n, ?:?, ?:?] <span class="op">-</span> <span class="op">\</span></span>
+<span id="cb112-5"><a href="ch-pdes.html#cb112-5" aria-hidden="true" tabindex="-1"></a>       <span class="dv">4</span><span class="op">*</span>U[n, ?:?, ?:?] <span class="op">+</span> <span class="op">\</span></span>
+<span id="cb112-6"><a href="ch-pdes.html#cb112-6" aria-hidden="true" tabindex="-1"></a>       U[n, ?:?, ?:?] <span class="op">+</span> <span class="op">\</span></span>
+<span id="cb112-7"><a href="ch-pdes.html#cb112-7" aria-hidden="true" tabindex="-1"></a>       U[n, ?:?, ?:?])</span></code></pre></div>
 <ul>
 <li>Finally, we just need to visualize the solution. Again we use the <code>ipywidgets.interactive</code> tool to build an interactive plot with time as the slider.</li>
 </ul>
-<div class="sourceCode" id="cb112"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb112-1"><a href="ch-pdes.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plotter(Frame):</span>
-<span id="cb112-2"><a href="ch-pdes.html#cb112-2" aria-hidden="true" tabindex="-1"></a>  fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">10</span>))</span>
-<span id="cb112-3"><a href="ch-pdes.html#cb112-3" aria-hidden="true" tabindex="-1"></a>  ax <span class="op">=</span> fig.gca(projection<span class="op">=</span><span class="st">&#39;3d&#39;</span>)</span>
-<span id="cb112-4"><a href="ch-pdes.html#cb112-4" aria-hidden="true" tabindex="-1"></a>  ax.plot_surface(X,Y,U[Frame,:,:], cmap<span class="op">=</span>cm.coolwarm)</span>
-<span id="cb112-5"><a href="ch-pdes.html#cb112-5" aria-hidden="true" tabindex="-1"></a>  ax.set_zlim(<span class="dv">0</span>,<span class="dv">1</span>)</span>
-<span id="cb112-6"><a href="ch-pdes.html#cb112-6" aria-hidden="true" tabindex="-1"></a>  plt.show()</span>
-<span id="cb112-7"><a href="ch-pdes.html#cb112-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb112-8"><a href="ch-pdes.html#cb112-8" aria-hidden="true" tabindex="-1"></a>interactive_plot <span class="op">=</span> interactive(plotter, Frame<span class="op">=</span>(<span class="dv">0</span>,<span class="bu">len</span>(t)))</span>
-<span id="cb112-9"><a href="ch-pdes.html#cb112-9" aria-hidden="true" tabindex="-1"></a>interactive_plot</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb113-1"><a href="ch-pdes.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plotter(Frame):</span>
+<span id="cb113-2"><a href="ch-pdes.html#cb113-2" aria-hidden="true" tabindex="-1"></a>  fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">10</span>))</span>
+<span id="cb113-3"><a href="ch-pdes.html#cb113-3" aria-hidden="true" tabindex="-1"></a>  ax <span class="op">=</span> fig.gca(projection<span class="op">=</span><span class="st">&#39;3d&#39;</span>)</span>
+<span id="cb113-4"><a href="ch-pdes.html#cb113-4" aria-hidden="true" tabindex="-1"></a>  ax.plot_surface(X,Y,U[Frame,:,:], cmap<span class="op">=</span>cm.coolwarm)</span>
+<span id="cb113-5"><a href="ch-pdes.html#cb113-5" aria-hidden="true" tabindex="-1"></a>  ax.set_zlim(<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb113-6"><a href="ch-pdes.html#cb113-6" aria-hidden="true" tabindex="-1"></a>  plt.show()</span>
+<span id="cb113-7"><a href="ch-pdes.html#cb113-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-8"><a href="ch-pdes.html#cb113-8" aria-hidden="true" tabindex="-1"></a>interactive_plot <span class="op">=</span> interactive(plotter, Frame<span class="op">=</span>(<span class="dv">0</span>,<span class="bu">len</span>(t)))</span>
+<span id="cb113-9"><a href="ch-pdes.html#cb113-9" aria-hidden="true" tabindex="-1"></a>interactive_plot</span></code></pre></div>
 <p>Fill in all of the holes in the code and verify that your solution appears to solve a heat dissipation problem.</p>
 <hr />
 
@@ -1241,7 +1238,7 @@ Experiment with several parameters to imperically determine the bound.
 <h2><span class="header-section-number">6.5</span> Stability of the Heat Equation Solution</h2>
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-597" class="exercise"><strong>Exercise 6.39  (Sawtooth Errors)  </strong></span>We have already seen that the 1D heat equation is stable if <span class="math inline">\(D \Delta t / \Delta x^2 &lt; 0.5\)</span>. The goal of this problem is to show what, exactly, occurs when we choose parameters in the unstable region. We’ll solve the PDE <span class="math inline">\(u_t = u_{xx}\)</span> on the domain <span class="math inline">\(x \in [0,1]\)</span> with initial conditions <span class="math inline">\(u(0,x) = \sin(\pi x)\)</span> then the analytic solution is <span class="math inline">\(u(t,x) = e^{-\pi^2 t}\sin(\pi x)\)</span>. To build the spatial and temporal domains we will use <code>x = np.linspace(0,1,21)</code> and <code>t = np.linspace(0,0.25,101)</code>. This means that <span class="math inline">\(\Delta x = 0.05\)</span> and <span class="math inline">\(\Delta t = 0.0025\)</span> so the ratio <span class="math inline">\(D \Delta t / \Delta x^2 = 1 &gt; 0.5\)</span> (certainly in the unstable region). Solve the heat equation with finite differences using these parameters. Make plots of the approximate solution on top of the exact solution at time steps 0, 10, 20, 30, 31, 32, 33, 34, etc. Describe what you observe as the time step exceeds 30.
+<span id="exr:unnamed-chunk-597" class="exercise"><strong>Exercise 6.39  </strong></span>(<strong>Sawtooth Errors</strong>) We have already seen that the 1D heat equation is stable if <span class="math inline">\(D \Delta t / \Delta x^2 &lt; 0.5\)</span>. The goal of this problem is to show what, exactly, occurs when we choose parameters in the unstable region. We’ll solve the PDE <span class="math inline">\(u_t = u_{xx}\)</span> on the domain <span class="math inline">\(x \in [0,1]\)</span> with initial conditions <span class="math inline">\(u(0,x) = \sin(\pi x)\)</span> then the analytic solution is <span class="math inline">\(u(t,x) = e^{-\pi^2 t}\sin(\pi x)\)</span>. To build the spatial and temporal domains we will use <code>x = np.linspace(0,1,21)</code> and <code>t = np.linspace(0,0.25,101)</code>. This means that <span class="math inline">\(\Delta x = 0.05\)</span> and <span class="math inline">\(\Delta t = 0.0025\)</span> so the ratio <span class="math inline">\(D \Delta t / \Delta x^2 = 1 &gt; 0.5\)</span> (certainly in the unstable region). Solve the heat equation with finite differences using these parameters. Make plots of the approximate solution on top of the exact solution at time steps 0, 10, 20, 30, 31, 32, 33, 34, etc. Describe what you observe as the time step exceeds 30.
 </div>
 <hr />
 
@@ -1279,7 +1276,7 @@ What happens near time step number 70?
 <hr />
 
 <div class="exercise">
-<p><span id="exr:implicit-heat" class="exercise"><strong>Exercise 6.43  (Implicit Finite Difference Scheme)  </strong></span>For the 1D heat equation <span class="math inline">\(u_t = D u_{xx}\)</span> we have been finding the numerical solution using the explicit finite difference scheme
+<p><span id="exr:implicit-heat" class="exercise"><strong>Exercise 6.43  </strong></span>(<strong>Implicit Finite Difference Scheme</strong>) For the 1D heat equation <span class="math inline">\(u_t = D u_{xx}\)</span> we have been finding the numerical solution using the explicit finite difference scheme
 <span class="math display">\[\frac{U_i^{n+1} - U_i^n}{\Delta t} = D \frac{U_{i+1}^{n} - 2U_i^{n} + U_{i-1}^{n}}{\Delta x^2}\]</span>
 where we approximate the time derivative with the usual forward difference and we approximate the spatial derivative with the usual centered difference. If, however, we use the spatial derivative at time step <span class="math inline">\(n+1\)</span> instead of time step <span class="math inline">\(n\)</span> we get the finite difference scheme
 <span class="math display">\[\frac{U_i^{n+1} - U_i^n}{\Delta t} = D \frac{U_{i+1}^{n+1} - 2U_i^{n+1} + U_{i-1}^{n+1}}{\Delta x^2}.\]</span>
@@ -1310,61 +1307,61 @@ This may seem completely ridiculous since we don’t yet know the information at
 <li>At this point the structure of the coefficient matrix on the left and the vector sum on the right should be clear (even for more spatial points). It is time for us to start writing some code. We’ll start with the basic setup of the problem.</li>
 </ol>
 </div>
-<div class="sourceCode" id="cb113"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb113-1"><a href="ch-pdes.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb113-2"><a href="ch-pdes.html#cb113-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb113-3"><a href="ch-pdes.html#cb113-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb113-4"><a href="ch-pdes.html#cb113-4" aria-hidden="true" tabindex="-1"></a>D <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb113-5"><a href="ch-pdes.html#cb113-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="co"># set up a linearly spaced spatial domain </span></span>
-<span id="cb113-6"><a href="ch-pdes.html#cb113-6" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> <span class="co"># set up a linearly spaced temporal domain</span></span>
-<span id="cb113-7"><a href="ch-pdes.html#cb113-7" aria-hidden="true" tabindex="-1"></a>dx <span class="op">=</span> x[<span class="dv">1</span>]<span class="op">-</span>x[<span class="dv">0</span>]</span>
-<span id="cb113-8"><a href="ch-pdes.html#cb113-8" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> t[<span class="dv">1</span>]<span class="op">-</span>t[<span class="dv">0</span>]</span>
-<span id="cb113-9"><a href="ch-pdes.html#cb113-9" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> D<span class="op">*</span>dt<span class="op">/</span>dx<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb113-10"><a href="ch-pdes.html#cb113-10" aria-hidden="true" tabindex="-1"></a>IC <span class="op">=</span> <span class="kw">lambda</span> x: <span class="co"># write a function for the initial condition</span></span>
-<span id="cb113-11"><a href="ch-pdes.html#cb113-11" aria-hidden="true" tabindex="-1"></a>BCleft <span class="op">=</span> <span class="kw">lambda</span> t: <span class="dv">0</span><span class="op">*</span>t <span class="co"># left boundary condition </span></span>
-<span id="cb113-12"><a href="ch-pdes.html#cb113-12" aria-hidden="true" tabindex="-1"></a><span class="co"># (we&#39;ve used 0*t here for a homog. bc)</span></span>
-<span id="cb113-13"><a href="ch-pdes.html#cb113-13" aria-hidden="true" tabindex="-1"></a>BCright <span class="op">=</span> <span class="kw">lambda</span> t: <span class="dv">0</span><span class="op">*</span>t <span class="co"># right boundary condition </span></span>
-<span id="cb113-14"><a href="ch-pdes.html#cb113-14" aria-hidden="true" tabindex="-1"></a><span class="co"># (we&#39;ve used 0*t here for a homog. bc)</span></span>
-<span id="cb113-15"><a href="ch-pdes.html#cb113-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb113-16"><a href="ch-pdes.html#cb113-16" aria-hidden="true" tabindex="-1"></a>U <span class="op">=</span> np.zeros( ( <span class="bu">len</span>(t), <span class="bu">len</span>(x) ) ) <span class="co"># set up a blank array for U</span></span>
-<span id="cb113-17"><a href="ch-pdes.html#cb113-17" aria-hidden="true" tabindex="-1"></a>U[<span class="dv">0</span>,:] <span class="op">=</span> IC(x) <span class="co"># set up the initial condition</span></span>
-<span id="cb113-18"><a href="ch-pdes.html#cb113-18" aria-hidden="true" tabindex="-1"></a>U[:,<span class="dv">0</span>] <span class="op">=</span> BCleft(t) <span class="co"># set up the left boundary condition</span></span>
-<span id="cb113-19"><a href="ch-pdes.html#cb113-19" aria-hidden="true" tabindex="-1"></a>U[:,<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> BCright(t) <span class="co"># set up the right boundary condition</span></span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb114-1"><a href="ch-pdes.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb114-2"><a href="ch-pdes.html#cb114-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb114-3"><a href="ch-pdes.html#cb114-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb114-4"><a href="ch-pdes.html#cb114-4" aria-hidden="true" tabindex="-1"></a>D <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb114-5"><a href="ch-pdes.html#cb114-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="co"># set up a linearly spaced spatial domain </span></span>
+<span id="cb114-6"><a href="ch-pdes.html#cb114-6" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> <span class="co"># set up a linearly spaced temporal domain</span></span>
+<span id="cb114-7"><a href="ch-pdes.html#cb114-7" aria-hidden="true" tabindex="-1"></a>dx <span class="op">=</span> x[<span class="dv">1</span>]<span class="op">-</span>x[<span class="dv">0</span>]</span>
+<span id="cb114-8"><a href="ch-pdes.html#cb114-8" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> t[<span class="dv">1</span>]<span class="op">-</span>t[<span class="dv">0</span>]</span>
+<span id="cb114-9"><a href="ch-pdes.html#cb114-9" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> D<span class="op">*</span>dt<span class="op">/</span>dx<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb114-10"><a href="ch-pdes.html#cb114-10" aria-hidden="true" tabindex="-1"></a>IC <span class="op">=</span> <span class="kw">lambda</span> x: <span class="co"># write a function for the initial condition</span></span>
+<span id="cb114-11"><a href="ch-pdes.html#cb114-11" aria-hidden="true" tabindex="-1"></a>BCleft <span class="op">=</span> <span class="kw">lambda</span> t: <span class="dv">0</span><span class="op">*</span>t <span class="co"># left boundary condition </span></span>
+<span id="cb114-12"><a href="ch-pdes.html#cb114-12" aria-hidden="true" tabindex="-1"></a><span class="co"># (we&#39;ve used 0*t here for a homog. bc)</span></span>
+<span id="cb114-13"><a href="ch-pdes.html#cb114-13" aria-hidden="true" tabindex="-1"></a>BCright <span class="op">=</span> <span class="kw">lambda</span> t: <span class="dv">0</span><span class="op">*</span>t <span class="co"># right boundary condition </span></span>
+<span id="cb114-14"><a href="ch-pdes.html#cb114-14" aria-hidden="true" tabindex="-1"></a><span class="co"># (we&#39;ve used 0*t here for a homog. bc)</span></span>
+<span id="cb114-15"><a href="ch-pdes.html#cb114-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb114-16"><a href="ch-pdes.html#cb114-16" aria-hidden="true" tabindex="-1"></a>U <span class="op">=</span> np.zeros( ( <span class="bu">len</span>(t), <span class="bu">len</span>(x) ) ) <span class="co"># set up a blank array for U</span></span>
+<span id="cb114-17"><a href="ch-pdes.html#cb114-17" aria-hidden="true" tabindex="-1"></a>U[<span class="dv">0</span>,:] <span class="op">=</span> IC(x) <span class="co"># set up the initial condition</span></span>
+<span id="cb114-18"><a href="ch-pdes.html#cb114-18" aria-hidden="true" tabindex="-1"></a>U[:,<span class="dv">0</span>] <span class="op">=</span> BCleft(t) <span class="co"># set up the left boundary condition</span></span>
+<span id="cb114-19"><a href="ch-pdes.html#cb114-19" aria-hidden="true" tabindex="-1"></a>U[:,<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> BCright(t) <span class="co"># set up the right boundary condition</span></span></code></pre></div>
 <ol start="4" style="list-style-type: lower-alpha">
 <li>Next we write a function that takes in the number of spatial points and returns the coefficient matrix for the linear system. Take note that the first and last rows take a little more care than the rest.</li>
 </ol>
-<div class="sourceCode" id="cb114"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb114-1"><a href="ch-pdes.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> coeffMatrix(M,a): <span class="co"># we are using M=len(x) as the first input</span></span>
-<span id="cb114-2"><a href="ch-pdes.html#cb114-2" aria-hidden="true" tabindex="-1"></a>  A <span class="op">=</span> np.matrix( np.zeros( (M<span class="op">-</span><span class="dv">2</span>,M<span class="op">-</span><span class="dv">2</span>) ) ) </span>
-<span id="cb114-3"><a href="ch-pdes.html#cb114-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># why are we using M-2 X M-2 for the size?</span></span>
-<span id="cb114-4"><a href="ch-pdes.html#cb114-4" aria-hidden="true" tabindex="-1"></a>  A[<span class="dv">0</span>,<span class="dv">0</span>] <span class="op">=</span> <span class="co"># top left entry</span></span>
-<span id="cb114-5"><a href="ch-pdes.html#cb114-5" aria-hidden="true" tabindex="-1"></a>  A[<span class="dv">0</span>,<span class="dv">1</span>] <span class="op">=</span> <span class="co"># entry in the first row second column</span></span>
-<span id="cb114-6"><a href="ch-pdes.html#cb114-6" aria-hidden="true" tabindex="-1"></a>  A[<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="co"># bottom right entry</span></span>
-<span id="cb114-7"><a href="ch-pdes.html#cb114-7" aria-hidden="true" tabindex="-1"></a>  A[<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">2</span>] <span class="op">=</span> <span class="co"># entry in the last row second to last column</span></span>
-<span id="cb114-8"><a href="ch-pdes.html#cb114-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,M<span class="op">-</span><span class="dv">3</span>): <span class="co"># now loop through all of the other rows</span></span>
-<span id="cb114-9"><a href="ch-pdes.html#cb114-9" aria-hidden="true" tabindex="-1"></a>    A[i,i] <span class="op">=</span> <span class="co"># entry on the main diagonal</span></span>
-<span id="cb114-10"><a href="ch-pdes.html#cb114-10" aria-hidden="true" tabindex="-1"></a>    A[i,i<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="co"># entry on the lower diagonal</span></span>
-<span id="cb114-11"><a href="ch-pdes.html#cb114-11" aria-hidden="true" tabindex="-1"></a>    A[i,i<span class="op">+</span><span class="dv">1</span>] <span class="op">=</span> <span class="co"># entry on the upper diagonal</span></span>
-<span id="cb114-12"><a href="ch-pdes.html#cb114-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> A</span>
-<span id="cb114-13"><a href="ch-pdes.html#cb114-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb114-14"><a href="ch-pdes.html#cb114-14" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> coeffMatrix(<span class="bu">len</span>(x),a)</span>
-<span id="cb114-15"><a href="ch-pdes.html#cb114-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A)</span>
-<span id="cb114-16"><a href="ch-pdes.html#cb114-16" aria-hidden="true" tabindex="-1"></a>plt.spy(A) </span>
-<span id="cb114-17"><a href="ch-pdes.html#cb114-17" aria-hidden="true" tabindex="-1"></a><span class="co"># spy is a handy plotting tool that shows the structure </span></span>
-<span id="cb114-18"><a href="ch-pdes.html#cb114-18" aria-hidden="true" tabindex="-1"></a><span class="co"># of a matrix (optional)</span></span>
-<span id="cb114-19"><a href="ch-pdes.html#cb114-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb115-1"><a href="ch-pdes.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> coeffMatrix(M,a): <span class="co"># we are using M=len(x) as the first input</span></span>
+<span id="cb115-2"><a href="ch-pdes.html#cb115-2" aria-hidden="true" tabindex="-1"></a>  A <span class="op">=</span> np.matrix( np.zeros( (M<span class="op">-</span><span class="dv">2</span>,M<span class="op">-</span><span class="dv">2</span>) ) ) </span>
+<span id="cb115-3"><a href="ch-pdes.html#cb115-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># why are we using M-2 X M-2 for the size?</span></span>
+<span id="cb115-4"><a href="ch-pdes.html#cb115-4" aria-hidden="true" tabindex="-1"></a>  A[<span class="dv">0</span>,<span class="dv">0</span>] <span class="op">=</span> <span class="co"># top left entry</span></span>
+<span id="cb115-5"><a href="ch-pdes.html#cb115-5" aria-hidden="true" tabindex="-1"></a>  A[<span class="dv">0</span>,<span class="dv">1</span>] <span class="op">=</span> <span class="co"># entry in the first row second column</span></span>
+<span id="cb115-6"><a href="ch-pdes.html#cb115-6" aria-hidden="true" tabindex="-1"></a>  A[<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="co"># bottom right entry</span></span>
+<span id="cb115-7"><a href="ch-pdes.html#cb115-7" aria-hidden="true" tabindex="-1"></a>  A[<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">2</span>] <span class="op">=</span> <span class="co"># entry in the last row second to last column</span></span>
+<span id="cb115-8"><a href="ch-pdes.html#cb115-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,M<span class="op">-</span><span class="dv">3</span>): <span class="co"># now loop through all of the other rows</span></span>
+<span id="cb115-9"><a href="ch-pdes.html#cb115-9" aria-hidden="true" tabindex="-1"></a>    A[i,i] <span class="op">=</span> <span class="co"># entry on the main diagonal</span></span>
+<span id="cb115-10"><a href="ch-pdes.html#cb115-10" aria-hidden="true" tabindex="-1"></a>    A[i,i<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> <span class="co"># entry on the lower diagonal</span></span>
+<span id="cb115-11"><a href="ch-pdes.html#cb115-11" aria-hidden="true" tabindex="-1"></a>    A[i,i<span class="op">+</span><span class="dv">1</span>] <span class="op">=</span> <span class="co"># entry on the upper diagonal</span></span>
+<span id="cb115-12"><a href="ch-pdes.html#cb115-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> A</span>
+<span id="cb115-13"><a href="ch-pdes.html#cb115-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-14"><a href="ch-pdes.html#cb115-14" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> coeffMatrix(<span class="bu">len</span>(x),a)</span>
+<span id="cb115-15"><a href="ch-pdes.html#cb115-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A)</span>
+<span id="cb115-16"><a href="ch-pdes.html#cb115-16" aria-hidden="true" tabindex="-1"></a>plt.spy(A) </span>
+<span id="cb115-17"><a href="ch-pdes.html#cb115-17" aria-hidden="true" tabindex="-1"></a><span class="co"># spy is a handy plotting tool that shows the structure </span></span>
+<span id="cb115-18"><a href="ch-pdes.html#cb115-18" aria-hidden="true" tabindex="-1"></a><span class="co"># of a matrix (optional)</span></span>
+<span id="cb115-19"><a href="ch-pdes.html#cb115-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
 <ol start="5" style="list-style-type: lower-alpha">
 <li>Next we write a loop that iteratively solves the system of equations for each new time step.</li>
 </ol>
-<div class="sourceCode" id="cb115"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb115-1"><a href="ch-pdes.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(t)<span class="op">-</span><span class="dv">1</span>):</span>
-<span id="cb115-2"><a href="ch-pdes.html#cb115-2" aria-hidden="true" tabindex="-1"></a>  b1 <span class="op">=</span> U[n,???] </span>
-<span id="cb115-3"><a href="ch-pdes.html#cb115-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># b1 is a vector of U at step n for the inner spatial nodes</span></span>
-<span id="cb115-4"><a href="ch-pdes.html#cb115-4" aria-hidden="true" tabindex="-1"></a>  b2 <span class="op">=</span> np.zeros_like(b1) <span class="co"># set up the second right-hand vector</span></span>
-<span id="cb115-5"><a href="ch-pdes.html#cb115-5" aria-hidden="true" tabindex="-1"></a>  b2[<span class="dv">0</span>] <span class="op">=</span> ???<span class="op">*</span>BCleft(t[n<span class="op">+</span><span class="dv">1</span>]) <span class="co"># fill in the correct first entry</span></span>
-<span id="cb115-6"><a href="ch-pdes.html#cb115-6" aria-hidden="true" tabindex="-1"></a>  b2[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> ???<span class="op">*</span>BCright(t[n<span class="op">+</span><span class="dv">1</span>]) <span class="co"># fill in the correct last entry</span></span>
-<span id="cb115-7"><a href="ch-pdes.html#cb115-7" aria-hidden="true" tabindex="-1"></a>  b <span class="op">=</span> b1 <span class="op">+</span> b2 <span class="co"># The vector &quot;b&quot; is the right side of the equation</span></span>
-<span id="cb115-8"><a href="ch-pdes.html#cb115-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># </span></span>
-<span id="cb115-9"><a href="ch-pdes.html#cb115-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># finally use a linear algebra solver to fill in the </span></span>
-<span id="cb115-10"><a href="ch-pdes.html#cb115-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># inner spatial nodes at step n+1</span></span>
-<span id="cb115-11"><a href="ch-pdes.html#cb115-11" aria-hidden="true" tabindex="-1"></a>  U[n<span class="op">+</span><span class="dv">1</span>,???] <span class="op">=</span> ???</span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb116-1"><a href="ch-pdes.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(t)<span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb116-2"><a href="ch-pdes.html#cb116-2" aria-hidden="true" tabindex="-1"></a>  b1 <span class="op">=</span> U[n,???] </span>
+<span id="cb116-3"><a href="ch-pdes.html#cb116-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># b1 is a vector of U at step n for the inner spatial nodes</span></span>
+<span id="cb116-4"><a href="ch-pdes.html#cb116-4" aria-hidden="true" tabindex="-1"></a>  b2 <span class="op">=</span> np.zeros_like(b1) <span class="co"># set up the second right-hand vector</span></span>
+<span id="cb116-5"><a href="ch-pdes.html#cb116-5" aria-hidden="true" tabindex="-1"></a>  b2[<span class="dv">0</span>] <span class="op">=</span> ???<span class="op">*</span>BCleft(t[n<span class="op">+</span><span class="dv">1</span>]) <span class="co"># fill in the correct first entry</span></span>
+<span id="cb116-6"><a href="ch-pdes.html#cb116-6" aria-hidden="true" tabindex="-1"></a>  b2[<span class="op">-</span><span class="dv">1</span>] <span class="op">=</span> ???<span class="op">*</span>BCright(t[n<span class="op">+</span><span class="dv">1</span>]) <span class="co"># fill in the correct last entry</span></span>
+<span id="cb116-7"><a href="ch-pdes.html#cb116-7" aria-hidden="true" tabindex="-1"></a>  b <span class="op">=</span> b1 <span class="op">+</span> b2 <span class="co"># The vector &quot;b&quot; is the right side of the equation</span></span>
+<span id="cb116-8"><a href="ch-pdes.html#cb116-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># </span></span>
+<span id="cb116-9"><a href="ch-pdes.html#cb116-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># finally use a linear algebra solver to fill in the </span></span>
+<span id="cb116-10"><a href="ch-pdes.html#cb116-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># inner spatial nodes at step n+1</span></span>
+<span id="cb116-11"><a href="ch-pdes.html#cb116-11" aria-hidden="true" tabindex="-1"></a>  U[n<span class="op">+</span><span class="dv">1</span>,???] <span class="op">=</span> ???</span></code></pre></div>
 <ol start="6" style="list-style-type: lower-alpha">
 <li><p>All of the hard work is now done. It remains to plot the solution. Try this method on several sets of initial and boundary conditions for the 1D heat equation. Be sure to demonstrate that the method is stable no matter the values of <span class="math inline">\(\Delta t\)</span> and <span class="math inline">\(\Delta x\)</span>.</p></li>
 <li><p>What are the primary advantages and disadvantages to the implicit method descirbed in this problem?</p></li>
@@ -1372,7 +1369,7 @@ This may seem completely ridiculous since we don’t yet know the information at
 <hr />
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-605" class="exercise"><strong>Exercise 6.44  (The Crank-Nicolson Method)  </strong></span>We conclude this section with one more implicit scheme: the <strong>Crank-Nicolson Method</strong>. In this method we approximate the temporal derivative with a forward difference just like always, but we approximate the spatial derivative as the average of the central difference at the current time step and the central difference at the new time step. That is:
+<p><span id="exr:unnamed-chunk-605" class="exercise"><strong>Exercise 6.44  </strong></span>(<strong>The Crank-Nicolson Method</strong>) We conclude this section with one more implicit scheme: the <strong>Crank-Nicolson Method</strong>. In this method we approximate the temporal derivative with a forward difference just like always, but we approximate the spatial derivative as the average of the central difference at the current time step and the central difference at the new time step. That is:
 <span class="math display">\[\frac{U_i^{n+1} - U_i^n}{\Delta t} = \frac{1}{2} \left[D \left( \frac{U_{i+1}^n - 2U_i^n +
         U_{i+1}^n}{\Delta x^2}\right) +D \left(\frac{U_{i+1}^{n+1} - 2U_i^{n+1} +
     U_{i+1}^{n+1}}{\Delta x^2} \right) \right].\]</span>
@@ -1595,39 +1592,39 @@ is the analytic solution to the PDE. Let’s prove this.</p>
 <div class="exercise">
 <span id="exr:unnamed-chunk-617" class="exercise"><strong>Exercise 6.56  </strong></span>Now we would like to visualize the solution to the PDE from the previous exercise. The Python code below gives an interactive visual of the solution. Experiment with different values of <span class="math inline">\(v\)</span> and different initial conditions.
 </div>
-<div class="sourceCode" id="cb116"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb116-1"><a href="ch-pdes.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb116-2"><a href="ch-pdes.html#cb116-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb116-3"><a href="ch-pdes.html#cb116-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> animation, rc</span>
-<span id="cb116-4"><a href="ch-pdes.html#cb116-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML</span>
-<span id="cb116-5"><a href="ch-pdes.html#cb116-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb116-6"><a href="ch-pdes.html#cb116-6" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb116-7"><a href="ch-pdes.html#cb116-7" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: np.exp(<span class="op">-</span>(x<span class="op">-</span><span class="dv">4</span>)<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb116-8"><a href="ch-pdes.html#cb116-8" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> <span class="kw">lambda</span> t, x: f(x <span class="op">-</span> v<span class="op">*</span>t)</span>
-<span id="cb116-9"><a href="ch-pdes.html#cb116-9" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">100</span>)</span>
-<span id="cb116-10"><a href="ch-pdes.html#cb116-10" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">100</span>)</span>
-<span id="cb116-11"><a href="ch-pdes.html#cb116-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb116-12"><a href="ch-pdes.html#cb116-12" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb116-13"><a href="ch-pdes.html#cb116-13" aria-hidden="true" tabindex="-1"></a>plt.close()</span>
-<span id="cb116-14"><a href="ch-pdes.html#cb116-14" aria-hidden="true" tabindex="-1"></a>ax.grid()</span>
-<span id="cb116-15"><a href="ch-pdes.html#cb116-15" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">&#39;x&#39;</span>)</span>
-<span id="cb116-16"><a href="ch-pdes.html#cb116-16" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(( <span class="dv">0</span>, <span class="dv">10</span>))</span>
-<span id="cb116-17"><a href="ch-pdes.html#cb116-17" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(( <span class="op">-</span><span class="fl">0.1</span>, <span class="dv">1</span>))</span>
-<span id="cb116-18"><a href="ch-pdes.html#cb116-18" aria-hidden="true" tabindex="-1"></a>frame, <span class="op">=</span> ax.plot([], [], linewidth<span class="op">=</span><span class="dv">2</span>, linestyle<span class="op">=</span><span class="st">&#39;--&#39;</span>)</span>
-<span id="cb116-19"><a href="ch-pdes.html#cb116-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb116-20"><a href="ch-pdes.html#cb116-20" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> animator(N):</span>
-<span id="cb116-21"><a href="ch-pdes.html#cb116-21" aria-hidden="true" tabindex="-1"></a>  ax.set_title(<span class="st">&#39;Time=&#39;</span><span class="op">+</span><span class="bu">str</span>(t[N]))</span>
-<span id="cb116-22"><a href="ch-pdes.html#cb116-22" aria-hidden="true" tabindex="-1"></a>  frame.set_data(x,???) <span class="co"># plot the correct time step for u(t,x)</span></span>
-<span id="cb116-23"><a href="ch-pdes.html#cb116-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> (frame,)</span>
-<span id="cb116-24"><a href="ch-pdes.html#cb116-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb116-25"><a href="ch-pdes.html#cb116-25" aria-hidden="true" tabindex="-1"></a>PlotFrames <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(t),<span class="dv">1</span>) </span>
-<span id="cb116-26"><a href="ch-pdes.html#cb116-26" aria-hidden="true" tabindex="-1"></a>anim <span class="op">=</span> animation.FuncAnimation(fig, </span>
-<span id="cb116-27"><a href="ch-pdes.html#cb116-27" aria-hidden="true" tabindex="-1"></a>                               animator, </span>
-<span id="cb116-28"><a href="ch-pdes.html#cb116-28" aria-hidden="true" tabindex="-1"></a>                               frames<span class="op">=</span>PlotFrames, </span>
-<span id="cb116-29"><a href="ch-pdes.html#cb116-29" aria-hidden="true" tabindex="-1"></a>                               interval<span class="op">=</span><span class="dv">100</span>, </span>
-<span id="cb116-30"><a href="ch-pdes.html#cb116-30" aria-hidden="true" tabindex="-1"></a>                              )</span>
-<span id="cb116-31"><a href="ch-pdes.html#cb116-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb116-32"><a href="ch-pdes.html#cb116-32" aria-hidden="true" tabindex="-1"></a>rc(<span class="st">&#39;animation&#39;</span>, html<span class="op">=</span><span class="st">&#39;jshtml&#39;</span>) <span class="co"># embed in the HTML for Google Colab</span></span>
-<span id="cb116-33"><a href="ch-pdes.html#cb116-33" aria-hidden="true" tabindex="-1"></a>anim</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb117-1"><a href="ch-pdes.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb117-2"><a href="ch-pdes.html#cb117-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb117-3"><a href="ch-pdes.html#cb117-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> animation, rc</span>
+<span id="cb117-4"><a href="ch-pdes.html#cb117-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML</span>
+<span id="cb117-5"><a href="ch-pdes.html#cb117-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-6"><a href="ch-pdes.html#cb117-6" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb117-7"><a href="ch-pdes.html#cb117-7" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: np.exp(<span class="op">-</span>(x<span class="op">-</span><span class="dv">4</span>)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb117-8"><a href="ch-pdes.html#cb117-8" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> <span class="kw">lambda</span> t, x: f(x <span class="op">-</span> v<span class="op">*</span>t)</span>
+<span id="cb117-9"><a href="ch-pdes.html#cb117-9" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">100</span>)</span>
+<span id="cb117-10"><a href="ch-pdes.html#cb117-10" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">100</span>)</span>
+<span id="cb117-11"><a href="ch-pdes.html#cb117-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-12"><a href="ch-pdes.html#cb117-12" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb117-13"><a href="ch-pdes.html#cb117-13" aria-hidden="true" tabindex="-1"></a>plt.close()</span>
+<span id="cb117-14"><a href="ch-pdes.html#cb117-14" aria-hidden="true" tabindex="-1"></a>ax.grid()</span>
+<span id="cb117-15"><a href="ch-pdes.html#cb117-15" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">&#39;x&#39;</span>)</span>
+<span id="cb117-16"><a href="ch-pdes.html#cb117-16" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(( <span class="dv">0</span>, <span class="dv">10</span>))</span>
+<span id="cb117-17"><a href="ch-pdes.html#cb117-17" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(( <span class="op">-</span><span class="fl">0.1</span>, <span class="dv">1</span>))</span>
+<span id="cb117-18"><a href="ch-pdes.html#cb117-18" aria-hidden="true" tabindex="-1"></a>frame, <span class="op">=</span> ax.plot([], [], linewidth<span class="op">=</span><span class="dv">2</span>, linestyle<span class="op">=</span><span class="st">&#39;--&#39;</span>)</span>
+<span id="cb117-19"><a href="ch-pdes.html#cb117-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-20"><a href="ch-pdes.html#cb117-20" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> animator(N):</span>
+<span id="cb117-21"><a href="ch-pdes.html#cb117-21" aria-hidden="true" tabindex="-1"></a>  ax.set_title(<span class="st">&#39;Time=&#39;</span><span class="op">+</span><span class="bu">str</span>(t[N]))</span>
+<span id="cb117-22"><a href="ch-pdes.html#cb117-22" aria-hidden="true" tabindex="-1"></a>  frame.set_data(x,???) <span class="co"># plot the correct time step for u(t,x)</span></span>
+<span id="cb117-23"><a href="ch-pdes.html#cb117-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> (frame,)</span>
+<span id="cb117-24"><a href="ch-pdes.html#cb117-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-25"><a href="ch-pdes.html#cb117-25" aria-hidden="true" tabindex="-1"></a>PlotFrames <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(t),<span class="dv">1</span>) </span>
+<span id="cb117-26"><a href="ch-pdes.html#cb117-26" aria-hidden="true" tabindex="-1"></a>anim <span class="op">=</span> animation.FuncAnimation(fig, </span>
+<span id="cb117-27"><a href="ch-pdes.html#cb117-27" aria-hidden="true" tabindex="-1"></a>                               animator, </span>
+<span id="cb117-28"><a href="ch-pdes.html#cb117-28" aria-hidden="true" tabindex="-1"></a>                               frames<span class="op">=</span>PlotFrames, </span>
+<span id="cb117-29"><a href="ch-pdes.html#cb117-29" aria-hidden="true" tabindex="-1"></a>                               interval<span class="op">=</span><span class="dv">100</span>, </span>
+<span id="cb117-30"><a href="ch-pdes.html#cb117-30" aria-hidden="true" tabindex="-1"></a>                              )</span>
+<span id="cb117-31"><a href="ch-pdes.html#cb117-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-32"><a href="ch-pdes.html#cb117-32" aria-hidden="true" tabindex="-1"></a>rc(<span class="st">&#39;animation&#39;</span>, html<span class="op">=</span><span class="st">&#39;jshtml&#39;</span>) <span class="co"># embed in the HTML for Google Colab</span></span>
+<span id="cb117-33"><a href="ch-pdes.html#cb117-33" aria-hidden="true" tabindex="-1"></a>anim</span></code></pre></div>
 <hr />
 
 <div class="theorem">
@@ -1848,7 +1845,7 @@ There are 5 equations this time.</p>
 <hr />
 
 <div class="exercise">
-<p><span id="exr:poisson2dhomog" class="exercise"><strong>Exercise 6.72  (The 2D Poisson Equation)  </strong></span>We conclude this section, and chapter, by examining the two dimensional Poisson equations. As a sample problem, we want to solve the Poisson equation <span class="math inline">\(u_{xx} + u_{yy} = f(x,y)\)</span> on the domain <span class="math inline">\((x,y) \in (0,1)\times (0,1)\)</span> with homogenous Dirichlet boundary conditions and focing function <span class="math inline">\(f(x,y) = -20\text{exp}\left( -\frac{(x-0.5)^2 + (y-0.5)^2}{0.05} \right)\)</span> numerically. We are going to start with a <span class="math inline">\(6 \times 6\)</span> grid of points and explicitly write down all of the equations. In Figure <a href="ch-pdes.html#fig:poisson2d">6.14</a> the red stars represent boundary points where the value of <span class="math inline">\(u(x,y)\)</span> is known and the blue interior points are the ones where <span class="math inline">\(u(x,y)\)</span> is yet unknown. It should be clear that we should have two indices for each point (one for the <span class="math inline">\(x\)</span> position and one for the <span class="math inline">\(y\)</span> position), but it should also be clear that this will cause problems when writing down the resulting system of equations as a matrix equation (stop and think carefully about this). Therefore, in Figure <a href="ch-pdes.html#fig:poisson2d">6.14</a> we propose an index, <span class="math inline">\(k\)</span>, starting at the top left of the uninown nodes and reading left to right (just like we do with Python arrays).</p>
+<p><span id="exr:poisson2dhomog" class="exercise"><strong>Exercise 6.72  </strong></span>(<strong>The 2D Poisson Equation</strong>) We conclude this section, and chapter, by examining the two dimensional Poisson equations. As a sample problem, we want to solve the Poisson equation <span class="math inline">\(u_{xx} + u_{yy} = f(x,y)\)</span> on the domain <span class="math inline">\((x,y) \in (0,1)\times (0,1)\)</span> with homogenous Dirichlet boundary conditions and focing function <span class="math inline">\(f(x,y) = -20\text{exp}\left( -\frac{(x-0.5)^2 + (y-0.5)^2}{0.05} \right)\)</span> numerically. We are going to start with a <span class="math inline">\(6 \times 6\)</span> grid of points and explicitly write down all of the equations. In Figure <a href="ch-pdes.html#fig:poisson2d">6.14</a> the red stars represent boundary points where the value of <span class="math inline">\(u(x,y)\)</span> is known and the blue interior points are the ones where <span class="math inline">\(u(x,y)\)</span> is yet unknown. It should be clear that we should have two indices for each point (one for the <span class="math inline">\(x\)</span> position and one for the <span class="math inline">\(y\)</span> position), but it should also be clear that this will cause problems when writing down the resulting system of equations as a matrix equation (stop and think carefully about this). Therefore, in Figure <a href="ch-pdes.html#fig:poisson2d">6.14</a> we propose an index, <span class="math inline">\(k\)</span>, starting at the top left of the uninown nodes and reading left to right (just like we do with Python arrays).</p>
 <ol style="list-style-type: lower-alpha">
 <li>Start by discretizing the 2D Poisson equation <span class="math inline">\(u_{xx} + u_{yy} = f(x,y)\)</span>. For simplicity we assume that <span class="math inline">\(\Delta x = \Delta y\)</span> so that we can combine like terms from the <span class="math inline">\(x\)</span> derivative and the <span class="math inline">\(y\)</span> derivative. Fill in the missing coefficients and indices below.
 <span class="math display">\[U_{i+1,j} + U_{i,j-1} - (\underline{\hspace{0.2in}}) U_{\underline{\hspace{0.2in}},\underline{\hspace{0.2in}}} + U_{\underline{\hspace{0.2in}},\underline{\hspace{0.2in}}} + U_{\underline{\hspace{0.2in}},\underline{\hspace{0.2in}}} = \Delta x^2 f(x_i,y_i)\]</span></li>
@@ -2195,13 +2192,13 @@ numerical solution and the analytic solution evolve in time.</p></li>
 </ol>
 You can load the data directly with the following code.
 </div>
-<div class="sourceCode" id="cb117"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb117-1"><a href="ch-pdes.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb117-2"><a href="ch-pdes.html#cb117-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb117-3"><a href="ch-pdes.html#cb117-3" aria-hidden="true" tabindex="-1"></a>URL1 <span class="op">=</span> <span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan&#39;</span></span>
-<span id="cb117-4"><a href="ch-pdes.html#cb117-4" aria-hidden="true" tabindex="-1"></a>URL2 <span class="op">=</span> <span class="st">&#39;/NumericalMethodsSullivan.github.io/master/data/&#39;</span></span>
-<span id="cb117-5"><a href="ch-pdes.html#cb117-5" aria-hidden="true" tabindex="-1"></a>URL <span class="op">=</span> URL1<span class="op">+</span>URL2</span>
-<span id="cb117-6"><a href="ch-pdes.html#cb117-6" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> np.array( pd.read_csv(URL<span class="op">+</span><span class="st">&#39;Exercise6_1dheatdata.csv&#39;</span>) )</span>
-<span id="cb117-7"><a href="ch-pdes.html#cb117-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercise6_1dheatdata.csv</span></span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb118-1"><a href="ch-pdes.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb118-2"><a href="ch-pdes.html#cb118-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb118-3"><a href="ch-pdes.html#cb118-3" aria-hidden="true" tabindex="-1"></a>URL1 <span class="op">=</span> <span class="st">&#39;https://raw.githubusercontent.com/NumericalMethodsSullivan&#39;</span></span>
+<span id="cb118-4"><a href="ch-pdes.html#cb118-4" aria-hidden="true" tabindex="-1"></a>URL2 <span class="op">=</span> <span class="st">&#39;/NumericalMethodsSullivan.github.io/master/data/&#39;</span></span>
+<span id="cb118-5"><a href="ch-pdes.html#cb118-5" aria-hidden="true" tabindex="-1"></a>URL <span class="op">=</span> URL1<span class="op">+</span>URL2</span>
+<span id="cb118-6"><a href="ch-pdes.html#cb118-6" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> np.array( pd.read_csv(URL<span class="op">+</span><span class="st">&#39;Exercise6_1dheatdata.csv&#39;</span>) )</span>
+<span id="cb118-7"><a href="ch-pdes.html#cb118-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercise6_1dheatdata.csv</span></span></code></pre></div>
 <hr />
 
 <div class="exercise">
@@ -2227,7 +2224,7 @@ Show a contour plot of your solution.</p>
 numerical partial differential equations. These projects are meant to be
 open ended, to encourage creative mathematics, to push your coding
 skills, and to require you to write and communicate your mathematics.
-Take the time to read Appendix <a href="#ch:writing"><strong>??</strong></a> before you write your final solution.</p>
+Take the time to read Appendix <a href="ch-writing.html#ch-writing">B</a> before you write your final solution.</p>
 <div id="hunting-and-diffusion" class="section level3" number="6.10.1">
 <h3><span class="header-section-number">6.10.1</span> Hunting and Diffusion</h3>
 <p>Let <span class="math inline">\(u\)</span> be a function modeling a mobile population that in an
@@ -2313,8 +2310,8 @@ assumptions needed for your model.</p></li>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="14">
-<li id="fn14"><p>Take note that homogeneous boundary conditions are “0,” so saying that a PDE has homogeneous Dirichlet boundary conditions on this domain means that <span class="math inline">\(u(t,x,0) = u(t,x,1)=u(t,0,y)=u(t,1,y)=0\)</span>.<a href="ch-pdes.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<ol start="13">
+<li id="fn13"><p>Take note that homogeneous boundary conditions are “0,” so saying that a PDE has homogeneous Dirichlet boundary conditions on this domain means that <span class="math inline">\(u(t,x,0) = u(t,x,1)=u(t,0,y)=u(t,1,y)=0\)</span>.<a href="ch-pdes.html#fnref13" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -2365,13 +2362,14 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["_main.pdf"],
 "search": {
 "engine": "fuse",
 "options": null
 },
 "toc": {
-"collapse": "section"
+"collapse": "section",
+"toc_depth": 5
 }
 });
 });
